@@ -1,0 +1,3 @@
+const cartographieClasses = {
+    'Navigation'               : Navigation,
+};
