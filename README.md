@@ -1,2 +1,0 @@
-# upstream
-Modification:  Jean Senneville
