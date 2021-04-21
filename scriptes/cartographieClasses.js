@@ -1,3 +1,0 @@
-const cartographieClasses = {
-    'Navigation'               : Navigation,
-};
