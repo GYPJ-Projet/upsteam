@@ -1,17 +1,17 @@
 /* settings */
-@import url("1-settings/var.scss");
+@import url("1-settings/var.css");
 /* tools */
-@import url("2-tools/mixin-underline.scss");
+@import url("2-tools/mixin-underline.css");
 /* generic */
-@import url("3-generic/purify.scss");
+@import url("3-generic/purify.css");
 /* elements */
 @import url("4-elements/link.css");
 @import url("4-elements/typo.css");
 /* objects */
-@import url("5-objects/typo.scss");
+@import url("5-objects/typo.css");
 /* components */
-@import url("6-components/menu.scss");
+@import url("6-components/menu.css");
 /* utilities */
-@import url("7-utilities/utilities.scss");
+@import url("7-utilities/utilities.css");
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,3 +1,3 @@
 const classMapping = {
-
+    'MenuConteneur'         : MenuConteneur,
 };
