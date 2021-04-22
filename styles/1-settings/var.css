@@ -1,0 +1,31 @@
+:root{
+    /* Les couleurs */
+    --cle: #AA2020;
+    --noir: #000;
+    --blanc: #fff;
+    --gris: #333333;
+    --grisPale: #E8E8E8;
+    --bleu: #156791;
+
+    /* Les polices */
+    --orbitron: 'Orbitron', sans-serif;
+    --openSans: 'Open Sans', sans-serif;
+
+
+    /* Les tailles de polices */
+    --police_taille_h1: 50px;
+    --police_taille_h2Plus: 24px;
+    --police_taille_sousTitre: 18px;
+    --police_taille_texte: 14px;
+
+
+    /* Les tailles de page */
+    --iPhone: 414px;
+    --iPad: 1024px;
+
+    /* Les marges */
+
+    /* Les padding */
+    --paddingMenu: 10px;
+
+}
