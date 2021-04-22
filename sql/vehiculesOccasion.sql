@@ -37,7 +37,7 @@ INSERT INTO `role`(`nom`, `permission`) VALUES ('inactif', 'Lecture et Insertion
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`usager` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nomUsager` VARCHAR(45) NOT NULL,
+  `nomUsager` VARCHAR(45) NOT NULL UNIQUE,
   `motPasse` VARCHAR(255) NOT NULL,
   `idRole` INT NOT NULL,
   `token` VARCHAR(45) NULL,
