@@ -565,7 +565,7 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`image` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `lien` VARCHAR(100) NULL,
   `idVoiture` INT NOT NULL,
-  `sort` INT NULL,
+  `sort` INT DEFAULT 0,
   PRIMARY KEY (`id`),
 
     FOREIGN KEY (`idVoiture`)
