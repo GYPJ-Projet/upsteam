@@ -1,3 +1,17 @@
+.menuConteneur {
+    font-family: var(--orbitron);
+    font-size: var(--police_taille_h2Plus);
+    color: var(--blanc);
+    background-color: var(--gris);
 
-
-/*# sourceMappingURL=menu.css.map */
+    display:flex;
+    justify-content: space-around;
+}
+.menuContenu{
+    display:flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: var(--menu);
+    margin: var(--menu);
+    /* padding: var(--paddingMenu); */
+}

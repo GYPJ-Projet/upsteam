@@ -9,6 +9,7 @@
 	
 			$this->afficheVue("tete");
 			$this->afficheVue("entete");
+            $this->afficheVue("menu");
 			
 			if (isset($params["action"])) {
 
@@ -35,6 +36,7 @@
 						$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTous(), $donnees["langue"]);
 
 						/* $vue = "Accueil";	 */	
+
 						$this->afficheVue("accueil_debut");
 						$this->afficheVue("listeVoitures", $donnees);
 						$this->afficheVue("accueil_fin_section_grille");
@@ -53,7 +55,6 @@
 				$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
 
 				$donnees["langue"]   = 2;  // francais pour test valeur de son id.
-
 				$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
 				$donnees["typeCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTous(), $donnees["langue"]);
 				$donnees["couleur"]         = $this->creerTabLangue($modeleCouleur->obtenirTous(), $donnees["langue"]);
