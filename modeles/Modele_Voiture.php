@@ -43,10 +43,11 @@
 											JOIN marque ON marque.id = modele.idMarque  
 											JOIN annee ON annee.id = voiture.idAnnee 
 											JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
-											JOIN image ON image.id = voiture.id AND image.sort = 0;
+											JOIN image ON image.id = voiture.id AND image.sort = 0 
 											ORDER BY " .$tri. "
 											LIMIT " . $indexDepart . ", " . $nombreVoulu
-										);					
+										);		
+													
 				$stmt->execute();
 				/* $lesVoitures = $stmt->fetchAll(PDO::FETCH_CLASS, "Voiture"); */
 				return $stmt->fetchAll();
