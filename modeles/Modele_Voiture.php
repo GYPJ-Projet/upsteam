@@ -32,15 +32,22 @@
 		// Méthode qui permet de prendre les enregistrements voiture selon  index et le nombre désiré
 		public function obtenirLeNombreVoulu($indexDepart, $nombreVoulu, $tri) {
 			try {
-				$stmt = $this->db->query("SELECT voiture.*, modele.nom AS nomModele, marque.nom AS nomMarque, annee.annee AS annee, motopropulseur.nom AS nomMotoPropulseur
-											FROM voiture
+				$stmt = $this->db->query("SELECT voiture.*, 
+				                                 modele.nom AS nomModele, 
+				                                 marque.nom AS nomMarque, 
+												 annee.annee AS annee, 
+												 motopropulseur.nom AS nomMotoPropulseur, 
+												 image.lien AS lienPhotoPrincipale 
+											FROM voiture 
 											JOIN modele ON modele.id = voiture.idModele 
-											JOIN marque ON marque.id = modele.idMarque 
-											JOIN annee ON annee.id = voiture.idAnnee
+											JOIN marque ON marque.id = modele.idMarque  
+											JOIN annee ON annee.id = voiture.idAnnee 
 											JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
+											JOIN image ON image.id = voiture.id AND image.sort = 0 
 											ORDER BY " .$tri. "
 											LIMIT " . $indexDepart . ", " . $nombreVoulu
-										);					
+										);		
+													
 				$stmt->execute();
 				/* $lesVoitures = $stmt->fetchAll(PDO::FETCH_CLASS, "Voiture"); */
 				return $stmt->fetchAll();
