@@ -11,7 +11,9 @@
 @import url("5-objects/typo.css");
 /* components */
 @import url("6-components/gestionDonnees.css");
+@import url("6-components/listeVoitures.css");
 @import url("6-components/menu.css");
+@import url("6-components/voiture.css");
 /* utilities */
 @import url("7-utilities/utilities.css");
 
