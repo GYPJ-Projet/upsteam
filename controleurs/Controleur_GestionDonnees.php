@@ -1,7 +1,8 @@
 <?php
     class Controleur_GestionDonnees extends BaseControleur {
     
-        // La fonction qui sera appelée par le routeur
+        private  $controleur = "GestionDonnees";
+		// La fonction qui sera appelée par le routeur
 		public function traite(array $params) {
 			
 			// Initialisation des donnees a un tableau vide par défaut
@@ -9,6 +10,7 @@
 	
 			$this->afficheVue("tete");
 			$this->afficheVue("entete");
+            $this->afficheVue("menu");
 			
 			if (isset($params["action"])) {
 
@@ -22,7 +24,19 @@
 						$donnees["marques"] = $modeleMarque->obtenirTous();
 						$donnees["titre"] = "Gestion des Marques";
 						$this->afficheVue("gestionMarque", $donnees);
-					
+						break;
+					case "sauvegarderMarque":
+						if (isset($params["id"]) && isset($params["nom"]) && isset($params["disponibilite"])) {
+							if ($params["disponibilite"]=="on") $params["disponibilite"] = true;
+							else $params["disponibilite"] = false;
+							$modeleMarque = $this->obtenirDAO("Marque");
+							$reponse = $modeleMarque->sauvegarder($params["id"], $params["nom"], $params["disponibilite"]);
+								
+							header("Location: index.php?GestionDonnees&action=gestionMarque");
+						} else { // Sinon, on affiche le formulaire pour l'ajout
+							$this->afficheVue("formulaireMarque", $donnees);
+						}
+						break;
 				}			
 			} else {
 				// Action par défaut

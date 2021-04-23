@@ -2,30 +2,34 @@
 <?php 
     if (isset($donnees["titre"])) 
 ?>
-    <h1><?= $donnees["titre"] ?></h1>
-    <table>
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>Marque</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-    <?php
+        <h1><?= $donnees["titre"] ?></h1>
 
-        foreach ($donnees["marques"] as $marque) {
-    ?>
-            <tr>
-                <td><?= $marque["id"] ?></td>
-                <td><?= $marque["nom"] ?></td>
-                <td><a href="index.php?Gestion&action=modifierMarque&id=<?= $marque["id"] ?>">Modifier</a></td>
-                <td><a href="index.php?Gestion&action=supprimerMarque&id=<?= $marque["id"] ?>">Supprimer</a></td>
-            </tr>                 
-    <?php
-        }
-    ?>
-        </tbody>
-    </table>
+    <div data-js-component="GestionMarque">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Marque</th>
+                    <th>Disponibilite</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        <?php
+
+            foreach ($donnees["marques"] as $marque) {
+        ?>
+                <tr>
+                    <td><?= $marque["id"] ?></td>
+                    <td><?= $marque["nom"] ?></td>
+                    <td><?= $marque["disponibilite"] ?></td>
+                    <td><button data-js-modifier data-js-id=<?= $marque["id"] ?>>Modifier</button></td>
+                </tr>                 
+        <?php
+            }
+        ?>
+            </tbody>
+        </table>
+    <div>
 </section>
