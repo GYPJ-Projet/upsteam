@@ -63,7 +63,6 @@
                     //redirection vers le formulaire de login
                     header("Location: index.php?Usager&action=Login");  
                     break;
-
             }
             $this->afficheVue("piedDePage");
         }
