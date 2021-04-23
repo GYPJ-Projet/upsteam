@@ -10,6 +10,7 @@
 /* objects */
 @import url("5-objects/typo.css");
 /* components */
+@import url("6-components/gestionDonnees.css");
 @import url("6-components/menu.css");
 /* utilities */
 @import url("7-utilities/utilities.css");

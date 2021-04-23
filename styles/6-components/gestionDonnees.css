@@ -1,0 +1,9 @@
+.listeDonnees {
+    display: inline-block;
+    width: 30%;
+}
+
+.pageDonnees {
+    display: inline-block;
+    width: 60%;
+}
