@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`usager` (
   `nomUsager` VARCHAR(45) NOT NULL UNIQUE,
   `motPasse` VARCHAR(255) NOT NULL,
   `idRole` INT NOT NULL,
+  `token` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `idRole`
     FOREIGN KEY (`idRole`)
@@ -160,7 +161,7 @@ INSERT INTO `taxe`(`nom`, `taux`, `idProvince`,`disponibilite`) VALUES ('TPS',5,
 -- Table `vehiculesOccasion`.`client`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`client` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `prenom` VARCHAR(45) NOT NULL,
   `dateNaissance` DATE NULL,
@@ -171,21 +172,20 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`client` (
   `telephone` VARCHAR(45) NULL,
   `telephoneCellulaire` VARCHAR(45) NOT NULL,
   `courreil` VARCHAR(45) NOT NULL,
-  `idUsager` INT NOT NULL,
   `idLangue` INT NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`idUsager`)
-  REFERENCES `vehiculesOccasion`.`usager` (`id`),
-  FOREIGN KEY (`idProvince`)
-  REFERENCES `vehiculesOccasion`.`province` (`id`),
-  FOREIGN KEY (`idLangue`)
-  REFERENCES `vehiculesOccasion`.`langue` (`id`))
+    FOREIGN KEY (`idProvince`)
+    REFERENCES `vehiculesOccasion`.`province` (`id`),
+    FOREIGN KEY (`idLangue`)
+    REFERENCES `vehiculesOccasion`.`langue` (`id`),
+    FOREIGN KEY (`id`)
+    REFERENCES `vehiculesOccasion`.`usager` (`id`))
 ENGINE = InnoDB;
 
-INSERT INTO `client`(`nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `courreil`, `idUsager`, `idLangue`) VALUES ('Merkulova','Yulia','2003-08-26','8480 rue Jean-Brillon','H8N2P6',12,'LaSalle','4384983850','4384983850','yliamik50@gmail.com',1,1);
-INSERT INTO `client`(`nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `courreil`, `idUsager`, `idLangue`) VALUES ('Houle','Philippe','2024-12-12','72 Latour','j3n1l1',12,'Saint-Basile-le-Grand','5145555555','5145555555','phil@gmail.com',4,1);
-INSERT INTO `client`(`nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `courreil`, `idUsager`, `idLangue`) VALUES ('Kiese','Cloria','2000-01-01','111 rue Lafontaine','H1N5T2',12,'Montreal','5145555555','5145555555','gloria@gmail.com',3,1);
-INSERT INTO `client`(`nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `courreil`, `idUsager`, `idLangue`) VALUES ('Senneville','Jean','1990-04-15','111 rue Lafontaine','H1N4K7',12,'Montréal','5145555555','5145555555','jean@gmail.com',2,1);
+INSERT INTO `vehiculesOccasion`.`client`(`id`,`nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `courreil`, `idLangue`) VALUES (1,'Merkulova','Yulia','2003-08-26','8480 rue Jean-Brillon','H8N2P6',12,'LaSalle','4384983850','4384983850','yliamik50@gmail.com',1);
+INSERT INTO `vehiculesOccasion`.`client`(`id`,`nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `courreil`, `idLangue`) VALUES (4,'Houle','Philippe','2024-12-12','72 Latour','j3n1l1',12,'Saint-Basile-le-Grand','5145555555','5145555555','phil@gmail.com',1);
+INSERT INTO `vehiculesOccasion`.`client`(`id`,`nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `courreil`, `idLangue`) VALUES (3,'Kiese','Cloria','2000-01-01','111 rue Lafontaine','H1N5T2',12,'Montreal','5145555555','5145555555','gloria@gmail.com',1);
+INSERT INTO `vehiculesOccasion`.`client`(`id`,`nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `courreil`, `idLangue`) VALUES (2,'Senneville','Jean','1990-04-15','111 rue Lafontaine','H1N4K7',12,'Montréal','5145555555','5145555555','jean@gmail.com',1);
 
 -- -----------------------------------------------------
 -- Table `vehiculesOccasion`.`journalConnexion`
@@ -332,7 +332,8 @@ ENGINE = InnoDB;
 
 
 INSERT INTO typeCarrosserie (id, idLangue, nom) VALUES
-                    (1, 1, 'Berline'), (1, 2, 'Sedan '), (2, 1, 'Coupé'), (2, 2, 'Coupe'), (3, 1, 'Hayon'), (3, 2, 'Hatchback'), (4, 1, 'Familiale'), (4, 2, 'Station wagon'), (5, 1, 'Cabriolet'), (5, 2, 'Convertible '), (6, 1, 'VUS'), (6, 2, 'SUV'), (7, 1, 'Pick-up'), (7, 2, 'Pickup Truck'), (8, 1, 'Mini-fourgonnette'), (8, 2, 'Minivan'); 
+                    (1, 1, 'Berline'), (1, 2, 'Sedan '), (2, 1, 'Coupé'), (2, 2, 'Coupe'), (3, 1, 'Hayon'), (3, 2, 'Hatchback'), (4, 1, 'Familiale'), (4, 2, 'Station wagon'), (5, 1, 'Cabriolet'), (5, 2, 'Convertible '), (6, 1, 'VUS'), (6, 2, 'SUV'), (7, 1, 'Pick-up'), (7, 2, 'Pickup Truck'), (8, 1, 'Mini-fourgonnette'), (8, 2, 'Minivan');                  
+
 
 -- -----------------------------------------------------
 -- Table `vehiculesOccasion`.`voiture`
@@ -342,7 +343,6 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`voiture` (
   `idModele` INT NOT NULL,
   `idAnnee` INT NOT NULL,
   `kilometrage` INT UNSIGNED NULL,
-  `photoPrincipale` TEXT NULL,
   `dateArivee` DATE NOT NULL,
   `prixAchat` DECIMAL(15,2) UNSIGNED NOT NULL,
   `prixVente` DECIMAL(15,2) UNSIGNED NOT NULL,
@@ -352,6 +352,7 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`voiture` (
   `idTransmission` INT NOT NULL,
   `idTypeCarrosserie` INT NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
+  `vna` VARCHAR(17) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `idMotopropulseur`
     FOREIGN KEY (`idMotopropulseur`)
@@ -391,47 +392,67 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`voiture` (
 ENGINE = InnoDB;
 
 
-INSERT INTO voiture (idModele, idAnnee, kilometrage, photoPrincipale, dateArivee, prixAchat, prixVente, idMotopropulseur, idTypeCarburant, idCouleur, idTransmission, idTypeCarrosserie, disponibilite) VALUES
-                    ( 1, 7, 90873, './images/1/Chevrolet-Cruze-2016.jpg', '2018-10-24', 8538.75, 11385, 1, 1, 2, 2, 2,1), 
-                    ( 2, 5, 116456, './images/2/Ford-Focus-2014.jpg', '2018-10-24', 6746.25, 8995, 1, 1, 2, 2, 1,1), 
-                    ( 3, 6, 65724, './images/3/Honda-Civic-2015.jpg', '2018-10-27', 8846.25, 11795, 1, 1, 6, 2, 2,1), 
-                    ( 2, 7, 74573, './images/4/Ford-Focus-2016.jpg', '2018-10-31', 9120, 12160, 1, 1, 6, 1, 3,1),
-	( 4, 5, 101243, './images/5/Kia-Forte-2014.jpg', '2020-11-05', 5996.25, 7995, 1, 1, 1, 2, 2,1), 
-	( 5, 3, 114234, './images/6/Hyundai-Accent-2012.jpg', '2021-03-15', 4837.5, 6450, 1, 1, 7, 2, 1,1), 
-	( 6, 7, 65000, './images/7/Hyundai-Elantra-2016.jpg', '2021-03-15', 8246.25, 10995, 1, 1, 3, 2, 2,1), 
-	( 7, 6, 107585, './images/8/Nissan-Micra-2015.jpg', '2021-03-15', 7421.25, 9895, 1, 1, 3, 2, 3,1), 
-	( 6, 6, 100665, './images/9/Hyundai-Elantra-2015.jpg', '2021-03-15', 7162.5, 9550, 1, 1, 2, 1, 2,1), 
-	( 8, 7, 51238, './images/10/Nissan-Sentra-2016.jpg', '2021-03-15', 9371.25, 12495, 1, 1, 5, 2, 1,1), 
-	( 9, 5, 86887, './images/11/Volkswagen-Jetta-2014.jpg', '2021-04-15', 7421.25, 9895, 1, 1, 1, 1, 1,1), 
-	( 10, 7, 94100, './images/12/Kia-Optima-2016.jpg', '2021-04-15', 11246.2, 14995, 2, 1, 6, 2, 2,1), 
-	( 3, 6, 65724, './images/13/Honda-Civic-2015.jpg', '2021-04-15', 8981.25, 11975, 1, 1, 6, 2, 2,1), 
-	( 11, 6, 104, './images/14/Mercedes_Benz-CLA250-2015.jpg', '2021-04-15', 15963.75, 21285, 1, 2, 2, 1, 2,1), 
-	( 12, 7, 46201, './images/15/Nissan-Versa_Note-2016.jpg', '2021-04-15', 8437.5, 11250, 1, 1, 6, 2, 3,1), 
-	( 13, 6, 100599, './images/16/Jeep-Compass-2015.jpg', '2021-01-17', 9637.5, 12850, 2, 1, 1, 2, 6,1),
-	( 14, 6, 127453, './images/17/Ford-Escape-2015.jpg', '2021-01-17', 10785, 14380, 2, 2, 6, 1, 6,1),
-	( 15, 6, 96221, './images/18/Nissan-Rogue-2015.jpg', '2021-01-17', 10192.5, 14550, 2, 1, 6, 2, 6,1),
-	( 16, 7, 116058, './images/19/Dodge-Journey-2016.jpg', '2021-01-17', 19871.25, 26495, 2, 2, 1, 1, 6,1),
-	( 18, 7, 35622, './images/20/Mazda-CX_3-2016.jpg', '2021-01-17', 14246.25, 18995, 1, 1, 6, 2, 6,1),
-	( 19, 7, 79157, './images/21/Nissan-Pathfinder-2016.jpg', '2021-01-17', 15817.5, 21090, 2, 1, 6, 2, 6,1),
-	( 20, 7, 119783, './images/22/Hyundai-Santa_Fe_Sport-2016.jpg', '2021-01-17', 13470, 17960, 2, 1, 7, 1, 6,1),
-	( 17, 9, 69942, './images/23/Chevrolet-Equinox-2018.jpg', '2021-01-17', 15855, 21140, 1, 1, 6, 2, 6,1),
-	( 21, 7, 84763, './images/24/Mazda-CX_5-2016.jpg', '2021-01-17', 12746.25, 16995, 2, 1, 1, 2, 6,1),
-	( 22, 9, 45436, './images/25/Toyota-Rav4-2018.jpg', '2021-01-17', 19511.25, 26015, 2, 1, 2, 2, 6,1),
-	( 23, 7, 137789, './images/26/Kia-Sedona-2016.jpg', '2021-01-17', 12371.25, 16495, 1, 1, 2, 2, 8,1),
-	( 24, 8, 103000, './images/27/Dodge-Grand_Caravan-2017.jpg', '2021-01-17', 13496.25, 17995, 1, 2, 8, 2, 8,1),
-	( 25, 7, 89049, './images/28/Honda-Odyssey-2016.jpg', '2021-01-17', 14572.5, 19430, 2, 1, 2, 2, 8,1),
-	( 24, 9, 59900, './images/29/Dodge-Grand_Caravan-2018.jpg', '2021-01-17', 17621.25, 23495, 2, 1, 6, 2, 8,1),
-	( 23, 11, 50805, './images/30/Kia-Sedona-2020.jpg', '2021-01-17', 19496.25, 25995, 2, 1, 1, 2, 8,1),
-	( 26, 6, 133896, './images/31/Toyota-Sienna-2015.jpg', '2021-01-17', 14208.75, 18945, 1, 1, 5, 2, 8,1),
-	( 27, 2, 141461, './images/32/Volkswagen-Routan-2011.jpg', '2021-01-17', 5962.5, 7950, 1, 2, 6, 1, 8,1),
-	( 26, 11, 35902, './images/33/Toyota-Sienna-2020.jpg', '2021-01-17', 22871.25, 30495, 2, 1, 1, 2, 8,1),
-	( 28, 10, 53334, './images/34/Ram-2500-2019.jpg', '2021-01-17', 56246.25, 74995, 2, 2, 1, 2, 7,1),
-	( 29, 10, 31935, './images/35/Ford-Ranger-2019.jpg', '2021-01-17', 35212.5, 46950, 2, 2, 1, 2, 7,1),
-	( 30, 11, 1016, './images/36/Jeep-Gladiator-2020.jpg', '2021-01-17', 47925, 63900, 2, 2, 2, 2, 7,1),
-	( 28, 9, 9409, './images/37/Ram-2500-2018.jpg', '2021-01-17', 35100, 46800, 2, 2, 2, 1, 7,1),
-	( 31, 5, 99583, './images/38/Ram-3500-2014.jpg', '2021-01-17', 29996.25, 39995, 2, 2, 2, 2, 7,1),
-	( 32, 9, 81926, './images/39/GMC-Sierra-2018.jpg', '2021-01-17', 52496.25, 69995, 2, 2, 1, 2, 7,1),
-	( 33, 10, 50235, './images/40/GMC-Canyon-2019.jpg', '2021-01-17', 29246.25, 38995, 2, 2, 3, 2, 7,1);
+INSERT INTO voiture (idModele, idAnnee, kilometrage, dateArivee, prixAchat, prixVente, idMotopropulseur, idTypeCarburant, idCouleur, idTransmission, idTypeCarrosserie, disponibilite, vna) VALUES
+                    ( 1, 7, 90873, '2018-10-24', 8538.75, 11385, 1, 1, 2, 2, 2, 1, '1D4GP25B038108775'), 
+                    ( 2, 5, 116456, '2018-10-24', 6746.25, 8995, 1, 1, 2, 2, 1, 1, '1D4GP25B038108775'), 
+                    ( 3, 6, 65724, '2018-10-27', 8846.25, 11795, 1, 1, 6, 2, 2, 1, '1D4GP25B038108775'), 
+                    ( 2, 7, 74573, '2018-10-31', 9120, 12160, 1, 1, 6, 1, 3, 1, '1D4GP25B038108775'),
+	( 4, 5, 101243, '2020-11-05', 5996.25, 7995, 1, 1, 1, 2, 2,1, '1D4GP25B038108775'), 
+	( 5, 3, 114234, '2021-03-15', 4837.5, 6450, 1, 1, 7, 2, 1, 1, '1D4GP25B038108775'), 
+	( 6, 7, 65000, '2021-03-15', 8246.25, 10995, 1, 1, 3, 2, 2, 1, '1D4GP25B038108775'), 
+	( 7, 6, 107585, '2021-03-15', 7421.25, 9895, 1, 1, 3, 2, 3, 1, '1D4GP25B038108775'), 
+	( 6, 6, 100665, '2021-03-15', 7162.5, 9550, 1, 1, 2, 1, 2, 1, '1D4GP25B038108775'), 
+	( 8, 7, 51238, '2021-03-15', 9371.25, 12495, 1, 1, 5, 2, 1, 1, '1D4GP25B038108775'), 
+	( 9, 5, 86887, '2021-04-15', 7421.25, 9895, 1, 1, 1, 1, 1, 1, '1D4GP25B038108775'), 
+	( 10, 7, 94100, '2021-04-15', 11246.2, 14995, 2, 1, 6, 2, 2, 1, '1D4GP25B038108775'), 
+	( 3, 6, 65724, '2021-04-15', 8981.25, 11975, 1, 1, 6, 2, 2, 1, '1D4GP25B038108775'), 
+	( 11, 6, 104, '2021-04-15', 15963.75, 21285, 1, 2, 2, 1, 2, 1, '1D4GP25B038108775'), 
+	( 12, 7, 46201, '2021-04-15', 8437.5, 11250, 1, 1, 6, 2, 3, 1, '1D4GP25B038108775'), 
+	( 13, 6, 100599, '2021-01-17', 9637.5, 12850, 2, 1, 1, 2, 6, 1, '1D4GP25B038108775'),
+	( 14, 6, 127453, '2021-01-17', 10785, 14380, 2, 2, 6, 1, 6, 1, '1D4GP25B038108775'),
+	( 15, 6, 96221, '2021-01-17', 10192.5, 14550, 2, 1, 6, 2, 6, 1, '1D4GP25B038108775'),
+	( 16, 7, 116058, '2021-01-17', 19871.25, 26495, 2, 2, 1, 1, 6, 1, '1D4GP25B038108775'),
+	( 18, 7, 35622, '2021-01-17', 14246.25, 18995, 1, 1, 6, 2, 6, 1, '1D4GP25B038108775'),
+	( 19, 7, 79157, '2021-01-17', 15817.5, 21090, 2, 1, 6, 2, 6, 1, '1D4GP25B038108775'),
+	( 20, 7, 119783, '2021-01-17', 13470, 17960, 2, 1, 7, 1, 6, 1, '1D4GP25B038108775'),
+	( 17, 9, 69942, '2021-01-17', 15855, 21140, 1, 1, 6, 2, 6, 1, '1D4GP25B038108775'),
+	( 21, 7, 84763, '2021-01-17', 12746.25, 16995, 2, 1, 1, 2, 6, 1, '1D4GP25B038108775'),
+	( 22, 9, 45436, '2021-01-17', 19511.25, 26015, 2, 1, 2, 2, 6, 1, '1D4GP25B038108775'),
+	( 23, 7, 137789, '2021-01-17', 12371.25, 16495, 1, 1, 2, 2, 8, 1, '1D4GP25B038108775'),
+	( 24, 8, 103000, '2021-01-17', 13496.25, 17995, 1, 2, 8, 2, 8, 1, '1D4GP25B038108775'),
+	( 25, 7, 89049, '2021-01-17', 14572.5, 19430, 2, 1, 2, 2, 8, 1, '1D4GP25B038108775'),
+	( 24, 9, 59900, '2021-01-17', 17621.25, 23495, 2, 1, 6, 2, 8, 1, '1D4GP25B038108775'),
+	( 23, 11, 50805, '2021-01-17', 19496.25, 25995, 2, 1, 1, 2, 8, 1, '1D4GP25B038108775'),
+	( 26, 6, 133896, '2021-01-17', 14208.75, 18945, 1, 1, 5, 2, 8, 1, '1D4GP25B038108775'),
+	( 27, 2, 141461, '2021-01-17', 5962.5, 7950, 1, 2, 6, 1, 8, 1, '1D4GP25B038108775'),
+	( 26, 11, 35902, '2021-01-17', 22871.25, 30495, 2, 1, 1, 2, 8, 1, '1D4GP25B038108775'),
+	( 28, 10, 53334, '2021-01-17', 56246.25, 74995, 2, 2, 1, 2, 7, 1, '1D4GP25B038108775'),
+	( 29, 10, 31935, '2021-01-17', 35212.5, 46950, 2, 2, 1, 2, 7, 1, '1D4GP25B038108775'),
+	( 30, 11, 1016, '2021-01-17', 47925, 63900, 2, 2, 2, 2, 7, 1, '1D4GP25B038108775'),
+	( 28, 9, 9409, '2021-01-17', 35100, 46800, 2, 2, 2, 1, 7, 1, '1D4GP25B038108775'),
+	( 31, 5, 99583, '2021-01-17', 29996.25, 39995, 2, 2, 2, 2, 7, 1, '1D4GP25B038108775'),
+	( 32, 9, 81926, '2021-01-17', 52496.25, 69995, 2, 2, 1, 2, 7, 1, '1D4GP25B038108775'),
+	( 33, 10, 50235, '2021-01-17', 29246.25, 38995, 2, 2, 3, 2, 7, 1, '1D4GP25B038108775');
+
+-- -----------------------------------------------------
+-- Table `vehiculesOccasion`.`description`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`description` (
+  `id` INT NOT NULL,
+  `idLangue` INT NOT NULL,
+  `description` TEXT NULL,
+  PRIMARY KEY (`id`, `idLangue`),
+  CONSTRAINT `idLangue`
+    FOREIGN KEY (`idLangue`)
+    REFERENCES `vehiculesOccasion`.`langue` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `id`
+    FOREIGN KEY (`id`)
+    REFERENCES `vehiculesOccasion`.`voiture` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 					
 -- -----------------------------------------------------
 -- Table `vehiculesOccasion`.`statut`
@@ -541,14 +562,56 @@ ENGINE = InnoDB;
 -- Table `vehiculesOccasion`.`image`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`image` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `lien` VARCHAR(100) NULL,
-  `idVoiture` INT NULL,
+  `idVoiture` INT NOT NULL,
+  `sort` INT  DEFAULT 0,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`idVoiture`)
-  REFERENCES `vehiculesOccasion`.`voiture` (`id`))
+
+    FOREIGN KEY (`idVoiture`)
+    REFERENCES `vehiculesOccasion`.`voiture` (`id`))
 ENGINE = InnoDB;
 
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/1/Chevrolet-Cruze-2016.jpg',1);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/2/Ford-Focus-2014.jpg',2);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/3/Honda-Civic-2015.jpg',3);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/4/Ford-Focus-2016.jpg',4);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/5/Kia-Forte-2014.jpg',5);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/6/Hyundai-Accent-2012.jpg',6);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/7/Hyundai-Elantra-2016.jpg',7);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/8/Nissan-Micra-2015.jpg',8);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/9/Hyundai-Elantra-2015.jpg',9);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/10/Nissan-Sentra-2016.jpg',10);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/11/Volkswagen-Jetta-2014.jpg',11);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/12/Kia-Optima-2016.jpg',12);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/13/Honda-Civic-2015.jpg',13);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/14/Mercedes_Benz-CLA250-2015.jpg',14);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/15/Nissan-Versa_Note-2016.jpg',15);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/16/Jeep-Compass-2015.jpg',16);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/17/Ford-Escape-2015.jpg',17);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/18/Nissan-Rogue-2015.jpg',18);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/19/Dodge-Journey-2016.jpg',19);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/20/Mazda-CX_3-2016.jpg',20);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/21/Nissan-Pathfinder-2016.jpg',21);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016.jpg',22);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/23/Chevrolet-Equinox-2018.jpg',23);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/24/Mazda-CX_5-2016.jpg',24);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/25/Toyota-Rav4-2018.jpg',25);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/26/Kia-Sedona-2016.jpg',26);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/27/Dodge-Grand_Caravan-2017.jpg',27);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/28/Honda-Odyssey-2016.jpg',28);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/29/Dodge-Grand_Caravan-2018.jpg',29);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/30/Kia-Sedona-2020.jpg',30);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/31/Toyota-Sienna-2015.jpg',31);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/32/Volkswagen-Routan-2011.jpg',32);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/33/Toyota-Sienna-2020.jpg',33);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/34/Ram-2500-2019.jpg',34);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/35/Ford-Ranger-2019.jpg',35);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/36/Jeep-Gladiator-2020.jpg',36);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/37/Ram-2500-2018.jpg',37);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/38/Ram-3500-2014.jpg',38);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/39/GMC-Sierra-2018.jpg',39);
+INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/40/GMC-Canyon-2019.jpg',40);
 
 -- -----------------------------------------------------
 -- Table `vehiculesOccasion`.`url`
