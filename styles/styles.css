@@ -9,6 +9,8 @@
 @import url("4-elements/typo.css");
 /* objects */
 @import url("5-objects/typo.css");
+@import url("5-objects/bodyConteneur.css");
+@import url("5-objects/filtre.css");
 /* components */
 @import url("6-components/listeVoitures.css");
 @import url("6-components/menu.css");

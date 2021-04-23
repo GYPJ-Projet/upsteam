@@ -1,31 +1,32 @@
 .menuConteneur {
     font-family: var(--orbitron);
     font-size: var(--police_taille_h2Plus);
-    color: var(--blanc);
+    color: var(--grisPale);
     background-color: var(--gris);
 
     display:flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: stretch;
 }
 
 .burger{
     flex-direction: column;
-    /* align-items: flex-start; */
     text-align: center;
-}
-
-.nonBurger{
-    
 }
 
 .menuContenu{
     display:flex;
     justify-content: space-around;
+    /* height: 100px; */
     
-    padding: var(--menu);
-    margin: var(--menu);
-    /* padding: var(--paddingMenu); */
+    padding-left: var(--paddingMenu);
+    padding-right: var(--paddingMenu);
+}
+
+.menuContenu:hover{
+    transition: background-color, color .3s ease-out;
+    background-color: var(--grisPale);
+    color: var(--gris);
 }
 
 .iconeBurger{
