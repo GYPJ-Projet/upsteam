@@ -6,12 +6,30 @@
 
     display:flex;
     justify-content: space-around;
+    align-items: center;
 }
+
+.burger{
+    flex-direction: column;
+    /* align-items: flex-start; */
+    text-align: center;
+}
+
+.nonBurger{
+    
+}
+
 .menuContenu{
     display:flex;
     justify-content: space-around;
-    text-align: center;
+    
     padding: var(--menu);
     margin: var(--menu);
     /* padding: var(--paddingMenu); */
+}
+
+.iconeBurger{
+    height: 30px;
+    width: 30px;
+    fill: var(--gris);
 }
