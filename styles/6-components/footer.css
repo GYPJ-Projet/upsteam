@@ -1,0 +1,56 @@
+/* header */
+
+
+/* Retirer lcouleur et les lignes sur 
+	tous les liens de navigation */
+a:visited {
+	color: inherit;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pied_de_page {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--noir);
+    margin-top: 50px;
+    height: 180px;
+    padding: 30px;
+    border-top: solid 20px var(--cle);
+}
+
+.footer__titre {
+    font-family: var(--orbitron);
+    font-size: var(--police_taille_h1);
+    color: var(--cle);
+
+}
+
+.footer__sous-titre {
+    
+    font-family: var(--openSans);
+    font-size: var( --police_taille_h2Plus);
+    color: var(--grisPale);
+
+}
+
+.footer__adresse,
+.footer__heures,
+.footer__partage {
+    font-family: var(--openSans);
+    font-size: var( --police_taille_h2Plus);
+    color: var(--grisPale);
+}
+
+.footer__adresse p,
+.footer__heures p ,
+.footer__partage p {
+    font-family: var(--openSans);
+    font-size: var( --police_taille_texte);
+    color: var(--blanc);
+}
