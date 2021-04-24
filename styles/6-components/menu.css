@@ -1,17 +1,36 @@
 .menuConteneur {
     font-family: var(--orbitron);
     font-size: var(--police_taille_h2Plus);
-    color: var(--blanc);
+    color: var(--grisPale);
     background-color: var(--gris);
-
+    border-bottom: solid 20px var(--cle);
     display:flex;
     justify-content: space-around;
+    align-items: stretch;
 }
+
+.burger{
+    flex-direction: column;
+    text-align: center;
+}
+
 .menuContenu{
     display:flex;
     justify-content: space-around;
-    text-align: center;
-    padding: var(--menu);
-    margin: var(--menu);
-    /* padding: var(--paddingMenu); */
+    /* height: 100px; */
+    
+    padding-left: var(--paddingMenu);
+    padding-right: var(--paddingMenu);
+}
+
+.menuContenu:hover{
+    transition: background-color, color .3s ease-out;
+    background-color: var(--grisPale);
+    color: var(--gris);
+}
+
+.iconeBurger{
+    height: 30px;
+    width: 30px;
+    fill: var(--gris);
 }

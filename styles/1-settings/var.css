@@ -24,8 +24,12 @@
     --iPad: 1024px;
 
     /* Les marges */
-
+    --margeSection :50px;
     /* Les padding */
-    --paddingMenu: 10px;
+    --paddingMenu: 2vw;
+
+    /* Bordures*/
+    --bordure: 3px;
+    --bordureInterne: 1px
 
 }

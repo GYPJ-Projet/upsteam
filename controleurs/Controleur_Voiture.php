@@ -27,11 +27,15 @@
 				// Ce switch détermine la vue $vue et obtient le modèle $data
 				switch($params["action"]) {
 
+					
+                    case "filtre":      //Pour l'option de filtre de la page d'acceuil.
+                        break;	
+						
 					case "accueil":
 					default:
 						// Action par défaut
 						
-						$modeleVoiture = $this->obtenirDAO("Voiture");
+						$modeleVoiture         = $this->obtenirDAO("Voiture");
 						$modeleTypeCarburant   = $this->obtenirDAO("TabLangues", "typecarburant");
 						$modeleCouleur         = $this->obtenirDAO("TabLangues", "couleur"); 
 						$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
