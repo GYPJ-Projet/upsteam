@@ -17,9 +17,9 @@
 	<link rel="stylesheet" type="text/css" href="./styles/styles.css"> -->
     
 	<!-- scripts -->
+	<script type="text/javascript" src="./scripts/GestionMarque.js"></script>
 	<script type="text/javascript" src="./scripts/MenuConteneur.js"></script>
 	<script type="text/javascript" src="./scripts/classMapping.js"></script>
 	<script type="text/javascript" src="./scripts/script.js"></script>
 </head>
 
-<body>
