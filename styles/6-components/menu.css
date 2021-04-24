@@ -3,7 +3,7 @@
     font-size: var(--police_taille_h2Plus);
     color: var(--grisPale);
     background-color: var(--gris);
-
+    border-bottom: solid 20px var(--cle);
     display:flex;
     justify-content: space-around;
     align-items: stretch;
