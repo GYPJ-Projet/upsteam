@@ -10,12 +10,15 @@
         private $id;
         private $idLangue;
         private $nom;
+        private $disponibilite;
 
-        public function  __construct($id = 0, $idLangue = 0, $nom = "")
+
+        public function  __construct($id = 0, $idLangue = 0, $nom = "", $disponibilite = 1)
         {
             $this->id = $id;
             $this->idLangue = $idLangue;
             $this->nom = $nom;
+            $this->disponibilite = $disponibilite;
         }
 
         public function getId()
@@ -31,6 +34,10 @@
         public function getNom()
         {
             return $this->nom;
+        }
+
+        public function getDisponibilite() {
+            return $this->disponibilite;
         }
     }
 

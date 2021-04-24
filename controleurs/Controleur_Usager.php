@@ -1,5 +1,11 @@
 <?php
     class Controleur_Usager extends BaseControleur {
+
+        // Méthode qui retourne le nom du contrôleur
+        public function getNomControleur() {
+			return "Usager";
+		}
+
         public function traite(array $params) {
             $donnees = array();
             $vue = "";
@@ -11,8 +17,12 @@
                 $action = "login";
             }
 
+            // On charge les fichiers de langue selon la langue choisi par l'usager.
+            $donnees["langue"] = $this->chargerLangue($params);
+
             $this->afficheVue("tete");
 			$this->afficheVue("entete");
+            $this->afficheVue("menu");
 
             //détermine la vue, remplir le modèle approprié
             switch($action) {

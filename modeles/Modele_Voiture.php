@@ -1,19 +1,25 @@
 <?php
 	class Modele_Voiture extends BaseDAO {
-		
+
+		// Méthode qui retourne le nom la table de la BD de cette classe  Modele_Voiture
 		public function getNomTable() {
 			return "voiture";
 		}	
 
+		// Méthode qui retourne le nom de l'instance correspondant à ce modèle.
+		public function getNomInstance() {
+			return "Voiture";
+		}
+		
+        // Méthode qui retourne la clé primaire de cette table de la BD
 		public function getClePrimaire1() {
             return "id";
         }
 
-		// Pas de cle primaire no. 2
+		// Pas de clé primaire no. 2
         public function getClePrimaire2() {
             return "";
         }
-
 
 		// Méthode qui retourne le nombre de voitures qu'il y a dans la BD
 		public function combienVoitures() {
@@ -49,7 +55,7 @@
 										);		
 													
 				$stmt->execute();
-				/* $lesVoitures = $stmt->fetchAll(PDO::FETCH_CLASS, "Voiture"); */
+				// $lesVoitures = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Voiture");
 				return $stmt->fetchAll();
 			}
 			catch(Exception $exc) {

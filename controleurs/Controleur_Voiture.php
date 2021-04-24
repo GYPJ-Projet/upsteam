@@ -1,12 +1,22 @@
 <?php
 	class Controleur_Voiture extends BaseControleur {
 
+		// Méthode qui retourne le nom la table de la BD de cette classe  Modele_Voiture
+		public function getNomControleur() {
+			return "Voiture";
+		}
+
 		// La fonction qui sera appelée par le routeur
 		public function traite(array $params) {
 			
 			// Initialisation des donnees a un tableau vide par défaut
 			$donnees = array();
-	
+
+			// On charge les fichiers de langue selon la langue choisi par l'usager.
+			$donnees["langue"] = $this->chargerLangue($params);
+
+			$idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
+
 			$this->afficheVue("tete");
 			$this->afficheVue("entete");
             $this->afficheVue("menu");
@@ -17,6 +27,7 @@
 				// Ce switch détermine la vue $vue et obtient le modèle $data
 				switch($params["action"]) {
 
+					case "accueil":
 					default:
 						// Action par défaut
 						
@@ -26,15 +37,16 @@
 						$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
 						$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
 
-						$donnees["langue"]   = 1;  // francais pour test valeur de son id.
+						
 
 						// On affiche les 12 premieres tuiles
 						$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
-						$donnees["typeCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTous(), $donnees["langue"]);
-						$donnees["couleur"]         = $this->creerTabLangue($modeleCouleur->obtenirTous(), $donnees["langue"]);
-						$donnees["transmission"]    = $this->creerTabLangue($modeleTransmission->obtenirTous(), $donnees["langue"]);
-						$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTous(), $donnees["langue"]);
+						$donnees["typeCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
+						$donnees["couleur"]         = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
+						$donnees["transmission"]    = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
+						$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);
 
+						$donnees['langues'] = $langue;
 						/* $vue = "Accueil";	 */	
 
 						$this->afficheVue("accueil_debut");
@@ -54,12 +66,11 @@
 				$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
 				$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
 
-				$donnees["langue"]   = 2;  // francais pour test valeur de son id.
 				$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
-				$donnees["typeCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTous(), $donnees["langue"]);
-				$donnees["couleur"]         = $this->creerTabLangue($modeleCouleur->obtenirTous(), $donnees["langue"]);
-				$donnees["transmission"]    = $this->creerTabLangue($modeleTransmission->obtenirTous(), $donnees["langue"]);
-				$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTous(), $donnees["langue"]);
+				$donnees["typeCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
+				$donnees["couleur"]         = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
+				$donnees["transmission"]    = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
+				$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);
 
 				/* $vue = "Accueil";	 */	
 				$this->afficheVue("accueil_debut");

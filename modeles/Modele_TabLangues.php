@@ -8,10 +8,17 @@
 			parent::__construct($connexionPDO);
             $this->nomTable = $uneTableBD;
         }
-		
+
+     	// Méthode qui retourne le nom la table "nomTable" de la BD
 		public function getNomTable() {
 			return $this->nomTable;
 		}	
+
+		// Méthode qui retourne le nom de l'instance correspondant à ce modèle.
+		public function getNomInstance() {
+			return "TabLangue";
+		}
+
 
 		public function getClePrimaire1() {
             return "id";
