@@ -30,5 +30,18 @@
             // Fermeture du fichier
             fclose($log_file);
         }
+ 
+
+        public static function creation_fichier_log() {
+            // Création d'un répertoire log si il n'existe pas.
+            if(is_dir('./logs') === false){
+                mkdir("./logs");
+            }
+
+            $fp = fopen("logs/Debug_log.txt", 'w');
+            fwrite($fp, "");
+            fclose($fp);
+        }
+        
     }
 ?>
