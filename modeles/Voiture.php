@@ -8,7 +8,6 @@
         private $idModele;
         private $idAnnee;
         private $kilometrage;
-        private $photos;
         private $dateArrivee;
         private $prixAchat;
         private $prixVente;
@@ -17,16 +16,20 @@
         private $idCouleur;
         private $idTransmission;
         private $idTypeCarrosserie;
+        private $disponibilite;
+        private $vna;
+        
 
         public function __construct($id = 0, $idModele = 0, $idAnnee = 0, $kilometrage = 0, 
-                                    $photos = "", $dateArrivee = 0, $prixAchat = 0, 
+                                    $dateArrivee = 0, $prixAchat = 0, 
                                     $prixVente = 0, $idMotopropulseur = 0, $idTypeCarburant = 0,
-                                    $idCouleur = 0, $idTransmission = 0, $idTypeCarrosserie = 0) {
+                                    $idCouleur = 0, $idTransmission = 0, $idTypeCarrosserie = 0, 
+                                    $disponibilite = 1, $vna = "") {
+
             $this->id = $id;
             $this->idModele = $idModele;
             $this->idAnnee = $idAnnee;
             $this->kilometrage = $kilometrage;
-            $this->photos = $photos;
             $this->dateArrivee = $dateArrivee;
             $this->prixAchat = $prixAchat;
             $this->prixVente = $prixVente;
@@ -35,7 +38,8 @@
             $this->idCouleur = $idCouleur;
             $this->idTransmission = $idTransmission;
             $this->idTypeCarrosserie = $idTypeCarrosserie;
-    
+            $this->disponibilite = $disponibilite;
+            $this->vna = $vna;
         }
 
         public function getId() {
@@ -52,10 +56,6 @@
 
         public function getKilometrage() {
             return $this->kilometrage;
-        }
- 
-        public function getPhotos() {
-            return $this->photos;
         }
 
         public function getDateArrivee() {
@@ -85,5 +85,16 @@
         public function getIdTypeCarrosserie() {
             return $this->idTypeCarrosserie;
         }
+
+        public function getDisponibilite() {
+            return $this->disponibilite;
+        }
+
+        public function getVna() {
+            return $this->vna;
+        }
+
+
+
     }
 ?>

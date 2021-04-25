@@ -2,23 +2,29 @@
 
     class Modele_Usager extends BaseDAO {
 
-        // Méthode qui retourne le nom la table de la BD de cette classe modele
+
+        // Méthode qui retourne le nom la table de la BD de cette classe Modele_Usager
         public function getNomTable() {
             return "usager";
         }
 
 
-        // Méthode qui retourne la cle primaire de cette table de la BD
+        // Méthode qui retourne le nom de l'instance correspondant à ce modèle.
+		public function getNomInstance() {
+			return "Usager";
+		}
+
+
+        // Méthode qui retourne la clé primaire de cette table de la BD
         public function getClePrimaire1() {
             return "id";
         }
 
 
-        // Pas de cle primaire no. 2
+        // Pas de clé primaire no. 2
         public function getClePrimaire2() {
             return "";
         }
-
 
         //  On valide l'authentification de l'usager en comparant  le mot de passe qu'il a saisie avec celui de la BD.
         public function authentification($nomUsager, $motDePasse) {
@@ -51,17 +57,43 @@
                 //mise à jour -- UPDATE usager SET...
             } else {
                 //ajout d'un nouvel usager
-                $requete = "INSERT INTO usager(nomUsager, motPasse, idRole) 
-                             VALUES (:usager, :mdp, :idRole)";
+                $requete = "INSERT INTO usager(nomUsager, motPasse, nom, prenom, dateNaissance, 
+                                               adresse, codePostal, idVille, telephone, 
+                                               telephoneCellulaire, courriel, idLangue,
+                                               idRole, disponibilite)
+                             VALUES (:usager, :mdp, :nom, :prenom, :dateNaissance, :adresse, 
+                                     :codePostal, :idVille, :telephone, :telephoneCellulaire, 
+                                     :courriel, :idLangue, :idRole)";
                 $requetePreparee = $this->db->prepare($requete);
-                $nomUsager    = $unUsager->getNomUsager();
-                $motDePasse   = $unUsager->getMotDePasse();
-                $idRole       = $unUsager->getIdRole();  
+                $nomUsager              = $unUsager->getNomUsager();
+                $motDePasse             = $unUsager->getMotDePasse();
+                $nom                    = $unUsager->getNom();
+                $prenom                 = $unUsager->getPrenom();
+                $dateNaissance          = $unUsager->getDateNaissance();
+                $adresse                = $unUsager->getAdresse();
+                $codePostal             = $unUsager->getCodePostal();
+                $idVille                = $unUsager->getIdVille();
+                $telephone              = $unUsager->getTelephone();
+                $telephoneCellulaire    = $unUsager->getTelephoneCellulaire();
+                $courriel               = $unUsager->getCourriel();
+                $idLangue               = $unUsager->getIdLangue();
+                $idRole                 = $unUsager->getIdRole();  
                 $requetePreparee->bindParam(":usager", $nomUsager); 
                 $requetePreparee->bindParam(":mdp", $motDePasse);
+                $requetePreparee->bindParam(":nom", $nom); 
+                $requetePreparee->bindParam(":prenom", $prenom);
+                $requetePreparee->bindParam(":dateNaissance", $dateNaissance);
+                $requetePreparee->bindParam(":adresse"  , $adresse); 
+                $requetePreparee->bindParam(":codePostal", $codePostal);
+                $requetePreparee->bindParam(":idVille", $idVille);
+                $requetePreparee->bindParam(":telephone", $telephone); 
+                $requetePreparee->bindParam(":telephoneCellulaire", $telephoneCellulaire);
+                $requetePreparee->bindParam(":courriel", $courriel); 
+                $requetePreparee->bindParam(":idLangue", $idLangue);
                 $requetePreparee->bindParam(":idRole", $idRole);
                 $requetePreparee->execute();
             }
+
         }
         
     }
