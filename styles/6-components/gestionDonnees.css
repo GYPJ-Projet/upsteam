@@ -1,6 +1,6 @@
 .listeDonnees {
     display: inline;
-    width: calc(30% - var(--margeSection));
+    width: calc(25% - var(--margeSection));
     height: 100%;
     margin-top: var(--margeSection);
     margin-left: var(--margeSection);
@@ -19,7 +19,7 @@
 
 .pageDonnees {
     display: inline-block;
-    width: calc(60% - var(--margeSection));
+    width: calc(65% - var(--margeSection));
     margin-top: var(--margeSection);
     margin-right: var(--margeSection);
     border-style: solid;

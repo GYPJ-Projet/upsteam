@@ -23,7 +23,7 @@
                 <tr>
                     <td><?= $marque["id"] ?></td>
                     <td><?= $marque["nom"] ?></td>
-                    <td><?= $marque["disponibilite"] ?></td>
+                    <td><?= ($marque["disponibilite"] == true)? "disponible" : "non disponible" ?></td>
                     <td><button data-js-modifier data-js-id=<?= $marque["id"] ?>>Modifier</button></td>
                 </tr>                 
         <?php
@@ -31,6 +31,7 @@
         ?>
             </tbody>
         </table>
+        <button class="bouton" data-js-ajouter><?= $donnees["btnAjout"] ?></button>
     <div>
 </section>
 </div>

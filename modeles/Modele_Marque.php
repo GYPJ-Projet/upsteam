@@ -32,20 +32,11 @@
             }
             else
             {
-                //ajout d'une nouvelle réponse
-                /*$requete = "INSERT INTO reponses(titre, texte, dateCreation, nomUsager, idSujet) VALUES (:ti, :te,:d,:u,:idS)";
+                //ajout d'une nouvelle marque
+                $requete = "INSERT INTO marque(nom) VALUES (:n)";
                 $requetePreparee = $this->db->prepare($requete);
-                $titre = $laReponse->getTitre();
-                $texte = $laReponse->getTexte();
-                $date = $laReponse->getDateCreation();
-                $nomUsager = $laReponse->getNomUsager();
-                $idSujet = $laReponse->getIdSujet();
-                $requetePreparee->bindParam(":ti", $titre);
-                $requetePreparee->bindParam(":te", $texte);
-                $requetePreparee->bindParam(":d", $date);
-                $requetePreparee->bindParam(":u", $nomUsager);
-                $requetePreparee->bindParam(":idS", $idSujet);
-                $requetePreparee->execute();*/
+                $requetePreparee->bindParam(":n", $nom);
+                $requetePreparee->execute();
             }
         }
     }

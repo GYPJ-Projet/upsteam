@@ -2,7 +2,8 @@ class GestionMarque {
     constructor(el) {
         this._el = el;
         this._elsBtnModifier = this._el.querySelectorAll('[data-js-modifier]');
-        this._elsBtnSupprimer = this._el.querySelectorAll('[data-js-supprimer]');
+        this._elBtnAjouter = this._el.querySelector('[data-js-ajouter]');
+        //this._elsBtnSupprimer = this._el.querySelectorAll('[data-js-supprimer]');
 
         this.init();
     }
@@ -18,14 +19,21 @@ class GestionMarque {
             });
         }
 
+        //Brancher le gestionnaire click sur les bouttons Ajouter
+        this._elBtnAjouter.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            this.modifierMarque(0);
+        });
+
         //Brancher le gestionnaire click sur les bouttons Supprimer
-        for (let i = 0, l = this._elsBtnSupprimer.length; i < l; i++) {
+        /*for (let i = 0, l = this._elsBtnSupprimer.length; i < l; i++) {
             this._elsBtnSupprimer[i].addEventListener('click', (e) => {
                 e.preventDefault();
                 
                 console.log(e.target.dataset.jsId);
             });
-        }
+        }*/
     }
 
     modifierMarque = (id) => {

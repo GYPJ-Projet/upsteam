@@ -1,7 +1,10 @@
 <?php
     class Controleur_GestionDonnees extends BaseControleur {
     
-        private  $controleur = "GestionDonnees";
+        public function getNomControleur() {
+            return "GestionDonnees";
+        }
+
 		// La fonction qui sera appelée par le routeur
 		public function traite(array $params) {
 			
@@ -23,9 +26,11 @@
 						$modeleMarque = $this->obtenirDAO("Marque");
 						$donnees["marques"] = $modeleMarque->obtenirTous();
 						$donnees["titre"] = "Gestion des Marques";
+						$donnees["btnAjout"] = "Ajout d'un nouvel élément";
 						$this->afficheVue("gestionMarque", $donnees);
 						break;
 					case "sauvegarderMarque":
+						var_dump($params);
 						if (isset($params["id"]) && isset($params["nom"]) && isset($params["disponibilite"])) {
 							if ($params["disponibilite"]=="on") $params["disponibilite"] = true;
 							else $params["disponibilite"] = false;
