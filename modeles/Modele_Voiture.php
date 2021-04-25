@@ -1,19 +1,25 @@
 <?php
 	class Modele_Voiture extends BaseDAO {
-		
+
+		// Méthode qui retourne le nom la table de la BD de cette classe  Modele_Voiture
 		public function getNomTable() {
 			return "voiture";
 		}	
 
+		// Méthode qui retourne le nom de l'instance correspondant à ce modèle.
+		public function getNomInstance() {
+			return "Voiture";
+		}
+		
+        // Méthode qui retourne la clé primaire de cette table de la BD
 		public function getClePrimaire1() {
             return "id";
         }
 
-		// Pas de cle primaire no. 2
+		// Pas de clé primaire no. 2
         public function getClePrimaire2() {
             return "";
         }
-
 
 		// Méthode qui retourne le nombre de voitures qu'il y a dans la BD
 		public function combienVoitures() {
@@ -49,7 +55,7 @@
 										);		
 													
 				$stmt->execute();
-				/* $lesVoitures = $stmt->fetchAll(PDO::FETCH_CLASS, "Voiture"); */
+				// $lesVoitures = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Voiture");
 				return $stmt->fetchAll();
 			}
 			catch(Exception $exc) {
@@ -60,45 +66,43 @@
 		// Méthode qui sauvegarde une voiture modifiée ou une nouvelle voiture dans la BD.
 		public function sauvegarde(Voiture $uneVoiture) {
 			//est-ce que la voiture que j'essaie de sauvegarder existe déjà (id différent de zéro)
-            if($uneVoiture->getId() != 0) {
-                //mise à jour -- UPDATE voiture SET...
-            } else {
-                //ajout d'une nouvelle voiture
-                $requete = "INSERT INTO voiture(idModele, idAnnee,kilometrage, photos, dateArrivee,
-                                                prixAchat, prixVente, idMotopropulseur, idTypeCarburant,
-                                                idCouleur, idTransmission, idTypeCarrosserie ) 
-                            VALUES (:idModele, :idAnnee, :kilometrage, :photos, :dateArrivee,
-                                    :prixAchat, :prixVente, :idMotopropulseur, :idTypeCarburant, 
-                                    :idCouleur, :idTransmission, :idTypeCarrosserie)";
-                $requetePreparee = $this->db->prepare($requete);
-                $idModele          = $uneVoiture->getIdModele();
-                $idAnnee           = $uneVoiture->getIdAnnee();
-                $kilometrage       = $uneVoiture->getKilometrage();
-                $photos            = $uneVoiture->getPhotos();
-                $dateArrivee       = $uneVoiture->getDateArrivee();
-                $prixAchat         = $uneVoiture->getPrixAchat();
-                $prixVente         = $uneVoiture->getPrixVente();
-                $idMotopropulseur  = $uneVoiture->getIdMotopropulseur();
-                $idTypeCarburant   = $uneVoiture->getIdTypeCarburant();
-                $idCouleur         = $uneVoiture->getIdCouleur();
-                $idTransmission    = $uneVoiture->getIdTransmission();
-                $idTypeCarrosserie = $uneVoiture->getIdTypeCarrosserie(); 
-                $requetePreparee->bindParam(":idModele", $idModele); 
-                $requetePreparee->bindParam(":idAnnee", $idAnnee);
-                $requetePreparee->bindParam(":kilometrage", $kilometrage);
-                $requetePreparee->bindParam(":photos"  , $photos); 
-                $requetePreparee->bindParam(":dateArrivee", $dateArrivee);
-                $requetePreparee->bindParam(":prixAchat", $prixAchat);
-                $requetePreparee->bindParam(":prixVente", $prixVente); 
-                $requetePreparee->bindParam(":idMotopropulseur", $idMotopropulseur);
-                $requetePreparee->bindParam(":idTypeCarburant", $idTypeCarburant);
-                $requetePreparee->bindParam(":idCouleur", $idCouleur); 
-                $requetePreparee->bindParam(":idTransmission", $idTransmission);
-                $requetePreparee->bindParam(":idTypeCarrosserie", $idTypeCarrosserie);
-                $requetePreparee->execute();
-            }
-        }
-
-        
+			if($uneVoiture->getId() != 0) {
+				//mise à jour -- UPDATE voiture SET...
+			} else {
+				//ajout d'une nouvelle voiture
+				$requete = "INSERT INTO voiture(idModele, idAnnee,kilometrage, photos, dateArrivee,
+												prixAchat, prixVente, idMotopropulseur, idTypeCarburant,
+												idCouleur, idTransmission, idTypeCarrosserie ) 
+							VALUES (:idModele, :idAnnee, :kilometrage, :photos, :dateArrivee,
+									:prixAchat, :prixVente, :idMotopropulseur, :idTypeCarburant, 
+									:idCouleur, :idTransmission, :idTypeCarrosserie)";
+				$requetePreparee = $this->db->prepare($requete);
+				$idModele          = $uneVoiture->getIdModele();
+				$idAnnee           = $uneVoiture->getIdAnnee();
+				$kilometrage       = $uneVoiture->getKilometrage();
+				$photos            = $uneVoiture->getPhotos();
+				$dateArrivee       = $uneVoiture->getDateArrivee();
+				$prixAchat         = $uneVoiture->getPrixAchat();
+				$prixVente         = $uneVoiture->getPrixVente();
+				$idMotopropulseur  = $uneVoiture->getIdMotopropulseur();
+				$idTypeCarburant   = $uneVoiture->getIdTypeCarburant();
+				$idCouleur         = $uneVoiture->getIdCouleur();
+				$idTransmission    = $uneVoiture->getIdTransmission();
+				$idTypeCarrosserie = $uneVoiture->getIdTypeCarrosserie(); 
+				$requetePreparee->bindParam(":idModele", $idModele); 
+				$requetePreparee->bindParam(":idAnnee", $idAnnee);
+				$requetePreparee->bindParam(":kilometrage", $kilometrage);
+				$requetePreparee->bindParam(":photos"  , $photos); 
+				$requetePreparee->bindParam(":dateArrivee", $dateArrivee);
+				$requetePreparee->bindParam(":prixAchat", $prixAchat);
+				$requetePreparee->bindParam(":prixVente", $prixVente); 
+				$requetePreparee->bindParam(":idMotopropulseur", $idMotopropulseur);
+				$requetePreparee->bindParam(":idTypeCarburant", $idTypeCarburant);
+				$requetePreparee->bindParam(":idCouleur", $idCouleur); 
+				$requetePreparee->bindParam(":idTransmission", $idTransmission);
+				$requetePreparee->bindParam(":idTypeCarrosserie", $idTypeCarrosserie);
+				$requetePreparee->execute();
+			}
+		}
 	}
 ?>

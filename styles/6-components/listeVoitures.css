@@ -1,6 +1,6 @@
 
 img {
-    max-width: 90%;
+    max-width: 70%;
 }
 
 
@@ -29,8 +29,11 @@ img {
 }
 
 
-.grille__item,
-.grille__image {
+.grille__item {
+    width: 90%;
+}
+
+.gallery__image {
     width: 100%;
 }
 
@@ -39,13 +42,13 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 38vw;
+    height: 40vw;
     background-color: white;
     
 }
 
 
-.grille__image {
+.gallery__image {
     object-fit: cover;
 }
 
