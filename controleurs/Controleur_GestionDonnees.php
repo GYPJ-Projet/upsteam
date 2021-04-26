@@ -11,6 +11,11 @@
 			// Initialisation des donnees a un tableau vide par défaut
 			$donnees = array();
 	
+			// On charge les fichiers de langue selon la langue choisi par l'usager.
+			$donnees["langue"] = $this->chargerLangue($params);
+
+			$idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
+
 			$this->afficheVue("tete");
 			$this->afficheVue("entete");
             $this->afficheVue("menu");
@@ -25,19 +30,22 @@
 						$this->afficheVue("listeDonnees", $donnees);
 						$modeleMarque = $this->obtenirDAO("Marque");
 						$donnees["marques"] = $modeleMarque->obtenirTous();
-						$donnees["titre"] = "Gestion des Marques";
-						$donnees["btnAjout"] = "Ajout d'un nouvel élément";
 						$this->afficheVue("gestionMarque", $donnees);
 						break;
 					case "sauvegarderMarque":
-						var_dump($params);
-						if (isset($params["id"]) && isset($params["nom"]) && isset($params["disponibilite"])) {
-							if ($params["disponibilite"]=="on") $params["disponibilite"] = true;
-							else $params["disponibilite"] = false;
+						if (isset($params["id"]) && isset($params["nom"])) {
+							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
+							else $params["disponibilite"] = 0;
 							$modeleMarque = $this->obtenirDAO("Marque");
-							$reponse = $modeleMarque->sauvegarder($params["id"], $params["nom"], $params["disponibilite"]);
-								
-							header("Location: index.php?GestionDonnees&action=gestionMarque");
+							$nouvelleMarque = new Marque($params["id"], $params["nom"], $params["disponibilite"]);
+							var_dump($nouvelleMarque);
+							$reponse = $modeleMarque->sauvegarder($nouvelleMarque);
+							//header("Location: index.php?GestionDonnees&action=gestionMarque");
+							// Comme la redirection php ne fonctionne pas puisque le menu active le JS
+							// on est obligé d'utiliser la redirection JS à la place
+?>
+							<script> location.replace("index.php?GestionDonnees&action=gestionMarque"); </script>
+<?php							
 						} else { // Sinon, on affiche le formulaire pour l'ajout
 							$this->afficheVue("formulaireMarque", $donnees);
 						}
@@ -45,9 +53,8 @@
 				}			
 			} else {
 				// Action par défaut
-				$this->afficheVue("listeDonnees");
-				$this->afficheVue("pageDonnees");
-	
+				$this->afficheVue("listeDonnees", $donnees);
+				$this->afficheVue("pageDonnees", $donnees);
 			}
 
 			$this->afficheVue("piedDePage");

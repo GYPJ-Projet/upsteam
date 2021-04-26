@@ -1,17 +1,17 @@
 <section class="pageDonnees">
 <?php 
-    if (isset($donnees["titre"])) 
+    $langue = $donnees["langue"]; 
 ?>
-        <h1><?= $donnees["titre"] ?></h1>
+        <h1><?= $langue["gestion_marques"] ?></h1>
 
     <div data-js-component="GestionMarque">
 
         <table>
             <thead>
                 <tr>
-                    <th>id</th>
-                    <th>Marque</th>
-                    <th>Disponibilite</th>
+                    <th>ID</th>
+                    <th><?= $langue["nom_marque"] ?></th>
+                    <th><?= $langue["disponibilite"] ?></th>
                     <th></th>
                 </tr>
             </thead>
@@ -21,17 +21,17 @@
             foreach ($donnees["marques"] as $marque) {
         ?>
                 <tr>
-                    <td><?= $marque["id"] ?></td>
-                    <td><?= $marque["nom"] ?></td>
-                    <td><?= ($marque["disponibilite"] == true)? "disponible" : "non disponible" ?></td>
-                    <td><button data-js-modifier data-js-id=<?= $marque["id"] ?>>Modifier</button></td>
+                    <td><?= $marque->getId() ?></td>
+                    <td><?= $marque->getNom() ?></td>
+                    <td><?= ($marque->getDisponibilite() == true)? $langue["texte_oui"] : "" ?></td>
+                    <td><button data-js-modifier data-js-id=<?= $marque->getId() ?>><?= $langue["button_modifier"] ?></button></td>
                 </tr>                 
         <?php
             }
         ?>
             </tbody>
         </table>
-        <button class="bouton" data-js-ajouter><?= $donnees["btnAjout"] ?></button>
+        <button class="bouton" data-js-ajouter><?= $langue["button_ajouter"] ?></button>
     <div>
 </section>
 </div>

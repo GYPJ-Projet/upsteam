@@ -7,6 +7,11 @@
 			return "marque";
 		}
 
+        // Méthode qui retourne le nom de l'instance correspondant à ce modèle.
+        public function getNomInstance() {
+            return "Marque";
+        }
+
         // Permet à l'instance de dire la clé primaire (ou composé, s'il y en a 2 ou plus) 
 		// de la table retrouné par la 
 		public function getClePrimaire1() {
@@ -19,20 +24,24 @@
         }
 
         // Permet de sauvegarder la marque dans la base de données
-        public function sauvegarder($id, $nom, $disponibilite) {
-            //est-ce que le sujet que j'essaie de sauvegarder existe déjà (id différent de zéro)
-            if($id != 0)
+        public function sauvegarder(Marque $laMarque) {
+            // Est-ce que la marque que j'essaie de sauvegarder existe déjà (id différent de zéro)
+            if($laMarque->getId() != 0)
             {
-                //mise à jour --
-                $requete = "UPDATE marque  SET nom = :n, disponibilite = :d WHERE id = " . $id;
+                // Mise à jour de la marque 
+                $requete = "UPDATE marque SET nom = :n, disponibilite = :d WHERE id = :i";
                 $requetePreparee = $this->db->prepare($requete);
+                $id            = $laMarque->getId(); 
+                $nom           = $laMarque->getNom();
+                $disponibilite = $laMarque->getDisponibilite();
+                $requetePreparee->bindParam(":i", $id);
                 $requetePreparee->bindParam(":n", $nom);
                 $requetePreparee->bindParam(":d", $disponibilite);
                 $requetePreparee->execute();
             }
             else
             {
-                //ajout d'une nouvelle marque
+                // Ajout d'une nouvelle marque
                 $requete = "INSERT INTO marque(nom) VALUES (:n)";
                 $requetePreparee = $this->db->prepare($requete);
                 $requetePreparee->bindParam(":n", $nom);

@@ -1,7 +1,8 @@
+<?php
+    $langue = $donnees["langue"];
+?>
 <section class="pageDonnees">
-    <h1>Gestion des données</h1><br/>
-    <p>Cette page est utilisée pour saisir des données dans la base de données.</p>
-    <p><<-- À gauche, sélectionnez la section avec laquelle vous souhaitez travailler.</p>
-    <p>Bon travail!</p>
+    <h1><?= $langue['gestion_donnees'] ?></h1><br/>
+    <p><?= $langue['gestion_texte'] ?></p>
 </section>
 </div>

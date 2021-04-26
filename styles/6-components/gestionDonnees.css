@@ -40,3 +40,17 @@
     font-size: var(--police_taille_sousTitre);
     text-align: center;
 }
+
+.formulaire {
+    margin-top: 2vw;
+    font-family: var(--openSans);
+    font-size: var(--police_taille_texte);
+}
+
+.bouton {
+    color: var(--blanc);
+    background-color: var(--cle);
+    width: 20vw;
+    text-align: center;
+    padding: 0.5vw;
+}

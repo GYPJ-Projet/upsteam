@@ -4,7 +4,8 @@
 $langue["idLangue"] = 2;
 
 // textes Locale générique
-
+$langue['texte_oui']             = 'Yes';
+$langue['texte_non']             = 'No';
 
 // entete
 $langue['entete_choix_langue']   = 'FR';
@@ -27,7 +28,9 @@ $langue['bouton_retour']		= 'Back';
 $langue['bouton_continuer']		= 'Continue';
 $langue['bouton_panier']		= 'Add to Cart';
 $langue['bouton_annuler']       = 'Cancel';
-
+$langue['button_modifier']		= 'Edit';
+$langue['button_ajouter']		= 'Add a new item';
+$langue['button_soumettre']		= 'Sumbit';
 
 // Erreur
 
