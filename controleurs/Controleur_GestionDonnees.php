@@ -25,7 +25,7 @@
 				// Switch en fonction de l'action qui est envoyée en paramètre de la requête
 				// Ce switch détermine la vue $vue et obtient le modèle $data
 				switch($params["action"]) {
-
+					// Affichage de la liste des marques
 					case "gestionMarque":
 						$this->afficheVue("listeDonnees", $donnees);
 						$modeleMarque = $this->obtenirDAO("Marque");
@@ -50,6 +50,13 @@
 							$this->afficheVue("formulaireMarque", $donnees);
 						}
 						break;
+						// Affichage de la liste des modèles
+						case "gestionModele":
+							$this->afficheVue("listeDonnees", $donnees);
+							$modeleMarque = $this->obtenirDAO("Modele");
+							$donnees["modeles"] = $modeleMarque->obtenirTous();
+							$this->afficheVue("gestionModele", $donnees);
+							break;
 				}			
 			} else {
 				// Action par défaut

@@ -2,6 +2,7 @@
 
 $langue['gestion_donnees']  = 'Data management';
 $langue['gestion_marques']  = 'Brand management';
+$langue['gestion_modeles']  = 'Model management';
 $langue['gestion_texte']    = 'This page is used to enter data into the database. <br/> << - On the left, select the section you want to work with. <br/> Have a good job!';
 
 $langue['nom_marque']	    = 'Brand';

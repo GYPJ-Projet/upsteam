@@ -1,14 +1,14 @@
 <?php
-    class Modele_Marque extends BaseDAO {
+    class Modele_Modele extends BaseDAO {
 
         // Permet à l'instance de dire dans quelle table de la BD elle doit aller chercher les données
 		public function getNomTable() {
-			return "marque";
+			return "modele";
 		}
 
         // Méthode qui retourne le nom de l'instance correspondant à ce modèle.
         public function getNomInstance() {
-            return "Marque";
+            return "Modele";
         }
 
         // Permet à l'instance de dire la clé primaire (ou composé, s'il y en a 2 ou plus) 
@@ -22,29 +22,33 @@
             return "";
         }
 
-        // Permet de sauvegarder la marque dans la base de données
-        public function sauvegarder(Marque $laMarque) {
-            // Est-ce que la marque que j'essaie de sauvegarder existe déjà (id différent de zéro)
-            if($laMarque->getId() != 0)
+        // Permet de sauvegarder la modele dans la base de données
+        public function sauvegarder(Modele $laModele) {
+            // Est-ce que la modele que j'essaie de sauvegarder existe déjà (id différent de zéro)
+            if($laModele->getId() != 0)
             {
-                // Mise à jour de la marque 
-                $requete = "UPDATE marque SET nom = :n, disponibilite = :d WHERE id = :i";
+                // Mise à jour de la modele 
+                $requete = "UPDATE modele SET nom = :n, idMarque = :idM, disponibilite = :d WHERE id = :i";
                 $requetePreparee = $this->db->prepare($requete);
-                $id              = $laMarque->getId(); 
-                $nom             = $laMarque->getNom();
-                $disponibilite   = $laMarque->getDisponibilite();
+                $id              = $laModele->getId(); 
+                $nom             = $laModele->getNom();
+                $idMarque        = $laModele->getIdMarque();
+                $disponibilite   = $laModele->getDisponibilite();
                 $requetePreparee->bindParam(":i", $id);
                 $requetePreparee->bindParam(":n", $nom);
+                $requetePreparee->bindParam(":idM", $idMarque);
                 $requetePreparee->bindParam(":d", $disponibilite);
                 $requetePreparee->execute();
             }
             else
             {
-                // Ajout d'une nouvelle marque
-                $requete = "INSERT INTO marque(nom) VALUES (:n)";
+                // Ajout d'une nouvelle modele
+                $requete = "INSERT INTO modele(nom, idMarque) VALUES (:n, :idM)";
                 $requetePreparee = $this->db->prepare($requete);
                 $nom             = $laMarque->getNom();
+                $idMarque        = $laModele->getIdMarque();
                 $requetePreparee->bindParam(":n", $nom);
+                $requetePreparee->bindParam(":idM", $idMarque);
                 $requetePreparee->execute();
             }
         }

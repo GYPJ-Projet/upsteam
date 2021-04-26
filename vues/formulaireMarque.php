@@ -17,5 +17,5 @@
 ?>
     
     <input type="hidden" name="id" value="<?= (isset($marque)) ? $marque->getId() : 0 ?>"/><br/>
-    <input type="submit" value="<?= $langue['button_soumettre'] ?>"/>
+    <input class="bouton" type="submit" value="<?= $langue['button_soumettre'] ?>"/>
 </form>

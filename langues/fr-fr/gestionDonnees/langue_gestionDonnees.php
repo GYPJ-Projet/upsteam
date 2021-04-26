@@ -2,6 +2,7 @@
 
 $langue['gestion_donnees']  = 'Gestion des données';
 $langue['gestion_marques']  = 'Gestion des marques';
+$langue['gestion_modeles']  = 'Gestion des modèles';
 $langue['gestion_texte']    = 'Cette page est utilisée pour saisir des données dans la base de données. <br/><<-- À gauche, sélectionnez la section avec laquelle vous souhaitez travailler. <br/>Bon travail!';
 
 $langue['nom_marque']	    = 'Marque';

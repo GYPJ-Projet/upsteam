@@ -32,7 +32,16 @@
 							$this->afficheVue("formulaireMarque", $donnees);
 						}
 						break;
-			
+					case "afficherFormulaireModele":
+						// Si le parametres id est existe, on affiche le formulaire pour la modification
+						if (isset($params["id"])) {
+							$modeleModele = $this->obtenirDAO("Modele");
+							$donnees["modele"] = $modeleModele->obtenirParId($params["id"]);
+							$this->afficheVue("formulaireModele", $donnees);
+						} else { // Sinon, on affiche le formulaire pour l'ajout
+							$this->afficheVue("formulaireModele", $donnees);
+						}
+						break;
 				}			
 			} else {
 				// Action par défaut
