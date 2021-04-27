@@ -18,7 +18,7 @@
 
 			$this->afficheVue("tete");
 			$this->afficheVue("entete");
-            $this->afficheVue("menu");
+            $this->afficheVue("menu", $donnees);
 			
 			if (isset($params["action"])) {
 
@@ -38,6 +38,13 @@
 						$modeleModele = $this->obtenirDAO("Modele");
 						$donnees["modeles"] = $modeleModele->obtenirTousAvecMarque();
 						$this->afficheVue("gestionModele", $donnees);
+						break;
+					// Affichage de la liste des couleurs
+					case "gestionCouleur":
+						$this->afficheVue("listeDonnees", $donnees);
+						$modeleMarque = $this->obtenirDAO("Couleur");
+						$donnees["couleurs"] = $modeleMarque->obtenirTousAvecLangues();
+						$this->afficheVue("gestionCouleur", $donnees);
 						break;
 				}			
 			} else {
