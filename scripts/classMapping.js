@@ -1,4 +1,5 @@
 const classMapping = {
     'MenuConteneur'         : MenuConteneur,
-    'GestionMarque'         : GestionMarque
+    'GestionMarque'         : GestionMarque,
+    'GestionModele'         : GestionModele
 };

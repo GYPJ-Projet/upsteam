@@ -1,4 +1,4 @@
-class GestionMarque {
+class GestionModele {
     constructor(el) {
         this._el = el;
         this._elsBtnModifier = this._el.querySelectorAll('[data-js-modifier]');
@@ -14,7 +14,7 @@ class GestionMarque {
             this._elsBtnModifier[i].addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                this.modifierMarque(e.target.dataset.jsId);
+                this.modifierModele(e.target.dataset.jsId);
             });
         }
 
@@ -22,12 +22,12 @@ class GestionMarque {
         this._elBtnAjouter.addEventListener('click', (e) => {
             e.preventDefault();
             
-            this.modifierMarque(0);
+            this.modifierModele(0);
         });
 
     }
 
-    modifierMarque = (id) => {
+    modifierModele = (id) => {
         // Déclaration de l'objet XMLHttpRequest
         var xhr;
         xhr = new XMLHttpRequest();
@@ -36,7 +36,7 @@ class GestionMarque {
         if (xhr) {	
 
             // Ouverture de la requète : fichier recherché
-            xhr.open('GET', 'index.php?GestionDonnees_AJAX&action=afficherFormulaireMarque&id=' + id);
+            xhr.open('GET', 'index.php?GestionDonnees_AJAX&action=afficherFormulaireModele&id=' + id);
 
             xhr.addEventListener('readystatechange', () => {
 

@@ -1,14 +1,14 @@
 <?php
-    class Modele_Marque extends BaseDAO {
+    class Modele_Couleur extends BaseDAO {
 
         // Permet à l'instance de dire dans quelle table de la BD elle doit aller chercher les données
 		public function getNomTable() {
-			return "marque";
+			return "couleur";
 		}
 
         // Méthode qui retourne le nom de l'instance correspondant à ce modèle.
         public function getNomInstance() {
-            return "Marque";
+            return "Couleur";
         }
 
         // Permet à l'instance de dire la clé primaire (ou composé, s'il y en a 2 ou plus) 
@@ -19,31 +19,33 @@
 
         // Pas de cle primaire no. 2
         public function getClePrimaire2() {
-            return "";
+            return "idLangue";
         }
 
-        // Permet de sauvegarder la marque dans la base de données
-        public function sauvegarder(Marque $laMarque) {
-            // Est-ce que la marque que j'essaie de sauvegarder existe déjà (id différent de zéro)
-            if($laMarque->getId() != 0)
+        // Permet de sauvegarder la couleur dans la base de données
+        public function sauvegarder(Couleur $laCouleur) {
+            // Est-ce que la couleur que j'essaie de sauvegarder existe déjà (id différent de zéro)
+            if($laCouleur->getId() != 0)
             {
-                // Mise à jour de la marque 
-                $requete = "UPDATE marque SET nom = :n, disponibilite = :d WHERE id = :i";
+                // Mise à jour de la couleur 
+                $requete = "UPDATE couleur SET nom = :n, disponibilite = :d WHERE id = :i AND idLangue = :idL";
                 $requetePreparee = $this->db->prepare($requete);
-                $id              = $laMarque->getId(); 
-                $nom             = $laMarque->getNom();
-                $disponibilite   = $laMarque->getDisponibilite();
+                $id              = $laCouleur->getId();
+                $idLangue        = $laCouleur->getIdLangue();  
+                $nom             = $laCouleur->getNom();
+                $disponibilite   = $laCouleur->getDisponibilite();
                 $requetePreparee->bindParam(":i", $id);
+                $requetePreparee->bindParam(":idL", $idLangue);
                 $requetePreparee->bindParam(":n", $nom);
                 $requetePreparee->bindParam(":d", $disponibilite);
                 $requetePreparee->execute();
             }
             else
             {
-                // Ajout d'une nouvelle marque
-                $requete = "INSERT INTO marque(nom) VALUES (:n)";
+                // Ajout d'une nouvelle couleur
+                $requete = "INSERT INTO couleur(nom) VALUES (:n)";
                 $requetePreparee = $this->db->prepare($requete);
-                $nom             = $laMarque->getNom();
+                $nom             = $laCouleur->getNom();
                 $requetePreparee->bindParam(":n", $nom);
                 $requetePreparee->execute();
             }
