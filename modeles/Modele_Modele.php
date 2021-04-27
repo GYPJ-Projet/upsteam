@@ -66,7 +66,6 @@
             }
         }
 
-
                 /**
          * Obtient la liste de tout les modèles
          */

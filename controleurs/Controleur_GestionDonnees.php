@@ -18,7 +18,7 @@
 
 			$this->afficheVue("tete");
 			$this->afficheVue("entete");
-            $this->afficheVue("menu");
+            $this->afficheVue("menu", $donnees);
 			
 			if (isset($params["action"])) {
 
