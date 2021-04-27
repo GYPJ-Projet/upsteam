@@ -1,0 +1,1001 @@
+27-04-2021 04:41:30
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:41:30
+combienVoitures
+
+27-04-2021 04:41:30
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 04:41:30
+class Modele_Voiture - function combienVoitures()
+
+27-04-2021 04:41:30
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 04:41:30
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 04:41:30
+CombienVoitures.php - NombreDeVoitures : donnees[NombreDeVoitures][0] :
+
+27-04-2021 04:41:30
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 04:41:30
+40
+
+27-04-2021 04:41:46
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:41:46
+afficheListeVoitures
+
+27-04-2021 04:42:22
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:42:22
+afficheListeVoitures
+
+27-04-2021 04:42:43
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:42:43
+combienVoitures
+
+27-04-2021 04:42:43
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 04:42:43
+class Modele_Voiture - function combienVoitures()
+
+27-04-2021 04:42:43
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 04:42:43
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 04:42:43
+CombienVoitures.php - NombreDeVoitures : donnees[NombreDeVoitures][0] :
+
+27-04-2021 04:42:43
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 04:42:43
+40
+
+27-04-2021 04:42:55
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:42:55
+afficheListeVoitures
+
+27-04-2021 04:43:01
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:43:01
+afficheListeVoitures
+
+27-04-2021 04:47:05
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:47:05
+combienVoitures
+
+27-04-2021 04:47:05
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 04:47:05
+class Modele_Voiture - function combienVoitures()
+
+27-04-2021 04:47:05
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 04:47:05
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 04:47:05
+CombienVoitures.php - NombreDeVoitures : donnees[NombreDeVoitures][0] :
+
+27-04-2021 04:47:05
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 04:47:05
+40
+
+27-04-2021 04:47:10
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:47:10
+afficheListeVoitures
+
+27-04-2021 04:47:35
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:47:35
+afficheListeVoitures
+
+27-04-2021 04:53:15
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:53:15
+combienVoitures
+
+27-04-2021 04:53:15
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 04:53:15
+class Modele_Voiture - function combienVoitures()
+
+27-04-2021 04:53:15
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 04:53:15
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 04:53:15
+CombienVoitures.php - NombreDeVoitures : donnees[NombreDeVoitures][0] :
+
+27-04-2021 04:53:15
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 04:53:15
+40
+
+27-04-2021 04:53:24
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:53:24
+afficheListeVoitures
+
+27-04-2021 04:54:04
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:54:04
+afficheListeVoitures
+
+27-04-2021 04:54:12
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:54:12
+afficheListeVoitures
+
+27-04-2021 04:55:20
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:55:20
+combienVoitures
+
+27-04-2021 04:55:20
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 04:55:20
+class Modele_Voiture - function combienVoitures()
+
+27-04-2021 04:55:20
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 04:55:20
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 04:55:20
+CombienVoitures.php - NombreDeVoitures : donnees[NombreDeVoitures][0] :
+
+27-04-2021 04:55:20
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 04:55:20
+40
+
+27-04-2021 04:55:46
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:55:46
+afficheListeVoitures
+
+27-04-2021 04:56:47
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:56:47
+afficheListeVoitures
+
+27-04-2021 04:56:52
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 04:56:52
+afficheListeVoitures
+
+27-04-2021 05:14:19
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 05:14:19
+combienVoitures
+
+27-04-2021 05:14:19
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 05:14:19
+class Modele_Voiture - function combienVoitures()
+
+27-04-2021 05:14:19
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 05:14:19
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 05:14:24
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 05:14:24
+combienVoitures
+
+27-04-2021 05:14:24
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 05:14:24
+class Modele_Voiture - function combienVoitures()
+
+27-04-2021 05:14:24
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 05:14:24
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 12:32:14
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 12:32:14
+combienVoitures
+
+27-04-2021 12:32:14
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 12:32:14
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 12:32:14
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 12:32:53
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 12:32:53
+afficheListeVoitures
+
+27-04-2021 12:32:58
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 12:32:58
+afficheListeVoitures
+
+27-04-2021 12:33:01
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 12:33:01
+afficheListeVoitures
+
+27-04-2021 12:35:37
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 12:35:37
+combienVoitures
+
+27-04-2021 12:35:37
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 12:35:37
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 12:35:37
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 12:36:02
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 12:36:02
+afficheListeVoitures
+
+27-04-2021 12:36:06
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+)
+
+
+27-04-2021 12:36:06
+afficheListeVoitures
+
