@@ -5,8 +5,8 @@
         <h1><?= $langue["gestion_modeles"] ?></h1>
 
     <div data-js-component="GestionModele">
-
-        <table>
+        <button class="bouton" data-js-ajouter><?= $langue["button_ajouter"] ?></button>
+        <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -32,7 +32,6 @@
 ?>
             </tbody>
         </table>
-        <button class="bouton" data-js-ajouter><?= $langue["button_ajouter"] ?></button>
     <div>
 </section>
 </div>
