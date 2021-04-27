@@ -56,7 +56,7 @@
                 /**
          * Obtient la liste de tout les modèles
          */
-        public function obtenirToutModeleDispo(){
+        public function obtenirToutDisponible(){
             try {
 				$requete = "SELECT modele.nom
                             FROM modele

@@ -108,6 +108,18 @@
                 <!-- CARROSERIE -->
                 <div class="filtreSection">
                     <p class="titreSection"><?=$langue["filtreCarroserie"]?></p>
+                    <div class="grille grille--2 liste">
+<?php
+                    foreach($donnees["toutesCarrosserieDispo"] as $carrosserie){
+?>  
+                        <div class="listeConteneur">
+                            <label for="<?=$carrosserie["nom"]?>"><?=$carrosserie["nom"]?></label>
+                            <input class="radio" type="checkbox" id="<?=$carrosserie["nom"]?>" name="<?=$carrosserie["nom"]?>" value="<?=$carrosserie["nom"]?>">
+                        </div>
+<?php                        
+                    }
+?>
+                    </div>
                 </div>
 
                 <!-- TRANSMISSION -->

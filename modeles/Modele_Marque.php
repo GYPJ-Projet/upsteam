@@ -7,17 +7,10 @@
 			return "marque";
 		}
 
-<<<<<<< HEAD
-		// Méthode qui retourne le nom de l'instance correspondant à ce modèle.
-		public function getNomInstance() {
-			return "Marque";
-		}
-=======
         // Méthode qui retourne le nom de l'instance correspondant à ce modèle.
         public function getNomInstance() {
             return "Marque";
         }
->>>>>>> 0169392804f6c05625dcd4d57e580bdf7a24706c
 
         // Permet à l'instance de dire la clé primaire (ou composé, s'il y en a 2 ou plus) 
 		// de la table retrouné par la 
@@ -59,7 +52,7 @@
         /**
          * Obtient la liste de tout les marques
          */
-        public function obtenirToutMarqueDispo(){
+        public function obtenirToutDisponible(){
             try {
 				$requete = "SELECT nom FROM marque WHERE disponibilite = 1 ORDER BY nom";
 				$requetePreparee = $this->db->prepare($requete);
