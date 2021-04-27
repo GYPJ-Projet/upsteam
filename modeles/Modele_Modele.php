@@ -22,7 +22,16 @@
             return "";
         }
 
-
+        // Permet d'obtenir toutes les modèles avec l'information à propos de la marque
+        public function obtenirTousAvecMarque() {
+            $requete = "SELECT marque.nom AS nomMarque, marque.id AS idMarque, modele.id, modele.nom, modele.disponibilite
+                        FROM modele
+                        JOIN marque ON modele.idMarque = marque.id
+                        ORDER BY modele.id";
+            $requetePreparee = $this->db->prepare($requete);
+            $requetePreparee->execute(); 
+            return $requetePreparee->fetchAll();   
+        }
 
         // Permet de sauvegarder la modele dans la base de données
         public function sauvegarder(Modele $laModele) {
