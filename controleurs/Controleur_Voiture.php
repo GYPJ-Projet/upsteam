@@ -30,7 +30,8 @@
       		$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
 			$modeleToutModeleDispo          = $this->obtenirDAO("Modele", "obtenirToutModeleDispo");
 			$modeleToutCarrosserieDispo     = $this->obtenirDAO("Carrosserie");
-		
+
+			
 			// On prend les données dans la langue qu'il faut afficher.	
 			$donnees["typeCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
 			$donnees["couleur"]         = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
@@ -73,7 +74,7 @@
 						$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
 
 						/* $vue = "Accueil";	 */	
-						$this->afficheVue("accueil_debut");
+						$this->afficheVue("accueil_debut", $donnees);
 
 						// On affiche les 12 premieres tuiles
 						$donnees["voitures"]                = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
