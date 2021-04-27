@@ -33,6 +33,42 @@
 				return 0;
 			}
 		}
+
+		public function obtenirParId($id) {
+            try {
+				$stmt = $this->db->query("SELECT voiture.*, 
+					modele.nom AS nomModele, 
+					marque.nom AS nomMarque, 
+					annee.annee AS annee, 
+					motopropulseur.nom AS nomMotoPropulseur, 
+					FROM voiture 
+					JOIN modele ON modele.id = voiture.idModele 
+					JOIN marque ON marque.id = modele.idMarque  
+					JOIN annee ON annee.id = voiture.idAnnee 
+					JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
+					WHERE " .  $this->getClePrimaire1() .  " = " . $id);	
+				$stmt->execute();
+				return $stmt->fetch();	
+
+			}	
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+
+		public function obtenirImagesParIdVoiture($id) {
+            try {
+				$stmt = $this->db->query("SELECT * FROM image WHERE idVoiture = " . $id . " 
+										  ORDER BY sort");	
+				$stmt->execute();
+				return $stmt->fetchAll();	
+
+			}	
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+
 		
 
 		// Méthode qui permet de prendre les enregistrements voiture selon  index et le nombre désiré
@@ -55,7 +91,6 @@
 										);		
 													
 				$stmt->execute();
-				// $lesVoitures = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Voiture");
 				return $stmt->fetchAll();
 			}
 			catch(Exception $exc) {
