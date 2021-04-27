@@ -1,6 +1,6 @@
 <section class="pageDonnees">
 <?php 
-    $langue = $donnees["langue"]; 
+    $langue = $donnees["langue"];
 ?>
         <h1><?= $langue["gestion_modeles"] ?></h1>
 
@@ -17,20 +17,19 @@
                 </tr>
             </thead>
             <tbody>
-        <?php
-
+<?php
             foreach ($donnees["modeles"] as $modele) {
-        ?>
+?>
                 <tr>
-                    <td><?= $modele->getId() ?></td>
-                    <td><?= $modele->getNom() ?></td>
-                    <td><?= $modele->getIdMarque() ?></td>
-                    <td><?= ($modele->getDisponibilite() == true)? $langue["texte_oui"] : "" ?></td>
-                    <td><button data-js-modifier data-js-id=<?= $modele->getId() ?>><?= $langue["button_modifier"] ?></button></td>
+                    <td><?= $modele["id"] ?></td>
+                    <td><?= $modele["nom"] ?></td>
+                    <td><?= $modele["nomMarque"] ?></td>
+                    <td><?= ($modele["disponibilite"] == true)? $langue["texte_oui"] : "" ?></td>
+                    <td><button data-js-modifier data-js-id=<?= $modele["id"] ?>><?= $langue["button_modifier"] ?></button></td>
                 </tr>                 
-        <?php
+<?php
             }
-        ?>
+?>
             </tbody>
         </table>
         <button class="bouton" data-js-ajouter><?= $langue["button_ajouter"] ?></button>

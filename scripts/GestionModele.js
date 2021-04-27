@@ -25,14 +25,6 @@ class GestionModele {
             this.modifierModele(0);
         });
 
-        //Brancher le gestionnaire click sur les bouttons Supprimer
-        /*for (let i = 0, l = this._elsBtnSupprimer.length; i < l; i++) {
-            this._elsBtnSupprimer[i].addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                console.log(e.target.dataset.jsId);
-            });
-        }*/
     }
 
     modifierModele = (id) => {

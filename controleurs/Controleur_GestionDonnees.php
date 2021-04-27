@@ -32,31 +32,13 @@
 						$donnees["marques"] = $modeleMarque->obtenirTous();
 						$this->afficheVue("gestionMarque", $donnees);
 						break;
-					case "sauvegarderMarque":
-						if (isset($params["id"]) && isset($params["nom"])) {
-							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
-							else $params["disponibilite"] = 0;
-							$modeleMarque = $this->obtenirDAO("Marque");
-							$nouvelleMarque = new Marque($params["id"], $params["nom"], $params["disponibilite"]);
-							var_dump($nouvelleMarque);
-							$reponse = $modeleMarque->sauvegarder($nouvelleMarque);
-							//header("Location: index.php?GestionDonnees&action=gestionMarque");
-							// Comme la redirection php ne fonctionne pas puisque le menu active le JS
-							// on est obligé d'utiliser la redirection JS à la place
-?>
-							<script> location.replace("index.php?GestionDonnees&action=gestionMarque"); </script>
-<?php							
-						} else { // Sinon, on affiche le formulaire pour l'ajout
-							$this->afficheVue("formulaireMarque", $donnees);
-						}
+					// Affichage de la liste des modèles
+					case "gestionModele":
+						$this->afficheVue("listeDonnees", $donnees);
+						$modeleModele = $this->obtenirDAO("Modele");
+						$donnees["modeles"] = $modeleModele->obtenirTousAvecMarque();
+						$this->afficheVue("gestionModele", $donnees);
 						break;
-						// Affichage de la liste des modèles
-						case "gestionModele":
-							$this->afficheVue("listeDonnees", $donnees);
-							$modeleMarque = $this->obtenirDAO("Modele");
-							$donnees["modeles"] = $modeleMarque->obtenirTous();
-							$this->afficheVue("gestionModele", $donnees);
-							break;
 				}			
 			} else {
 				// Action par défaut

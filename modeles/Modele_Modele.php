@@ -22,6 +22,17 @@
             return "";
         }
 
+        // Permet d'obtenir toutes les modèles avec l'information à propos de la marque
+        public function obtenirTousAvecMarque() {
+            $requete = "SELECT marque.nom AS nomMarque, marque.id AS idMarque, modele.id, modele.nom, modele.disponibilite
+                        FROM modele
+                        JOIN marque ON modele.idMarque = marque.id
+                        ORDER BY modele.id";
+            $requetePreparee = $this->db->prepare($requete);
+            $requetePreparee->execute(); 
+            return $requetePreparee->fetchAll();   
+        }
+
         // Permet de sauvegarder la modele dans la base de données
         public function sauvegarder(Modele $laModele) {
             // Est-ce que la modele que j'essaie de sauvegarder existe déjà (id différent de zéro)
@@ -45,7 +56,7 @@
                 // Ajout d'une nouvelle modele
                 $requete = "INSERT INTO modele(nom, idMarque) VALUES (:n, :idM)";
                 $requetePreparee = $this->db->prepare($requete);
-                $nom             = $laMarque->getNom();
+                $nom             = $laModele->getNom();
                 $idMarque        = $laModele->getIdMarque();
                 $requetePreparee->bindParam(":n", $nom);
                 $requetePreparee->bindParam(":idM", $idMarque);
