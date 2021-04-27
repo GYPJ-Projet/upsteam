@@ -2,5 +2,6 @@ const classMapping = {
     'MenuConteneur'         : MenuConteneur,
     'GestionMarque'         : GestionMarque,
     'VoirPlus'              : VoirPlus,
-    'Voiture'               : Voiture
+    'Voiture'               : Voiture,
+    'GestionModele'         : GestionModele
 };

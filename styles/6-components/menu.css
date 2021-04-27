@@ -30,7 +30,6 @@
 }
 
 .iconeBurger{
-    height: 30px;
-    width: 30px;
+    margin-left: var(--margeSection);
     fill: var(--gris);
 }

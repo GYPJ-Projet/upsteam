@@ -20,6 +20,7 @@
 	<script type="text/javascript" src="./scripts/Voiture.js"></script>
 	<script type="text/javascript" src="./scripts/VoirPlus.js"></script>
 	<script type="text/javascript" src="./scripts/GestionMarque.js"></script>
+	<script type="text/javascript" src="./scripts/GestionModele.js"></script>
 	<script type="text/javascript" src="./scripts/MenuConteneur.js"></script>
 	<script type="text/javascript" src="./scripts/classMapping.js"></script>
 	<script type="text/javascript" src="./scripts/script.js"></script>
