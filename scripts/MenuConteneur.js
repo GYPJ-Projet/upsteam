@@ -6,6 +6,7 @@ class MenuConteneur{
         this._menuGestionDonnees =      this._element.querySelector('[data-js-menuGestionDonnees]');
         this._menuGestionEmployes =     this._element.querySelector('[data-js-menuGestionEmployes]');
         this._menuGestionCommandes =    this._element.querySelector('[data-js-menuGestionCommandes]');
+        this._iconeBurger2 =             document.querySelector('svg');
         this._iconeBurger =             document.querySelector('[data-js-iconeBurger]');
 
         this.init();
@@ -33,7 +34,7 @@ class MenuConteneur{
     }
 
     menuMonProfil = () =>{
-        window.location.href = 'index.php?Usager';
+        window.location = 'index.php?Usager';
     }
 
     menuGestionDonnees = () =>{
@@ -54,6 +55,7 @@ class MenuConteneur{
     displayWindowSize = () =>{
         // if(window.innerWidth <= 414 && this._iconeBurger.classList.contains('cacher')){
         if(window.innerWidth <= 414){
+            console.log('test');
             this._iconeBurger.classList.remove('cacher');
             this._element.classList.add('burger');
             this._element.classList.add('cacher');
@@ -71,10 +73,10 @@ class MenuConteneur{
      * clique sur un bouton.
      */
     boutonBurger = ()=>{
-         if(this._element.classList.contains('cacher')){
-            this._element.classList.remove('cacher');
-         }else{
-            this._element.classList.add('cacher');
-         }
+        if(this._element.classList.contains('cacher')){
+        this._element.classList.remove('cacher');
+        }else{
+        this._element.classList.add('cacher');
+        }
     }
 }

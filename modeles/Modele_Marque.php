@@ -7,6 +7,11 @@
 			return "marque";
 		}
 
+		// Méthode qui retourne le nom de l'instance correspondant à ce modèle.
+		public function getNomInstance() {
+			return "Marque";
+		}
+
         // Permet à l'instance de dire la clé primaire (ou composé, s'il y en a 2 ou plus) 
 		// de la table retrouné par la 
 		public function getClePrimaire1() {
@@ -47,6 +52,22 @@
                 $requetePreparee->bindParam(":idS", $idSujet);
                 $requetePreparee->execute();*/
             }
+        }
+
+        /**
+         * Obtient la liste de tout les marques
+         */
+        public function obtenirToutMarqueDispo(){
+            try {
+				$requete = "SELECT nom FROM marque WHERE disponibilite = 1 ORDER BY nom";
+				$requetePreparee = $this->db->prepare($requete);
+				$requetePreparee->execute();
+				return $requetePreparee->fetchAll();
+			}
+			catch(Exception $exc) {
+				return 0;
+			}
+        
         }
     }
 ?>

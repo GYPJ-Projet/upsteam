@@ -1,0 +1,916 @@
+
+
+26-04-2021 09:48:19
+
+
+26-04-2021 09:48:21
+
+
+26-04-2021 09:48:59
+
+
+26-04-2021 09:49:59
+Array
+(
+    [langue] => Array
+        (
+            [idLangue] => 1
+            [entete_choix_langue] => EN
+            [menu_accueil] => Accueil
+            [profil] => Mon Profil
+            [donnees] => Donnees
+            [employes] => Employes
+            [commandes] => Commandes
+            [pdp_contact] => Contactez-nous
+            [bouton_retour] => Retour
+            [bouton_continuer] => Continuer
+            [bouton_panier] => Ajout au panier
+            [bouton_annuler] => Annuler
+            [kilometrage] => Kilom&eacute;trage
+            [transmission] => Transmission
+            [motopropulseur] => Groupe motopropulseur
+            [carburant] => Carburant
+            [habitacle] => Habitacle
+            [prix] => Prix
+        )
+
+)
+
+
+26-04-2021 09:51:12
+Array
+(
+    [langue] => Array
+        (
+            [idLangue] => 1
+            [entete_choix_langue] => EN
+            [menu_accueil] => Accueil
+            [profil] => Mon Profil
+            [donnees] => Donnees
+            [employes] => Employes
+            [commandes] => Commandes
+            [pdp_contact] => Contactez-nous
+            [bouton_retour] => Retour
+            [bouton_continuer] => Continuer
+            [bouton_panier] => Ajout au panier
+            [bouton_annuler] => Annuler
+            [kilometrage] => Kilom&eacute;trage
+            [transmission] => Transmission
+            [motopropulseur] => Groupe motopropulseur
+            [carburant] => Carburant
+            [habitacle] => Habitacle
+            [prix] => Prix
+        )
+
+)
+
+
+26-04-2021 09:51:26
+Array
+(
+    [langue] => Array
+        (
+            [idLangue] => 1
+            [entete_choix_langue] => EN
+            [menu_accueil] => Accueil
+            [profil] => Mon Profil
+            [donnees] => Données
+            [employes] => Employes
+            [commandes] => Commandes
+            [pdp_contact] => Contactez-nous
+            [bouton_retour] => Retour
+            [bouton_continuer] => Continuer
+            [bouton_panier] => Ajout au panier
+            [bouton_annuler] => Annuler
+            [kilometrage] => Kilom&eacute;trage
+            [transmission] => Transmission
+            [motopropulseur] => Groupe motopropulseur
+            [carburant] => Carburant
+            [habitacle] => Habitacle
+            [prix] => Prix
+        )
+
+)
+
+
+26-04-2021 09:51:30
+Array
+(
+    [langue] => Array
+        (
+            [idLangue] => 1
+            [entete_choix_langue] => EN
+            [menu_accueil] => Accueil
+            [profil] => Mon Profil
+            [donnees] => Données
+            [employes] => Employes
+            [commandes] => Commandes
+            [pdp_contact] => Contactez-nous
+            [bouton_retour] => Retour
+            [bouton_continuer] => Continuer
+            [bouton_panier] => Ajout au panier
+            [bouton_annuler] => Annuler
+            [kilometrage] => Kilom&eacute;trage
+            [transmission] => Transmission
+            [motopropulseur] => Groupe motopropulseur
+            [carburant] => Carburant
+            [habitacle] => Habitacle
+            [prix] => Prix
+        )
+
+)
+
+
+26-04-2021 10:21:26
+Array
+(
+    [idLangue] => 1
+    [entete_choix_langue] => EN
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulstion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+)
+
+
+26-04-2021 04:45:56
+
+
+26-04-2021 04:48:19
+Modele_Marque Object
+(
+    [classe:Modele_Marque:private] => Marque
+    [db:protected] => PDO Object
+        (
+        )
+
+)
+
+
+26-04-2021 04:53:38
+Modele_Marque Object
+(
+    [classe:Modele_Marque:private] => Marque
+    [db:protected] => PDO Object
+        (
+        )
+
+)
+
+
+26-04-2021 04:54:25
+$modeleToutModele
+Modele_Marque Object
+(
+    [classe:Modele_Marque:private] => Marque
+    [db:protected] => PDO Object
+        (
+        )
+
+)
+
+26-04-2021 04:54:25
+$modeleVoiture
+Modele_Voiture Object
+(
+    [db:protected] => PDO Object
+        (
+        )
+
+)
+
+26-04-2021 04:54:28
+$modeleToutModele
+Modele_Marque Object
+(
+    [classe:Modele_Marque:private] => Marque
+    [db:protected] => PDO Object
+        (
+        )
+
+)
+
+26-04-2021 04:54:28
+$modeleVoiture
+Modele_Voiture Object
+(
+    [db:protected] => PDO Object
+        (
+        )
+
+)
+
+26-04-2021 04:56:42
+$modeleToutModele
+Modele_Marque Object
+(
+    [classe:Modele_Marque:private] => Marque
+    [db:protected] => PDO Object
+        (
+        )
+
+)
+
+26-04-2021 04:56:42
+$modeleVoiture
+Modele_Voiture Object
+(
+    [db:protected] => PDO Object
+        (
+        )
+
+)
+
+26-04-2021 04:56:42
+$donnees["toutesMarques"]
+0
+26-04-2021 04:58:23
+$modeleToutModele
+Modele_Marque Object
+(
+    [classe:Modele_Marque:private] => Marque
+    [db:protected] => PDO Object
+        (
+        )
+
+)
+
+26-04-2021 04:58:23
+$modeleVoiture
+Modele_Voiture Object
+(
+    [db:protected] => PDO Object
+        (
+        )
+
+)
+
+26-04-2021 04:58:23
+$donnees["toutesMarques"]
+Array
+(
+    [0] => Array
+        (
+            [nom] => Chevrolet
+            [0] => Chevrolet
+        )
+
+    [1] => Array
+        (
+            [nom] => Dodge
+            [0] => Dodge
+        )
+
+    [2] => Array
+        (
+            [nom] => Ford
+            [0] => Ford
+        )
+
+    [3] => Array
+        (
+            [nom] => GMC
+            [0] => GMC
+        )
+
+    [4] => Array
+        (
+            [nom] => Honda
+            [0] => Honda
+        )
+
+    [5] => Array
+        (
+            [nom] => Hyundai
+            [0] => Hyundai
+        )
+
+    [6] => Array
+        (
+            [nom] => Jeep
+            [0] => Jeep
+        )
+
+    [7] => Array
+        (
+            [nom] => Kia
+            [0] => Kia
+        )
+
+    [8] => Array
+        (
+            [nom] => Mazda
+            [0] => Mazda
+        )
+
+    [9] => Array
+        (
+            [nom] => Mercedes
+            [0] => Mercedes
+        )
+
+    [10] => Array
+        (
+            [nom] => Nissan
+            [0] => Nissan
+        )
+
+    [11] => Array
+        (
+            [nom] => Ram
+            [0] => Ram
+        )
+
+    [12] => Array
+        (
+            [nom] => Toyota
+            [0] => Toyota
+        )
+
+    [13] => Array
+        (
+            [nom] => Volkswagen
+            [0] => Volkswagen
+        )
+
+)
+
+26-04-2021 05:00:33
+Array
+(
+    [0] => Array
+        (
+            [nom] => Chevrolet
+            [0] => Chevrolet
+        )
+
+    [1] => Array
+        (
+            [nom] => Dodge
+            [0] => Dodge
+        )
+
+    [2] => Array
+        (
+            [nom] => Ford
+            [0] => Ford
+        )
+
+    [3] => Array
+        (
+            [nom] => GMC
+            [0] => GMC
+        )
+
+    [4] => Array
+        (
+            [nom] => Honda
+            [0] => Honda
+        )
+
+    [5] => Array
+        (
+            [nom] => Hyundai
+            [0] => Hyundai
+        )
+
+    [6] => Array
+        (
+            [nom] => Jeep
+            [0] => Jeep
+        )
+
+    [7] => Array
+        (
+            [nom] => Kia
+            [0] => Kia
+        )
+
+    [8] => Array
+        (
+            [nom] => Mazda
+            [0] => Mazda
+        )
+
+    [9] => Array
+        (
+            [nom] => Mercedes
+            [0] => Mercedes
+        )
+
+    [10] => Array
+        (
+            [nom] => Nissan
+            [0] => Nissan
+        )
+
+    [11] => Array
+        (
+            [nom] => Ram
+            [0] => Ram
+        )
+
+    [12] => Array
+        (
+            [nom] => Toyota
+            [0] => Toyota
+        )
+
+    [13] => Array
+        (
+            [nom] => Volkswagen
+            [0] => Volkswagen
+        )
+
+)
+
+
+26-04-2021 05:04:40
+Array
+(
+    [0] => Array
+        (
+            [nom] => Dodge
+            [0] => Dodge
+        )
+
+    [1] => Array
+        (
+            [nom] => Ford
+            [0] => Ford
+        )
+
+    [2] => Array
+        (
+            [nom] => GMC
+            [0] => GMC
+        )
+
+    [3] => Array
+        (
+            [nom] => Honda
+            [0] => Honda
+        )
+
+    [4] => Array
+        (
+            [nom] => Hyundai
+            [0] => Hyundai
+        )
+
+    [5] => Array
+        (
+            [nom] => Jeep
+            [0] => Jeep
+        )
+
+    [6] => Array
+        (
+            [nom] => Kia
+            [0] => Kia
+        )
+
+    [7] => Array
+        (
+            [nom] => Mazda
+            [0] => Mazda
+        )
+
+    [8] => Array
+        (
+            [nom] => Mercedes
+            [0] => Mercedes
+        )
+
+    [9] => Array
+        (
+            [nom] => Nissan
+            [0] => Nissan
+        )
+
+    [10] => Array
+        (
+            [nom] => Ram
+            [0] => Ram
+        )
+
+    [11] => Array
+        (
+            [nom] => Toyota
+            [0] => Toyota
+        )
+
+    [12] => Array
+        (
+            [nom] => Volkswagen
+            [0] => Volkswagen
+        )
+
+)
+
+
+26-04-2021 08:44:43
+Array
+(
+    [0] => Array
+        (
+            [nom] => Escape
+            [0] => Escape
+        )
+
+    [1] => Array
+        (
+            [nom] => Ranger
+            [0] => Ranger
+        )
+
+    [2] => Array
+        (
+            [nom] => Civic
+            [0] => Civic
+        )
+
+    [3] => Array
+        (
+            [nom] => Odyssey
+            [0] => Odyssey
+        )
+
+    [4] => Array
+        (
+            [nom] => Accent
+            [0] => Accent
+        )
+
+    [5] => Array
+        (
+            [nom] => Elantra
+            [0] => Elantra
+        )
+
+    [6] => Array
+        (
+            [nom] => Santa Fe
+            [0] => Santa Fe
+        )
+
+    [7] => Array
+        (
+            [nom] => Forte
+            [0] => Forte
+        )
+
+    [8] => Array
+        (
+            [nom] => Optima
+            [0] => Optima
+        )
+
+    [9] => Array
+        (
+            [nom] => Sedona
+            [0] => Sedona
+        )
+
+    [10] => Array
+        (
+            [nom] => Benz-CLA250
+            [0] => Benz-CLA250
+        )
+
+    [11] => Array
+        (
+            [nom] => Micra
+            [0] => Micra
+        )
+
+    [12] => Array
+        (
+            [nom] => Sentra
+            [0] => Sentra
+        )
+
+    [13] => Array
+        (
+            [nom] => Versa_Note
+            [0] => Versa_Note
+        )
+
+    [14] => Array
+        (
+            [nom] => Rogue
+            [0] => Rogue
+        )
+
+    [15] => Array
+        (
+            [nom] => Pathfinder
+            [0] => Pathfinder
+        )
+
+    [16] => Array
+        (
+            [nom] => Rav4
+            [0] => Rav4
+        )
+
+    [17] => Array
+        (
+            [nom] => Sienna
+            [0] => Sienna
+        )
+
+    [18] => Array
+        (
+            [nom] => Jetta
+            [0] => Jetta
+        )
+
+    [19] => Array
+        (
+            [nom] => Routan
+            [0] => Routan
+        )
+
+    [20] => Array
+        (
+            [nom] => Compass
+            [0] => Compass
+        )
+
+    [21] => Array
+        (
+            [nom] => Gladiator
+            [0] => Gladiator
+        )
+
+    [22] => Array
+        (
+            [nom] => Journey
+            [0] => Journey
+        )
+
+    [23] => Array
+        (
+            [nom] => Grand Caravan
+            [0] => Grand Caravan
+        )
+
+    [24] => Array
+        (
+            [nom] => CX-3
+            [0] => CX-3
+        )
+
+    [25] => Array
+        (
+            [nom] => CX-5
+            [0] => CX-5
+        )
+
+    [26] => Array
+        (
+            [nom] => 2500
+            [0] => 2500
+        )
+
+    [27] => Array
+        (
+            [nom] => 3500
+            [0] => 3500
+        )
+
+    [28] => Array
+        (
+            [nom] => Sierra 3500
+            [0] => Sierra 3500
+        )
+
+    [29] => Array
+        (
+            [nom] => Canyon
+            [0] => Canyon
+        )
+
+)
+
+
+26-04-2021 08:47:54
+Array
+(
+    [0] => Array
+        (
+            [nom] => Escape
+            [0] => Escape
+        )
+
+    [1] => Array
+        (
+            [nom] => Ranger
+            [0] => Ranger
+        )
+
+    [2] => Array
+        (
+            [nom] => Civic
+            [0] => Civic
+        )
+
+    [3] => Array
+        (
+            [nom] => Odyssey
+            [0] => Odyssey
+        )
+
+    [4] => Array
+        (
+            [nom] => Accent
+            [0] => Accent
+        )
+
+    [5] => Array
+        (
+            [nom] => Elantra
+            [0] => Elantra
+        )
+
+    [6] => Array
+        (
+            [nom] => Santa Fe
+            [0] => Santa Fe
+        )
+
+    [7] => Array
+        (
+            [nom] => Forte
+            [0] => Forte
+        )
+
+    [8] => Array
+        (
+            [nom] => Optima
+            [0] => Optima
+        )
+
+    [9] => Array
+        (
+            [nom] => Sedona
+            [0] => Sedona
+        )
+
+    [10] => Array
+        (
+            [nom] => Benz-CLA250
+            [0] => Benz-CLA250
+        )
+
+    [11] => Array
+        (
+            [nom] => Micra
+            [0] => Micra
+        )
+
+    [12] => Array
+        (
+            [nom] => Sentra
+            [0] => Sentra
+        )
+
+    [13] => Array
+        (
+            [nom] => Versa_Note
+            [0] => Versa_Note
+        )
+
+    [14] => Array
+        (
+            [nom] => Rogue
+            [0] => Rogue
+        )
+
+    [15] => Array
+        (
+            [nom] => Pathfinder
+            [0] => Pathfinder
+        )
+
+    [16] => Array
+        (
+            [nom] => Rav4
+            [0] => Rav4
+        )
+
+    [17] => Array
+        (
+            [nom] => Sienna
+            [0] => Sienna
+        )
+
+    [18] => Array
+        (
+            [nom] => Jetta
+            [0] => Jetta
+        )
+
+    [19] => Array
+        (
+            [nom] => Routan
+            [0] => Routan
+        )
+
+    [20] => Array
+        (
+            [nom] => Compass
+            [0] => Compass
+        )
+
+    [21] => Array
+        (
+            [nom] => Gladiator
+            [0] => Gladiator
+        )
+
+    [22] => Array
+        (
+            [nom] => Journey
+            [0] => Journey
+        )
+
+    [23] => Array
+        (
+            [nom] => Grand Caravan
+            [0] => Grand Caravan
+        )
+
+    [24] => Array
+        (
+            [nom] => CX-3
+            [0] => CX-3
+        )
+
+    [25] => Array
+        (
+            [nom] => CX-5
+            [0] => CX-5
+        )
+
+    [26] => Array
+        (
+            [nom] => 2500
+            [0] => 2500
+        )
+
+    [27] => Array
+        (
+            [nom] => 3500
+            [0] => 3500
+        )
+
+    [28] => Array
+        (
+            [nom] => Sierra 3500
+            [0] => Sierra 3500
+        )
+
+    [29] => Array
+        (
+            [nom] => Canyon
+            [0] => Canyon
+        )
+
+)
+
+

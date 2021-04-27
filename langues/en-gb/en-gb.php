@@ -12,7 +12,11 @@ $langue['entete_choix_langue']   = 'FR';
 
 
 // menu
-$langue['menu_accueil']          = 'Home';
+$langue['menu_accueil']         = 'Home';
+$langue['profil']               = 'User Profile';
+$langue['donnees']              = 'Data';
+$langue['employes']             = 'Employee';
+$langue['commandes']            = 'Orders';
 
 
 
