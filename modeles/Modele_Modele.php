@@ -24,6 +24,7 @@
 
         // Permet d'obtenir toutes les modèles avec l'information à propos de la marque
         public function obtenirTousAvecMarque() {
+
             try {
                 $requete = "SELECT marque.nom AS nomMarque, marque.id AS idMarque, modele.id, modele.nom, modele.disponibilite
                             FROM modele
@@ -33,10 +34,11 @@
                 $requetePreparee->execute(); 
                 return $requetePreparee->fetchAll();
             }
-			catch(Exception $exc) {
+			  catch(Exception $exc) {
 				return 0;
 			}   
-        }
+
+      }
 
         // Permet de sauvegarder la modele dans la base de données
         public function sauvegarder(Modele $laModele) {

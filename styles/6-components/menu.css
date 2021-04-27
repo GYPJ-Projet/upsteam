@@ -1,6 +1,4 @@
 .menuConteneur {
-    font-family: var(--orbitron);
-    font-size: var(--police_taille_h2Plus);
     color: var(--grisPale);
     background-color: var(--gris);
     border-bottom: solid 20px var(--cle);
@@ -21,6 +19,10 @@
     
     padding-left: var(--paddingMenu);
     padding-right: var(--paddingMenu);
+}
+.menuContenu>p{
+    font-family: var(--orbitron);
+    font-size: var(--police_taille_h2Plus);
 }
 
 .menuContenu:hover{
