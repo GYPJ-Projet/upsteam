@@ -1,48 +1,63 @@
 
 .voiture {
-    border: 1px solid white;
-}
+    box-sizing: border-box;
+    border: var(--bordure) solid var(--blanc);
+    padding-bottom: 1.5625vw;
+} 
 
 .voiture * {
     margin: 0;
-    background-color: white;
-    
+    padding: 0;
+    background-color: var(--blanc);
+    color: var(--noir);
+    font-family: var(--openSans);
+    font-size:   var(--police_taille_texte);
+    font-weight: var(--police_poid_normal);
 }
+
+.voiture > h2 {
+    font-family: var(--orbitron);
+    font-size:   var(--police_taille_h2Plus);
+    font-weight: var(--police_poid_gras); 
+    width: 100%;  
+    text-align: center;
+}
+
 
 .voiture > img {
-    padding-top: 20px;
-    display: block;
+    padding-top: 1.5625vw;
+    max-width: calc(100% - var(--paddingVoiture));
     margin-left: auto;
     margin-right: auto;
-    transition: transform .2s; /* Animation */
+
+} 
+
+.voiture > h2,
+.voiture > div {
+    padding-top: 1.5625vw;
 }
 
-.voiture > h5,
-.voiture > h4{
-    padding-top: 20px;
-    padding-left: 25px;
+.voiture div {
+    display: flex;  
+    justify-content: space-between;
+    width: calc(100% - var(--paddingVoiture));
+    margin-left: calc(var(--paddingVoiture)/2);
+} 
+
+
+.voiture  .valeur {
+    color: var(--bleu);
 }
 
-article.disabled,
-.voiture.disabled {
-    opacity: 0.5;
-    color: #666666;
-    pointer-events: none;
-    cursor: not-allowed;
-}
 
 .voiture:hover {
     box-sizing: border-box;
-    border: 1px solid #008080;
+    border: var(--bordure) solid var(--cle);
     cursor: pointer;
-}
-
-.voiture.disabled:hover {
-    border: none;
 }
 
 .voiture:active {
     transform: scale(0.98);
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-  }
+    box-shadow: var(--bordure) 2px 22px var(--bordureInterne) rgba(0, 0, 0, 0.24);
+}
 

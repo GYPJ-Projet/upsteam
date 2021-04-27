@@ -38,9 +38,9 @@
                 mkdir("./logs");
             }
 
-            $fp = fopen("logs/Debug_log.txt", 'w');
-            fwrite($fp, "");
-            fclose($fp);
+            $log_file = fopen("logs/Debug_log.txt", 'w');
+            fwrite($log_file, "");
+            fclose($log_file);
         }
         
     }
