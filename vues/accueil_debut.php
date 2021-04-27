@@ -4,7 +4,7 @@
 
 <body >
     <div class="bodyConteneur" data-js-bodyConteneur>
-        <aside class="filtre">
+        <aside class="filtreConteneur">
             <form class="formConteneur" action="">
 
                 <!-- TITRE -->
@@ -14,7 +14,7 @@
                 
                 <!-- PRIX -->
                 <div class="filtreSection">
-                    <p class="titreSection"><?=$langue["filtreFiltres"]?></p>
+                    <p class="titreSection"><?=$langue["filtrePrix"]?></p>
                     <select class="sousMenuContenue filtreInputColor" name="" id="">
                         <option value="null"><?=$langue["filtreChoisirPrix"]?></option>
                         <option value=""><?=$langue["filtrePrix0_1500"]?></option>
@@ -30,7 +30,7 @@
                 <!-- MARQUE -->
                 <div class="filtreSection grille_voitures">
                     <p class="titreSection"><?=$langue["filtreMarque"]?></p>
-                    <div class="grille grille--2 liste">
+                    <div class="grilleListe grilleListe--2">
 <?php
                     foreach($donnees["toutesMarquesDispo"] as $marque){
 ?>  
@@ -45,9 +45,9 @@
                 </div>
                 
                 <!-- MODELE -->
-                <div class="filtreSection grille_voitures">
+                <div class="filtreSection">
                     <p class="titreSection"><?=$langue["filtreModele"]?></p>
-                    <div class="grille grille--2 liste">
+                    <div class="grilleListe grilleListe--2">
 <?php
                     foreach($donnees["toutesModeleDispo"] as $modele){
 ?>  
@@ -108,7 +108,7 @@
                 <!-- CARROSERIE -->
                 <div class="filtreSection">
                     <p class="titreSection"><?=$langue["filtreCarroserie"]?></p>
-                    <div class="grille grille--2 liste">
+                    <div class="grilleListe grilleListe--2">
 <?php
                     foreach($donnees["toutesCarrosserieDispo"] as $carrosserie){
 ?>  
@@ -155,7 +155,7 @@
 
                 <!-- FILTRER -->
                 <div class="filtreSection filtreSectionBottom sousMenuConteneur">
-                    <button><?=$langue["filtreFiltrer"]?></button>
+                    <button class="bouton"><?=$langue["filtreFiltrer"]?></button>
                 </div>
 
             </form>

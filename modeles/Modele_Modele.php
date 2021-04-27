@@ -30,7 +30,7 @@
                         ORDER BY modele.id";
             $requetePreparee = $this->db->prepare($requete);
             $requetePreparee->execute(); 
-            return $requetePreparee->fetchAll();   
+            return $requetePreparee->fetchAll();
         }
 
         // Permet de sauvegarder la modele dans la base de données
