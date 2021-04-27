@@ -39,6 +39,13 @@
 						$donnees["modeles"] = $modeleModele->obtenirTousAvecMarque();
 						$this->afficheVue("gestionModele", $donnees);
 						break;
+					// Affichage de la liste des couleurs
+					case "gestionCouleur":
+						$this->afficheVue("listeDonnees", $donnees);
+						$modeleMarque = $this->obtenirDAO("Couleur");
+						$donnees["couleurs"] = $modeleMarque->obtenirTousAvecLangues();
+						$this->afficheVue("gestionCouleur", $donnees);
+						break;
 				}			
 			} else {
 				// Action par défaut
