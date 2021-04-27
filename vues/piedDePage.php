@@ -31,9 +31,9 @@
             </h3>
             <div>
                 <p>
-                    <a href="https://www.facebook.com/"><img src="icones/facebook" alt="facebook" width="40px"height="30px">Facebook</a></br>
-                    <a href="https://twitter.com/"><img src="icones/twiter.png" alt="twiter" width="40px"height="30px">Twiter</a></br>
-                    <a href="https://www.instagram.com/"><img src="icones/instagram.png" alt="instagram" width="40px"height="30px">Instagram</a></br>
+                    <a href="https://www.facebook.com/"><img src="images/icones/facebook" alt="facebook" width="40px"height="30px">Facebook</a></br>
+                    <a href="https://twitter.com/"><img src="images/icones/twiter.png" alt="twiter" width="40px"height="30px">Twiter</a></br>
+                    <a href="https://www.instagram.com/"><img src="images/icones/instagram.png" alt="instagram" width="40px"height="30px">Instagram</a></br>
                 </p>
             </div>              
         </section>        

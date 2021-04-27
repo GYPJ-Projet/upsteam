@@ -8,7 +8,11 @@ $langue['texte_oui']             = 'Yes';
 $langue['texte_non']             = 'No';
 
 // entete
+$langue['entete_recherche']      = 'search';
+$langue['entete_connexion']      = 'Login';
+$langue['entete_connexion']      = 'Logout';
 $langue['entete_choix_langue']   = 'FR';
+
 
 
 
@@ -20,6 +24,15 @@ $langue['menu_accueil']          = 'Home';
 
 // Pied De Page (pdp)
 $langue['pdp_contact']          = 'Contact us';
+$langue['pdp_téléphone']        = 'Telephone';
+$langue['pdp_courriel']         = 'E-mail';
+$langue['pdp_heures']           = 'HOURS';
+$langue['pdp_lundi']            = 'Monday';
+$langue['pdp_vendrdi']          = 'Friday';
+$langue['pdp_samedi']           = 'Saturday';
+$langue['pdp_dimanche']         = 'Sunday';
+$langue['pdp_partager']         = 'SHARE';
+
 
 
 

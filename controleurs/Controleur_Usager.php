@@ -21,9 +21,9 @@
             $donnees["langue"] = $this->chargerLangue($params);
 
             $this->afficheVue("tete");
-			$this->afficheVue("entete");
-            $this->afficheVue("menu");
-
+			$this->afficheVue("entete", $donnees);
+            $this->afficheVue("menu", $donnees);
+			
             //détermine la vue, remplir le modèle approprié
             switch($action) {
                 case "login":
