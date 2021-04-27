@@ -1,12 +1,21 @@
 <?php
     class Controleur_GestionDonnees_AJAX extends BaseControleur {
     
-        // La fonction qui sera appelée par le routeur
+        public function getNomControleur() {
+            return "GestionDonnees";
+        }
+
+		// La fonction qui sera appelée par le routeur
 		public function traite(array $params) {
 			
 			// Initialisation des donnees a un tableau vide par défaut
 			$donnees = array();
 			
+			// On charge les fichiers de langue selon la langue choisi par l'usager.
+			$donnees["langue"] = $this->chargerLangue($params);
+
+			$idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
+
 			if (isset($params["action"])) {
 
 				// Switch en fonction de l'action qui est envoyée en paramètre de la requête
@@ -18,7 +27,6 @@
 						if (isset($params["id"])) {
 							$modeleMarque = $this->obtenirDAO("Marque");
 							$donnees["marque"] = $modeleMarque->obtenirParId($params["id"]);
-							$donnees["titreFormulaire"] = "Modification de Marque";
 							$this->afficheVue("formulaireMarque", $donnees);
 						} else { // Sinon, on affiche le formulaire pour l'ajout
 							$this->afficheVue("formulaireMarque", $donnees);
