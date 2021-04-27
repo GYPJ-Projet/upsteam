@@ -3,8 +3,8 @@
     if ($donnees["marque"]) $marque = $donnees["marque"];
 ?>
 
-<h2><?= (isset($marque)) ? $langue["formulaire_modif"] : $langue["formulaire_ajout"] ?></h2>
-<form class="formulaire" action="index.php?GestionDonnees&action=sauvegarderMarque" method="post">
+<h2><?= (isset($marque)) ? $langue["formulaire_modif_marque"] : $langue["formulaire_ajout_marque"] ?></h2>
+<form class="formulaire" action="index.php?GestionDonnees_AJAX&action=sauvegarderMarque" method="post">
     <label for="nom"><?= $langue["nom_marque"] ?> : </label>
     <input type="text" name="nom" id="nom" value="<?= (isset($marque)) ? $marque->getNom() : "" ?>"/><br/>
 <?php
@@ -17,5 +17,5 @@
 ?>
     
     <input type="hidden" name="id" value="<?= (isset($marque)) ? $marque->getId() : 0 ?>"/><br/>
-    <input type="submit" value="<?= $langue['button_soumettre'] ?>"/>
+    <input class="bouton" type="submit" value="<?= $langue['button_soumettre'] ?>"/>
 </form>

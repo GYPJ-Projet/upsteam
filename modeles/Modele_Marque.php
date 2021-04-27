@@ -1,6 +1,5 @@
 <?php
     class Modele_Marque extends BaseDAO {
-        private $classe = "Marque";
 
         // Permet à l'instance de dire dans quelle table de la BD elle doit aller chercher les données
 		public function getNomTable() {
@@ -31,9 +30,9 @@
                 // Mise à jour de la marque 
                 $requete = "UPDATE marque SET nom = :n, disponibilite = :d WHERE id = :i";
                 $requetePreparee = $this->db->prepare($requete);
-                $id            = $laMarque->getId(); 
-                $nom           = $laMarque->getNom();
-                $disponibilite = $laMarque->getDisponibilite();
+                $id              = $laMarque->getId(); 
+                $nom             = $laMarque->getNom();
+                $disponibilite   = $laMarque->getDisponibilite();
                 $requetePreparee->bindParam(":i", $id);
                 $requetePreparee->bindParam(":n", $nom);
                 $requetePreparee->bindParam(":d", $disponibilite);
@@ -44,6 +43,7 @@
                 // Ajout d'une nouvelle marque
                 $requete = "INSERT INTO marque(nom) VALUES (:n)";
                 $requetePreparee = $this->db->prepare($requete);
+                $nom             = $laMarque->getNom();
                 $requetePreparee->bindParam(":n", $nom);
                 $requetePreparee->execute();
             }

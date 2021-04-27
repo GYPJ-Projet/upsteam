@@ -22,6 +22,8 @@
             return "";
         }
 
+
+
         // Permet de sauvegarder la modele dans la base de données
         public function sauvegarder(Modele $laModele) {
             // Est-ce que la modele que j'essaie de sauvegarder existe déjà (id différent de zéro)
@@ -45,13 +47,16 @@
                 // Ajout d'une nouvelle modele
                 $requete = "INSERT INTO modele(nom, idMarque) VALUES (:n, :idM)";
                 $requetePreparee = $this->db->prepare($requete);
-                $nom             = $laMarque->getNom();
+
+                $nom             = $laModele->getNom();
+
                 $idMarque        = $laModele->getIdMarque();
                 $requetePreparee->bindParam(":n", $nom);
                 $requetePreparee->bindParam(":idM", $idMarque);
                 $requetePreparee->execute();
             }
         }
+
 
                 /**
          * Obtient la liste de tout les modèles
@@ -71,5 +76,6 @@
 			}
         
         }
+
     }
 ?>
