@@ -1,0 +1,89 @@
+*{
+    margin:0;
+    font-family: var(--openSans);
+}
+
+.formConteneur{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-basis: 15%;
+}
+
+.listeConteneur{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--grisPale);
+    padding :1vw;
+}
+
+.filtre{
+    margin-top: var(--margeSection);
+    margin-left: var(--margeSection);
+    margin-right: var(--margeSection);
+}
+
+.titreFiltre{
+    font-family: var(--orbitron);
+    font-size: var(--police_taille_h2Plus);
+}
+
+.titreSection{
+    font-size: var(--police_taille_sousTitre);
+}
+
+.filtreSection{
+    border-bottom: solid;
+    border-left: solid;
+    border-right: solid;
+    border-bottom-width: var(--bordureInterne);
+    border-color: var(--gris);
+    padding: var(--paddingMenu);
+}
+
+.filtreSectionTop{
+    border-top: solid;
+    border-top-width: var(--bordure);
+}
+
+.filtreSectionBottom{
+    border-bottom-width: var(--bordure);
+}
+
+.sousMenuConteneur{
+    display:flex;
+    justify-content: space-around;
+}
+
+.sousMenuContenue{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin:1vw;
+}
+.sousMenuContenueRadio{
+    display: flex;
+    justify-content: space-between;
+
+    margin:1vw;
+}
+
+.filtreInputWidth{
+    /* min-width:8vw; */
+    max-width:12vw;
+}
+
+.filtreInputColor{
+    background-color: var(--grisPale);
+}
+
+.radio{
+    margin-left: 10px;
+}
+
+.liste{
+    margin-top: var(--paddingMenu);
+    margin-left: 1vw;
+}
+

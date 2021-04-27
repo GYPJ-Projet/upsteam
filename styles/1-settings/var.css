@@ -13,23 +13,29 @@
 
 
     /* Les tailles de polices */
-    --police_taille_h1: 50px;
-    --police_taille_h2Plus: 24px;
-    --police_taille_sousTitre: 18px;
-    --police_taille_texte: 14px;
+    --police_taille_h1: 3.90625vw;              /* 50px; */
+    --police_taille_h2Plus: 1.875vw;            /* 24px; */
+    --police_taille_sousTitre: 1.40625vw;       /* 18px; */
+    --police_taille_texte: 1.09375vw;           /* 14px; */
 
+    /* la  poid (weight) de la police */
+    --police_poid_normal:        600;
+    --police_poid_gras:          700;
+    --police_poid_tres_gras:     800;
 
     /* Les tailles de page */
     --iPhone: 414px;
     --iPad: 1024px;
 
     /* Les marges */
-    --margeSection :50px;
+    --margeSection : 3.90625vw;                 /* 50px; */
     /* Les padding */
-    --paddingMenu: 2vw;
+    --paddingMenu: 1.953125vw;                  /* 25px */
+    --paddingTuile: 2.5vw;                      /* 32px */
+    --paddingVoiture: 1.953125vw;               /* 25px */
 
     /* Bordures*/
-    --bordure: 3px;
-    --bordureInterne: 1px
+    --bordure: 0.234375vw;                      /* 3px; */
+    --bordureInterne: 0.078125vw;               /* 1px */
 
 }
