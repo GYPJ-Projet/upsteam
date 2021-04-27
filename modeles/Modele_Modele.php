@@ -22,16 +22,7 @@
             return "";
         }
 
-        // Permet d'obtenir toutes les modèles avec l'information à propos de la marque
-        public function obtenirTousAvecMarque() {
-            $requete = "SELECT marque.nom AS nomMarque, marque.id AS idMarque, modele.id, modele.nom, modele.disponibilite
-                        FROM modele
-                        JOIN marque ON modele.idMarque = marque.id
-                        ORDER BY modele.id";
-            $requetePreparee = $this->db->prepare($requete);
-            $requetePreparee->execute(); 
-            return $requetePreparee->fetchAll();   
-        }
+
 
         // Permet de sauvegarder la modele dans la base de données
         public function sauvegarder(Modele $laModele) {
@@ -56,12 +47,35 @@
                 // Ajout d'une nouvelle modele
                 $requete = "INSERT INTO modele(nom, idMarque) VALUES (:n, :idM)";
                 $requetePreparee = $this->db->prepare($requete);
+
                 $nom             = $laModele->getNom();
+
                 $idMarque        = $laModele->getIdMarque();
                 $requetePreparee->bindParam(":n", $nom);
                 $requetePreparee->bindParam(":idM", $idMarque);
                 $requetePreparee->execute();
             }
         }
+
+
+                /**
+         * Obtient la liste de tout les modèles
+         */
+        public function obtenirToutDisponible(){
+            try {
+				$requete = "SELECT modele.nom
+                            FROM modele
+                            JOIN marque ON modele.idMarque = marque.id
+                            WHERE marque.disponibilite = 1 AND modele.disponibilite =1";
+				$requetePreparee = $this->db->prepare($requete);
+				$requetePreparee->execute();
+				return $requetePreparee->fetchAll();
+			}
+			catch(Exception $exc) {
+				return 0;
+			}
+        
+        }
+
     }
 ?>

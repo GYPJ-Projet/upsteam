@@ -48,5 +48,21 @@
                 $requetePreparee->execute();
             }
         }
+
+        /**
+         * Obtient la liste de tout les marques
+         */
+        public function obtenirToutDisponible(){
+            try {
+				$requete = "SELECT nom FROM marque WHERE disponibilite = 1 ORDER BY nom";
+				$requetePreparee = $this->db->prepare($requete);
+				$requetePreparee->execute();
+				return $requetePreparee->fetchAll();
+			}
+			catch(Exception $exc) {
+				return 0;
+			}
+        
+        }
     }
 ?>

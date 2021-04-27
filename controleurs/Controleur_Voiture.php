@@ -19,7 +19,7 @@
 
 			$this->afficheVue("tete");
 			$this->afficheVue("entete");
-            $this->afficheVue("menu");
+            $this->afficheVue("menu", $donnees);
 			
 			if (isset($params["action"])) {
 
@@ -32,28 +32,35 @@
                         break;	
 						
 					case "accueil":
+
 					default:
 						// Action par défaut
 						
-						$modeleVoiture         = $this->obtenirDAO("Voiture");
-						$modeleTypeCarburant   = $this->obtenirDAO("TabLangues", "typecarburant");
-						$modeleCouleur         = $this->obtenirDAO("TabLangues", "couleur"); 
-						$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
-						$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
+						$modeleVoiture                  = $this->obtenirDAO("Voiture");
+						$modeleTypeCarburant            = $this->obtenirDAO("TabLangues", "typecarburant");
+						$modeleCouleur                  = $this->obtenirDAO("TabLangues", "couleur"); 
+						$modeleTransmission             = $this->obtenirDAO("TabLangues", "transmission");
+						$modeleTypeCarrosserie          = $this->obtenirDAO("TabLangues", "typecarrosserie");
+						$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
+						$modeleToutModeleDispo          = $this->obtenirDAO("Modele", "obtenirToutModeleDispo");
+						$modeleToutCarrosserieDispo     = $this->obtenirDAO("Carrosserie");
 
-						
 
 						// On affiche les 12 premieres tuiles
-						$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
-						$donnees["typeCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
-						$donnees["couleur"]         = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
-						$donnees["transmission"]    = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
-						$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);
+						$donnees["voitures"]                = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
+						$donnees["typeCarburant"]           = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
+						$donnees["couleur"]                 = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
+						$donnees["transmission"]            = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
+						$donnees["typeCarrosserie"]         = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);
 
-						$donnees['langues'] = $langue;
+                        //Obtention des informations pour le filtre.
+						$donnees["toutesMarquesDispo"]      = $modeleToutMarqueDispo->obtenirToutDisponible();
+						$donnees["toutesModeleDispo"]       = $modeleToutModeleDispo->obtenirToutDisponible();
+						$donnees["toutesCarrosserieDispo"]  = $modeleToutCarrosserieDispo->obtenirToutDisponible();
+
 						/* $vue = "Accueil";	 */	
 
-						$this->afficheVue("accueil_debut");
+						$this->afficheVue("accueil_debut", $donnees);
 						$this->afficheVue("listeVoitures", $donnees);
 						$this->afficheVue("accueil_fin_section_grille");
 						$this->afficheVue("voirPlus");
@@ -77,7 +84,7 @@
 				$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);
 
 				/* $vue = "Accueil";	 */	
-				$this->afficheVue("accueil_debut");
+				$this->afficheVue("accueil_debut", $donnees);
                 $this->afficheVue("listeVoitures", $donnees);
 				$this->afficheVue("accueil_fin_section_grille");
 				$this->afficheVue("voirPlus");

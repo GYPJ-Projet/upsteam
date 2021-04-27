@@ -13,9 +13,11 @@ $langue['entete_choix_langue']   = 'EN';
 
 
 // menu
-$langue['menu_accueil']          = 'Accueil';
-
-
+$langue['menu_accueil']         = 'Accueil';
+$langue['profil']               = 'Mon Profil';
+$langue['donnees']              = 'Données';
+$langue['employes']             = 'Employes';
+$langue['commandes']            = 'Commandes';
 
 
 // Pied De Page (pdp)
