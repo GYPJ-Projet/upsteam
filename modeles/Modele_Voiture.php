@@ -36,17 +36,18 @@
 
 		public function obtenirParId($id) {
             try {
+				Debug::toLog($id, "function obtenirParId() ");
 				$stmt = $this->db->query("SELECT voiture.*, 
 					modele.nom AS nomModele, 
 					marque.nom AS nomMarque, 
 					annee.annee AS annee, 
-					motopropulseur.nom AS nomMotoPropulseur, 
+					motopropulseur.nom AS nomMotoPropulseur 
 					FROM voiture 
 					JOIN modele ON modele.id = voiture.idModele 
 					JOIN marque ON marque.id = modele.idMarque  
 					JOIN annee ON annee.id = voiture.idAnnee 
 					JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
-					WHERE " .  $this->getClePrimaire1() .  " = " . $id);	
+					WHERE voiture.id = " . $id);	
 				$stmt->execute();
 				return $stmt->fetch();	
 
@@ -85,7 +86,7 @@
 											JOIN marque ON marque.id = modele.idMarque  
 											JOIN annee ON annee.id = voiture.idAnnee 
 											JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
-											JOIN image ON image.id = voiture.id AND image.sort = 0 
+											JOIN image ON image.idVoiture = voiture.id AND image.sort = 0 
 											ORDER BY " .$tri. "
 											LIMIT " . $indexDepart . ", " . $nombreVoulu
 										);		

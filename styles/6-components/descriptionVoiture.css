@@ -1,0 +1,12 @@
+body {
+    background-color: var(--grisPale);
+}
+
+.descriptionVoiture img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.descriptionVoiture {
+    margin-top: var(--margeSection);       /* 50px; */
+}

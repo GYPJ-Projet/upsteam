@@ -16,10 +16,6 @@
 
             $idLangue = $donnees["langue"]["idLangue"];  // On récupère l'ID de la langue
               
-            Debug::toLog($donnees["langue"]);          
-
-            Debug::toLog($params["action"]);          
-
             if (isset($params["action"])) {
 
 				// La vue est vides par défaut
@@ -65,12 +61,9 @@
 
 
                     case "combienVoitures":
-                        Debug::toLog("class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : ");
                         // On va chercher le nombre d'enregistrement dans la table Voitures de la BD
                         $modeleVoiture = $this->obtenirDAO("Voiture");
                         $donnees["NombreDeVoitures"] = $modeleVoiture->combienVoitures();
-                        Debug::toLog("class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : ");
-                        Debug::toLog( $donnees["NombreDeVoitures"]);
                         $vue = "combienVoitures";
                         $this->afficheVue($vue, $donnees); // On retourne ce nombre au javascript AJAX.
                         break;
