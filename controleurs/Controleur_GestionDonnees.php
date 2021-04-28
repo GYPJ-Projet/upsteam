@@ -17,9 +17,14 @@
 			$idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
 
 			$this->afficheVue("tete");
+<<<<<<< HEAD
 			$this->afficheVue("entete", $donnees);
             $this->afficheVue("menu", $donnees);
 			
+=======
+			$this->afficheVue("entete");
+            $this->afficheVue("menu", $donnees);
+>>>>>>> c2cc4beff113146329600e5cfd1c3956174db3a4
 			
 			if (isset($params["action"])) {
 
@@ -39,6 +44,13 @@
 						$modeleModele = $this->obtenirDAO("Modele");
 						$donnees["modeles"] = $modeleModele->obtenirTousAvecMarque();
 						$this->afficheVue("gestionModele", $donnees);
+						break;
+					// Affichage de la liste des couleurs
+					case "gestionCouleur":
+						$this->afficheVue("listeDonnees", $donnees);
+						$modeleMarque = $this->obtenirDAO("Couleur");
+						$donnees["couleurs"] = $modeleMarque->obtenirTousAvecLangues();
+						$this->afficheVue("gestionCouleur", $donnees);
 						break;
 				}			
 			} else {

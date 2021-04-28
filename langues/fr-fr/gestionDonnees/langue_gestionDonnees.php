@@ -3,6 +3,7 @@
 $langue['gestion_donnees']  = 'Gestion des données';
 $langue['gestion_marques']  = 'Gestion des marques';
 $langue['gestion_modeles']  = 'Gestion des modèles';
+$langue['gestion_couleurs'] = 'Gestion des couleurs';
 $langue['gestion_texte']    = 'Cette page est utilisée pour saisir des données dans la base de données. <br/><<-- À gauche, sélectionnez la section avec laquelle vous souhaitez travailler. <br/>Bon travail!';
 $langue['option']           = 'Choisissez ...';
 
@@ -11,6 +12,9 @@ $langue['nom_modele']	    = 'Modele';
 $langue['nom_couleur']	    = 'Couleur';
 $langue['nom_voiture']	    = 'Voiture';
 $langue['disponibilite']    = 'Disponibilité';
+
+$langue['nom_langue_fr']    = 'Français';
+$langue['nom_langue_en']    = 'Anglais';
 
 $langue['formulaire_ajout_marque'] = 'Ajout d\'une nouvelle marque';
 $langue['formulaire_modif_marque'] = 'Modification de la marque';

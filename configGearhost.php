@@ -4,10 +4,10 @@
 define("RACINE", "");
 //définition des constantes de connexion à la BD
 define("TYPEBD", "mysql");
-define("HOTE", "localhost");
-define("NOMBD", "vehiculesOccasion");
-define("USAGER", "root");
-define("MDP", "");
+define("HOTE", "den1.mysql3.gear.host");
+define("NOMBD", "vehicules");
+define("USAGER", "vehicules");
+define("MDP", "Ln3Xu-Q9?yW8");
 
 //définition de la fonction d'autoload
 function mon_autoloader($classe)
