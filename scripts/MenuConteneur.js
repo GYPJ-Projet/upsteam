@@ -13,7 +13,6 @@ class MenuConteneur{
     }
 
     init =()=>{
-        console.log('MenuConteneur ENGAGED');
         this.displayWindowSize();
 
         this._menuAcceuil.addEventListener('click', this.menuAcceuil);                      //Les eventslisteners du menu
