@@ -8,6 +8,7 @@
 		<div>
 			<input type="search" class="recherche" placeholder="<?=$langue['entete_recherche'] ?>">
 		</div>
+		<div> </div>
 		<div class="entete__droit">
 			<a href="index.php?Usager&action=login" class="connexion"><?= $langue['entete_connexion'] ?></a>
 			<div class="entete__langue sourisPointer"><span><?= $langue['entete_choix_langue'] ?></span></div>
