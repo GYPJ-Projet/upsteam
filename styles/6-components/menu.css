@@ -15,7 +15,6 @@
 .menuContenu{
     display:flex;
     justify-content: space-around;
-    /* height: 100px; */
     
     padding-left: var(--paddingMenu);
     padding-right: var(--paddingMenu);

@@ -3,5 +3,6 @@ const classMapping = {
     'GestionMarque'         : GestionMarque,
     'VoirPlus'              : VoirPlus,
     'Voiture'               : Voiture,
-    'GestionModele'         : GestionModele
+    'GestionModele'         : GestionModele,
+    'Filtre'         : Filtre
 };

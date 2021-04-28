@@ -83,8 +83,20 @@
 			catch(Exception $exc) {
 				return 0;
 			}
-        
         }
 
+        public function rechercheParMarque($liste){
+            try {
+				$requete = "SELECT *
+                            FROM modele
+                            WHERE idMarque in (".$liste.")";
+				$requetePreparee = $this->db->prepare($requete);
+				$requetePreparee->execute();
+				return $requetePreparee->fetchAll();
+			}
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
     }
 ?>

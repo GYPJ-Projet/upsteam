@@ -3,8 +3,8 @@
 ?>
 
 <body >
-    <div class="bodyConteneur" data-js-bodyConteneur>
-        <aside class="filtreConteneur">
+    <div class="bodyConteneur" data-js-bodyConteneur >
+        <aside class="filtreConteneur" data-js-component="Filtre">
             <form class="formConteneur" action="">
 
                 <!-- TITRE -->
@@ -15,7 +15,7 @@
                 <!-- PRIX -->
                 <div class="filtreSection">
                     <p class="titreSection"><?=$langue["filtrePrix"]?></p>
-                    <select class="sousMenuContenue filtreInputColor" name="" id="">
+                    <select class="sousMenuContenue filtreInputColor">
                         <option value="null"><?=$langue["filtreChoisirPrix"]?></option>
                         <option value=""><?=$langue["filtrePrix0_1500"]?></option>
                         <option value=""><?=$langue["filtrePrix1500_5000"]?></option>
@@ -29,14 +29,20 @@
                 
                 <!-- MARQUE -->
                 <div class="filtreSection grille_voitures">
-                    <p class="titreSection"><?=$langue["filtreMarque"]?></p>
-                    <div class="grilleListe grilleListe--2">
+                    <div class="titreConteneur">
+                        <p class="titreSection"><?=$langue["filtreMarque"]?></p>
+                        <div class="sourisPointer symbolePlus" data-js-SymbolePlus>
+                            <svg class="cacher" enable-background="new 0 0 1000 1000" version="1.1" fill="#333333" width="30px" height="30px"  viewBox="0 0 1000 1000" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata><path d="m47.7 10zm716.2 565.4v-75.4c0-10.2-3.7-19-11.2-26.5s-16.3-11.2-26.5-11.2h-150.8v-150.8c0-10.2-3.7-19-11.2-26.5s-16.3-11.2-26.5-11.2h-75.4c-10.2 0-19 3.7-26.5 11.2s-11.2 16.3-11.2 26.5v150.8h-150.7c-10.2 0-19 3.7-26.5 11.2s-11.2 16.3-11.2 26.5v75.4c0 10.2 3.7 19 11.2 26.5s16.3 11.2 26.5 11.2h150.8v150.8c0 10.2 3.7 19 11.2 26.5s16.3 11.2 26.5 11.2h75.4c10.2 0 19-3.7 26.5-11.2s11.2-16.3 11.2-26.5v-150.8h150.8c10.2 0 19-3.7 26.5-11.2 7.3-7.5 11-16.3 11.1-26.5zm188.4-37.7c0 82.1-20.2 157.7-60.7 227-40.4 69.3-95.3 124.2-164.6 164.6s-145 60.7-227 60.7c-82.1 0-157.7-20.2-227-60.7s-124.2-95.3-164.6-164.6-60.7-145-60.7-227c0-82.1 20.2-157.8 60.7-227 40.4-69.3 95.3-124.2 164.6-164.7s145-60.7 227-60.7c82.1 0 157.7 20.2 227 60.7 69.3 40.4 124.2 95.3 164.6 164.6 40.5 69.4 60.7 145 60.7 227.1z"/></svg>
+                            <svg enable-background="new 0 0 1000 1000" version="1.1" fill="#AA2020" width="30px" height="30px"  viewBox="0 0 1000 1000" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata><path d="m47.7 10zm716.2 565.4v-75.4c0-10.2-3.7-19-11.2-26.5s-16.3-11.2-26.5-11.2h-150.8v-150.8c0-10.2-3.7-19-11.2-26.5s-16.3-11.2-26.5-11.2h-75.4c-10.2 0-19 3.7-26.5 11.2s-11.2 16.3-11.2 26.5v150.8h-150.7c-10.2 0-19 3.7-26.5 11.2s-11.2 16.3-11.2 26.5v75.4c0 10.2 3.7 19 11.2 26.5s16.3 11.2 26.5 11.2h150.8v150.8c0 10.2 3.7 19 11.2 26.5s16.3 11.2 26.5 11.2h75.4c10.2 0 19-3.7 26.5-11.2s11.2-16.3 11.2-26.5v-150.8h150.8c10.2 0 19-3.7 26.5-11.2 7.3-7.5 11-16.3 11.1-26.5zm188.4-37.7c0 82.1-20.2 157.7-60.7 227-40.4 69.3-95.3 124.2-164.6 164.6s-145 60.7-227 60.7c-82.1 0-157.7-20.2-227-60.7s-124.2-95.3-164.6-164.6-60.7-145-60.7-227c0-82.1 20.2-157.8 60.7-227 40.4-69.3 95.3-124.2 164.6-164.7s145-60.7 227-60.7c82.1 0 157.7 20.2 227 60.7 69.3 40.4 124.2 95.3 164.6 164.6 40.5 69.4 60.7 145 60.7 227.1z"/></svg>
+                        </div>
+                    </div>
+                    <div class="grilleListe grilleListe--2 cacher">
 <?php
                     foreach($donnees["toutesMarquesDispo"] as $marque){
 ?>  
                         <div class="listeConteneur">
                             <label for="<?=$marque["nom"]?>"><?=$marque["nom"]?></label>
-                            <input class="radio" type="checkbox" id="<?=$marque["nom"]?>" name="<?=$marque["nom"]?>" value="<?=$marque["nom"]?>">
+                            <input class="radio" type="checkbox" id="<?=$marque["nom"]?>" name="<?=$marque["nom"]?>" value="<?=$marque["nom"]?>" data-js-marque="<?=$marque["id"]?>">
                         </div>
 <?php                        
                     }
@@ -46,8 +52,14 @@
                 
                 <!-- MODELE -->
                 <div class="filtreSection">
-                    <p class="titreSection"><?=$langue["filtreModele"]?></p>
-                    <div class="grilleListe grilleListe--2">
+                    <div class="titreConteneur">
+                        <p class="titreSection"><?=$langue["filtreModele"]?></p>
+                        <div class="sourisPointer symbolePlus" data-js-SymbolePlus>
+                            <svg class="cacher" enable-background="new 0 0 1000 1000" version="1.1" fill="#333333" width="30px" height="30px"  viewBox="0 0 1000 1000" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata><path d="m47.7 10zm716.2 565.4v-75.4c0-10.2-3.7-19-11.2-26.5s-16.3-11.2-26.5-11.2h-150.8v-150.8c0-10.2-3.7-19-11.2-26.5s-16.3-11.2-26.5-11.2h-75.4c-10.2 0-19 3.7-26.5 11.2s-11.2 16.3-11.2 26.5v150.8h-150.7c-10.2 0-19 3.7-26.5 11.2s-11.2 16.3-11.2 26.5v75.4c0 10.2 3.7 19 11.2 26.5s16.3 11.2 26.5 11.2h150.8v150.8c0 10.2 3.7 19 11.2 26.5s16.3 11.2 26.5 11.2h75.4c10.2 0 19-3.7 26.5-11.2s11.2-16.3 11.2-26.5v-150.8h150.8c10.2 0 19-3.7 26.5-11.2 7.3-7.5 11-16.3 11.1-26.5zm188.4-37.7c0 82.1-20.2 157.7-60.7 227-40.4 69.3-95.3 124.2-164.6 164.6s-145 60.7-227 60.7c-82.1 0-157.7-20.2-227-60.7s-124.2-95.3-164.6-164.6-60.7-145-60.7-227c0-82.1 20.2-157.8 60.7-227 40.4-69.3 95.3-124.2 164.6-164.7s145-60.7 227-60.7c82.1 0 157.7 20.2 227 60.7 69.3 40.4 124.2 95.3 164.6 164.6 40.5 69.4 60.7 145 60.7 227.1z"/></svg>
+                            <svg enable-background="new 0 0 1000 1000" version="1.1" fill="#AA2020" width="30px" height="30px"  viewBox="0 0 1000 1000" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata><path d="m47.7 10zm716.2 565.4v-75.4c0-10.2-3.7-19-11.2-26.5s-16.3-11.2-26.5-11.2h-150.8v-150.8c0-10.2-3.7-19-11.2-26.5s-16.3-11.2-26.5-11.2h-75.4c-10.2 0-19 3.7-26.5 11.2s-11.2 16.3-11.2 26.5v150.8h-150.7c-10.2 0-19 3.7-26.5 11.2s-11.2 16.3-11.2 26.5v75.4c0 10.2 3.7 19 11.2 26.5s16.3 11.2 26.5 11.2h150.8v150.8c0 10.2 3.7 19 11.2 26.5s16.3 11.2 26.5 11.2h75.4c10.2 0 19-3.7 26.5-11.2s11.2-16.3 11.2-26.5v-150.8h150.8c10.2 0 19-3.7 26.5-11.2 7.3-7.5 11-16.3 11.1-26.5zm188.4-37.7c0 82.1-20.2 157.7-60.7 227-40.4 69.3-95.3 124.2-164.6 164.6s-145 60.7-227 60.7c-82.1 0-157.7-20.2-227-60.7s-124.2-95.3-164.6-164.6-60.7-145-60.7-227c0-82.1 20.2-157.8 60.7-227 40.4-69.3 95.3-124.2 164.6-164.7s145-60.7 227-60.7c82.1 0 157.7 20.2 227 60.7 69.3 40.4 124.2 95.3 164.6 164.6 40.5 69.4 60.7 145 60.7 227.1z"/></svg>
+                        </div>
+                    </div>
+                    <div class="grilleListe grilleListe--2 cacher">
 <?php
                     foreach($donnees["toutesModeleDispo"] as $modele){
 ?>  
@@ -80,7 +92,7 @@
                 <!-- KM -->
                 <div class="filtreSection">
                     <p class="titreSection"><?=$langue["filtreKilometrage"]?></p>
-                    <select class="sousMenuContenue filtreInputColor" name="" id="">
+                    <select class="sousMenuContenue filtreInputColor">
                         <option value=""><?=$langue["filtreChoisirKm"]?></option>
                         <option value=""><?=$langue["filtreKm0_10000"]?></option>
                         <option value=""><?=$langue["filtreKm10000_25000"]?></option>
@@ -107,8 +119,16 @@
 
                 <!-- CARROSERIE -->
                 <div class="filtreSection">
-                    <p class="titreSection"><?=$langue["filtreCarroserie"]?></p>
-                    <div class="grilleListe grilleListe--2">
+                    <div class="titreConteneur">
+                        <p class="titreSection"><?=$langue["filtreCarroserie"]?></p>
+                        <div class="sourisPointer symbolePlus" data-js-SymbolePlus>
+                            <svg class="cacher" enable-background="new 0 0 1000 1000" version="1.1" fill="#333333" width="30px" height="30px"  viewBox="0 0 1000 1000" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata><path d="m47.7 10zm716.2 565.4v-75.4c0-10.2-3.7-19-11.2-26.5s-16.3-11.2-26.5-11.2h-150.8v-150.8c0-10.2-3.7-19-11.2-26.5s-16.3-11.2-26.5-11.2h-75.4c-10.2 0-19 3.7-26.5 11.2s-11.2 16.3-11.2 26.5v150.8h-150.7c-10.2 0-19 3.7-26.5 11.2s-11.2 16.3-11.2 26.5v75.4c0 10.2 3.7 19 11.2 26.5s16.3 11.2 26.5 11.2h150.8v150.8c0 10.2 3.7 19 11.2 26.5s16.3 11.2 26.5 11.2h75.4c10.2 0 19-3.7 26.5-11.2s11.2-16.3 11.2-26.5v-150.8h150.8c10.2 0 19-3.7 26.5-11.2 7.3-7.5 11-16.3 11.1-26.5zm188.4-37.7c0 82.1-20.2 157.7-60.7 227-40.4 69.3-95.3 124.2-164.6 164.6s-145 60.7-227 60.7c-82.1 0-157.7-20.2-227-60.7s-124.2-95.3-164.6-164.6-60.7-145-60.7-227c0-82.1 20.2-157.8 60.7-227 40.4-69.3 95.3-124.2 164.6-164.7s145-60.7 227-60.7c82.1 0 157.7 20.2 227 60.7 69.3 40.4 124.2 95.3 164.6 164.6 40.5 69.4 60.7 145 60.7 227.1z"/></svg>
+                            <svg enable-background="new 0 0 1000 1000" version="1.1" fill="#AA2020" width="30px" height="30px"  viewBox="0 0 1000 1000" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata><path d="m47.7 10zm716.2 565.4v-75.4c0-10.2-3.7-19-11.2-26.5s-16.3-11.2-26.5-11.2h-150.8v-150.8c0-10.2-3.7-19-11.2-26.5s-16.3-11.2-26.5-11.2h-75.4c-10.2 0-19 3.7-26.5 11.2s-11.2 16.3-11.2 26.5v150.8h-150.7c-10.2 0-19 3.7-26.5 11.2s-11.2 16.3-11.2 26.5v75.4c0 10.2 3.7 19 11.2 26.5s16.3 11.2 26.5 11.2h150.8v150.8c0 10.2 3.7 19 11.2 26.5s16.3 11.2 26.5 11.2h75.4c10.2 0 19-3.7 26.5-11.2s11.2-16.3 11.2-26.5v-150.8h150.8c10.2 0 19-3.7 26.5-11.2 7.3-7.5 11-16.3 11.1-26.5zm188.4-37.7c0 82.1-20.2 157.7-60.7 227-40.4 69.3-95.3 124.2-164.6 164.6s-145 60.7-227 60.7c-82.1 0-157.7-20.2-227-60.7s-124.2-95.3-164.6-164.6-60.7-145-60.7-227c0-82.1 20.2-157.8 60.7-227 40.4-69.3 95.3-124.2 164.6-164.7s145-60.7 227-60.7c82.1 0 157.7 20.2 227 60.7 69.3 40.4 124.2 95.3 164.6 164.6 40.5 69.4 60.7 145 60.7 227.1z"/></svg>
+
+                        </div>
+                    </div>
+
+                    <div class="grilleListe grilleListe--2 cacher">
 <?php
                     foreach($donnees["toutesCarrosserieDispo"] as $carrosserie){
 ?>  
