@@ -47,7 +47,7 @@
 				$this->afficheVue("pageDonnees", $donnees);
 			}
 
-			$this->afficheVue("piedDePage");
+			$this->afficheVue("piedDePage", $donnees);
 		}
 	
     }

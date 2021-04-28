@@ -579,3 +579,4077 @@ Array
 )
 
 
+27-04-2021 08:27:00
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Déconnexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+27-04-2021 08:27:00
+combienVoitures
+
+27-04-2021 08:27:00
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 08:27:00
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 08:27:00
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 08:27:37
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Déconnexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+27-04-2021 08:27:37
+combienVoitures
+
+27-04-2021 08:27:37
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 08:27:37
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 08:27:37
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 08:27:48
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Déconnexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+27-04-2021 08:27:48
+combienVoitures
+
+27-04-2021 08:27:48
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 08:27:48
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 08:27:48
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+27-04-2021 08:28:59
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Déconnexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+27-04-2021 08:28:59
+combienVoitures
+
+27-04-2021 08:28:59
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 08:28:59
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+27-04-2021 08:28:59
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 01:49:31
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Déconnexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 01:49:31
+combienVoitures
+
+28-04-2021 01:49:31
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:49:31
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:49:31
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 01:53:35
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Déconnexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 01:53:35
+combienVoitures
+
+28-04-2021 01:53:35
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:53:35
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:53:35
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 01:54:22
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Déconnexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 01:54:22
+combienVoitures
+
+28-04-2021 01:54:22
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:54:22
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:54:22
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 01:54:24
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Déconnexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 01:54:24
+combienVoitures
+
+28-04-2021 01:54:24
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:54:24
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:54:24
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 01:57:26
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 01:57:26
+combienVoitures
+
+28-04-2021 01:57:26
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:57:26
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:57:26
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 01:57:28
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 01:57:28
+combienVoitures
+
+28-04-2021 01:57:28
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:57:28
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:57:28
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 01:57:29
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 01:57:29
+combienVoitures
+
+28-04-2021 01:57:29
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:57:29
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:57:29
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 01:57:31
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 01:57:31
+combienVoitures
+
+28-04-2021 01:57:31
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:57:31
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 01:57:31
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:00:08
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:00:08
+combienVoitures
+
+28-04-2021 02:00:08
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:08
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:08
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:00:10
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:00:10
+combienVoitures
+
+28-04-2021 02:00:10
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:10
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:10
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:00:13
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:00:13
+combienVoitures
+
+28-04-2021 02:00:13
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:13
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:13
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:00:14
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:00:14
+combienVoitures
+
+28-04-2021 02:00:14
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:14
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:14
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:00:14
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:00:14
+combienVoitures
+
+28-04-2021 02:00:14
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:14
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:14
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:00:15
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:00:15
+combienVoitures
+
+28-04-2021 02:00:15
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:15
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:15
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:00:53
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:00:53
+combienVoitures
+
+28-04-2021 02:00:53
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:54
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:00:54
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:01:20
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:01:20
+combienVoitures
+
+28-04-2021 02:01:20
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:01:20
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:01:20
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:01:55
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:01:55
+combienVoitures
+
+28-04-2021 02:01:55
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:01:55
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:01:55
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:03:05
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:03:05
+combienVoitures
+
+28-04-2021 02:03:05
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:03:05
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:03:05
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:05:17
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:05:17
+combienVoitures
+
+28-04-2021 02:05:17
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:05:17
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:05:17
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:07:32
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:07:32
+combienVoitures
+
+28-04-2021 02:07:32
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:07:32
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:07:32
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:08:15
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:08:15
+combienVoitures
+
+28-04-2021 02:08:15
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:08:15
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:08:15
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:09:04
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:09:04
+combienVoitures
+
+28-04-2021 02:09:04
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:09:04
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:09:04
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:10:11
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:10:11
+combienVoitures
+
+28-04-2021 02:10:11
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:10:11
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:10:11
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:18:44
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:18:44
+combienVoitures
+
+28-04-2021 02:18:44
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:18:44
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:18:44
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:25:01
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:25:01
+combienVoitures
+
+28-04-2021 02:25:01
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:25:01
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:25:01
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:57:30
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:57:30
+combienVoitures
+
+28-04-2021 02:57:30
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:57:30
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:57:30
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 02:59:11
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:59:11
+afficheListeVoitures
+
+28-04-2021 02:59:21
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 02:59:21
+combienVoitures
+
+28-04-2021 02:59:21
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:59:21
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 02:59:21
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 03:00:57
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendrdi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 03:00:57
+combienVoitures
+
+28-04-2021 03:00:57
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:00:57
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:00:57
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 03:02:14
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendredi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 03:02:14
+combienVoitures
+
+28-04-2021 03:02:14
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:02:14
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:02:14
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 03:03:36
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendredi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 03:03:36
+combienVoitures
+
+28-04-2021 03:03:36
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:03:36
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:03:36
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 03:03:40
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendredi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 03:03:40
+combienVoitures
+
+28-04-2021 03:03:40
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:03:40
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:03:40
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 03:05:21
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendredi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 03:05:21
+combienVoitures
+
+28-04-2021 03:05:21
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:05:21
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:05:21
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 03:05:24
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendredi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 03:05:24
+combienVoitures
+
+28-04-2021 03:05:24
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:05:24
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:05:24
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 03:05:32
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendredi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 03:05:32
+combienVoitures
+
+28-04-2021 03:05:32
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:05:32
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:05:32
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 03:07:18
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendredi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 03:07:18
+combienVoitures
+
+28-04-2021 03:07:18
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:07:18
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:07:18
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 03:09:32
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendredi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 03:09:32
+combienVoitures
+
+28-04-2021 03:09:32
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:09:32
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:09:32
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 03:09:37
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendredi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 03:09:37
+combienVoitures
+
+28-04-2021 03:09:37
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:09:37
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:09:37
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 03:09:38
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendredi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 03:09:38
+combienVoitures
+
+28-04-2021 03:09:38
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:09:38
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:09:38
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+
+28-04-2021 03:10:41
+Array
+(
+    [idLangue] => 1
+    [texte_oui] => Oui
+    [texte_non] => Non
+    [entete_choix_langue] => EN
+    [entete_recherche] => Recherche
+    [entete_connexion] => Connexion
+    [menu_accueil] => Accueil
+    [profil] => Mon Profil
+    [donnees] => Données
+    [employes] => Employes
+    [commandes] => Commandes
+    [pdp_contact] => Contactez-nous
+    [pdp_telephone] => Téléphone
+    [pdp_courriel] => Courriel
+    [pdp_heures] => Heures
+    [pdp_lundi] => Lundi
+    [pdp_vendredi] => Vendredi
+    [pdp_samedi] => Samedi
+    [pdp_dimanche] => Dimanche
+    [pdp_partager] => Partager
+    [bouton_retour] => Retour
+    [bouton_continuer] => Continuer
+    [bouton_panier] => Ajout au panier
+    [bouton_annuler] => Annuler
+    [button_modifier] => Modifier
+    [button_ajouter] => Ajouter d'un nouvel élément
+    [button_soumettre] => Soumettre
+    [kilometrage] => Kilom&eacute;trage
+    [transmission] => Transmission
+    [motopropulseur] => Groupe motopropulseur
+    [carburant] => Carburant
+    [habitacle] => Habitacle
+    [prix] => Prix
+    [filtreFiltres] => FILTRES
+    [filtrePrix] => PRIX
+    [filtreMarque] => MARQUE
+    [filtreModele] => MODELE
+    [filtreAnnee] => ANNEE
+    [filtreKilometrage] => KILOMETRAGE
+    [filtreCarburant] => CARBURANT
+    [filtreCarroserie] => CARROSERIE
+    [filtreTransmission] => TRANSMISSION
+    [filtrePropulsion] => PROPULSION
+    [filtreChoisirPrix] => Choisir la plage de prix
+    [filtreAnneeDebut] => Années début
+    [filtreAnneeFin] => Années fin
+    [filtreChoisirKm] => Choisir le kilométrage
+    [filtreEssence] => Essence
+    [filtreDiesel] => Diesel
+    [filtreManuel] => Manuel
+    [filtreAutomatique] => Automatique
+    [filtre2x4] => 2x4
+    [filtre4x4] => 4x4
+    [filtreFiltrer] => Filtrer
+    [filtrePrix0_1500] => 0 - 1500$
+    [filtrePrix1500_5000] => 1500 - 5000$
+    [filtrePrix5000_10000] => 5000 - 10 000$
+    [filtrePrix10000_20000] => 10 000 - 20 000$
+    [filtrePrix20000_30000] => 20 000 - 30 000$
+    [filtrePrix30000_60000] => 30 000 - 60 000$
+    [filtrePrix60000] => 60 000$ et plus
+    [filtreKm0_10000] => 0 - 10 000 km
+    [filtreKm10000_25000] => 10 000 - 25 000 km
+    [filtreKm25000_50000] => 25 000 - 50 000 km
+    [filtreKm50000_100000] => 50 000 - 100 000 km
+    [filtreKm100000] => 100 000 km et plus
+)
+
+
+28-04-2021 03:10:41
+combienVoitures
+
+28-04-2021 03:10:41
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:10:41
+class Controleur_Voiture_AJAX - case combienVoitures -  NombreDeVoitures : 
+
+28-04-2021 03:10:41
+Array
+(
+    [0] => Array
+        (
+            [NombreDeVoitures] => 40
+            [0] => 40
+        )
+
+)
+
+

@@ -106,7 +106,7 @@
 				$this->afficheVue("accueil_fin");
 			}
 
-			$this->afficheVue("piedDePage");
+			$this->afficheVue("piedDePage", $donnees);
 		}
 	}
 ?>

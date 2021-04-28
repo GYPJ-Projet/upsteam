@@ -74,7 +74,7 @@
                     header("Location: index.php?Usager&action=Login");  
                     break;
             }
-            $this->afficheVue("piedDePage");
+            $this->afficheVue("piedDePage", $donnees);
         }
     }
 ?>

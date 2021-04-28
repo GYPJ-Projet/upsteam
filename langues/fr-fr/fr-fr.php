@@ -11,7 +11,7 @@ $langue['texte_non']              = 'Non';
 $langue['entete_choix_langue']   = 'EN';
 $langue['entete_recherche']      = 'Recherche';
 $langue['entete_connexion']      = 'Connexion';
-$langue['entete_connexion']      = 'Déconnexion';
+/*$langue['entete_connexion']      = 'Déconnexion';*/
 
 
 
@@ -27,12 +27,12 @@ $langue['commandes']            = 'Commandes';
 $langue['pdp_contact']          = 'Contactez-nous';
 $langue['pdp_telephone']        = 'Téléphone';
 $langue['pdp_courriel']         = 'Courriel';
-$langue['pdp_heures']           = 'HEURES';
+$langue['pdp_heures']           = 'Heures';
 $langue['pdp_lundi']            = 'Lundi';
-$langue['pdp_vendrdi']          = 'Vendredi';
+$langue['pdp_vendredi']          = 'Vendredi';
 $langue['pdp_samedi']           = 'Samedi';
 $langue['pdp_dimanche']         = 'Dimanche';
-$langue['pdp_partager']         = 'PARTAGER';
+$langue['pdp_partager']         = 'Partager';
 
 
 
