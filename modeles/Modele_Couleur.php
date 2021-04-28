@@ -22,6 +22,23 @@
             return "idLangue";
         }
 
+        // Permet d'obtenir toutes les couleurs en deux langues
+        public function obtenirTousAvecLangues() {
+            try {
+                $requete = "SELECT A.id, A.nom AS nomFr, B.nom AS nomEn 
+                            FROM `couleur` AS A 
+                            JOIN couleur AS B 
+                            ON A.id = B.id 
+                            WHERE A.idLangue = 1 AND B.idLangue = 2";
+                $requetePreparee = $this->db->prepare($requete);
+                $requetePreparee->execute(); 
+                return $requetePreparee->fetchAll();
+            }
+			catch(Exception $exc) {
+				return 0;
+			}   
+        }
+        
         // Permet de sauvegarder la couleur dans la base de données
         public function sauvegarder(Couleur $laCouleur) {
             // Est-ce que la couleur que j'essaie de sauvegarder existe déjà (id différent de zéro)
