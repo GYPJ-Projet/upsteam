@@ -61,27 +61,56 @@ class Filtre{
                 if(exist === false){
                     this._listeMarquesSelectionnes.push(marque.dataset.jsMarque);
                 }
-                console.log(this._listeMarquesSelectionnes);
-                // this.populationModele();
+                this.populationModele();
             });
         }
     }
 
     populationModele =()=>{
+        // Fabrique une liste utilisable pour SQL.
         let liste = "";
-        if(this._listeMarquesSelectionnes.length === 0){
-            console.log('0');
-        }else{
-            // si un seul élement dans la liste.
-            if(this._listeMarquesSelectionnes.length === 1){
-                liste += this._listeMarquesSelectionnes[0];
-            }else{
-                for(let i=0, j=this._listeMarquesSelectionnes.length; i<j; i++){
-                    liste += this._listeMarquesSelectionnes[i];
+        if(this._listeMarquesSelectionnes.length > 0){
+            console.log('liste non vide');
+            for(let i=0, j=this._listeMarquesSelectionnes.length; i<j; i++){
+                liste += this._listeMarquesSelectionnes[i];
+                if(i+1 < j){
                     liste += ',';
                 }
             }
         }
-        console.log('liste: ',liste);
+
+        // Ajax qui appel 
+
+        // Déclaration de l'objet XMLHttpRequest
+        let xhr;
+        xhr = new XMLHttpRequest();
+
+        //Initialisation de la requète
+        if (xhr) {
+            // Ouverture de la requète : fichier recherché
+            xhr.open('GET', `index.php?Store_AJAX&action=checkClient&email=${this._infoClient.email}`);
+            
+            xhr.addEventListener("readystatechange", () => {
+                if (xhr.readyState === 4) {							
+                    if (xhr.status === 200) {
+                        // Les données ont été reçues ont les affiches
+                        let data = JSON.parse(xhr.response);
+                        if(data === false){
+                            this.addClient();
+                        }else{
+                            this._clientKey = true;
+                            this.checkValid();
+                        }
+                        
+                    } else if (xhr.status === 404) {
+                        console.log('Le fichier appelé dans la méthode open() n’existe pas.');
+                    }
+                }
+            });
+            // Envoi de la requète
+            xhr.send();
+        }
+
+
     }
 }
