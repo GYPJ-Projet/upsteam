@@ -44,6 +44,12 @@
     /* margin: -10px; */
 }
 
+.titreConteneur{
+    display:flex;
+    justify-content: space-between;
+    align-items:flex-start;
+}
+
 .titreFiltre{
     font-family: var(--orbitron);
     font-size: var(--police_taille_h2Plus);
@@ -52,6 +58,7 @@
 .titreSection{
     font-size: var(--police_taille_sousTitre);
     margin-bottom:var(--margeSousSection);
+    display:inline;
 }
 
 .sousMenuConteneur{
@@ -84,7 +91,6 @@
 .radio{
     margin-left: 10px;
 }
-
 
 /* La grille des listes */
 .grilleListe {
