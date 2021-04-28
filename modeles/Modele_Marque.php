@@ -22,6 +22,33 @@
             return "";
         }
 
+        // Permet d'obtenir le nombre de toutes les marques dans la bd
+        public function obtenirNombreMarques() {
+            try {
+				$requete = "SELECT COUNT(id) AS nb FROM marque";
+				$requetePreparee = $this->db->prepare($requete);
+				$requetePreparee->execute();
+				return $requetePreparee->fetchColumn();
+			}
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+
+        // Permet d'obtenir les marques dans une plage donnée
+        public function obtenirMarques($depart, $marquesParPage) {
+            try {
+				$requete = "SELECT id, nom, disponibilite FROM marque LIMIT $depart, $marquesParPage";
+				$requetePreparee = $this->db->prepare($requete);
+				$requetePreparee->execute();
+                $requetePreparee->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->getNomInstance());
+				return $requetePreparee->fetchAll();
+			}
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+        
         // Permet de sauvegarder la marque dans la base de données
         public function sauvegarder(Marque $laMarque) {
             // Est-ce que la marque que j'essaie de sauvegarder existe déjà (id différent de zéro)
