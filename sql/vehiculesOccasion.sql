@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema vehiculesOccasion
+-- Schema vehicules
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema vehiculesOccasion
+-- Schema vehicules
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `vehiculesOccasion` DEFAULT CHARACTER SET utf8 ;
-USE `vehiculesOccasion` ;
+CREATE SCHEMA IF NOT EXISTS `vehicules` DEFAULT CHARACTER SET utf8 ;
+USE `vehicules` ;
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`role`
+-- Table `vehicules`.`role`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`role` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`role` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
   `permission` TEXT NULL,
@@ -33,9 +33,9 @@ INSERT INTO `role`(`nom`, `permission`) VALUES ('client', 'Lecture et Insertion 
 INSERT INTO `role`(`nom`, `permission`) VALUES ('inactif', 'Lecture et Insertion d\'une commande');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`usager`
+-- Table `vehicules`.`usager`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`usager` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`usager` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `courreil` VARCHAR(45) NOT NULL,
   `motPasse` VARCHAR(255) NOT NULL,
@@ -54,17 +54,17 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`usager` (
   PRIMARY KEY (`id`),
   CONSTRAINT `idProvince`
     FOREIGN KEY (`idProvince`)
-    REFERENCES `vehiculesOccasion`.`province` (`id`)
+    REFERENCES `vehicules`.`province` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idLangue`
     FOREIGN KEY (`idLangue`)
-    REFERENCES `vehiculesOccasion`.`langue` (`id`)
+    REFERENCES `vehicules`.`langue` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idRole`
     FOREIGN KEY (`idRole`)
-    REFERENCES `vehiculesOccasion`.`role` (`id`)
+    REFERENCES `vehicules`.`role` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -75,9 +75,9 @@ INSERT INTO `usager`(`courreil`, `motPasse`, `nom`, `prenom`, `dateNaissance`, `
 INSERT INTO `usager`(`courreil`, `motPasse`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `idLangue`, `idRole`) VALUES ('phil@gmail.com','1234','Houle','Philippe','2024-12-12','72 Latour','j3n1l1',12,'Saint-Basile-le-Grand','5145555555','5145555555',1,3);
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`pays`
+-- Table `vehicules`.`pays`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`pays` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`pays` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -87,9 +87,9 @@ INSERT INTO `pays`(`nom`) VALUES ('Canada');
 INSERT INTO `pays`(`nom`) VALUES ('USA');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`langue`
+-- Table `vehicules`.`langue`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`langue` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`langue` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
   `code` VARCHAR(45) NOT NULL,
@@ -100,18 +100,18 @@ INSERT INTO `langue`(`nom`, `code`) VALUES ('Français','fr-fr');
 INSERT INTO `langue`(`nom`, `code`) VALUES ('English','en-gb');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`province`
+-- Table `vehicules`.`province`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`province` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`province` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `idPays` INT NOT NULL,
   PRIMARY KEY (`id`, `idLangue`),
   FOREIGN KEY (`idPays`)
-  REFERENCES `vehiculesOccasion`.`pays` (`id`),
+  REFERENCES `vehicules`.`pays` (`id`),
   FOREIGN KEY (`idLangue`)
-  REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
 INSERT INTO `province`(`id`, `idLangue`, `nom`, `idPays`) VALUES (1,1,'Alberta',1);
@@ -143,9 +143,9 @@ INSERT INTO `province`(`id`, `idLangue`, `nom`, `idPays`) VALUES (13,2,'Yukon',1
 
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`taxe`
+-- Table `vehicules`.`taxe`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`taxe` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`taxe` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
   `taux` DECIMAL(15,4) UNSIGNED NOT NULL,
@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`taxe` (
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`idProvince`)
-  REFERENCES `vehiculesOccasion`.`province` (`id`))
+  REFERENCES `vehicules`.`province` (`id`))
 ENGINE = InnoDB;
 
 INSERT INTO `taxe`(`nom`, `taux`, `idProvince`,`disponibilite`) VALUES ('TPS',5,1,1);
@@ -175,22 +175,22 @@ INSERT INTO `taxe`(`nom`, `taux`, `idProvince`,`disponibilite`) VALUES ('TPS',5,
 INSERT INTO `taxe`(`nom`, `taux`, `idProvince`,`disponibilite`) VALUES ('TPS',5,13,1);
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`journalConnexion`
+-- Table `vehicules`.`journalConnexion`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`journalConnexion` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`journalConnexion` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `idUsager` INT,
   `date` DATE NOT NULL,
   `adresseIp` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`idUsager`)
-  REFERENCES `vehiculesOccasion`.`usager` (`id`))
+  REFERENCES `vehicules`.`usager` (`id`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`motopropulseur`
+-- Table `vehicules`.`motopropulseur`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`motopropulseur` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`motopropulseur` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
    `disponibilite` TINYINT NOT NULL DEFAULT 1,
@@ -201,9 +201,9 @@ INSERT INTO motopropulseur (nom) VALUES
                     ('4x2'), ('4x4');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`annee`
+-- Table `vehicules`.`annee`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`annee` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`annee` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `annee` YEAR NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
@@ -214,9 +214,9 @@ INSERT INTO annee (annee) VALUES
                     ('2010'), ('2011'), ('2012'), ('2013'), ('2014'), ('2014'), ('2016'), ('2017'), ('2018'), ('2019'), ('2020'), ('2021');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`marque`
+-- Table `vehicules`.`marque`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`marque` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`marque` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
@@ -228,9 +228,9 @@ INSERT INTO marque (nom) VALUES
 			('Dodge'), ('Mazda'), ('Ram'), ('GMC');        
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`modele`
+-- Table `vehicules`.`modele`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`modele` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`modele` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
   `idMarque` INT NOT NULL,
@@ -238,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`modele` (
   PRIMARY KEY (`id`),
   CONSTRAINT `idMarque`
     FOREIGN KEY (`idMarque`)
-    REFERENCES `vehiculesOccasion`.`marque` (`id`)
+    REFERENCES `vehicules`.`marque` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -250,15 +250,15 @@ INSERT INTO modele (nom, idMarque) VALUES
 		('Odyssey', 3), ('Sienna', 8), ('Routan', 9), ('2500', 13), ('Ranger', 2), ('Gladiator', 10), ('3500', 13), ('Sierra 3500', 14), ('Canyon', 14);
 					
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`typeCarburant`
+-- Table `vehicules`.`typeCarburant`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`typeCarburant` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`typeCarburant` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`, `idLangue`),
-  FOREIGN KEY (`idLangue`)    REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  FOREIGN KEY (`idLangue`)    REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
  
@@ -269,15 +269,15 @@ INSERT INTO typeCarburant (id, idLangue, nom) VALUES
 
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`couleur`
+-- Table `vehicules`.`couleur`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`couleur` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`couleur` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`, `idLangue`),
-  FOREIGN KEY (`idLangue`)    REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  FOREIGN KEY (`idLangue`)    REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
  
@@ -288,15 +288,15 @@ INSERT INTO couleur (id, idLangue, nom) VALUES
 
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`transmission`
+-- Table `vehicules`.`transmission`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`transmission` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`transmission` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`, `idLangue`),
-  FOREIGN KEY (`idLangue`)    REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  FOREIGN KEY (`idLangue`)    REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
  
@@ -306,15 +306,15 @@ INSERT INTO transmission (id, idLangue, nom) VALUES
 
 
  -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`typeCarrosserie`
+-- Table `vehicules`.`typeCarrosserie`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`typeCarrosserie` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`typeCarrosserie` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`, `idLangue`),
-  FOREIGN KEY (`idLangue`)    REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  FOREIGN KEY (`idLangue`)    REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
 
@@ -323,9 +323,9 @@ INSERT INTO typeCarrosserie (id, idLangue, nom) VALUES
 
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`voiture`
+-- Table `vehicules`.`voiture`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`voiture` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`voiture` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `idModele` INT NOT NULL,
   `idAnnee` INT NOT NULL,
@@ -343,37 +343,37 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`voiture` (
   PRIMARY KEY (`id`),
   CONSTRAINT `idMotopropulseur`
     FOREIGN KEY (`idMotopropulseur`)
-    REFERENCES `vehiculesOccasion`.`motopropulseur` (`id`)
+    REFERENCES `vehicules`.`motopropulseur` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idAnnee`
     FOREIGN KEY (`idAnnee`)
-    REFERENCES `vehiculesOccasion`.`annee` (`id`)
+    REFERENCES `vehicules`.`annee` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idModele`
     FOREIGN KEY (`idModele`)
-    REFERENCES `vehiculesOccasion`.`modele` (`id`)
+    REFERENCES `vehicules`.`modele` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idTypeCarburant`
     FOREIGN KEY (`idTypeCarburant`)
-    REFERENCES `vehiculesOccasion`.`typeCarburant` (`id`)
+    REFERENCES `vehicules`.`typeCarburant` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idCouleur`
     FOREIGN KEY (`idCouleur`)
-    REFERENCES `vehiculesOccasion`.`couleur` (`id`)
+    REFERENCES `vehicules`.`couleur` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idTransmission`
     FOREIGN KEY (`idTransmission`)
-    REFERENCES `vehiculesOccasion`.`transmission` (`id`)
+    REFERENCES `vehicules`.`transmission` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idTypeCarrosserie`
     FOREIGN KEY (`idTypeCarrosserie`)
-    REFERENCES `vehiculesOccasion`.`typeCarrosserie` (`id`)
+    REFERENCES `vehicules`.`typeCarrosserie` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -422,29 +422,29 @@ INSERT INTO voiture (idModele, idAnnee, kilometrage, dateArivee, prixAchat, prix
 	( 33, 10, 50235, '2021-01-17', 29246.25, 38995, 2, 2, 3, 2, 7, 1, '1D4GP25B038108775');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`description`
+-- Table `vehicules`.`description`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`description` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`description` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `description` TEXT NULL,
   PRIMARY KEY (`id`, `idLangue`),
   FOREIGN KEY (`idLangue`)
-  REFERENCES `vehiculesOccasion`.`langue` (`id`),
+  REFERENCES `vehicules`.`langue` (`id`),
   FOREIGN KEY (`id`)
-  REFERENCES `vehiculesOccasion`.`voiture` (`id`))
+  REFERENCES `vehicules`.`voiture` (`id`))
 ENGINE = InnoDB;
 					
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`statut`
+-- Table `vehicules`.`statut`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`statut` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`statut` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NULL,
   PRIMARY KEY (`id`, `idLangue`),
   FOREIGN KEY (`idLangue`)
-  REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
 INSERT INTO `statut`(`id`, `idLangue`, `nom`) VALUES (1,1,'En attente');
@@ -455,16 +455,16 @@ INSERT INTO `statut`(`id`, `idLangue`, `nom`) VALUES (3,1,'Facturé');
 INSERT INTO `statut`(`id`, `idLangue`, `nom`) VALUES (3,2,'Charged');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`expedition`
+-- Table `vehicules`.`expedition`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`expedition` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`expedition` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`, `idLangue`),
   FOREIGN KEY (`idLangue`)
-  REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
 INSERT INTO `expedition`(`id`, `idLangue`, `nom`) VALUES (1,1,'Livraison local');
@@ -473,16 +473,16 @@ INSERT INTO `expedition`(`id`, `idLangue`, `nom`) VALUES (2,1,'Ramassage');
 INSERT INTO `expedition`(`id`, `idLangue`, `nom`) VALUES (2,2,'Pickup');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`modePaiement`
+-- Table `vehicules`.`modePaiement`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`modePaiement` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`modePaiement` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`, `idLangue`),
   FOREIGN KEY (`idLangue`)
-  REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
 INSERT INTO `modepaiement`(`id`, `idLangue`, `nom`) VALUES (1,1,'Argent comptant');
@@ -495,9 +495,9 @@ INSERT INTO `modepaiement`(`id`, `idLangue`, `nom`) VALUES (4,1,'Virement bancai
 INSERT INTO `modepaiement`(`id`, `idLangue`, `nom`) VALUES (4,2,'Bank transfer');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`facture`
+-- Table `vehicules`.`facture`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`facture` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`facture` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `idClient` INT NOT NULL,
   `date` DATE NOT NULL,
@@ -508,41 +508,41 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`facture` (
   `idModePaiement` INT NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`idClient`)
-  REFERENCES `vehiculesOccasion`.`client` (`id`),
+  REFERENCES `vehicules`.`client` (`id`),
   FOREIGN KEY (`idStatut`)
-  REFERENCES `vehiculesOccasion`.`statut` (`id`),
+  REFERENCES `vehicules`.`statut` (`id`),
   FOREIGN KEY (`idExpedition`)
-  REFERENCES `vehiculesOccasion`.`expedition` (`id`),
+  REFERENCES `vehicules`.`expedition` (`id`),
   FOREIGN KEY (`idModePaiement`)
-  REFERENCES `vehiculesOccasion`.`modePaiement` (`id`))
+  REFERENCES `vehicules`.`modePaiement` (`id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`listeAchat`
+-- Table `vehicules`.`listeAchat`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`listeAchat` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`listeAchat` (
   `idCommande` INT NOT NULL,
   `idVoiture` INT NOT NULL,
   `prixVenteFinal` DECIMAL(15,2) UNSIGNED NOT NULL,
   PRIMARY KEY (`idCommande`, `idVoiture`),
   CONSTRAINT `idCommande`
     FOREIGN KEY (`idCommande`)
-    REFERENCES `vehiculesOccasion`.`facture` (`id`)
+    REFERENCES `vehicules`.`facture` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idVoiture`
     FOREIGN KEY (`idVoiture`)
-    REFERENCES `vehiculesOccasion`.`voiture` (`id`)
+    REFERENCES `vehicules`.`voiture` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`image`
+-- Table `vehicules`.`image`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`image` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`image` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `lien` VARCHAR(100) NULL,
   `idVoiture` INT NOT NULL,
@@ -550,354 +550,354 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`image` (
   PRIMARY KEY (`id`),
 
     FOREIGN KEY (`idVoiture`)
-    REFERENCES `vehiculesOccasion`.`voiture` (`id`))
+    REFERENCES `vehicules`.`voiture` (`id`))
 ENGINE = InnoDB;
 
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (00).jpg', 1 , 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (01).jpg', 1 , 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (02).jpg', 1 , 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (03).jpg', 1 , 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (04).jpg', 1 , 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (05).jpg', 1 , 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (06).jpg', 1 , 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (07).jpg', 1 , 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (08).jpg', 1 , 8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (09).jpg', 1 , 9);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (10).jpg', 1 , 10);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (11).jpg', 1 , 11);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (12).jpg', 1 , 12);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (13).jpg', 1 , 13);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (14).jpg', 1 , 14);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (15).jpg', 1 , 15);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (16).jpg', 1 , 16);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (00).jpg', 10 , 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (01).jpg', 10, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (02).jpg', 10, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (03).jpg', 10, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (04).jpg', 10, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (05).jpg', 10, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (06).jpg', 10, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (00).jpg', 11, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (01).jpg', 11, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (02).jpg', 11, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (03).jpg', 11, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (04).jpg', 11, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (05).jpg', 11, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (06).jpg', 11, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (07).jpg', 11, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (08).jpg', 11, 8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (00).jpg', 12, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (01).jpg', 12, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (02).jpg', 12, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (03).jpg', 12, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (04).jpg', 12, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (05).jpg', 12, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (06).jpg', 12, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (07).jpg', 12, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (08).jpg', 12, 8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (09).jpg', 12, 9);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (00).jpg', 13, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (01).jpg', 13, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (02).jpg', 13, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (03).jpg', 13, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (04).jpg', 13, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (05).jpg', 13, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (06).jpg', 13, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (07).jpg', 13, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (08).jpg', 13, 8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/14/Mercedes_Benz-CLA250-2015 (00).jpg', 14, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/14/Mercedes_Benz-CLA250-2015 (01).jpg', 14, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/14/Mercedes_Benz-CLA250-2015 (02).jpg', 14, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/14/Mercedes_Benz-CLA250-2015 (03).jpg', 14, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa Note-2017 (00).jpg', 15, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (01).jpg', 15, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (02).jpg', 15, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (03).jpg', 15, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (04).jpg', 15, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (05).jpg', 15, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (06).jpg', 15, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (07).jpg', 15, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (08).jpg', 15, 8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (00).jpg', 16, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (01).jpg', 16, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (02).jpg', 16, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (03).jpg', 16, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (04).jpg', 16, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (05).jpg', 16, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (06).jpg', 16, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (07).jpg', 16, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (00).jpg', 17, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (01).jpg', 17, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (02).jpg', 17, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (03).jpg', 17, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (04).jpg', 17, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (05).jpg', 17, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (06).jpg', 17, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (07).jpg', 17, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/18/Nissan-Rogue-2015 (00).jpg', 18, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/18/Nissan-Rogue-2015 (01).jpg', 18, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/18/Nissan-Rogue-2015 (02).jpg', 18, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/18/Nissan-Rogue-2015 (03).jpg', 18, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/18/Nissan-Rogue-2015 (04).jpg', 18, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/19/Dodge-Journey-2016 (00).jpg', 19, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/19/Dodge-Journey-2016 (01).jpg', 19, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/19/Dodge-Journey-2016 (02).jpg', 19, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/19/Dodge-Journey-2016 (03).jpg', 19, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/19/Dodge-Journey-2016 (04).jpg', 19, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (00).jpg', 2, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (01).jpg', 2, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (02).jpg', 2, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (03).jpg', 2, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (04).jpg', 2, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (05).jpg', 2, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (06).jpg', 2, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (07).jpg', 2, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (08).jpg', 2, 8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (09).jpg', 2, 9);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (10).jpg', 2, 10);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (11).jpg', 2, 11);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (12).jpg', 2, 12);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (13).jpg', 2, 13);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (14).jpg', 2, 14);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (15).jpg', 2, 15);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (16).jpg', 2, 16);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (17).jpg', 2, 17);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (18).jpg', 2, 18);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/20/Mazda-CX_3-2016 (00).jpg', 20, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/20/Mazda-CX_3-2016 (01).jpg', 20, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/20/Mazda-CX_3-2016 (02).jpg', 20, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/20/Mazda-CX_3-2016 (03).jpg', 20, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/20/Mazda-CX_3-2016 (04).jpg', 20, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/20/Mazda-CX_3-2016 (05).jpg', 20, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/21/Nissan-Pathfinder-2016 (00).jpg', 21, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/21/Nissan-Pathfinder-2016 (01).jpg', 21, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (00).jpg', 22, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (01).jpg', 22, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (02).jpg', 22, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (03).jpg', 22, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (04).jpg', 22, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (05).jpg', 22, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (06).jpg', 22, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/23/Chevrolet-Equinox-2018 (00).jpg', 23, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/23/Chevrolet-Equinox-2018 (01).jpg', 23, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/23/Chevrolet-Equinox-2018 (02).jpg', 23, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/23/Chevrolet-Equinox-2018 (03).jpg', 23, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/23/Chevrolet-Equinox-2018 (04).jpg', 23, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/23/Chevrolet-Equinox-2018 (05).jpg', 23, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/24/Mazda-CX_5-2016 (00).jpg', 24, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/24/Mazda-CX_5-2016 (01).jpg', 24, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/24/Mazda-CX_5-2016 (02).jpg', 24, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/24/Mazda-CX_5-2016 (03).jpg', 24, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/24/Mazda-CX_5-2016 (04).jpg', 24, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/24/Mazda-CX_5-2016 (05).jpg', 24, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/25/Toyota-Rav4-2018 (00).jpg', 25, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/25/Toyota-Rav4-2018 (01).jpg', 25, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/25/Toyota-Rav4-2018 (02).jpg', 25, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/25/Toyota-Rav4-2018 (03).jpg', 25, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/25/Toyota-Rav4-2018 (04).jpg', 25, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/25/Toyota-Rav4-2018 (05).jpg', 25, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/26/Kia-Sedona-2016 (00).jpg', 26, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/26/Kia-Sedona-2016 (01).jpg', 26, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/26/Kia-Sedona-2016 (02).jpg', 26, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/26/Kia-Sedona-2016 (03).jpg', 26, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/26/Kia-Sedona-2016 (04).jpg', 26, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/27/Dodge-Grand_Caravan-2017 (00).jpg', 27, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/27/Dodge-Grand_Caravan-2017 (01).jpg', 27, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/27/Dodge-Grand_Caravan-2017 (02).jpg', 27, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/27/Dodge-Grand_Caravan-2017 (03).jpg', 27, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/28/Honda-Odyssey-2016 (00).jpg', 28, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/28/Honda-Odyssey-2016 (01).jpg', 28, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/28/Honda-Odyssey-2016 (02).jpg', 28, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/28/Honda-Odyssey-2016 (03).jpg', 28, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/28/Honda-Odyssey-2016 (04).jpg', 28, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/28/Honda-Odyssey-2016 (05).jpg', 28, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/29/Dodge-Grand_Caravan-2018 (00).jpg', 29, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/29/Dodge-Grand_Caravan-2018 (01).jpg', 29, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/29/Dodge-Grand_Caravan-2018 (02).jpg', 29, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/29/Dodge-Grand_Caravan-2018 (03).jpg', 29, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (00).jpg', 3, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (01).jpg', 3, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (02).jpg', 3, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (03).jpg', 3, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (04).jpg', 3, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (05).jpg', 3, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (06).jpg', 3, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (07).jpg', 3, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (08).jpg', 3, 8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (09).jpg', 3, 9);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (10).jpg', 3, 10);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (11).jpg', 3, 11);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (12).jpg', 3, 12);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (13).jpg', 3, 13);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (14).jpg', 3, 14);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (15).jpg', 3, 15);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (16).jpg', 3, 16);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (00).jpg', 30, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (01).jpg', 30, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (02).jpg', 30, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (03).jpg', 30, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (04).jpg', 30, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (05).jpg', 30, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (06).jpg', 30, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (00).jpg', 31, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (01).jpg', 31, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (02).jpg', 31, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (03).jpg', 31, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (04).jpg', 31, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (05).jpg', 31, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (06).jpg', 31, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/32/Volkswagen-Routan-2011 (00).jpg', 32, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/32/Volkswagen-Routan-2011 (01).jpg', 32, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/32/Volkswagen-Routan-2011 (02).jpg', 32, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/32/Volkswagen-Routan-2011 (03).jpg', 32, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/32/Volkswagen-Routan-2011 (04).jpg', 32, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (00).jpg', 33, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (01).jpg', 33, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (02).jpg', 33, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (03).jpg', 33, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (04).jpg', 33, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (05).jpg', 33, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (06).jpg', 33, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (00).jpg', 34, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (01).jpg', 34, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (02).jpg', 34, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (03).jpg', 34, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (04).jpg', 34, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (05).jpg', 34, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (06).jpg', 34, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (07).jpg', 34, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (00).jpg', 35, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (01).jpg', 35, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (02).jpg', 35, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (03).jpg', 35, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (04).jpg', 35, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (05).jpg', 35, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (06).jpg', 35, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (00).jpg', 36, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (01).jpg', 36, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (02).jpg', 36, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (03).jpg', 36, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (04).jpg', 36, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (05).jpg', 36, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (06).jpg', 36, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/37/Ram-2500-2018 (00).jpg', 37, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/37/Ram-2500-2018 (01).jpg', 37, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/37/Ram-2500-2018 (02).jpg', 37, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/37/Ram-2500-2018 (03).jpg', 37, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/37/Ram-2500-2018 (04).jpg', 37, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/37/Ram-2500-2018 (05).jpg', 37, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (00).jpg', 38, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (01).jpg', 38, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (02).jpg', 38, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (03).jpg', 38, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (04).jpg', 38, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (05).jpg', 38, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (06).jpg', 38, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (00).jpg', 39, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (01).jpg', 39, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (02).jpg', 39, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (03).jpg', 39, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (04).jpg', 39, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (05).jpg', 39, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (06).jpg', 39, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (00).jpg', 4, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (01).jpg', 4, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (02).jpg', 4, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (03).jpg', 4, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (04).jpg', 4, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (05).jpg', 4, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (06).jpg', 4, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (07).jpg', 4, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (08).jpg', 4, 8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (09).jpg', 4, 9);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (10).jpg', 4, 10);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (11).jpg', 4, 11);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (12).jpg', 4, 12);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (13).jpg', 4, 13);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (14).jpg', 4, 14);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (15).jpg', 4, 15);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (00).jpg', 40, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (01).jpg', 40, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (02).jpg', 40, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (03).jpg', 40, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (04).jpg', 40, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (05).jpg', 40, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (06).jpg', 40, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (07).jpg', 40, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (08).jpg', 40, 8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (09).jpg', 40, 9);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (10).jpg', 40, 10);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Fort.e-2014 (00).jpg', 5, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (01).jpg', 5, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (02).jpg', 5, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (03).jpg', 5, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (04).jpg', 5, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (05).jpg', 5, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (06).jpg', 5, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (07).jpg', 5, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (08).jpg', 5, 8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (09).jpg', 5, 9);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (10).jpg', 5, 10);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (11).jpg', 5, 11);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (12).jpg', 5, 12);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (13).jpg', 5, 13);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (14).jpg', 5, 14);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (15).jpg', 5, 15);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (16).jpg', 5, 16);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (00).jpg', 6, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (01).jpg', 6, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (02).jpg', 6, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (03).jpg', 6, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (04).jpg', 6, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (05).jpg', 6, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (06).jpg', 6, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (07).jpg', 6, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (08).jpg', 6, 8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (09).jpg', 6, 9);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (10).jpg', 6, 10);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (11).jpg', 6, 11);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (12).jpg', 6, 12);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (13).jpg', 6, 13);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (00).jpg', 7, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (01).jpg', 7, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (02).jpg', 7, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (03).jpg', 7, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (04).jpg', 7, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (05).jpg', 7, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (06).jpg', 7, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (07).jpg', 7, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (08).jpg', 7, 8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (09).jpg', 7, 9);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (10).jpg', 7, 10);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (11).jpg', 7, 11);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (12).jpg', 7, 12);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (13).jpg', 7, 13);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (00).jpg', 8, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (01).jpg', 8, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (02).jpg', 8, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (03).jpg', 8, 3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (04).jpg', 8, 4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (05).jpg', 8, 5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (06).jpg', 8, 6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (07).jpg', 8, 7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (08).jpg', 8, 8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (09).jpg', 8, 9);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (10).jpg', 8, 10);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (11).jpg', 8, 11);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (12).jpg', 8, 12);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (13).jpg', 8, 13);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (14).jpg', 8, 14);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (15).jpg', 8, 15);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/9/Hyundai-Elantra-2015 (00).jpg', 9, 0);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/9/Hyundai-Elantra-2015 (01).jpg', 9, 1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/9/Hyundai-Elantra-2015 (02).jpg', 9, 2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/9/Hyundai-Elantra-2015 (03).jpg', 9, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (00).jpg', 1 , 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (01).jpg', 1 , 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (02).jpg', 1 , 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (03).jpg', 1 , 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (04).jpg', 1 , 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (05).jpg', 1 , 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (06).jpg', 1 , 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (07).jpg', 1 , 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (08).jpg', 1 , 8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (09).jpg', 1 , 9);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (10).jpg', 1 , 10);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (11).jpg', 1 , 11);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (12).jpg', 1 , 12);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (13).jpg', 1 , 13);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (14).jpg', 1 , 14);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (15).jpg', 1 , 15);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/1/Chevrolet-Cruze-2016 (16).jpg', 1 , 16);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (00).jpg', 10 , 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (01).jpg', 10, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (02).jpg', 10, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (03).jpg', 10, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (04).jpg', 10, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (05).jpg', 10, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/10/Nissan-Sentra-2016 (06).jpg', 10, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (00).jpg', 11, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (01).jpg', 11, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (02).jpg', 11, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (03).jpg', 11, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (04).jpg', 11, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (05).jpg', 11, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (06).jpg', 11, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (07).jpg', 11, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/11/Volkswagen-Jetta-2014 (08).jpg', 11, 8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (00).jpg', 12, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (01).jpg', 12, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (02).jpg', 12, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (03).jpg', 12, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (04).jpg', 12, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (05).jpg', 12, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (06).jpg', 12, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (07).jpg', 12, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (08).jpg', 12, 8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/12/Kia-Optima-2016 (09).jpg', 12, 9);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (00).jpg', 13, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (01).jpg', 13, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (02).jpg', 13, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (03).jpg', 13, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (04).jpg', 13, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (05).jpg', 13, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (06).jpg', 13, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (07).jpg', 13, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/13/Honda-Civic-2015 (08).jpg', 13, 8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/14/Mercedes_Benz-CLA250-2015 (00).jpg', 14, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/14/Mercedes_Benz-CLA250-2015 (01).jpg', 14, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/14/Mercedes_Benz-CLA250-2015 (02).jpg', 14, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/14/Mercedes_Benz-CLA250-2015 (03).jpg', 14, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa Note-2017 (00).jpg', 15, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (01).jpg', 15, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (02).jpg', 15, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (03).jpg', 15, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (04).jpg', 15, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (05).jpg', 15, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (06).jpg', 15, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (07).jpg', 15, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/15/Nissan-Versa_Note-2016 (08).jpg', 15, 8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (00).jpg', 16, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (01).jpg', 16, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (02).jpg', 16, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (03).jpg', 16, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (04).jpg', 16, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (05).jpg', 16, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (06).jpg', 16, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/16/Jeep-Compass-2015 (07).jpg', 16, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (00).jpg', 17, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (01).jpg', 17, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (02).jpg', 17, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (03).jpg', 17, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (04).jpg', 17, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (05).jpg', 17, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (06).jpg', 17, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/17/Ford-Escape-2015 (07).jpg', 17, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/18/Nissan-Rogue-2015 (00).jpg', 18, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/18/Nissan-Rogue-2015 (01).jpg', 18, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/18/Nissan-Rogue-2015 (02).jpg', 18, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/18/Nissan-Rogue-2015 (03).jpg', 18, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/18/Nissan-Rogue-2015 (04).jpg', 18, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/19/Dodge-Journey-2016 (00).jpg', 19, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/19/Dodge-Journey-2016 (01).jpg', 19, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/19/Dodge-Journey-2016 (02).jpg', 19, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/19/Dodge-Journey-2016 (03).jpg', 19, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/19/Dodge-Journey-2016 (04).jpg', 19, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (00).jpg', 2, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (01).jpg', 2, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (02).jpg', 2, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (03).jpg', 2, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (04).jpg', 2, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (05).jpg', 2, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (06).jpg', 2, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (07).jpg', 2, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (08).jpg', 2, 8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (09).jpg', 2, 9);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (10).jpg', 2, 10);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (11).jpg', 2, 11);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (12).jpg', 2, 12);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (13).jpg', 2, 13);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (14).jpg', 2, 14);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (15).jpg', 2, 15);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (16).jpg', 2, 16);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (17).jpg', 2, 17);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/2/Ford-Focus-2014 (18).jpg', 2, 18);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/20/Mazda-CX_3-2016 (00).jpg', 20, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/20/Mazda-CX_3-2016 (01).jpg', 20, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/20/Mazda-CX_3-2016 (02).jpg', 20, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/20/Mazda-CX_3-2016 (03).jpg', 20, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/20/Mazda-CX_3-2016 (04).jpg', 20, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/20/Mazda-CX_3-2016 (05).jpg', 20, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/21/Nissan-Pathfinder-2016 (00).jpg', 21, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/21/Nissan-Pathfinder-2016 (01).jpg', 21, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (00).jpg', 22, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (01).jpg', 22, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (02).jpg', 22, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (03).jpg', 22, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (04).jpg', 22, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (05).jpg', 22, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016 (06).jpg', 22, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/23/Chevrolet-Equinox-2018 (00).jpg', 23, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/23/Chevrolet-Equinox-2018 (01).jpg', 23, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/23/Chevrolet-Equinox-2018 (02).jpg', 23, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/23/Chevrolet-Equinox-2018 (03).jpg', 23, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/23/Chevrolet-Equinox-2018 (04).jpg', 23, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/23/Chevrolet-Equinox-2018 (05).jpg', 23, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/24/Mazda-CX_5-2016 (00).jpg', 24, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/24/Mazda-CX_5-2016 (01).jpg', 24, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/24/Mazda-CX_5-2016 (02).jpg', 24, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/24/Mazda-CX_5-2016 (03).jpg', 24, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/24/Mazda-CX_5-2016 (04).jpg', 24, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/24/Mazda-CX_5-2016 (05).jpg', 24, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/25/Toyota-Rav4-2018 (00).jpg', 25, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/25/Toyota-Rav4-2018 (01).jpg', 25, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/25/Toyota-Rav4-2018 (02).jpg', 25, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/25/Toyota-Rav4-2018 (03).jpg', 25, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/25/Toyota-Rav4-2018 (04).jpg', 25, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/25/Toyota-Rav4-2018 (05).jpg', 25, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/26/Kia-Sedona-2016 (00).jpg', 26, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/26/Kia-Sedona-2016 (01).jpg', 26, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/26/Kia-Sedona-2016 (02).jpg', 26, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/26/Kia-Sedona-2016 (03).jpg', 26, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/26/Kia-Sedona-2016 (04).jpg', 26, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/27/Dodge-Grand_Caravan-2017 (00).jpg', 27, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/27/Dodge-Grand_Caravan-2017 (01).jpg', 27, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/27/Dodge-Grand_Caravan-2017 (02).jpg', 27, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/27/Dodge-Grand_Caravan-2017 (03).jpg', 27, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/28/Honda-Odyssey-2016 (00).jpg', 28, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/28/Honda-Odyssey-2016 (01).jpg', 28, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/28/Honda-Odyssey-2016 (02).jpg', 28, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/28/Honda-Odyssey-2016 (03).jpg', 28, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/28/Honda-Odyssey-2016 (04).jpg', 28, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/28/Honda-Odyssey-2016 (05).jpg', 28, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/29/Dodge-Grand_Caravan-2018 (00).jpg', 29, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/29/Dodge-Grand_Caravan-2018 (01).jpg', 29, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/29/Dodge-Grand_Caravan-2018 (02).jpg', 29, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/29/Dodge-Grand_Caravan-2018 (03).jpg', 29, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (00).jpg', 3, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (01).jpg', 3, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (02).jpg', 3, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (03).jpg', 3, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (04).jpg', 3, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (05).jpg', 3, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (06).jpg', 3, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (07).jpg', 3, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (08).jpg', 3, 8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (09).jpg', 3, 9);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (10).jpg', 3, 10);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (11).jpg', 3, 11);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (12).jpg', 3, 12);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (13).jpg', 3, 13);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (14).jpg', 3, 14);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (15).jpg', 3, 15);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/3/Honda-Civic-2015 (16).jpg', 3, 16);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (00).jpg', 30, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (01).jpg', 30, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (02).jpg', 30, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (03).jpg', 30, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (04).jpg', 30, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (05).jpg', 30, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/30/Kia-Sedona-2020 (06).jpg', 30, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (00).jpg', 31, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (01).jpg', 31, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (02).jpg', 31, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (03).jpg', 31, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (04).jpg', 31, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (05).jpg', 31, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/31/Toyota-Sienna-2015 (06).jpg', 31, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/32/Volkswagen-Routan-2011 (00).jpg', 32, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/32/Volkswagen-Routan-2011 (01).jpg', 32, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/32/Volkswagen-Routan-2011 (02).jpg', 32, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/32/Volkswagen-Routan-2011 (03).jpg', 32, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/32/Volkswagen-Routan-2011 (04).jpg', 32, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (00).jpg', 33, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (01).jpg', 33, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (02).jpg', 33, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (03).jpg', 33, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (04).jpg', 33, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (05).jpg', 33, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/33/Toyota-Sienna-2020 (06).jpg', 33, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (00).jpg', 34, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (01).jpg', 34, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (02).jpg', 34, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (03).jpg', 34, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (04).jpg', 34, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (05).jpg', 34, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (06).jpg', 34, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/34/Ram-2500-2019 (07).jpg', 34, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (00).jpg', 35, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (01).jpg', 35, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (02).jpg', 35, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (03).jpg', 35, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (04).jpg', 35, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (05).jpg', 35, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/35/Ford-Ranger-2019 (06).jpg', 35, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (00).jpg', 36, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (01).jpg', 36, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (02).jpg', 36, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (03).jpg', 36, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (04).jpg', 36, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (05).jpg', 36, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/36/Jeep-Gladiator-2020 (06).jpg', 36, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/37/Ram-2500-2018 (00).jpg', 37, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/37/Ram-2500-2018 (01).jpg', 37, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/37/Ram-2500-2018 (02).jpg', 37, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/37/Ram-2500-2018 (03).jpg', 37, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/37/Ram-2500-2018 (04).jpg', 37, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/37/Ram-2500-2018 (05).jpg', 37, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (00).jpg', 38, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (01).jpg', 38, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (02).jpg', 38, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (03).jpg', 38, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (04).jpg', 38, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (05).jpg', 38, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/38/Ram-3500-2014 (06).jpg', 38, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (00).jpg', 39, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (01).jpg', 39, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (02).jpg', 39, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (03).jpg', 39, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (04).jpg', 39, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (05).jpg', 39, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/39/GMC-Sierra-2018 (06).jpg', 39, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (00).jpg', 4, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (01).jpg', 4, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (02).jpg', 4, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (03).jpg', 4, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (04).jpg', 4, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (05).jpg', 4, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (06).jpg', 4, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (07).jpg', 4, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (08).jpg', 4, 8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (09).jpg', 4, 9);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (10).jpg', 4, 10);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (11).jpg', 4, 11);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (12).jpg', 4, 12);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (13).jpg', 4, 13);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (14).jpg', 4, 14);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/4/Ford-Focus-2016 (15).jpg', 4, 15);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (00).jpg', 40, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (01).jpg', 40, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (02).jpg', 40, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (03).jpg', 40, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (04).jpg', 40, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (05).jpg', 40, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (06).jpg', 40, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (07).jpg', 40, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (08).jpg', 40, 8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (09).jpg', 40, 9);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/40/GMC-Canyon-2019 (10).jpg', 40, 10);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Fort.e-2014 (00).jpg', 5, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (01).jpg', 5, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (02).jpg', 5, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (03).jpg', 5, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (04).jpg', 5, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (05).jpg', 5, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (06).jpg', 5, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (07).jpg', 5, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (08).jpg', 5, 8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (09).jpg', 5, 9);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (10).jpg', 5, 10);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (11).jpg', 5, 11);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (12).jpg', 5, 12);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (13).jpg', 5, 13);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (14).jpg', 5, 14);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (15).jpg', 5, 15);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/5/Kia-Forte-2014 (16).jpg', 5, 16);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (00).jpg', 6, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (01).jpg', 6, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (02).jpg', 6, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (03).jpg', 6, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (04).jpg', 6, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (05).jpg', 6, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (06).jpg', 6, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (07).jpg', 6, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (08).jpg', 6, 8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (09).jpg', 6, 9);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (10).jpg', 6, 10);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (11).jpg', 6, 11);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (12).jpg', 6, 12);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/6/Hyundai-Accent-2012 (13).jpg', 6, 13);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (00).jpg', 7, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (01).jpg', 7, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (02).jpg', 7, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (03).jpg', 7, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (04).jpg', 7, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (05).jpg', 7, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (06).jpg', 7, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (07).jpg', 7, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (08).jpg', 7, 8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (09).jpg', 7, 9);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (10).jpg', 7, 10);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (11).jpg', 7, 11);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (12).jpg', 7, 12);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/7/Hyundai-Elantra-2016 (13).jpg', 7, 13);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (00).jpg', 8, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (01).jpg', 8, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (02).jpg', 8, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (03).jpg', 8, 3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (04).jpg', 8, 4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (05).jpg', 8, 5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (06).jpg', 8, 6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (07).jpg', 8, 7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (08).jpg', 8, 8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (09).jpg', 8, 9);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (10).jpg', 8, 10);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (11).jpg', 8, 11);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (12).jpg', 8, 12);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (13).jpg', 8, 13);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (14).jpg', 8, 14);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/8/Nissan-Micra-2015 (15).jpg', 8, 15);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/9/Hyundai-Elantra-2015 (00).jpg', 9, 0);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/9/Hyundai-Elantra-2015 (01).jpg', 9, 1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/9/Hyundai-Elantra-2015 (02).jpg', 9, 2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`, `sort`) VALUES ('./images/9/Hyundai-Elantra-2015 (03).jpg', 9, 3);
 
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`url`
+-- Table `vehicules`.`url`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`url` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`url` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `query` VARCHAR(100) NOT NULL,
   `motCle` VARCHAR(100) NOT NULL,

@@ -4,5 +4,7 @@ const classMapping = {
     'GestionMarque'         : GestionMarque,
     'GestionModele'         : GestionModele,
     'VoirPlus'              : VoirPlus,
-    'Voiture'               : Voiture, 
+    'Voiture'               : Voiture,
+    'GestionModele'         : GestionModele,
+    'Filtre'                : Filtre
 };

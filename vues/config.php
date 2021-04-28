@@ -5,7 +5,7 @@ define("RACINE", "");
 //définition des constantes de connexion à la BD
 define("TYPEBD", "mysql");
 define("HOTE", "localhost");
-define("NOMBD", "vehicules");
+define("NOMBD", "vehiculesoccasion");
 define("USAGER", "root");
 define("MDP", "");
 

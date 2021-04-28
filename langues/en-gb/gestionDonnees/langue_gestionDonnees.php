@@ -3,6 +3,7 @@
 $langue['gestion_donnees']  = 'Data management';
 $langue['gestion_marques']  = 'Brand management';
 $langue['gestion_modeles']  = 'Model management';
+$langue['gestion_couleurs'] = 'Color management';
 $langue['gestion_texte']    = 'This page is used to enter data into the database. <br/> << - On the left, select the section you want to work with. <br/> Have a good job!';
 $langue['option']           = 'Choose ...';
 
@@ -11,6 +12,9 @@ $langue['nom_modele']	    = 'Model';
 $langue['nom_couleur']	    = 'Color';
 $langue['nom_voiture']	    = 'Car';
 $langue['disponibilite']    = 'Availability';
+
+$langue['nom_langue_fr']    = 'French';
+$langue['nom_langue_en']    = 'English';
 
 $langue['formulaire_ajout_marque'] = 'Add new brand';
 $langue['formulaire_modif_marque'] = 'Сhange brand';

@@ -1,6 +1,6 @@
 .listeDonnees {
     display: inline;
-    width: calc(25% - var(--margeSection));
+    flex-basis: calc(25% - var(--margeSection));
     height: 100%;
     margin-top: var(--margeSection);
     margin-left: var(--margeSection);
@@ -19,7 +19,7 @@
 
 .pageDonnees {
     display: inline-block;
-    width: calc(65% - var(--margeSection));
+    flex-basis: calc(65% - var(--margeSection));
     margin-top: var(--margeSection);
     margin-right: var(--margeSection);
     border-style: solid;
@@ -72,4 +72,41 @@
     border-width: 1px;
     border-color: var(--gris);
     padding: 0.5vw;
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 20px;
+    color: #192734;
+    font-size: 18px;
+    font-weight: 500;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pagination>a {
+    padding: 0 10px;
+}
+
+.page-active {
+    color: #A91E1D;
+    font-size: 22px;
+    text-decoration: none;
+    pointer-events: none;
+}
+
+.fleche {
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: bottom;
+    border-style: solid;
+    border-width: var(--bordureInterne);
+    border-color: var(--gris);
+    padding: 0.5vw;
+}
+
+.fleche>img {
+    display: inline-block;
+    height: 20px;
 }

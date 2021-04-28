@@ -17,6 +17,7 @@
 	<!-- scripts -->
 	<script type="text/javascript" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script type="text/javascript" src="./scripts/DescriptionVoiture.js"></script>
+	<script type="text/javascript" src="./scripts/Filtre.js"></script>
 	<script type="text/javascript" src="./scripts/Voiture.js"></script>
 	<script type="text/javascript" src="./scripts/VoirPlus.js"></script>
 	<script type="text/javascript" src="./scripts/GestionMarque.js"></script>
