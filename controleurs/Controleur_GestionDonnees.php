@@ -28,9 +28,26 @@
 				switch($params["action"]) {
 					// Affichage de la liste des marques
 					case "gestionMarque":
+						// Nombre des marqued affichées sur une page
+        				$marquesParPage = 10;
+        				// Obtenir un nombre toutes les marques dans la base de données
+        				$modeleMarque = $this->obtenirDAO("Marque");
+						$nbMarquesTotal = $modeleMarque->obtenirNombreMarques();
+						// Calculer le nombre des pages 
+        				$donnees["nbPages"] = ceil($nbMarquesTotal / $marquesParPage);
+        				if (isset($_GET["page"]) AND !empty($_GET["page"]) AND $_GET["page"] > 0 AND $_GET["page"] <= $donnees["nbPages"]) 
+        				{
+           					$_GET["page"] = intval($_GET["page"]);
+            				$donnees["pageCourante"] = $_GET["page"];
+        				} else 
+        				{
+            				$donnees["pageCourante"] = 1;
+        				}
+    
+        				$depart = ($donnees["pageCourante"] - 1) * $marquesParPage;
+
 						$this->afficheVue("listeDonnees", $donnees);
-						$modeleMarque = $this->obtenirDAO("Marque");
-						$donnees["marques"] = $modeleMarque->obtenirTous();
+						$donnees["marques"] = $modeleMarque->obtenirMarques($depart, $marquesParPage);
 						$this->afficheVue("gestionMarque", $donnees);
 						break;
 					// Affichage de la liste des modèles

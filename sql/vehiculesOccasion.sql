@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema vehiculesOccasion
+-- Schema vehicules
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema vehiculesOccasion
+-- Schema vehicules
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `vehiculesOccasion` DEFAULT CHARACTER SET utf8 ;
-USE `vehiculesOccasion` ;
+CREATE SCHEMA IF NOT EXISTS `vehicules` DEFAULT CHARACTER SET utf8 ;
+USE `vehicules` ;
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`role`
+-- Table `vehicules`.`role`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`role` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`role` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
   `permission` TEXT NULL,
@@ -33,9 +33,9 @@ INSERT INTO `role`(`nom`, `permission`) VALUES ('client', 'Lecture et Insertion 
 INSERT INTO `role`(`nom`, `permission`) VALUES ('inactif', 'Lecture et Insertion d\'une commande');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`usager`
+-- Table `vehicules`.`usager`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`usager` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`usager` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `courreil` VARCHAR(45) NOT NULL,
   `motPasse` VARCHAR(255) NOT NULL,
@@ -54,17 +54,17 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`usager` (
   PRIMARY KEY (`id`),
   CONSTRAINT `idProvince`
     FOREIGN KEY (`idProvince`)
-    REFERENCES `vehiculesOccasion`.`province` (`id`)
+    REFERENCES `vehicules`.`province` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idLangue`
     FOREIGN KEY (`idLangue`)
-    REFERENCES `vehiculesOccasion`.`langue` (`id`)
+    REFERENCES `vehicules`.`langue` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idRole`
     FOREIGN KEY (`idRole`)
-    REFERENCES `vehiculesOccasion`.`role` (`id`)
+    REFERENCES `vehicules`.`role` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -75,9 +75,9 @@ INSERT INTO `usager`(`courreil`, `motPasse`, `nom`, `prenom`, `dateNaissance`, `
 INSERT INTO `usager`(`courreil`, `motPasse`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `idLangue`, `idRole`) VALUES ('phil@gmail.com','1234','Houle','Philippe','2024-12-12','72 Latour','j3n1l1',12,'Saint-Basile-le-Grand','5145555555','5145555555',1,3);
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`pays`
+-- Table `vehicules`.`pays`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`pays` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`pays` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -87,9 +87,9 @@ INSERT INTO `pays`(`nom`) VALUES ('Canada');
 INSERT INTO `pays`(`nom`) VALUES ('USA');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`langue`
+-- Table `vehicules`.`langue`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`langue` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`langue` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
   `code` VARCHAR(45) NOT NULL,
@@ -100,18 +100,18 @@ INSERT INTO `langue`(`nom`, `code`) VALUES ('Français','fr-fr');
 INSERT INTO `langue`(`nom`, `code`) VALUES ('English','en-gb');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`province`
+-- Table `vehicules`.`province`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`province` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`province` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `idPays` INT NOT NULL,
   PRIMARY KEY (`id`, `idLangue`),
   FOREIGN KEY (`idPays`)
-  REFERENCES `vehiculesOccasion`.`pays` (`id`),
+  REFERENCES `vehicules`.`pays` (`id`),
   FOREIGN KEY (`idLangue`)
-  REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
 INSERT INTO `province`(`id`, `idLangue`, `nom`, `idPays`) VALUES (1,1,'Alberta',1);
@@ -143,9 +143,9 @@ INSERT INTO `province`(`id`, `idLangue`, `nom`, `idPays`) VALUES (13,2,'Yukon',1
 
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`taxe`
+-- Table `vehicules`.`taxe`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`taxe` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`taxe` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
   `taux` DECIMAL(15,4) UNSIGNED NOT NULL,
@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`taxe` (
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`idProvince`)
-  REFERENCES `vehiculesOccasion`.`province` (`id`))
+  REFERENCES `vehicules`.`province` (`id`))
 ENGINE = InnoDB;
 
 INSERT INTO `taxe`(`nom`, `taux`, `idProvince`,`disponibilite`) VALUES ('TPS',5,1,1);
@@ -175,22 +175,22 @@ INSERT INTO `taxe`(`nom`, `taux`, `idProvince`,`disponibilite`) VALUES ('TPS',5,
 INSERT INTO `taxe`(`nom`, `taux`, `idProvince`,`disponibilite`) VALUES ('TPS',5,13,1);
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`journalConnexion`
+-- Table `vehicules`.`journalConnexion`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`journalConnexion` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`journalConnexion` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `idUsager` INT,
   `date` DATE NOT NULL,
   `adresseIp` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`idUsager`)
-  REFERENCES `vehiculesOccasion`.`usager` (`id`))
+  REFERENCES `vehicules`.`usager` (`id`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`motopropulseur`
+-- Table `vehicules`.`motopropulseur`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`motopropulseur` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`motopropulseur` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
    `disponibilite` TINYINT NOT NULL DEFAULT 1,
@@ -201,9 +201,9 @@ INSERT INTO motopropulseur (nom) VALUES
                     ('4x2'), ('4x4');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`annee`
+-- Table `vehicules`.`annee`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`annee` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`annee` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `annee` YEAR NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
@@ -214,9 +214,9 @@ INSERT INTO annee (annee) VALUES
                     ('2010'), ('2011'), ('2012'), ('2013'), ('2014'), ('2014'), ('2016'), ('2017'), ('2018'), ('2019'), ('2020'), ('2021');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`marque`
+-- Table `vehicules`.`marque`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`marque` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`marque` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
@@ -228,9 +228,9 @@ INSERT INTO marque (nom) VALUES
 			('Dodge'), ('Mazda'), ('Ram'), ('GMC');        
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`modele`
+-- Table `vehicules`.`modele`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`modele` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`modele` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
   `idMarque` INT NOT NULL,
@@ -238,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`modele` (
   PRIMARY KEY (`id`),
   CONSTRAINT `idMarque`
     FOREIGN KEY (`idMarque`)
-    REFERENCES `vehiculesOccasion`.`marque` (`id`)
+    REFERENCES `vehicules`.`marque` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -250,15 +250,15 @@ INSERT INTO modele (nom, idMarque) VALUES
 		('Odyssey', 3), ('Sienna', 8), ('Routan', 9), ('2500', 13), ('Ranger', 2), ('Gladiator', 10), ('3500', 13), ('Sierra 3500', 14), ('Canyon', 14);
 					
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`typeCarburant`
+-- Table `vehicules`.`typeCarburant`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`typeCarburant` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`typeCarburant` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`, `idLangue`),
-  FOREIGN KEY (`idLangue`)    REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  FOREIGN KEY (`idLangue`)    REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
  
@@ -269,15 +269,15 @@ INSERT INTO typeCarburant (id, idLangue, nom) VALUES
 
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`couleur`
+-- Table `vehicules`.`couleur`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`couleur` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`couleur` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`, `idLangue`),
-  FOREIGN KEY (`idLangue`)    REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  FOREIGN KEY (`idLangue`)    REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
  
@@ -288,15 +288,15 @@ INSERT INTO couleur (id, idLangue, nom) VALUES
 
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`transmission`
+-- Table `vehicules`.`transmission`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`transmission` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`transmission` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`, `idLangue`),
-  FOREIGN KEY (`idLangue`)    REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  FOREIGN KEY (`idLangue`)    REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
  
@@ -306,15 +306,15 @@ INSERT INTO transmission (id, idLangue, nom) VALUES
 
 
  -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`typeCarrosserie`
+-- Table `vehicules`.`typeCarrosserie`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`typeCarrosserie` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`typeCarrosserie` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`, `idLangue`),
-  FOREIGN KEY (`idLangue`)    REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  FOREIGN KEY (`idLangue`)    REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
 
@@ -323,9 +323,9 @@ INSERT INTO typeCarrosserie (id, idLangue, nom) VALUES
 
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`voiture`
+-- Table `vehicules`.`voiture`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`voiture` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`voiture` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `idModele` INT NOT NULL,
   `idAnnee` INT NOT NULL,
@@ -343,37 +343,37 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`voiture` (
   PRIMARY KEY (`id`),
   CONSTRAINT `idMotopropulseur`
     FOREIGN KEY (`idMotopropulseur`)
-    REFERENCES `vehiculesOccasion`.`motopropulseur` (`id`)
+    REFERENCES `vehicules`.`motopropulseur` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idAnnee`
     FOREIGN KEY (`idAnnee`)
-    REFERENCES `vehiculesOccasion`.`annee` (`id`)
+    REFERENCES `vehicules`.`annee` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idModele`
     FOREIGN KEY (`idModele`)
-    REFERENCES `vehiculesOccasion`.`modele` (`id`)
+    REFERENCES `vehicules`.`modele` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idTypeCarburant`
     FOREIGN KEY (`idTypeCarburant`)
-    REFERENCES `vehiculesOccasion`.`typeCarburant` (`id`)
+    REFERENCES `vehicules`.`typeCarburant` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idCouleur`
     FOREIGN KEY (`idCouleur`)
-    REFERENCES `vehiculesOccasion`.`couleur` (`id`)
+    REFERENCES `vehicules`.`couleur` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idTransmission`
     FOREIGN KEY (`idTransmission`)
-    REFERENCES `vehiculesOccasion`.`transmission` (`id`)
+    REFERENCES `vehicules`.`transmission` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idTypeCarrosserie`
     FOREIGN KEY (`idTypeCarrosserie`)
-    REFERENCES `vehiculesOccasion`.`typeCarrosserie` (`id`)
+    REFERENCES `vehicules`.`typeCarrosserie` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -422,29 +422,29 @@ INSERT INTO voiture (idModele, idAnnee, kilometrage, dateArivee, prixAchat, prix
 	( 33, 10, 50235, '2021-01-17', 29246.25, 38995, 2, 2, 3, 2, 7, 1, '1D4GP25B038108775');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`description`
+-- Table `vehicules`.`description`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`description` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`description` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `description` TEXT NULL,
   PRIMARY KEY (`id`, `idLangue`),
   FOREIGN KEY (`idLangue`)
-  REFERENCES `vehiculesOccasion`.`langue` (`id`),
+  REFERENCES `vehicules`.`langue` (`id`),
   FOREIGN KEY (`id`)
-  REFERENCES `vehiculesOccasion`.`voiture` (`id`))
+  REFERENCES `vehicules`.`voiture` (`id`))
 ENGINE = InnoDB;
 					
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`statut`
+-- Table `vehicules`.`statut`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`statut` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`statut` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NULL,
   PRIMARY KEY (`id`, `idLangue`),
   FOREIGN KEY (`idLangue`)
-  REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
 INSERT INTO `statut`(`id`, `idLangue`, `nom`) VALUES (1,1,'En attente');
@@ -455,16 +455,16 @@ INSERT INTO `statut`(`id`, `idLangue`, `nom`) VALUES (3,1,'Facturé');
 INSERT INTO `statut`(`id`, `idLangue`, `nom`) VALUES (3,2,'Charged');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`expedition`
+-- Table `vehicules`.`expedition`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`expedition` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`expedition` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`, `idLangue`),
   FOREIGN KEY (`idLangue`)
-  REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
 INSERT INTO `expedition`(`id`, `idLangue`, `nom`) VALUES (1,1,'Livraison local');
@@ -473,16 +473,16 @@ INSERT INTO `expedition`(`id`, `idLangue`, `nom`) VALUES (2,1,'Ramassage');
 INSERT INTO `expedition`(`id`, `idLangue`, `nom`) VALUES (2,2,'Pickup');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`modePaiement`
+-- Table `vehicules`.`modePaiement`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`modePaiement` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`modePaiement` (
   `id` INT NOT NULL,
   `idLangue` INT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `disponibilite` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`, `idLangue`),
   FOREIGN KEY (`idLangue`)
-  REFERENCES `vehiculesOccasion`.`langue` (`id`))
+  REFERENCES `vehicules`.`langue` (`id`))
 ENGINE = InnoDB;
 
 INSERT INTO `modepaiement`(`id`, `idLangue`, `nom`) VALUES (1,1,'Argent comptant');
@@ -495,9 +495,9 @@ INSERT INTO `modepaiement`(`id`, `idLangue`, `nom`) VALUES (4,1,'Virement bancai
 INSERT INTO `modepaiement`(`id`, `idLangue`, `nom`) VALUES (4,2,'Bank transfer');
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`facture`
+-- Table `vehicules`.`facture`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`facture` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`facture` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `idClient` INT NOT NULL,
   `date` DATE NOT NULL,
@@ -508,41 +508,41 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`facture` (
   `idModePaiement` INT NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`idClient`)
-  REFERENCES `vehiculesOccasion`.`client` (`id`),
+  REFERENCES `vehicules`.`client` (`id`),
   FOREIGN KEY (`idStatut`)
-  REFERENCES `vehiculesOccasion`.`statut` (`id`),
+  REFERENCES `vehicules`.`statut` (`id`),
   FOREIGN KEY (`idExpedition`)
-  REFERENCES `vehiculesOccasion`.`expedition` (`id`),
+  REFERENCES `vehicules`.`expedition` (`id`),
   FOREIGN KEY (`idModePaiement`)
-  REFERENCES `vehiculesOccasion`.`modePaiement` (`id`))
+  REFERENCES `vehicules`.`modePaiement` (`id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`listeAchat`
+-- Table `vehicules`.`listeAchat`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`listeAchat` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`listeAchat` (
   `idCommande` INT NOT NULL,
   `idVoiture` INT NOT NULL,
   `prixVenteFinal` DECIMAL(15,2) UNSIGNED NOT NULL,
   PRIMARY KEY (`idCommande`, `idVoiture`),
   CONSTRAINT `idCommande`
     FOREIGN KEY (`idCommande`)
-    REFERENCES `vehiculesOccasion`.`facture` (`id`)
+    REFERENCES `vehicules`.`facture` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idVoiture`
     FOREIGN KEY (`idVoiture`)
-    REFERENCES `vehiculesOccasion`.`voiture` (`id`)
+    REFERENCES `vehicules`.`voiture` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`image`
+-- Table `vehicules`.`image`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`image` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`image` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `lien` VARCHAR(100) NULL,
   `idVoiture` INT NOT NULL,
@@ -550,54 +550,54 @@ CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`image` (
   PRIMARY KEY (`id`),
 
     FOREIGN KEY (`idVoiture`)
-    REFERENCES `vehiculesOccasion`.`voiture` (`id`))
+    REFERENCES `vehicules`.`voiture` (`id`))
 ENGINE = InnoDB;
 
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/1/Chevrolet-Cruze-2016.jpg',1);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/2/Ford-Focus-2014.jpg',2);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/3/Honda-Civic-2015.jpg',3);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/4/Ford-Focus-2016.jpg',4);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/5/Kia-Forte-2014.jpg',5);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/6/Hyundai-Accent-2012.jpg',6);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/7/Hyundai-Elantra-2016.jpg',7);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/8/Nissan-Micra-2015.jpg',8);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/9/Hyundai-Elantra-2015.jpg',9);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/10/Nissan-Sentra-2016.jpg',10);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/11/Volkswagen-Jetta-2014.jpg',11);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/12/Kia-Optima-2016.jpg',12);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/13/Honda-Civic-2015.jpg',13);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/14/Mercedes_Benz-CLA250-2015.jpg',14);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/15/Nissan-Versa_Note-2016.jpg',15);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/16/Jeep-Compass-2015.jpg',16);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/17/Ford-Escape-2015.jpg',17);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/18/Nissan-Rogue-2015.jpg',18);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/19/Dodge-Journey-2016.jpg',19);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/20/Mazda-CX_3-2016.jpg',20);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/21/Nissan-Pathfinder-2016.jpg',21);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016.jpg',22);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/23/Chevrolet-Equinox-2018.jpg',23);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/24/Mazda-CX_5-2016.jpg',24);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/25/Toyota-Rav4-2018.jpg',25);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/26/Kia-Sedona-2016.jpg',26);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/27/Dodge-Grand_Caravan-2017.jpg',27);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/28/Honda-Odyssey-2016.jpg',28);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/29/Dodge-Grand_Caravan-2018.jpg',29);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/30/Kia-Sedona-2020.jpg',30);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/31/Toyota-Sienna-2015.jpg',31);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/32/Volkswagen-Routan-2011.jpg',32);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/33/Toyota-Sienna-2020.jpg',33);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/34/Ram-2500-2019.jpg',34);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/35/Ford-Ranger-2019.jpg',35);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/36/Jeep-Gladiator-2020.jpg',36);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/37/Ram-2500-2018.jpg',37);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/38/Ram-3500-2014.jpg',38);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/39/GMC-Sierra-2018.jpg',39);
-INSERT INTO `vehiculesOccasion`.`image`(`lien`,`idVoiture`) VALUES ('./images/40/GMC-Canyon-2019.jpg',40);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/1/Chevrolet-Cruze-2016.jpg',1);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/2/Ford-Focus-2014.jpg',2);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/3/Honda-Civic-2015.jpg',3);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/4/Ford-Focus-2016.jpg',4);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/5/Kia-Forte-2014.jpg',5);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/6/Hyundai-Accent-2012.jpg',6);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/7/Hyundai-Elantra-2016.jpg',7);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/8/Nissan-Micra-2015.jpg',8);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/9/Hyundai-Elantra-2015.jpg',9);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/10/Nissan-Sentra-2016.jpg',10);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/11/Volkswagen-Jetta-2014.jpg',11);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/12/Kia-Optima-2016.jpg',12);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/13/Honda-Civic-2015.jpg',13);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/14/Mercedes_Benz-CLA250-2015.jpg',14);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/15/Nissan-Versa_Note-2016.jpg',15);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/16/Jeep-Compass-2015.jpg',16);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/17/Ford-Escape-2015.jpg',17);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/18/Nissan-Rogue-2015.jpg',18);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/19/Dodge-Journey-2016.jpg',19);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/20/Mazda-CX_3-2016.jpg',20);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/21/Nissan-Pathfinder-2016.jpg',21);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/22/Hyundai-Santa_Fe_Sport-2016.jpg',22);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/23/Chevrolet-Equinox-2018.jpg',23);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/24/Mazda-CX_5-2016.jpg',24);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/25/Toyota-Rav4-2018.jpg',25);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/26/Kia-Sedona-2016.jpg',26);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/27/Dodge-Grand_Caravan-2017.jpg',27);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/28/Honda-Odyssey-2016.jpg',28);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/29/Dodge-Grand_Caravan-2018.jpg',29);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/30/Kia-Sedona-2020.jpg',30);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/31/Toyota-Sienna-2015.jpg',31);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/32/Volkswagen-Routan-2011.jpg',32);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/33/Toyota-Sienna-2020.jpg',33);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/34/Ram-2500-2019.jpg',34);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/35/Ford-Ranger-2019.jpg',35);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/36/Jeep-Gladiator-2020.jpg',36);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/37/Ram-2500-2018.jpg',37);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/38/Ram-3500-2014.jpg',38);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/39/GMC-Sierra-2018.jpg',39);
+INSERT INTO `vehicules`.`image`(`lien`,`idVoiture`) VALUES ('./images/40/GMC-Canyon-2019.jpg',40);
 
 -- -----------------------------------------------------
--- Table `vehiculesOccasion`.`url`
+-- Table `vehicules`.`url`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vehiculesOccasion`.`url` (
+CREATE TABLE IF NOT EXISTS `vehicules`.`url` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `query` VARCHAR(100) NOT NULL,
   `motCle` VARCHAR(100) NOT NULL,

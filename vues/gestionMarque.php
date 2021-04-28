@@ -1,6 +1,8 @@
 <section class="pageDonnees">
 <?php 
-    $langue = $donnees["langue"]; 
+    $langue = $donnees["langue"];
+    $pageCourante = $donnees["pageCourante"];
+    $nbPages = $donnees["nbPages"]; 
 ?>
         <h1><?= $langue["gestion_marques"] ?></h1>
 
@@ -31,6 +33,18 @@
         ?>
             </tbody>
         </table>
-    <div>
+        <div class="pagination">
+<?php
+            if($pageCourante > 1) echo '<a href="index.php?GestionDonnees&action=gestionMarque&page='. ($pageCourante - 1) .'" class="fleche"><<</a>'; 
+            for ($j = 1; $j <= $nbPages; $j++) {
+                if ($j == $pageCourante) {
+                    echo '<a href="index.php?GestionDonnees&action=gestionMarque&page='.$j.'" class="page-active">Page '.$j.'</a>';
+                } 
+            }
+            if($pageCourante < $nbPages) echo '<a href="index.php?GestionDonnees&action=gestionMarque&page='. ($pageCourante + 1) .'" class="fleche">>></a>';
+?>
+        </div>
+    </div>
 </section>
+
 </div>
