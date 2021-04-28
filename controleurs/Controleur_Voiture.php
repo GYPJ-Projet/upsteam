@@ -18,7 +18,6 @@
 			$idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
 
 			$this->afficheVue("tete");
-
 			$this->afficheVue("entete", $donnees);
             $this->afficheVue("menu", $donnees);
 
@@ -28,10 +27,9 @@
 			$modeleCouleur         = $this->obtenirDAO("TabLangues", "couleur"); 
 			$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
 			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
-      $modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
+      		$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
 			$modeleToutModeleDispo          = $this->obtenirDAO("Modele", "obtenirToutModeleDispo");
 			$modeleToutCarrosserieDispo     = $this->obtenirDAO("Carrosserie");
-
 
 			
 			// On prend les données dans la langue qu'il faut afficher.	
@@ -108,7 +106,7 @@
 				$this->afficheVue("accueil_fin");
 			}
 
-			$this->afficheVue("piedDePage");
+			$this->afficheVue("piedDePage", $donnees);
 		}
 	}
 ?>
