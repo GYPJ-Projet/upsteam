@@ -6,7 +6,7 @@ class MenuConteneur{
         this._menuGestionDonnees =      this._element.querySelector('[data-js-menuGestionDonnees]');
         this._menuGestionEmployes =     this._element.querySelector('[data-js-menuGestionEmployes]');
         this._menuGestionCommandes =    this._element.querySelector('[data-js-menuGestionCommandes]');
-        this._iconeBurger2 =             document.querySelector('svg');
+        this._iconeBurger2 =            document.querySelector('svg');
         this._iconeBurger =             document.querySelector('[data-js-iconeBurger]');
 
         this.init();

@@ -26,6 +26,7 @@
 			$modeleTypeCarburant   = $this->obtenirDAO("TabLangues", "typecarburant");
 			$modeleCouleur         = $this->obtenirDAO("TabLangues", "couleur"); 
 			$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
+			$modelePropulsion      = $this->obtenirDAO("motopropulseur");
 			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
       		$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
 			$modeleToutModeleDispo          = $this->obtenirDAO("Modele", "obtenirToutModeleDispo");
@@ -38,10 +39,9 @@
 			$donnees["transmission"]    = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
 			$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);	
       
-      //Obtention des informations pour le filtre.
+            // PH - Obtention des informations pour le filtre.
 			$donnees["toutesMarquesDispo"]      = $modeleToutMarqueDispo->obtenirToutDisponible();
-			$donnees["toutesModeleDispo"]       = $modeleToutModeleDispo->obtenirToutDisponible();
-			$donnees["toutesCarrosserieDispo"]  = $modeleToutCarrosserieDispo->obtenirToutDisponible();
+			$donnees["propulsion"]              = $modelePropulsion->obtenirToutDisponible();
       
 
 
