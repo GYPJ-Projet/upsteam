@@ -9,7 +9,7 @@
 		<article class="grille__item voiture" data-js-voiture="<?=$voiture["id"] ?>"  data-js-component="Voiture">
 			<h2><?=$voiture["nomMarque"] ?> <?=$voiture["nomModele"] ?> <?=$voiture["annee"] ?></h2>
 		    <img src="<?=$voiture["lienPhotoPrincipale"] ?>" alt="<?= $altImage ?>" class="gallery__image">
-			<div><span><?= $langue["kilometrage"] ?>:</span> <span class="valeur"><?= $voiture["kilometrage"]?></span></div>
+			<div><span><?= $langue["kilometrage"] ?>:</span> <span class="valeur"><?= $voiture["kilometrage"]?></span> km</div>
 			<div><span><?= $langue["transmission"] ?>:</span> <span class="valeur"><?= $donnees["transmission"][$voiture["idTransmission"]]?></span></div>
 			<div><span><?= $langue["motopropulseur"] ?>:</span> <span class="valeur"><?= $voiture["nomMotoPropulseur"] ?></span></div>
 			<div><span><?= $langue["carburant"] ?>:</span> <span class="valeur"><?= $donnees["typeCarburant"][$voiture["idTypeCarburant"]]?></span></div>

@@ -28,13 +28,12 @@
         </div>
 
 		<div class="descriptionVoiture" data-js-voiture="<?=$voiture["id"] ?>">
-			<h2><?=$voiture["nomMarque"] ?> <?=$voiture["nomModele"] ?> <?=$voiture["annee"] ?></h2>
-			<div><span><?= $langue["kilometrage"] ?>:</span> <span class="valeur"><?= $voiture["kilometrage"]?></span></div>
-			<div><span><?= $langue["transmission"] ?>:</span> <span class="valeur"><?= $donnees["transmission"][$voiture["idTransmission"]]?></span></div>
-			<div><span><?= $langue["motopropulseur"] ?>:</span> <span class="valeur"><?= $voiture["nomMotoPropulseur"] ?></span></div>
-			<div><span><?= $langue["carburant"] ?>:</span> <span class="valeur"><?= $donnees["typeCarburant"][$voiture["idTypeCarburant"]]?></span></div>
-			<div><span><?= $langue["habitacle"] ?>:</span> <span class="valeur"><?= $donnees["typeCarrosserie"][$voiture["idTypeCarrosserie"]]?></span></div>
-			<div><span><?= $langue["prix"] ?>:</span> <span class="valeur"><?=$voiture["prixVente"] ?>$</span></div>
+		    <h2>Spécifications de la <?=$voiture["nomMarque"] ?> <?=$voiture["nomModele"] ?> <?=$voiture["annee"] ?></h2>
+			<ul class="ulBlock">
+				<li class="liste">Modèle: <span><?=$voiture["nomModele"] ?></span></li>
+				<li class="liste"><span><?= $langue["habitacle"] ?>: </span><span class="valeur"><?= $donnees["typeCarrosserie"][$voiture["idTypeCarrosserie"]]?></span></li>
+				<li class="liste"><span><?= $langue["kilometrage"] ?>: </span><span class="valeur"><?= $voiture["kilometrage"]?></span> km</li>
+			</ul>			
 		</div>
 	</div>
 	<div class="ajouter-panier" data-js-ajouter-panier>

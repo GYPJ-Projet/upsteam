@@ -9,6 +9,9 @@ body {
 
 .descriptionVoiture {
     margin-top: var(--margeSection);       /* 50px; */
+/*     display:block;
+    float: left; */
+    width: 100;
 }
 
 .swiper-container {
