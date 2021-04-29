@@ -17,9 +17,10 @@
 			$idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
 
 			$this->afficheVue("tete");
-			$this->afficheVue("entete");
+
+			$this->afficheVue("entete", $donnees);
             $this->afficheVue("menu", $donnees);
-			
+						
 			if (isset($params["action"])) {
 
 				// Switch en fonction de l'action qui est envoyée en paramètre de la requête
@@ -70,7 +71,7 @@
 				$this->afficheVue("pageDonnees", $donnees);
 			}
 
-			$this->afficheVue("piedDePage");
+			$this->afficheVue("piedDePage", $donnees);
 		}
 	
     }
