@@ -3,17 +3,30 @@ class Filtre{
         //les éléments du filtre.
         this._element =                     element;
         this._listeMarquesSelectionnes =    [];
-        this._elListeMarque =               this._element.querySelector('[data-js-modeleConteneur]')
+        this._elListeMarque =               this._element.querySelector('[data-js-modeleListeConteneur]')
         this._listeMarquesAffiches =        this._element.querySelectorAll('[data-js-marque]');
         this._SymbolesPlus =                this._element.querySelectorAll('[data-js-SymbolePlus]');
-        this._elInputs =                    this._element.querySelectorAll('input');
+        this._elBoutonFiltre =              this._element.querySelector('[data-js-boutonFiltre]');
 
-        console.log('this._elInputs: ',this._elInputs);
+        this._elConteneurPrix =             this._element.querySelector('[data-js-prixConteneur]');
+        this._elConteneurMarque =           this._element.querySelector('[data-js-marqueConteneur]');
+        this._elConteneurModele =           this._element.querySelector('[data-js-modeleConteneur]');
+        this._elConteneurAnnee =            this._element.querySelector('[data-js-anneeConteneur]');
+        this._elConteneurKm =               this._element.querySelector('[data-js-kmConteneur]');
+        this._elConteneurCarburant =        this._element.querySelector('[data-js-carburantConteneur]');
+        this._elConteneurCarrosserie =      this._element.querySelector('[data-js-carrosserieConteneur]');
+        this._elConteneurTransmission =     this._element.querySelector('[data-js-transmissionConteneur]');
+        this._elConteneurPropulsion =       this._element.querySelector('[data-js-propulsionConteneur]');
 
+
+        // console.log('this._elBoutonFiltre: ',this._elBoutonFiltre);
         this.init();
     }
 
     init =()=>{
+        // let test           = this._elConteneurPrix.querySelector('select');
+        // test.value = 'prixMin=0&prixMax=1500';
+        // document.getElementById('sel').value = 'bike'
 
         this.gestionPlus();
         this.populationModele();
@@ -133,10 +146,39 @@ class Filtre{
     }
 
     gestionFiltre =()=>{
-        for(let marque of this._listeMarquesAffiches){
-            marque.addEventListener('click', ()=>{
-                console.log('test');
-            });
-        }
+        this._elBoutonFiltre.addEventListener('click', (evt)=>{
+            evt.preventDefault();
+            let inputPrix           = this._elConteneurPrix.querySelector('select'),
+                inputMarque         = this._elConteneurMarque.querySelectorAll('input'),
+                inputModele         = this._elConteneurModele.querySelectorAll('input'),
+                inputAnne           = this._elConteneurAnnee.querySelectorAll('input'),
+                inputKm             = this._elConteneurKm.querySelector('select'),
+                inputCarburant      = this._elConteneurCarburant.querySelectorAll('input'),
+                inputCarrosserie    = this._elConteneurCarrosserie.querySelectorAll('input'),
+                inputTransmission   = this._elConteneurTransmission.querySelectorAll('input'),
+                inputPropulsion     = this._elConteneurPropulsion.querySelectorAll('input'),
+                result ='';
+                // listeReselectionner=;
+
+            // console.log('inputCarburant: ',inputCarburant[0]);
+
+            
+            // PRIX
+            let prixResult = inputPrix.value;
+
+            // MARQUE
+            for(let element of inputMarque ){
+
+            }
+            console.log('inputMarque: ',inputMarque);
+
+
+
+            result += '&' + prixResult;
+
+            console.log('result: ',result);
+
+        });
+
     }
 }

@@ -28,13 +28,9 @@
 			$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
 			$modelePropulsion      = $this->obtenirDAO("motopropulseur");
 			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
-<<<<<<< HEAD
-            $modeleToutMarqueDispo = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
-=======
       		$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
 			$modeleToutModeleDispo          = $this->obtenirDAO("Modele", "obtenirToutModeleDispo");
 			$modeleToutCarrosserieDispo     = $this->obtenirDAO("Carrosserie");
->>>>>>> 1c445cfb6f8b2b374c7193fc352c5bdb9b7f072c
 
 			
 			// On prend les données dans la langue qu'il faut afficher.	
