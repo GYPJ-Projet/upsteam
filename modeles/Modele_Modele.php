@@ -74,14 +74,15 @@
         }
 
         /**
+         * PH
         * Obtient la liste de tout les modèles
         */
         public function obtenirToutDisponible(){
             try {
-				$requete = "SELECT modele.nom
+				$requete = "SELECT modele.nom, modele.id
                             FROM modele
                             JOIN marque ON modele.idMarque = marque.id
-                            WHERE marque.disponibilite = 1 AND modele.disponibilite =1";
+                            WHERE marque.disponibilite = 1 AND modele.disponibilite = 1";
 				$requetePreparee = $this->db->prepare($requete);
 				$requetePreparee->execute();
 				return $requetePreparee->fetchAll();
@@ -91,11 +92,16 @@
 			}
         }
 
+        /**
+         * PH
+         * Obtient la liste des voiture filtrés par la marque.
+         */
         public function rechercheParMarque($liste){
             try {
-				$requete = "SELECT *
+				$requete = "SELECT modele.nom, modele.id
                             FROM modele
-                            WHERE idMarque in (".$liste.")";
+                            WHERE idMarque in (".$liste.")
+                            AND modele.disponibilite = 1";
 				$requetePreparee = $this->db->prepare($requete);
 				$requetePreparee->execute();
 				return $requetePreparee->fetchAll();

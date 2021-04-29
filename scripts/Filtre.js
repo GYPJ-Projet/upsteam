@@ -3,8 +3,12 @@ class Filtre{
         //les éléments du filtre.
         this._element =                     element;
         this._listeMarquesSelectionnes =    [];
+        this._elListeMarque =               this._element.querySelector('[data-js-modeleConteneur]')
         this._listeMarquesAffiches =        this._element.querySelectorAll('[data-js-marque]');
         this._SymbolesPlus =                this._element.querySelectorAll('[data-js-SymbolePlus]');
+        this._elInputs =                    this._element.querySelectorAll('input');
+
+        console.log('this._elInputs: ',this._elInputs);
 
         this.init();
     }
@@ -12,10 +16,9 @@ class Filtre{
     init =()=>{
 
         this.gestionPlus();
+        this.populationModele();
         this.listeModelesSelectionnes();
-
-
-
+        this.gestionFiltre();
     }
 
     /**
@@ -66,11 +69,20 @@ class Filtre{
         }
     }
 
+    /**
+     * Commence par créer une liste utilisable par le sql.
+     * Fabrique la "querystring" qui sera utilisé pour le AJAX
+     *      Option1: tout les modèles
+     *      Option2: seulement les modèles sélectionnés.
+     * Call AJAX et popule la liste de modele dans le filtre
+     */
     populationModele =()=>{
         // Fabrique une liste utilisable pour SQL.
-        let liste = "";
+        let liste = "",
+            chaineRequete="index.php?Voiture_AJAX&action=",
+            xhr = new XMLHttpRequest();
+
         if(this._listeMarquesSelectionnes.length > 0){
-            console.log('liste non vide');
             for(let i=0, j=this._listeMarquesSelectionnes.length; i<j; i++){
                 liste += this._listeMarquesSelectionnes[i];
                 if(i+1 < j){
@@ -79,29 +91,35 @@ class Filtre{
             }
         }
 
-        // Ajax qui appel 
+        // On fabrique la chaîne de requête.
+        if(this._listeMarquesSelectionnes.length <= 0 ){
+            chaineRequete += 'obtenirToutModele';
+        }else{
+            chaineRequete += 'obtenirSelectionModele&liste=' + liste;
+        }
 
-        // Déclaration de l'objet XMLHttpRequest
-        let xhr;
-        xhr = new XMLHttpRequest();
-
-        //Initialisation de la requète
+        // Initialisation de la requète AJAX.
         if (xhr) {
             // Ouverture de la requète : fichier recherché
-            xhr.open('GET', `index.php?Store_AJAX&action=checkClient&email=${this._infoClient.email}`);
+            xhr.open('GET', chaineRequete);
             
             xhr.addEventListener("readystatechange", () => {
                 if (xhr.readyState === 4) {							
                     if (xhr.status === 200) {
                         // Les données ont été reçues ont les affiches
-                        let data = JSON.parse(xhr.response);
-                        if(data === false){
-                            this.addClient();
-                        }else{
-                            this._clientKey = true;
-                            this.checkValid();
+                        let data = JSON.parse(xhr.response),
+                            resultat = "";
+
+                        // Traitement et affichage.
+                        if(data != false){
+                            for(let element of data){
+                                resultat += `   <div class="listeConteneur">
+                                                    <label for="${element.nom}">${element.nom}</label>
+                                                    <input class="radio" type="checkbox" id="${element.nom}" name="${element.nom}" value="${element.nom}" data-js-modele="${element.id}">
+                                                </div>`;
+                            }
+                            this._elListeMarque.innerHTML = resultat;
                         }
-                        
                     } else if (xhr.status === 404) {
                         console.log('Le fichier appelé dans la méthode open() n’existe pas.');
                     }
@@ -112,5 +130,13 @@ class Filtre{
         }
 
 
+    }
+
+    gestionFiltre =()=>{
+        for(let marque of this._listeMarquesAffiches){
+            marque.addEventListener('click', ()=>{
+                console.log('test');
+            });
+        }
     }
 }
