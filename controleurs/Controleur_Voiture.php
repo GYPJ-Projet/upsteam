@@ -26,8 +26,10 @@
 			$modeleTypeCarburant   = $this->obtenirDAO("TabLangues", "typecarburant");
 			$modeleCouleur         = $this->obtenirDAO("TabLangues", "couleur"); 
 			$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
+			$modelePropulsion      = $this->obtenirDAO("motopropulseur");
 			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
-      		$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
+
+   		$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
 			$modeleToutModeleDispo          = $this->obtenirDAO("Modele", "obtenirToutModeleDispo");
 			$modeleToutCarrosserieDispo     = $this->obtenirDAO("Carrosserie");
 
@@ -38,13 +40,14 @@
 			$donnees["transmission"]    = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
 			$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);	
       
-      //Obtention des informations pour le filtre.
+
+      		//Obtention des informations pour le filtre.
+
+            // PH - Obtention des informations pour le filtre.
+
 			$donnees["toutesMarquesDispo"]      = $modeleToutMarqueDispo->obtenirToutDisponible();
-			$donnees["toutesModeleDispo"]       = $modeleToutModeleDispo->obtenirToutDisponible();
-			$donnees["toutesCarrosserieDispo"]  = $modeleToutCarrosserieDispo->obtenirToutDisponible();
+			$donnees["propulsion"]              = $modelePropulsion->obtenirToutDisponible();
       
-
-
             // Si on a reçu une action, on la traite...
 			if (isset($params["action"])) {
 
@@ -53,12 +56,16 @@
 				switch($params["action"]) {
 
 					case "descriptionVoiture" :
+
+						// Affichage de la description de la voiture demandé
 						// Si on a reçu le paramètre id de la voiture à afficher.
-						if (isset($params["id"]))
-						{
+						if (isset($params["id"])) {
 							$donnees["voiture"] = $modeleVoiture->obtenirParId($params["id"]);
 							$donnees["images"]  = $modeleVoiture->obtenirImagesParIdVoiture($params["id"]);
 						}
+
+						$this->afficheVue("descriptionVoiture", $donnees);
+
 						break;
 
                     case "filtre":      //Pour l'option de filtre de la page d'acceuil.
@@ -96,11 +103,9 @@
 				// On affiche les 12 premiers voitures
 				$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
 
-
 				/* $vue = "Accueil";	 */	
 				$this->afficheVue("accueil_debut", $donnees);
-
-        $this->afficheVue("listeVoitures", $donnees);
+        		$this->afficheVue("listeVoitures", $donnees);
 				$this->afficheVue("accueil_fin_section_grille");
 				$this->afficheVue("voirPlus");
 				$this->afficheVue("accueil_fin");
