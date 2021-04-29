@@ -13,10 +13,10 @@
 
 
     /* Les tailles de polices */
-    --police_taille_h1: 3.90625vw;              /* 50px; */
-    --police_taille_h2Plus: 1.875vw;            /* 24px; */
-    --police_taille_sousTitre: 1.40625vw;       /* 18px; */
-    --police_taille_texte: 1.09375vw;           /* 14px; */
+    --police_taille_h1:         50px;       /* 3.90625vw; */
+    --police_taille_h2Plus:     24px;       /* 1.875vw; */
+    --police_taille_sousTitre:  18px;       /* 1.40625vw; */
+    --police_taille_texte:      14px;       /* 1.09375vw; */
 
     /* la  poid (weight) de la police */
     --police_poid_normal:        600;

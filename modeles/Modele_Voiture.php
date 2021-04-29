@@ -161,10 +161,10 @@
                                         JOIN typecarrosserie ON typecarrosserie.id = voiture.idTypecarrosserie
                                         JOIN transmission ON transmission.id = voiture.idTransmission
                                         JOIN image ON image.id = voiture.id AND image.sort = 0
-                                        
+
                                         WHERE marque.disponibilite = 1 AND modele.disponibilite = 1
                                         AND prixVente BETWEEN 5000 AND 25000
-                                        AND marque.id IN (1,5,3)
+                                        AND marque.id IN (1,5,3)  // AND marque.id IN (marque.id)
                                         AND modele.id IN (1,3,23)
                                         AND annee.annee BETWEEN 2015 AND 2021
                                         AND kilometrage BETWEEN 0 AND 990000
