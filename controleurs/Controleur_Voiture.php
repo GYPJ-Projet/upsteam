@@ -33,7 +33,6 @@
 			$modeleToutCarrosserieDispo   = $this->obtenirDAO("Carrosserie");
 
 
-			
 			// On prend les données dans la langue qu'il faut afficher.	
 			$donnees["typeCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
 			$donnees["couleur"]         = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
@@ -45,8 +44,6 @@
 			$donnees["toutesModeleDispo"]       = $modeleToutModeleDispo->obtenirToutDisponible();
 			$donnees["toutesCarrosserieDispo"]  = $modeleToutCarrosserieDispo->obtenirToutDisponible();
       
-
-
             // Si on a reçu une action, on la traite...
 			if (isset($params["action"])) {
 
@@ -59,11 +56,8 @@
 						// Affichage de la description de la voiture demandé
 						// Si on a reçu le paramètre id de la voiture à afficher.
 						if (isset($params["id"])) {
-							Debug::toLog($params["id"], "Le params[id] : ");
 							$donnees["voiture"] = $modeleVoiture->obtenirParId($params["id"]);
 							$donnees["images"]  = $modeleVoiture->obtenirImagesParIdVoiture($params["id"]);
-							Debug::toLog($donnees["voiture"], "La voiture : ");
-							Debug::toLog($donnees["images"], "Les images: ");
 						}
 
 						$this->afficheVue("descriptionVoiture", $donnees);
