@@ -1,5 +1,6 @@
 <?php
 	class Controleur_Voiture_AJAX extends BaseControleur {	
+        
 
         // Méthode qui retourne le nom du contrôleur où aller chercher la langue 
 		public function getNomControleur() {
@@ -15,7 +16,7 @@
             $donnees["langue"] = $this->chargerLangue($params);
 
             $idLangue = $donnees["langue"]["idLangue"];  // On récupère l'ID de la langue
-              
+
             if (isset($params["action"])) {
 
 				// La vue est vides par défaut
@@ -24,6 +25,18 @@
 				// Switch en fonction de l'action qui est envoyée en paramètre de la requète
 				// Ce switch détermine la vue $vue et obtient le modèle $donnees
 				switch($params["action"]) {
+                    case "obtenirToutModele":       // PH - Pour le filtre de la page d'acceuil
+                        $modeleModele = $this->obtenirDAO("Modele");
+                        $data = $modeleModele->obtenirToutDisponible();
+                        echo json_encode($data);
+                        break;
+
+                    
+                    case "obtenirSelectionModele":      // PH - Pour le filtre de la page d'acceuil
+                        $modeleModele = $this->obtenirDAO("Modele");
+                        $data = $modeleModele->rechercheParMarque($params["liste"]);
+                        echo json_encode($data);
+                        break;
 
 					case "afficheListeVoitures":	
                         // On affiche la lsite des voitures demandées selon index, 

@@ -18,7 +18,6 @@
 			$idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
 
 			$this->afficheVue("tete");
-
 			$this->afficheVue("entete", $donnees);
             $this->afficheVue("menu", $donnees);
 
@@ -27,22 +26,27 @@
 			$modeleTypeCarburant   = $this->obtenirDAO("TabLangues", "typecarburant");
 			$modeleCouleur         = $this->obtenirDAO("TabLangues", "couleur"); 
 			$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
+			$modelePropulsion      = $this->obtenirDAO("motopropulseur");
 			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
-      		$modeleToutMarqueDispo        = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
-			$modeleToutModeleDispo        = $this->obtenirDAO("Modele", "obtenirToutModeleDispo");
-			$modeleToutCarrosserieDispo   = $this->obtenirDAO("Carrosserie");
 
+   		$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
+			$modeleToutModeleDispo          = $this->obtenirDAO("Modele", "obtenirToutModeleDispo");
+			$modeleToutCarrosserieDispo     = $this->obtenirDAO("Carrosserie");
 
+			
 			// On prend les données dans la langue qu'il faut afficher.	
 			$donnees["typeCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
 			$donnees["couleur"]         = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
 			$donnees["transmission"]    = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
 			$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);	
       
+
       		//Obtention des informations pour le filtre.
+
+            // PH - Obtention des informations pour le filtre.
+
 			$donnees["toutesMarquesDispo"]      = $modeleToutMarqueDispo->obtenirToutDisponible();
-			$donnees["toutesModeleDispo"]       = $modeleToutModeleDispo->obtenirToutDisponible();
-			$donnees["toutesCarrosserieDispo"]  = $modeleToutCarrosserieDispo->obtenirToutDisponible();
+			$donnees["propulsion"]              = $modelePropulsion->obtenirToutDisponible();
       
             // Si on a reçu une action, on la traite...
 			if (isset($params["action"])) {
@@ -107,7 +111,7 @@
 				$this->afficheVue("accueil_fin");
 			}
 
-			$this->afficheVue("piedDePage");
+			$this->afficheVue("piedDePage", $donnees);
 		}
 	}
 ?>

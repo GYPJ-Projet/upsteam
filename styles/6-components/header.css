@@ -3,48 +3,37 @@
 
 /* Retirer lcouleur et les lignes sur 
 	tous les liens de navigation */
-a:visited {
-	color: inherit;
-    text-decoration: none;
-}
 
-a {
-    text-decoration: none;
-}
-
-.entete {
+.enteteConteneur {
     position: relative;
     background-color: var(--blanc);
     align-items: center;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
-    height: 200px;
+    
 }
 
-.entete__logo {
-    padding-top: 250px;
-    height: 20vw;
-    width: 20vw;
-}
 
 .recherche {
-    width: 300px;
-    height: 35px;
+    width: 15.625vw;            /*300px*/
+    height: 1.822916vw;         /*35px*/
     top: 47px;
     background: #FFFFFF;
-    border: 3px solid #333333;
+    border: 0.15625vw solid #333333;
     box-sizing: border-box;
 }
 
 .connexion {
-    padding: 20px;
+    padding: 1.04167vw;            /* 20px; */
     font-family: var(--orbitron);
     font-size: var( --police_taille_sousTitre);
     color: var(--gris);
 }
 
-.langue {
-    padding: 20px;
+.entete__langue {
+    padding: 1.04167vw;            /* 20px; */
     margin-right: 2vw;
     font-family: var(--orbitron);
     font-size: var( --police_taille_sousTitre);
@@ -74,4 +63,12 @@ a {
 .vide {
     opacity: .5;
     pointer-events: none;
+}
+
+/********** ADAPTATION POUR PETIT ÉCRAN, Iphone 11 (< 500 px) **********/
+@media screen and (max-width: 500px) {
+    .pied_de_page {
+        flex-direction: column;
+        text-align: center;
+    }
 }
