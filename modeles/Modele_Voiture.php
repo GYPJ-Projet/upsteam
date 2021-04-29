@@ -140,5 +140,47 @@
 				$requetePreparee->execute();
 			}
 		}
-	}
+
+        /**
+         * PH
+         * Pour obtenir les voitures qui sont filtrer dans filtre.js.
+         */
+        public function obtenirVoitureFiltrer() {
+            try {
+				$stmt =$this->db->query("SELECT voiture.*, 
+                                                modele.nom AS nomModele, 
+                                                marque.nom AS nomMarque, 
+                                                annee.annee AS annee, 
+                                                motopropulseur.nom AS nomMotoPropulseur,
+                                                marque.id AS idMarque,
+                                                image.lien AS lienPhotoPrincipale 
+                                        FROM voiture 
+                                        JOIN modele ON modele.id = voiture.idModele 
+                                        JOIN marque ON marque.id = modele.idMarque  
+                                        JOIN annee ON annee.id = voiture.idAnnee 
+                                        JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
+                                        JOIN typecarrosserie ON typecarrosserie.id = voiture.idTypecarrosserie
+                                        JOIN transmission ON transmission.id = voiture.idTransmission
+                                        JOIN image ON image.id = voiture.id AND image.sort = 0
+
+                                        WHERE marque.disponibilite = 1 AND modele.disponibilite = 1
+                                        AND prixVente BETWEEN 5000 AND 25000
+                                        AND marque.id IN (1,5,3)  // AND marque.id IN (marque.id)
+                                        AND modele.id IN (1,3,23)
+                                        AND annee.annee BETWEEN 2015 AND 2021
+                                        AND kilometrage BETWEEN 0 AND 990000
+                                        AND idTypeCarburant = idtypeCarburant
+                                        AND typecarrosserie.nom = 'Berline'
+                                        AND transmission.nom = 'Manuelle'
+                                        AND motopropulseur.nom = '4x2'
+                                        ");
+
+                                        $stmt->execute();
+                                        return $stmt->fetchAll();
+            }
+            catch(Exception $exc) {
+                return 0;
+            }
+}
+}
 ?>
