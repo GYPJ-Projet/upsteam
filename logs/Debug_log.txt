@@ -1,4 +1,0 @@
-29-04-2021 12:22:34
-function obtenirParId() 
-1
-
