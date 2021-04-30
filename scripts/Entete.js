@@ -1,30 +1,36 @@
 class Entete{
     constructor(el){
         this._el =  el;                                                            
-        this._elCodeLangue = this._el.querySelector('[data-js-langue]');
+        this._elCodeLangue = this._el.querySelector('[data-js-codeLangue]');
+        this._elLangue = this._el.querySelector('[data-js-langue]');
         this._elNbrItem = this._el.querySelector('[data-js-nombre-item]');
         this._elPanier = this._el.querySelector('[data-js-panier]');
-        this._elControleur = document.querySelector('[data-js-controleur]')
-        console.log(this._el);
-        console.log(this._elCodeLangue);
-        console.log(this._elControleur);
-        console.log(this._elNbrItem);
-        console.log(this._elPanier);
-        console.log(this._elControleur.dataset.jsControleur);
-        //console.log(this._elCodeLangue.dataset.jsLangue);
+        this._elControleur = document.querySelector('[data-js-controleur]');
         
-
         this.init();
     }
 
-    init =()=>{
+    init = ()=> {
         
-        this._elCodeLangue.addEventListener('click', this.langueChoisie);              
-            
+        this._elCodeLangue.addEventListener('click', this.changerLangue);  
+        this._elPanier.addEventListener('click', this.gestionPanier);           
     }
-    // Les transferts de la page dans la langue choisie
-    langueChoisie = () =>{
-        let nomControleur = this._elControleur.dataset.jsControleur;
-        window.location.href = 'index.php?nomControleur&action=changerLangue&langue=fr-fr';
+
+    // Le chargement de la page dans la langue choisie
+    changerLangue = () => {
+        let nomControleur = this._elControleur.dataset.jsControleur,
+            repertoireLangue = this._elLangue.dataset.jsLangue;
+           
+        window.location.href = `index.php?${nomControleur}&action=changerLangue&langue=${repertoireLangue}`;
+        
+    }
+
+    gestionPanier = () => {
+        /*if (localStorage.getItem('itemNumber')) {
+            if (this._elCart.classList.contains('empty')) { 
+                this._elCart.classList.replace('empty', 'fill');
+                this._elItemNumber.textContent = parseInt(sessionStorage.getItem('itemNumber'));
+            }
+        }*/
     }
 }

@@ -1,6 +1,6 @@
 <?php 
     $langue = $donnees["langue"];       //Pour affichage des langues
-    Debug::toLog($donnees["propulsion"]);
+    //Debug::toLog($donnees["propulsion"]);
 ?>
 
 <body >

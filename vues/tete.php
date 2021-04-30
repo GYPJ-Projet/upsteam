@@ -15,14 +15,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700;800&family=Orbitron:wght@700&display=swap" rel="stylesheet"/>
 	 
 	<!-- scripts -->
-<<<<<<< HEAD
 	<script type="text/javascript" src="./scripts/var.js"></script>
+  	<script type="text/javascript" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script type="text/javascript" src="./scripts/Entete.js"></script>
-=======
-  <script type="text/javascript" src="./scripts/var.js"></script>
-	<script type="text/javascript" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script type="text/javascript" src="./scripts/DescriptionVoiture.js"></script>
->>>>>>> 0cd58ac61112cb5b2ea25480ef588da05e649b35
 	<script type="text/javascript" src="./scripts/Filtre.js"></script>
 	<script type="text/javascript" src="./scripts/Voiture.js"></script>
 	<script type="text/javascript" src="./scripts/VoirPlus.js"></script>
