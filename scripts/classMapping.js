@@ -1,4 +1,5 @@
 const classMapping = {
+    'Entete'                : Entete,
     'DescriptionVoiture'    : DescriptionVoiture,
     'MenuConteneur'         : MenuConteneur,
     'GestionMarque'         : GestionMarque,

@@ -5,7 +5,7 @@
     //première chose : initialiser la session de l'usager
     session_start();
 
-    Debug::creation_fichier_log();
+    //Debug::creation_fichier_log();
 
     Routeur::route();
 ?>

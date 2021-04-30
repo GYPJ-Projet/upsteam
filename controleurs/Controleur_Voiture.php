@@ -11,7 +11,7 @@
 			
 			// Initialisation des donnees a un tableau vide par défaut
 			$donnees = array();
-
+			
 			// On charge les fichiers de langue selon la langue choisi par l'usager.
 			$donnees["langue"] = $this->chargerLangue($params);
 
@@ -29,7 +29,7 @@
 			$modelePropulsion      = $this->obtenirDAO("motopropulseur");
 			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
 
-   		$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
+   			$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
 			$modeleToutModeleDispo          = $this->obtenirDAO("Modele", "obtenirToutModeleDispo");
 			$modeleToutCarrosserieDispo     = $this->obtenirDAO("Carrosserie");
 
@@ -40,15 +40,13 @@
 			$donnees["transmission"]    = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
 			$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);	
       
-
       		//Obtention des informations pour le filtre.
 
             // PH - Obtention des informations pour le filtre.
 
 			$donnees["toutesMarquesDispo"]      = $modeleToutMarqueDispo->obtenirToutDisponible();
 			$donnees["propulsion"]              = $modelePropulsion->obtenirToutDisponible();
-      
-            // Si on a reçu une action, on la traite...
+                  // Si on a reçu une action, on la traite...
 			if (isset($params["action"])) {
 
 				// Switch en fonction de l'action qui est envoyée en paramètre de la requête
@@ -69,6 +67,40 @@
 						break;
 
                     case "filtre":      //Pour l'option de filtre de la page d'acceuil.
+                        if( isset($params["prixMin"]) &&
+                            isset($params["prixMax"]) &&
+                            isset($params["marques"]) &&
+                            isset($params["modele"]) &&
+                            isset($params["anneeDeb"]) &&
+                            isset($params["anneeFin"]) &&
+                            isset($params["kmMin"]) &&
+                            isset($params["kmMax"]) &&
+                            isset($params["carburant"]) &&
+                            isset($params["carrosserie"]) &&
+                            isset($params["transmission"]) &&
+                            isset($params["propulsion"])){
+                                
+                            // Debug::tolog($params);
+                            $donnees["voitures"] = $modeleVoiture->obtenirVoitureFiltrer(
+                                $params["prixMin"],
+                                $params["prixMax"],
+                                $params["marques"],
+                                $params["modele"],
+                                $params["anneeDeb"],
+                                $params["anneeFin"],
+                                $params["kmMin"],
+                                $params["kmMax"],
+                                $params["carburant"],
+                                $params["carrosserie"],
+                                $params["transmission"],
+                                $params["propulsion"]);
+                                                                                    
+                            $this->afficheVue("accueil_debut", $donnees);
+                            $this->afficheVue("listeVoitures", $donnees);
+                            $this->afficheVue("accueil_fin_section_grille");
+                            $this->afficheVue("voirPlus");
+                            $this->afficheVue("accueil_fin");
+                        }
                         break;	
 						
 					case "accueil":
@@ -79,12 +111,12 @@
 
 						// On affiche les 12 premieres tuiles
 						$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
-
+                        
 						/* $vue = "Accueil";	 */	
 						$this->afficheVue("accueil_debut", $donnees);
 
 						// On affiche les 12 premieres tuiles
-						$donnees["voitures"]                = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
+						$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
             
 						
 						/* $vue = "Accueil";	 */	
@@ -95,13 +127,14 @@
 						$this->afficheVue("accueil_fin_section_grille");
 						$this->afficheVue("voirPlus");
 						$this->afficheVue("accueil_fin");
-			
+                       
 						break;
 				}			
 			} else {
 				// Action par défaut
 				// On affiche les 12 premiers voitures
 				$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
+
 
 				/* $vue = "Accueil";	 */	
 				$this->afficheVue("accueil_debut", $donnees);
