@@ -6,7 +6,6 @@ class MenuConteneur{
         this._menuGestionDonnees =      this._element.querySelector('[data-js-menuGestionDonnees]');
         this._menuGestionEmployes =     this._element.querySelector('[data-js-menuGestionEmployes]');
         this._menuGestionCommandes =    this._element.querySelector('[data-js-menuGestionCommandes]');
-        this._iconeBurger2 =            document.querySelector('svg');
         this._iconeBurger =             document.querySelector('[data-js-iconeBurger]');
 
         this.init();
@@ -23,8 +22,7 @@ class MenuConteneur{
 
         this._iconeBurger.addEventListener('click', this.boutonBurger);             //Gestion du clique de l'icone
 
-        // window.addEventListener("resize", this.displayWindowSize);                          //Gestion de l'affichage du type de menu burger ou non.
-        window.addEventListener('resize', this.displayWindowSize);
+        window.addEventListener('resize', this.displayWindowSize);                  //Gestion de l'affichage du type de menu burger ou non.
     }
 
     // Les transferts du menu
@@ -54,7 +52,6 @@ class MenuConteneur{
     displayWindowSize = () =>{
         // if(window.innerWidth <= 414 && this._iconeBurger.classList.contains('cacher')){
         if(window.innerWidth <= iPhone){
-            console.log('test');
             this._iconeBurger.classList.remove('cacher');
             this._element.classList.add('burger');
             this._element.classList.add('cacher');

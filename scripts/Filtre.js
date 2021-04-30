@@ -2,14 +2,16 @@ class Filtre{
     constructor(element){
         //les éléments du filtre.
         this._element =                     element;
-        this._listeMarquesSelectionnes =    [];
-        this._elListeModele =               this._element.querySelector('[data-js-modeleListeConteneur]')
-        this._listeMarquesAffiches =        this._element.querySelectorAll('[data-js-marque]');
-        this._SymbolesPlus =                this._element.querySelectorAll('[data-js-SymbolePlus]');
-        this._elBoutonFiltre =              this._element.querySelector('[data-js-boutonFiltre]');
+        this._elBoutonVoirPlus =            document.querySelector('[data-js-btn]');                        //Pour cacher lorsque le filtre
+        this._iconeFiltre =                 document.querySelector('[data-js-iconeFiltre]');                //Icône de filtre. pour petite fenêtre.
+        this._listeMarquesSelectionnes =    [];                                                             //Pour populer les modèles
+        this._elListeModele =               this._element.querySelector('[data-js-modeleListeConteneur]');  //Pour pouvoir afficher dedans.
+        this._listeMarquesAffiches =        this._element.querySelectorAll('[data-js-marque]');             //Toutes les marques!
+        this._SymbolesPlus =                this._element.querySelectorAll('[data-js-SymbolePlus]');        //Gestion des bouton +
+        this._elBoutonFiltre =              this._element.querySelector('[data-js-boutonFiltre]');          //pour eventlistener
 
-        this._elConteneurPrix =             this._element.querySelector('[data-js-prixConteneur]');
-        this._elConteneurMarque =           this._element.querySelector('[data-js-marqueConteneur]');
+        this._elConteneurPrix =             this._element.querySelector('[data-js-prixConteneur]');         //Liste des conteneur de section pour
+        this._elConteneurMarque =           this._element.querySelector('[data-js-marqueConteneur]');       //filtrer les listes d'item sélectionnés.
         this._elConteneurModele =           this._element.querySelector('[data-js-modeleConteneur]');
         this._elConteneurAnnee =            this._element.querySelector('[data-js-anneeConteneur]');
         this._elConteneurKm =               this._element.querySelector('[data-js-kmConteneur]');
@@ -18,33 +20,39 @@ class Filtre{
         this._elConteneurTransmission =     this._element.querySelector('[data-js-transmissionConteneur]');
         this._elConteneurPropulsion =       this._element.querySelector('[data-js-propulsionConteneur]');
 
-
+        
         this.init();
     }
 
     init =()=>{
 
-        window.addEventListener('load',this.loadModelesSelectionnes);
+        window.addEventListener('resize', this.displayWindowSize);                  //Gestion de l'affichage du type de menu burger ou non.
+        window.addEventListener('load',this.demarragePage);
+
         this.gestionPlus();
         this.populationModele();
         this.clickModelesSelectionnes();
         this.gestionFiltre();
+
+        this._iconeFiltre.addEventListener('click', this.boutonBurger);             //Gestion du clique de l'icone
     }
 
     /**
      * PH
      * S'assure d'afficher les modèles adéquats en fonction des choix utilisateurs
-     * au démarrage de la page
+     * au démarrage de la page.
+     * Aussi cache le bouton "Voir plus", si le filtre est activé.
      */
-    loadModelesSelectionnes =()=>{
+    demarragePage =()=>{
         for(let marque of this._listeMarquesAffiches){
 
             if(marque.checked === true){
                 this._listeMarquesSelectionnes.push(marque.dataset.jsMarque);
             }
-            console.log('this._listeMarquesSelectionnes: ',this._listeMarquesSelectionnes);
             this.populationModele();
         }
+
+        this.cacheBoutonVoirPlus();
     }
 
     /**
@@ -255,28 +263,68 @@ class Filtre{
         }
     }
 
-        /**
+    /**
      * PH
      * Pour chaque liste on permet de réduire ou agrandir la taille de la liste.
      */
-        gestionPlus =()=>{
-            for(let symbolePlus of this._SymbolesPlus){
-                symbolePlus.addEventListener('click', ()=>{
-                    let cible = symbolePlus.parentNode.nextElementSibling,
-                        plusGris = symbolePlus.firstElementChild,
-                        plusBleu = symbolePlus.lastElementChild;
-    
-                    //On cache si non caché et vise versa. 
-                    if(!cible.classList.contains('cacher')){
-                        plusGris.classList.add('cacher');
-                        plusBleu.classList.remove('cacher');
-                        cible.classList.add('cacher');
-                    }else{
-                        plusGris.classList.remove('cacher');
-                        plusBleu.classList.add('cacher');
-                        cible.classList.remove('cacher');
-                    }
-                });
-            }
+    gestionPlus =()=>{
+        for(let symbolePlus of this._SymbolesPlus){
+            symbolePlus.addEventListener('click', ()=>{
+                let cible = symbolePlus.parentNode.nextElementSibling,
+                    plusGris = symbolePlus.firstElementChild,
+                    plusBleu = symbolePlus.lastElementChild;
+
+                //On cache si non caché et vise versa. 
+                if(!cible.classList.contains('cacher')){
+                    plusGris.classList.add('cacher');
+                    plusBleu.classList.remove('cacher');
+                    cible.classList.add('cacher');
+                }else{
+                    plusGris.classList.remove('cacher');
+                    plusBleu.classList.add('cacher');
+                    cible.classList.remove('cacher');
+                }
+            });
         }
+    }
+
+    /**
+     * Cache le bouton filtre en ajoutant la classe cacher.
+     */
+    cacheBoutonVoirPlus =()=>{
+        if(this._element.dataset.jsAction === 'filtre'){
+            this._elBoutonVoirPlus.classList.add('cacher');
+        }
+    }
+
+
+        /**
+     * Affiche le menu en fonction de la taille de la page.
+     */
+    displayWindowSize = () =>{
+        // if(window.innerWidth <= 414 && this._iconeBurger.classList.contains('cacher')){
+        if(window.innerWidth <= iPhone){
+            this._iconeFiltre.classList.remove('cacher');
+            this._element.classList.add('burger');
+            this._element.classList.add('cacher');
+        }else{
+        // }else if(window.innerWidth >= 414 &&! this._iconeBurger.classList.contains('cacher')){
+            this._iconeFiltre.classList.add('cacher');
+            this._element.classList.remove('burger');
+            this._element.classList.remove('cacher');
+        }
+
+    }
+
+    /**
+     * Gère l'état du menu en fonction de l'évènement de 
+     * clique sur un bouton.
+     */
+    boutonBurger = ()=>{
+        if(this._element.classList.contains('cacher')){
+        this._element.classList.remove('cacher');
+        }else{
+        this._element.classList.add('cacher');
+        }
+    }
 }

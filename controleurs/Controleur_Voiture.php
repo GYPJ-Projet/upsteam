@@ -94,8 +94,6 @@
                                 $params["transmission"],
                                 $params["propulsion"]);
                                                                                     
-
-
                             $this->afficheVue("accueil_debut", $donnees);
                             $this->afficheVue("listeVoitures", $donnees);
                             $this->afficheVue("accueil_fin_section_grille");

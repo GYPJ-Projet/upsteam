@@ -2,6 +2,7 @@
     $langue = $donnees["langue"];       //Pour affichage des langues
 
     //Pour remettre les filtres séelctionnés.
+    $actionRecu = '';
     $prixMinRecu = '';
     $prixMaxRecu = '';
     $marquesRecu = '';
@@ -15,7 +16,8 @@
     $transmissionRecu = '';
     $propulsionRecu = '';
 
-    if(isset(   $_GET['prixMin'],
+    if(isset(   $_GET['action'],
+                $_GET['prixMin'],
                 $_GET['prixMax'],
                 $_GET['marques'],
                 $_GET['modele'],
@@ -28,6 +30,7 @@
                 $_GET['transmission'],
                 $_GET['propulsion']))
         {
+        $actionRecu = $_GET['action'];
         $prixMinRecu = $_GET['prixMin'];
         $prixMaxRecu = $_GET['prixMax'];
         $marquesRecu = $_GET['marques'];
@@ -41,7 +44,6 @@
         $transmissionRecu = $_GET['transmission'];
         $propulsionRecu = $_GET['propulsion'];
     }
-
 ?>
 
 <body >
@@ -49,7 +51,7 @@
 <div data-js-controleur="Voiture">  
 
     <div class="bodyConteneur" data-js-bodyConteneur >
-        <aside class="filtreConteneur" data-js-component="Filtre">
+        <aside class="filtreConteneur" data-js-component="Filtre" data-js-action="<?= $actionRecu ?>">
 
             <form class="formConteneur" action="">
 
@@ -228,4 +230,3 @@
         <main data-js-component="ListeVoitures">
             <section class="grille_voitures">
                 <div class="grille grille--2" data-js-results>
-
