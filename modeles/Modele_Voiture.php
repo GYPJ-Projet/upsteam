@@ -144,9 +144,9 @@
          * PH
          * Pour obtenir les voitures qui sont filtrer dans filtre.js.
          */
-        public function obtenirVoitureFiltrer() {
+        public function obtenirVoitureFiltrer($prixMin, $prixMax, $marques, $modele, $anneeDeb, $anneeFin, $kmMin, $kmMax, $carburant, $carrosserie, $transmission, $propulsion) {
             try {
-				$stmt =$this->db->query("SELECT voiture.*, 
+				$stmt =$this->db->query("SELECT DISTINCT voiture.*, 
                                                 modele.nom AS nomModele, 
                                                 marque.nom AS nomMarque, 
                                                 annee.annee AS annee, 
@@ -160,22 +160,23 @@
                                         JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
                                         JOIN typecarrosserie ON typecarrosserie.id = voiture.idTypecarrosserie
                                         JOIN transmission ON transmission.id = voiture.idTransmission
+                                        JOIN typecarburant ON typecarburant.id = voiture.idTypecarburant
                                         JOIN image ON image.id = voiture.id AND image.sort = 0
 
                                         WHERE marque.disponibilite = 1 AND modele.disponibilite = 1
-                                        AND prixVente BETWEEN 5000 AND 25000
-                                        AND marque.id IN (1,5,3)  // AND marque.id IN (marque.id)
-                                        AND modele.id IN (1,3,23)
-                                        AND annee.annee BETWEEN 2015 AND 2021
-                                        AND kilometrage BETWEEN 0 AND 990000
-                                        AND idTypeCarburant = idtypeCarburant
-                                        AND typecarrosserie.nom = 'Berline'
-                                        AND transmission.nom = 'Manuelle'
-                                        AND motopropulseur.nom = '4x2'
-                                        ");
+                                        AND prixVente BETWEEN $prixMin AND $prixMax
+                                        AND marque.nom IN ($marques)
+                                        AND modele.nom IN ($modele)
+                                        AND annee.annee BETWEEN $anneeDeb AND $anneeFin
+                                        AND kilometrage BETWEEN $kmMin AND $kmMax
+                                        AND typecarburant.nom IN ($carburant)
+                                        AND typecarrosserie.nom IN ($carrosserie)
+                                        AND transmission.nom IN ($transmission)
+                                        AND motopropulseur.nom IN ($propulsion)
+                                        ORDER BY `voiture`.`id` ASC");
+                $stmt->execute();
+                return $stmt->fetchAll();
 
-                                        $stmt->execute();
-                                        return $stmt->fetchAll();
             }
             catch(Exception $exc) {
                 return 0;

@@ -62,6 +62,44 @@
 						break;
 
                     case "filtre":      //Pour l'option de filtre de la page d'acceuil.
+                        if( isset($params["prixMin"]) &&
+                            isset($params["prixMax"]) &&
+                            isset($params["marques"]) &&
+                            isset($params["modele"]) &&
+                            isset($params["anneeDeb"]) &&
+                            isset($params["anneeFin"]) &&
+                            isset($params["kmMin"]) &&
+                            isset($params["kmMax"]) &&
+                            isset($params["carburant"]) &&
+                            isset($params["carrosserie"]) &&
+                            isset($params["transmission"]) &&
+                            isset($params["propulsion"])){
+                                
+                            // Debug::tolog($params);
+                            $donnees["voitures"] = $modeleVoiture->obtenirVoitureFiltrer(
+                                $params["prixMin"],
+                                $params["prixMax"],
+                                $params["marques"],
+                                $params["modele"],
+                                $params["anneeDeb"],
+                                $params["anneeFin"],
+                                $params["kmMin"],
+                                $params["kmMax"],
+                                $params["carburant"],
+                                $params["carrosserie"],
+                                $params["transmission"],
+                                $params["propulsion"]);
+                                                                                    
+                            Debug::tolog('PHIL',$donnees["voitures"]);
+
+                            $this->afficheVue("accueil_debut", $donnees);
+                            $this->afficheVue("listeVoitures", $donnees);
+                            $this->afficheVue("accueil_fin_section_grille");
+                            $this->afficheVue("voirPlus");
+                            $this->afficheVue("accueil_fin");
+                        Debug::toLog('ICI LA FIN PHIL');
+
+                        }
                         break;	
 						
 					case "accueil":
@@ -72,12 +110,12 @@
 
 						// On affiche les 12 premieres tuiles
 						$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
-
+                        Debug::tolog('JEAN',$donnees["voitures"]);
 						/* $vue = "Accueil";	 */	
 						$this->afficheVue("accueil_debut", $donnees);
 
 						// On affiche les 12 premieres tuiles
-						$donnees["voitures"]                = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
+						$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
             
 						
 						/* $vue = "Accueil";	 */	
@@ -88,22 +126,23 @@
 						$this->afficheVue("accueil_fin_section_grille");
 						$this->afficheVue("voirPlus");
 						$this->afficheVue("accueil_fin");
-			
+                        Debug::toLog('ICI LA FIN Default');
 						break;
 				}			
 			} else {
 				// Action par défaut
 				// On affiche les 12 premiers voitures
 				$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
-
+                Debug::tolog('JEAN',$donnees["voitures"]);
 
 				/* $vue = "Accueil";	 */	
 				$this->afficheVue("accueil_debut", $donnees);
 
-        $this->afficheVue("listeVoitures", $donnees);
+                $this->afficheVue("listeVoitures", $donnees);
 				$this->afficheVue("accueil_fin_section_grille");
 				$this->afficheVue("voirPlus");
 				$this->afficheVue("accueil_fin");
+                Debug::toLog('ICI LA FIN else');
 			}
 
 			$this->afficheVue("piedDePage", $donnees);
