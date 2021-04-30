@@ -16,6 +16,13 @@
 
 			$idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
 
+			// On pointes sur les modèles dont on a besoin.
+			$modeleMarque          = $this->obtenirDAO("Marque");
+			$modeleModele          = $this->obtenirDAO("Modele");
+			$modeleAnnee           = $this->obtenirDAO("Annee");
+			$modeleCouleur         = $this->obtenirDAO("Couleur");
+			$modeleVoiture         = $this->obtenirDAO("Voiture");
+
 			if (isset($params["action"])) {
 
 				// Switch en fonction de l'action qui est envoyée en paramètre de la requête
@@ -25,7 +32,6 @@
 					case "afficherFormulaireMarque":
 						// Si le parametres id est existe, on affiche le formulaire pour la modification
 						if (isset($params["id"])) {
-							$modeleMarque = $this->obtenirDAO("Marque");
 							$donnees["marque"] = $modeleMarque->obtenirParId($params["id"]);
 							$this->afficheVue("formulaireMarque", $donnees);
 						} else { // Sinon, on affiche le formulaire pour l'ajout
@@ -36,7 +42,6 @@
 						if (isset($params["id"]) && isset($params["nom"]) && isset($params["page"])) {
 							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
 							else $params["disponibilite"] = 0;
-							$modeleMarque = $this->obtenirDAO("Marque");
 							$nouvelleMarque = new Marque($params["id"], $params["nom"], $params["disponibilite"]);
 							$reponse = $modeleMarque->sauvegarder($nouvelleMarque);
 							
@@ -50,13 +55,10 @@
 					case "afficherFormulaireModele":
 						// Si le parametres id est existe, on affiche le formulaire pour la modification
 						if (isset($params["id"])) {
-							$modeleMarque = $this->obtenirDAO("Marque");
 							$donnees["marques"] = $modeleMarque->obtenirTousDisponible();
-							$modeleModele = $this->obtenirDAO("Modele");
 							$donnees["modele"] = $modeleModele->obtenirParId($params["id"]);
 							$this->afficheVue("formulaireModele", $donnees);
 						} else { // Sinon, on affiche le formulaire pour l'ajout
-							$modeleMarque = $this->obtenirDAO("Marque");
 							$donnees["marques"] = $modeleMarque->obtenirTousDisponible();
 							$this->afficheVue("formulaireModele", $donnees);
 						}
@@ -65,7 +67,6 @@
 						if (isset($params["id"]) && isset($params["nom"]) && isset($params["idMarque"])) {
 							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
 							else $params["disponibilite"] = 0;
-							$modeleModele = $this->obtenirDAO("Modele");
 							$nouvelleModele = new Modele($params["id"], $params["nom"], $params["idMarque"], $params["disponibilite"]);
 							
 							$reponse = $modeleModele->sauvegarder($nouvelleModele);
@@ -75,6 +76,21 @@
 						} else { // Sinon, on affiche le formulaire pour l'ajout
 							$this->afficheVue("formulaireMarque", $donnees);
 						}
+						break;
+					case "afficherFormulaireVoiture":
+						// Obtenir toutes les marques
+						$donnees["marques"] = $modeleMarque->obtenirTousDisponible();
+						// Obtenir toutes les modeles
+						$donnees["modeles"] = $modeleModele->obtenirTousDisponible();
+						// Obtenir toutes les années
+						$donnees["annees"] = $modeleAnnee->obtenirTousDisponible();
+
+						// Si le parametres id est existe, on affiche le formulaire pour la modification
+						if (isset($params["id"])) {
+							// Obtenir les données à propos de la voiture avec id 
+							$donnees["voiture"] = $modeleVoiture->obtenirParId($params["id"]);	
+						} 
+						$this->afficheVue("formulaireVoiture", $donnees);
 						break;
 				}			
 			} else {

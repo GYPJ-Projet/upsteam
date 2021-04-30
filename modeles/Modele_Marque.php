@@ -36,9 +36,9 @@
         }
 
         // Permet d'obtenir les marques dans une plage donnée
-        public function obtenirMarques($depart, $marquesParPage, $tri) {
+        public function obtenirMarques($depart, $marquesParPage, $tri, $ordre) {
             try {
-				$requete = "SELECT id, nom, disponibilite FROM marque ORDER BY $tri LIMIT $depart, $marquesParPage";
+				$requete = "SELECT id, nom, disponibilite FROM marque ORDER BY $tri $ordre LIMIT $depart, $marquesParPage";
 				$requetePreparee = $this->db->prepare($requete);
 				$requetePreparee->execute();
                 $requetePreparee->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->getNomInstance());
