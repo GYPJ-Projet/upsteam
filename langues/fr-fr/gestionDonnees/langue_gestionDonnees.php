@@ -13,8 +13,7 @@ $langue['nom_couleur']	    = 'Couleur';
 $langue['nom_voiture']	    = 'Voiture';
 $langue['disponibilite']    = 'Disponibilité';
 
-$langue['nom_langue_fr']    = 'Français';
-$langue['nom_langue_en']    = 'Anglais';
+$langue['nom_langue']       = 'Français';
 
 $langue['formulaire_ajout_marque'] = 'Ajout d\'une nouvelle marque';
 $langue['formulaire_modif_marque'] = 'Modification de la marque';
