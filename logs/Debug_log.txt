@@ -1,0 +1,3321 @@
+30-04-2021 10:27:03
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:27:31
+request
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:28:49
+
+0
+
+30-04-2021 10:49:53
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:50:21
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 1500
+    [prixMax] => 5000
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:50:26
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 1500
+    [prixMax] => 5000
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:50:31
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:51:26
+
+Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [0] => 1
+            [idModele] => 1
+            [1] => 1
+            [idAnnee] => 7
+            [2] => 7
+            [kilometrage] => 90873
+            [3] => 90873
+            [dateArivee] => 2018-10-24
+            [4] => 2018-10-24
+            [prixAchat] => 8538.75
+            [5] => 8538.75
+            [prixVente] => 11385.00
+            [6] => 11385.00
+            [idMotopropulseur] => 1
+            [7] => 1
+            [idTypeCarburant] => 1
+            [8] => 1
+            [idCouleur] => 2
+            [9] => 2
+            [idTransmission] => 2
+            [10] => 2
+            [idTypeCarrosserie] => 2
+            [11] => 2
+            [disponibilite] => 1
+            [12] => 1
+            [vna] => 1D4GP25B038108775
+            [13] => 1D4GP25B038108775
+            [nomModele] => Cruze
+            [14] => Cruze
+            [nomMarque] => Chevrolet
+            [15] => Chevrolet
+            [annee] => 2016
+            [16] => 2016
+            [nomMotoPropulseur] => 4x2
+            [17] => 4x2
+            [idMarque] => 1
+            [18] => 1
+            [lienPhotoPrincipale] => ./images/1/Chevrolet-Cruze-2016 (00).jpg
+            [19] => ./images/1/Chevrolet-Cruze-2016 (00).jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 18
+            [0] => 18
+            [idModele] => 15
+            [1] => 15
+            [idAnnee] => 6
+            [2] => 6
+            [kilometrage] => 96221
+            [3] => 96221
+            [dateArivee] => 2021-01-17
+            [4] => 2021-01-17
+            [prixAchat] => 10192.50
+            [5] => 10192.50
+            [prixVente] => 14550.00
+            [6] => 14550.00
+            [idMotopropulseur] => 2
+            [7] => 2
+            [idTypeCarburant] => 1
+            [8] => 1
+            [idCouleur] => 6
+            [9] => 6
+            [idTransmission] => 2
+            [10] => 2
+            [idTypeCarrosserie] => 6
+            [11] => 6
+            [disponibilite] => 1
+            [12] => 1
+            [vna] => 1D4GP25B038108775
+            [13] => 1D4GP25B038108775
+            [nomModele] => Rogue
+            [14] => Rogue
+            [nomMarque] => Nissan
+            [15] => Nissan
+            [annee] => 2015
+            [16] => 2015
+            [nomMotoPropulseur] => 4x4
+            [17] => 4x4
+            [idMarque] => 7
+            [18] => 7
+            [lienPhotoPrincipale] => ./images/10/Nissan-Sentra-2016 (00).jpg
+            [19] => ./images/10/Nissan-Sentra-2016 (00).jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 25
+            [0] => 25
+            [idModele] => 22
+            [1] => 22
+            [idAnnee] => 9
+            [2] => 9
+            [kilometrage] => 45436
+            [3] => 45436
+            [dateArivee] => 2021-01-17
+            [4] => 2021-01-17
+            [prixAchat] => 19511.25
+            [5] => 19511.25
+            [prixVente] => 26015.00
+            [6] => 26015.00
+            [idMotopropulseur] => 2
+            [7] => 2
+            [idTypeCarburant] => 1
+            [8] => 1
+            [idCouleur] => 2
+            [9] => 2
+            [idTransmission] => 2
+            [10] => 2
+            [idTypeCarrosserie] => 6
+            [11] => 6
+            [disponibilite] => 1
+            [12] => 1
+            [vna] => 1D4GP25B038108775
+            [13] => 1D4GP25B038108775
+            [nomModele] => Rav4
+            [14] => Rav4
+            [nomMarque] => Toyota
+            [15] => Toyota
+            [annee] => 2018
+            [16] => 2018
+            [nomMotoPropulseur] => 4x4
+            [17] => 4x4
+            [idMarque] => 8
+            [18] => 8
+            [lienPhotoPrincipale] => ./images/11/Volkswagen-Jetta-2014 (00).jpg
+            [19] => ./images/11/Volkswagen-Jetta-2014 (00).jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 34
+            [0] => 34
+            [idModele] => 28
+            [1] => 28
+            [idAnnee] => 10
+            [2] => 10
+            [kilometrage] => 53334
+            [3] => 53334
+            [dateArivee] => 2021-01-17
+            [4] => 2021-01-17
+            [prixAchat] => 56246.25
+            [5] => 56246.25
+            [prixVente] => 74995.00
+            [6] => 74995.00
+            [idMotopropulseur] => 2
+            [7] => 2
+            [idTypeCarburant] => 2
+            [8] => 2
+            [idCouleur] => 1
+            [9] => 1
+            [idTransmission] => 2
+            [10] => 2
+            [idTypeCarrosserie] => 7
+            [11] => 7
+            [disponibilite] => 1
+            [12] => 1
+            [vna] => 1D4GP25B038108775
+            [13] => 1D4GP25B038108775
+            [nomModele] => 2500
+            [14] => 2500
+            [nomMarque] => Ram
+            [15] => Ram
+            [annee] => 2019
+            [16] => 2019
+            [nomMotoPropulseur] => 4x4
+            [17] => 4x4
+            [idMarque] => 13
+            [18] => 13
+            [lienPhotoPrincipale] => ./images/12/Kia-Optima-2016 (00).jpg
+            [19] => ./images/12/Kia-Optima-2016 (00).jpg
+        )
+
+)
+
+
+30-04-2021 10:51:26
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:52:05
+
+Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [0] => 1
+            [idModele] => 1
+            [1] => 1
+            [idAnnee] => 7
+            [2] => 7
+            [kilometrage] => 90873
+            [3] => 90873
+            [dateArivee] => 2018-10-24
+            [4] => 2018-10-24
+            [prixAchat] => 8538.75
+            [5] => 8538.75
+            [prixVente] => 11385.00
+            [6] => 11385.00
+            [idMotopropulseur] => 1
+            [7] => 1
+            [idTypeCarburant] => 1
+            [8] => 1
+            [idCouleur] => 2
+            [9] => 2
+            [idTransmission] => 2
+            [10] => 2
+            [idTypeCarrosserie] => 2
+            [11] => 2
+            [disponibilite] => 1
+            [12] => 1
+            [vna] => 1D4GP25B038108775
+            [13] => 1D4GP25B038108775
+            [nomModele] => Cruze
+            [14] => Cruze
+            [nomMarque] => Chevrolet
+            [15] => Chevrolet
+            [annee] => 2016
+            [16] => 2016
+            [nomMotoPropulseur] => 4x2
+            [17] => 4x2
+            [idMarque] => 1
+            [18] => 1
+            [lienPhotoPrincipale] => ./images/1/Chevrolet-Cruze-2016 (00).jpg
+            [19] => ./images/1/Chevrolet-Cruze-2016 (00).jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 18
+            [0] => 18
+            [idModele] => 15
+            [1] => 15
+            [idAnnee] => 6
+            [2] => 6
+            [kilometrage] => 96221
+            [3] => 96221
+            [dateArivee] => 2021-01-17
+            [4] => 2021-01-17
+            [prixAchat] => 10192.50
+            [5] => 10192.50
+            [prixVente] => 14550.00
+            [6] => 14550.00
+            [idMotopropulseur] => 2
+            [7] => 2
+            [idTypeCarburant] => 1
+            [8] => 1
+            [idCouleur] => 6
+            [9] => 6
+            [idTransmission] => 2
+            [10] => 2
+            [idTypeCarrosserie] => 6
+            [11] => 6
+            [disponibilite] => 1
+            [12] => 1
+            [vna] => 1D4GP25B038108775
+            [13] => 1D4GP25B038108775
+            [nomModele] => Rogue
+            [14] => Rogue
+            [nomMarque] => Nissan
+            [15] => Nissan
+            [annee] => 2015
+            [16] => 2015
+            [nomMotoPropulseur] => 4x4
+            [17] => 4x4
+            [idMarque] => 7
+            [18] => 7
+            [lienPhotoPrincipale] => ./images/10/Nissan-Sentra-2016 (00).jpg
+            [19] => ./images/10/Nissan-Sentra-2016 (00).jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 25
+            [0] => 25
+            [idModele] => 22
+            [1] => 22
+            [idAnnee] => 9
+            [2] => 9
+            [kilometrage] => 45436
+            [3] => 45436
+            [dateArivee] => 2021-01-17
+            [4] => 2021-01-17
+            [prixAchat] => 19511.25
+            [5] => 19511.25
+            [prixVente] => 26015.00
+            [6] => 26015.00
+            [idMotopropulseur] => 2
+            [7] => 2
+            [idTypeCarburant] => 1
+            [8] => 1
+            [idCouleur] => 2
+            [9] => 2
+            [idTransmission] => 2
+            [10] => 2
+            [idTypeCarrosserie] => 6
+            [11] => 6
+            [disponibilite] => 1
+            [12] => 1
+            [vna] => 1D4GP25B038108775
+            [13] => 1D4GP25B038108775
+            [nomModele] => Rav4
+            [14] => Rav4
+            [nomMarque] => Toyota
+            [15] => Toyota
+            [annee] => 2018
+            [16] => 2018
+            [nomMotoPropulseur] => 4x4
+            [17] => 4x4
+            [idMarque] => 8
+            [18] => 8
+            [lienPhotoPrincipale] => ./images/11/Volkswagen-Jetta-2014 (00).jpg
+            [19] => ./images/11/Volkswagen-Jetta-2014 (00).jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 34
+            [0] => 34
+            [idModele] => 28
+            [1] => 28
+            [idAnnee] => 10
+            [2] => 10
+            [kilometrage] => 53334
+            [3] => 53334
+            [dateArivee] => 2021-01-17
+            [4] => 2021-01-17
+            [prixAchat] => 56246.25
+            [5] => 56246.25
+            [prixVente] => 74995.00
+            [6] => 74995.00
+            [idMotopropulseur] => 2
+            [7] => 2
+            [idTypeCarburant] => 2
+            [8] => 2
+            [idCouleur] => 1
+            [9] => 1
+            [idTransmission] => 2
+            [10] => 2
+            [idTypeCarrosserie] => 7
+            [11] => 7
+            [disponibilite] => 1
+            [12] => 1
+            [vna] => 1D4GP25B038108775
+            [13] => 1D4GP25B038108775
+            [nomModele] => 2500
+            [14] => 2500
+            [nomMarque] => Ram
+            [15] => Ram
+            [annee] => 2019
+            [16] => 2019
+            [nomMotoPropulseur] => 4x4
+            [17] => 4x4
+            [idMarque] => 13
+            [18] => 13
+            [lienPhotoPrincipale] => ./images/12/Kia-Optima-2016 (00).jpg
+            [19] => ./images/12/Kia-Optima-2016 (00).jpg
+        )
+
+)
+
+
+30-04-2021 10:52:05
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:52:10
+
+Array
+(
+    [Voiture] => 
+)
+
+
+30-04-2021 10:52:28
+
+Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [0] => 1
+            [idModele] => 1
+            [1] => 1
+            [idAnnee] => 7
+            [2] => 7
+            [kilometrage] => 90873
+            [3] => 90873
+            [dateArivee] => 2018-10-24
+            [4] => 2018-10-24
+            [prixAchat] => 8538.75
+            [5] => 8538.75
+            [prixVente] => 11385.00
+            [6] => 11385.00
+            [idMotopropulseur] => 1
+            [7] => 1
+            [idTypeCarburant] => 1
+            [8] => 1
+            [idCouleur] => 2
+            [9] => 2
+            [idTransmission] => 2
+            [10] => 2
+            [idTypeCarrosserie] => 2
+            [11] => 2
+            [disponibilite] => 1
+            [12] => 1
+            [vna] => 1D4GP25B038108775
+            [13] => 1D4GP25B038108775
+            [nomModele] => Cruze
+            [14] => Cruze
+            [nomMarque] => Chevrolet
+            [15] => Chevrolet
+            [annee] => 2016
+            [16] => 2016
+            [nomMotoPropulseur] => 4x2
+            [17] => 4x2
+            [idMarque] => 1
+            [18] => 1
+            [lienPhotoPrincipale] => ./images/1/Chevrolet-Cruze-2016 (00).jpg
+            [19] => ./images/1/Chevrolet-Cruze-2016 (00).jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 18
+            [0] => 18
+            [idModele] => 15
+            [1] => 15
+            [idAnnee] => 6
+            [2] => 6
+            [kilometrage] => 96221
+            [3] => 96221
+            [dateArivee] => 2021-01-17
+            [4] => 2021-01-17
+            [prixAchat] => 10192.50
+            [5] => 10192.50
+            [prixVente] => 14550.00
+            [6] => 14550.00
+            [idMotopropulseur] => 2
+            [7] => 2
+            [idTypeCarburant] => 1
+            [8] => 1
+            [idCouleur] => 6
+            [9] => 6
+            [idTransmission] => 2
+            [10] => 2
+            [idTypeCarrosserie] => 6
+            [11] => 6
+            [disponibilite] => 1
+            [12] => 1
+            [vna] => 1D4GP25B038108775
+            [13] => 1D4GP25B038108775
+            [nomModele] => Rogue
+            [14] => Rogue
+            [nomMarque] => Nissan
+            [15] => Nissan
+            [annee] => 2015
+            [16] => 2015
+            [nomMotoPropulseur] => 4x4
+            [17] => 4x4
+            [idMarque] => 7
+            [18] => 7
+            [lienPhotoPrincipale] => ./images/10/Nissan-Sentra-2016 (00).jpg
+            [19] => ./images/10/Nissan-Sentra-2016 (00).jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 25
+            [0] => 25
+            [idModele] => 22
+            [1] => 22
+            [idAnnee] => 9
+            [2] => 9
+            [kilometrage] => 45436
+            [3] => 45436
+            [dateArivee] => 2021-01-17
+            [4] => 2021-01-17
+            [prixAchat] => 19511.25
+            [5] => 19511.25
+            [prixVente] => 26015.00
+            [6] => 26015.00
+            [idMotopropulseur] => 2
+            [7] => 2
+            [idTypeCarburant] => 1
+            [8] => 1
+            [idCouleur] => 2
+            [9] => 2
+            [idTransmission] => 2
+            [10] => 2
+            [idTypeCarrosserie] => 6
+            [11] => 6
+            [disponibilite] => 1
+            [12] => 1
+            [vna] => 1D4GP25B038108775
+            [13] => 1D4GP25B038108775
+            [nomModele] => Rav4
+            [14] => Rav4
+            [nomMarque] => Toyota
+            [15] => Toyota
+            [annee] => 2018
+            [16] => 2018
+            [nomMotoPropulseur] => 4x4
+            [17] => 4x4
+            [idMarque] => 8
+            [18] => 8
+            [lienPhotoPrincipale] => ./images/11/Volkswagen-Jetta-2014 (00).jpg
+            [19] => ./images/11/Volkswagen-Jetta-2014 (00).jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 34
+            [0] => 34
+            [idModele] => 28
+            [1] => 28
+            [idAnnee] => 10
+            [2] => 10
+            [kilometrage] => 53334
+            [3] => 53334
+            [dateArivee] => 2021-01-17
+            [4] => 2021-01-17
+            [prixAchat] => 56246.25
+            [5] => 56246.25
+            [prixVente] => 74995.00
+            [6] => 74995.00
+            [idMotopropulseur] => 2
+            [7] => 2
+            [idTypeCarburant] => 2
+            [8] => 2
+            [idCouleur] => 1
+            [9] => 1
+            [idTransmission] => 2
+            [10] => 2
+            [idTypeCarrosserie] => 7
+            [11] => 7
+            [disponibilite] => 1
+            [12] => 1
+            [vna] => 1D4GP25B038108775
+            [13] => 1D4GP25B038108775
+            [nomModele] => 2500
+            [14] => 2500
+            [nomMarque] => Ram
+            [15] => Ram
+            [annee] => 2019
+            [16] => 2019
+            [nomMotoPropulseur] => 4x4
+            [17] => 4x4
+            [idMarque] => 13
+            [18] => 13
+            [lienPhotoPrincipale] => ./images/12/Kia-Optima-2016 (00).jpg
+            [19] => ./images/12/Kia-Optima-2016 (00).jpg
+        )
+
+)
+
+
+30-04-2021 10:52:28
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:55:11
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:56:40
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:56:47
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:56:53
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:57:52
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:57:52
+
+'Chevrolet'
+
+30-04-2021 10:58:12
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Dodge','Ford','GMC'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 10:58:12
+
+'Dodge','Ford','GMC'
+
+30-04-2021 11:00:10
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Dodge','Ford','GMC'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 11:00:10
+
+'Dodge','Ford','GMC'
+
+30-04-2021 11:00:17
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Ford','GMC'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 11:00:17
+
+'Ford','GMC'
+
+30-04-2021 11:00:47
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 11:00:47
+
+marque.nom
+
+30-04-2021 11:01:07
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 11:01:07
+
+'Chevrolet'
+
+30-04-2021 11:02:27
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 11:02:27
+
+'Chevrolet'
+
+30-04-2021 11:02:56
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 11:02:56
+
+'Chevrolet'
+
+30-04-2021 11:19:35
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 11:19:35
+
+'Chevrolet'
+
+30-04-2021 11:19:43
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 11:19:43
+
+'Chevrolet'
+
+30-04-2021 11:19:53
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 11:19:53
+
+marque.nom
+
+30-04-2021 11:20:01
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 11:20:01
+
+
+
+30-04-2021 11:20:04
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 11:20:04
+
+
+
+30-04-2021 11:20:07
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 11:20:07
+
+
+
+30-04-2021 11:20:13
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 11:20:13
+
+marque.nom
+
+30-04-2021 12:12:16
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:12:16
+
+marque.nom
+
+30-04-2021 12:12:21
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:12:21
+
+marque.nom
+
+30-04-2021 12:13:41
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:13:41
+
+marque.nom
+
+30-04-2021 12:18:58
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:18:58
+
+marque.nom
+
+30-04-2021 12:19:15
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:19:15
+
+marque.nom
+
+30-04-2021 12:19:25
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:19:25
+
+marque.nom
+
+30-04-2021 12:20:55
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:20:55
+
+marque.nom
+
+30-04-2021 12:21:46
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:21:46
+
+marque.nom
+
+30-04-2021 12:22:34
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:22:34
+
+marque.nom
+
+30-04-2021 12:22:57
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:22:57
+
+marque.nom
+
+30-04-2021 12:23:00
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:23:00
+
+
+
+30-04-2021 12:23:06
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:23:06
+
+marque.nom
+
+30-04-2021 12:24:05
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:24:05
+
+
+
+30-04-2021 12:24:45
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:24:45
+
+
+
+30-04-2021 12:24:49
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:24:49
+
+
+
+30-04-2021 12:24:51
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:24:51
+
+
+
+30-04-2021 12:25:31
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:25:31
+
+
+
+30-04-2021 12:25:41
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:25:41
+
+marque.nom
+
+30-04-2021 12:26:03
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze','Focus','Escape','Civic'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:26:03
+
+marque.nom
+
+30-04-2021 12:32:11
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Cruze','Focus','Escape','Civic'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:32:11
+
+marque.nom
+
+30-04-2021 12:32:17
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:32:17
+
+
+
+30-04-2021 12:32:23
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => 'Focus','Ranger'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:32:23
+
+marque.nom
+
+30-04-2021 12:33:21
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:33:21
+
+
+
+30-04-2021 12:33:25
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:33:25
+
+marque.nom
+
+30-04-2021 12:42:47
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:42:47
+
+marque.nom
+
+30-04-2021 12:43:05
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:43:05
+
+marque.nom
+
+30-04-2021 12:44:28
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:44:28
+
+
+
+30-04-2021 12:45:45
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:45:45
+
+
+
+30-04-2021 12:45:53
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:45:53
+
+2001
+
+30-04-2021 12:47:00
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:47:00
+
+2001
+
+30-04-2021 12:47:00
+
+2001
+
+30-04-2021 12:47:07
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:47:07
+
+
+
+30-04-2021 12:47:07
+
+2001
+
+30-04-2021 12:48:16
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:48:16
+
+
+
+30-04-2021 12:48:16
+test
+2001
+
+30-04-2021 12:48:32
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:48:32
+recu
+
+
+30-04-2021 12:48:32
+test
+2001
+
+30-04-2021 12:49:17
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 1806
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:49:17
+recu
+1806
+
+30-04-2021 12:49:17
+test
+1806
+
+30-04-2021 12:51:33
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 1806
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:51:33
+recu
+1806
+
+30-04-2021 12:51:33
+test
+1806
+
+30-04-2021 12:51:35
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:51:35
+recu
+
+
+30-04-2021 12:51:35
+test
+2001
+
+30-04-2021 12:51:40
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 1801
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:51:40
+recu
+1801
+
+30-04-2021 12:51:40
+test
+1801
+
+30-04-2021 12:53:25
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 1801
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:53:25
+recu
+1801
+
+30-04-2021 12:53:25
+test
+1801
+
+30-04-2021 12:53:28
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:53:28
+recu
+
+
+30-04-2021 12:53:28
+test
+2001
+
+30-04-2021 12:53:35
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2019
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:53:35
+recu
+2019
+
+30-04-2021 12:53:35
+test
+2019
+
+30-04-2021 12:55:27
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2014
+    [anneeFin] => 2017
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:55:27
+recu
+2014
+
+30-04-2021 12:55:27
+test
+2014
+
+30-04-2021 12:55:32
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 12:55:32
+recu
+
+
+30-04-2021 12:55:32
+test
+2001
+
+30-04-2021 12:59:05
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 25000
+    [kmMax] => 50000
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 12:59:10
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:01:04
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:01:07
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:01:11
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => 'Essence'
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:01:16
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:01:19
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => 'Diesel'
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:01:23
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:03:34
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:03:41
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => 'Berline','Hayon'
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:03:47
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => 'Berline','Familiale'
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:03:52
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:04:28
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:04:32
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => 'Manuelle'
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:04:36
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => 'Automatique'
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:04:39
+
+Array
+(
+    [Voiture] => 
+)
+
+
+30-04-2021 01:05:08
+
+Array
+(
+    [Voiture] => 
+)
+
+
+30-04-2021 01:05:33
+
+Array
+(
+    [Voiture] => 
+)
+
+
+30-04-2021 01:05:38
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => '4x2'
+)
+
+
+30-04-2021 01:05:42
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => '4x4'
+)
+
+
+30-04-2021 01:05:45
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:06:08
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 60000
+    [prixMax] => 9999999
+    [marques] => 'Volkswagen'
+    [modele] => 'Routan'
+    [anneeDeb] => 2002
+    [anneeFin] => 2021
+    [kmMin] => 100000
+    [kmMax] => 999999
+    [carburant] => 'Diesel'
+    [carrosserie] => 'Mini-fourgonnette'
+    [transmission] => 'Automatique'
+    [propulsion] => '4x4'
+)
+
+
+30-04-2021 01:06:41
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 60000
+    [prixMax] => 9999999
+    [marques] => 'Volkswagen'
+    [modele] => 'Routan'
+    [anneeDeb] => 2002
+    [anneeFin] => 2021
+    [kmMin] => 100000
+    [kmMax] => 999999
+    [carburant] => 'Diesel'
+    [carrosserie] => 'Mini-fourgonnette'
+    [transmission] => 'Automatique'
+    [propulsion] => '4x4'
+)
+
+
+30-04-2021 01:07:49
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 60000
+    [prixMax] => 9999999
+    [marques] => 'Volkswagen'
+    [modele] => 'Routan'
+    [anneeDeb] => 2002
+    [anneeFin] => 2021
+    [kmMin] => 50000
+    [kmMax] => 100000
+    [carburant] => 'Diesel'
+    [carrosserie] => 'Mini-fourgonnette'
+    [transmission] => 'Automatique'
+    [propulsion] => '4x4'
+)
+
+
+30-04-2021 01:07:54
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 60000
+    [prixMax] => 9999999
+    [marques] => 'Volkswagen'
+    [modele] => 'Routan'
+    [anneeDeb] => 2002
+    [anneeFin] => 2021
+    [kmMin] => 100000
+    [kmMax] => 999999
+    [carburant] => 'Diesel'
+    [carrosserie] => 'Mini-fourgonnette'
+    [transmission] => 'Automatique'
+    [propulsion] => '4x4'
+)
+
+
+30-04-2021 01:08:22
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 60000
+    [prixMax] => 9999999
+    [marques] => 'Volkswagen'
+    [modele] => 'Routan'
+    [anneeDeb] => 2002
+    [anneeFin] => 2021
+    [kmMin] => 100000
+    [kmMax] => 999999
+    [carburant] => 'Diesel'
+    [carrosserie] => 'Mini-fourgonnette'
+    [transmission] => 'Automatique'
+    [propulsion] => '4x4'
+)
+
+
+30-04-2021 01:08:44
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 60000
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet','Volkswagen'
+    [modele] => modele.nom
+    [anneeDeb] => 2002
+    [anneeFin] => 2021
+    [kmMin] => 100000
+    [kmMax] => 999999
+    [carburant] => 'Diesel'
+    [carrosserie] => 'Mini-fourgonnette'
+    [transmission] => 'Automatique'
+    [propulsion] => '4x4'
+)
+
+
+30-04-2021 01:14:14
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 60000
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet','Volkswagen'
+    [modele] => modele.nom
+    [anneeDeb] => 2002
+    [anneeFin] => 2021
+    [kmMin] => 100000
+    [kmMax] => 999999
+    [carburant] => 'Diesel'
+    [carrosserie] => 'Mini-fourgonnette'
+    [transmission] => 'Automatique'
+    [propulsion] => '4x4'
+)
+
+
+30-04-2021 01:14:45
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 60000
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet','Volkswagen'
+    [modele] => modele.nom
+    [anneeDeb] => 2002
+    [anneeFin] => 2021
+    [kmMin] => 100000
+    [kmMax] => 999999
+    [carburant] => 'Diesel'
+    [carrosserie] => 'Mini-fourgonnette'
+    [transmission] => 'Automatique'
+    [propulsion] => '4x4'
+)
+
+
+30-04-2021 01:15:01
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 60000
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet','Volkswagen'
+    [modele] => modele.nom
+    [anneeDeb] => 2002
+    [anneeFin] => 2021
+    [kmMin] => 100000
+    [kmMax] => 999999
+    [carburant] => 'Diesel'
+    [carrosserie] => 'Mini-fourgonnette'
+    [transmission] => 'Automatique'
+    [propulsion] => '4x4'
+)
+
+
+30-04-2021 01:15:03
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:15:20
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:15:27
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:16:11
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:16:22
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:16:29
+
+Array
+(
+    [Voiture] => 
+)
+
+
+30-04-2021 01:17:01
+
+Array
+(
+    [Voiture] => 
+)
+
+
+30-04-2021 01:17:15
+
+Array
+(
+    [Voiture] => 
+)
+
+
+30-04-2021 01:17:17
+
+Array
+(
+    [Voiture] => 
+)
+
+
+30-04-2021 01:17:55
+
+Array
+(
+    [Voiture] => 
+)
+
+
+30-04-2021 01:22:18
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:22:31
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:25:26
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:25:41
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:26:02
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:26:12
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:26:34
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:26:36
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:26:53
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:26:55
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:28:18
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:28:50
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:29:12
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:29:37
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:29:55
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:33:07
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:33:16
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:52:06
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:52:29
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 01:52:38
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:52:45
+
+Array
+(
+    [Voiture] => 
+)
+
+
+30-04-2021 01:52:47
+
+Array
+(
+    [Voiture] => 
+)
+
+
+30-04-2021 01:56:07
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 01:56:47
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 02:03:48
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 02:03:50
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 02:03:59
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 02:06:49
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 02:06:51
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 02:12:35
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 02:17:28
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 02:17:44
+
+Array
+(
+    [Voiture] => 
+    [action] => Accueil
+)
+
+
+30-04-2021 02:17:52
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 02:20:33
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 02:21:01
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 02:21:55
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 02:22:06
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet','Ford','GMC','Honda','Jeep','Mercedes'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 02:22:38
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet','Ford','GMC','Honda','Jeep','Mercedes'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 02:22:51
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 02:23:24
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 02:30:38
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 02:30:46
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => 'Chevrolet'
+    [modele] => 'Cruze'
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 02:31:36
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+
+30-04-2021 02:31:53
+
+Array
+(
+    [Voiture] => 
+    [action] => filtre
+    [prixMin] => 0
+    [prixMax] => 9999999
+    [marques] => marque.nom
+    [modele] => modele.nom
+    [anneeDeb] => 2001
+    [anneeFin] => 2022
+    [kmMin] => 0
+    [kmMax] => 9999999
+    [carburant] => typecarburant.nom
+    [carrosserie] => typecarrosserie.nom
+    [transmission] => transmission.nom
+    [propulsion] => motopropulseur.nom
+)
+
+

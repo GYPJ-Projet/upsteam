@@ -33,14 +33,14 @@
 						}
 						break;
 					case "sauvegarderMarque":
-						if (isset($params["id"]) && isset($params["nom"])) {
+						if (isset($params["id"]) && isset($params["nom"]) && isset($params["page"])) {
 							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
 							else $params["disponibilite"] = 0;
 							$modeleMarque = $this->obtenirDAO("Marque");
 							$nouvelleMarque = new Marque($params["id"], $params["nom"], $params["disponibilite"]);
 							$reponse = $modeleMarque->sauvegarder($nouvelleMarque);
 							
-							header("Location: index.php?GestionDonnees&action=gestionMarque");
+							header("Location: index.php?GestionDonnees&action=gestionMarque&page=" . $params["page"]);
 				
 						} else { // Sinon, on affiche le formulaire pour l'ajout
 							$this->afficheVue("formulaireMarque", $donnees);

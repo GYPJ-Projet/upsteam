@@ -6,9 +6,9 @@
 <h2><?= (isset($modele)) ? $langue["formulaire_modif_modele"] : $langue["formulaire_ajout_modele"] ?></h2>
 <form class="formulaire" action="index.php?GestionDonnees_AJAX&action=sauvegarderModele" method="post">
     <label for="nom"><?= $langue["nom_modele"] ?> : </label>
-    <input type="text" name="nom" id="nom" value="<?= (isset($modele)) ? $modele->getNom() : "" ?>"/><br/>
+    <input type="text" name="nom" id="nom" value="<?= (isset($modele)) ? $modele->getNom() : "" ?>" required/><br/>
     <label for="marque"><?= $langue["nom_marque"] ?> : </label>
-    <select name="idMarque" id="idMarque">
+    <select name="idMarque" id="idMarque" required>
         <option value=""><?= $langue["option"] ?></option>
 <?php
         foreach ($donnees["marques"] as $marque) {
@@ -19,7 +19,7 @@
 <?php
         }
 ?>        
-    </select>
+    </select><br>
 <?php
     if (isset($modele)) {
 ?>

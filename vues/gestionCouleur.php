@@ -10,8 +10,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th><?= $langue["nom_langue_fr"] ?></th>
-                    <th><?= $langue["nom_langue_en"] ?></th>
+                    <th><?= $langue["nom_langue"] ?></th>
                     <th></th>
                 </tr>
             </thead>
@@ -21,8 +20,7 @@
 ?>
                 <tr>
                     <td><?= $couleur["id"] ?></td>
-                    <td><?= $couleur["nomFr"] ?></td>
-                    <td><?= $couleur["nomEn"] ?></td>
+                    <td><?= $couleur["nom"] ?></td>
                     <td><button data-js-modifier data-js-id=<?= $couleur["id"] ?>><?= $langue["button_modifier"] ?></button></td>
                 </tr>                 
 <?php

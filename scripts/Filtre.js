@@ -3,7 +3,7 @@ class Filtre{
         //les éléments du filtre.
         this._element =                     element;
         this._listeMarquesSelectionnes =    [];
-        this._elListeMarque =               this._element.querySelector('[data-js-modeleListeConteneur]')
+        this._elListeModele =               this._element.querySelector('[data-js-modeleListeConteneur]')
         this._listeMarquesAffiches =        this._element.querySelectorAll('[data-js-marque]');
         this._SymbolesPlus =                this._element.querySelectorAll('[data-js-SymbolePlus]');
         this._elBoutonFiltre =              this._element.querySelector('[data-js-boutonFiltre]');
@@ -24,43 +24,37 @@ class Filtre{
 
     init =()=>{
 
+        window.addEventListener('load',this.loadModelesSelectionnes);
         this.gestionPlus();
         this.populationModele();
-        this.listeModelesSelectionnes();
+        this.clickModelesSelectionnes();
         this.gestionFiltre();
     }
 
     /**
-     * Pour chaque liste on permet de réduire ou agrandir la taille de la liste.
+     * PH
+     * S'assure d'afficher les modèles adéquats en fonction des choix utilisateurs
+     * au démarrage de la page
      */
-    gestionPlus =()=>{
-        for(let symbolePlus of this._SymbolesPlus){
-            symbolePlus.addEventListener('click', ()=>{
-                let cible = symbolePlus.parentNode.nextElementSibling,
-                    plusGris = symbolePlus.firstElementChild,
-                    plusBleu = symbolePlus.lastElementChild;
+    loadModelesSelectionnes =()=>{
+        for(let marque of this._listeMarquesAffiches){
 
-                //On cache si non caché et vise versa. 
-                if(!cible.classList.contains('cacher')){
-                    plusGris.classList.add('cacher');
-                    plusBleu.classList.remove('cacher');
-                    cible.classList.add('cacher');
-                }else{
-                    plusGris.classList.remove('cacher');
-                    plusBleu.classList.add('cacher');
-                    cible.classList.remove('cacher');
-                }
-            });
+            if(marque.checked === true){
+                this._listeMarquesSelectionnes.push(marque.dataset.jsMarque);
+            }
+            console.log('this._listeMarquesSelectionnes: ',this._listeMarquesSelectionnes);
+            this.populationModele();
         }
     }
 
     /**
+     * PH
      * Crée les eventListeners qui:
      * Lors d'un clique sur un modele ajoute ou retire le modele de la liste
      * qui sera utiliser pour faire la requête ajax.
      * Finalement, appel populationModele.
      */
-    listeModelesSelectionnes =()=>{
+    clickModelesSelectionnes =()=>{
         for(let marque of this._listeMarquesAffiches){
             marque.addEventListener('click', ()=>{
                 let exist = false;
@@ -79,6 +73,7 @@ class Filtre{
     }
 
     /**
+     * PH
      * Commence par créer une liste utilisable par le sql.
      * Fabrique la "querystring" qui sera utilisé pour le AJAX
      *      Option1: tout les modèles
@@ -89,6 +84,7 @@ class Filtre{
         // Fabrique une liste utilisable pour SQL.
         let liste = "",
             chaineRequete="index.php?Voiture_AJAX&action=",
+            modeleRecu = this._elConteneurModele.dataset.jsModeleconteneur, //Pour permettre de sélectionner les modèles sélectionner au retour dans la page.
             xhr = new XMLHttpRequest();
 
         if(this._listeMarquesSelectionnes.length > 0){
@@ -124,10 +120,10 @@ class Filtre{
                             for(let element of data){
                                 resultat += `   <div class="listeConteneur">
                                                     <label for="${element.nom}">${element.nom}</label>
-                                                    <input class="radio" type="checkbox" id="${element.nom}" name="${element.nom}" value="${element.nom}" data-js-modele="${element.id}">
+                                                    <input class="radio" type="checkbox" id="${element.nom}" name="${element.nom}" value="${element.nom}" data-js-modele="${element.id}" ${(modeleRecu.search(element.nom) != -1) ? "checked" : ""}>
                                                 </div>`;
                             }
-                            this._elListeMarque.innerHTML = resultat;
+                            this._elListeModele.innerHTML = resultat;
                         }
                     } else if (xhr.status === 404) {
                         console.log('Le fichier appelé dans la méthode open() n’existe pas.');
@@ -141,6 +137,11 @@ class Filtre{
 
     }
 
+    /**
+     * PH
+     * On fabrique la "querystring" qui va appeler la requête SQL.
+     * Finalement, on appel le controleur.
+     */
     gestionFiltre =()=>{
         this._elBoutonFiltre.addEventListener('click', (evt)=>{
             evt.preventDefault();
@@ -253,4 +254,29 @@ class Filtre{
             leInput[1].value = new Date().getFullYear() + 1;
         }
     }
+
+        /**
+     * PH
+     * Pour chaque liste on permet de réduire ou agrandir la taille de la liste.
+     */
+        gestionPlus =()=>{
+            for(let symbolePlus of this._SymbolesPlus){
+                symbolePlus.addEventListener('click', ()=>{
+                    let cible = symbolePlus.parentNode.nextElementSibling,
+                        plusGris = symbolePlus.firstElementChild,
+                        plusBleu = symbolePlus.lastElementChild;
+    
+                    //On cache si non caché et vise versa. 
+                    if(!cible.classList.contains('cacher')){
+                        plusGris.classList.add('cacher');
+                        plusBleu.classList.remove('cacher');
+                        cible.classList.add('cacher');
+                    }else{
+                        plusGris.classList.remove('cacher');
+                        plusBleu.classList.add('cacher');
+                        cible.classList.remove('cacher');
+                    }
+                });
+            }
+        }
 }
