@@ -27,13 +27,21 @@
             <div class="swiper-button-prev"></div>
         </div>
 
-		<div class="descriptionVoiture" data-js-voiture="<?=$voiture["id"] ?>">
-		    <h2>Spécifications de la <?=$voiture["nomMarque"] ?> <?=$voiture["nomModele"] ?> <?=$voiture["annee"] ?></h2>
-			<ul class="ulBlock">
-				<li class="liste">Modèle: <span><?=$voiture["nomModele"] ?></span></li>
-				<li class="liste"><span><?= $langue["habitacle"] ?>: </span><span class="valeur"><?= $donnees["typeCarrosserie"][$voiture["idTypeCarrosserie"]]?></span></li>
-				<li class="liste"><span><?= $langue["kilometrage"] ?>: </span><span class="valeur"><?= $voiture["kilometrage"]?></span> km</li>
-			</ul>			
+		<div class="descriptionVoiture clearFloat" data-js-voiture="<?=$voiture["id"] ?>">
+			<h2>Spécifications de la <?=$voiture["nomMarque"] ?> <?=$voiture["nomModele"] ?> <?=$voiture["annee"] ?></h2>
+			<div class="divColonne">
+				<ul class="ulListeDescription">
+					<li class="ilListeDescription"><span><?= $langue["modele"] ?>: </span> <span><?=$voiture["nomModele"] ?></span></li>
+					<li class="ilListeDescription"><span><?= $langue["habitacle"] ?>: </span><span class="valeur"><?= $donnees["typeCarrosserie"][$voiture["idTypeCarrosserie"]]?></span></li>
+					<li class="ilListeDescription"><span><?= $langue["couleur"] ?>: </span><span class="valeur"><?= $donnees["couleur"][$voiture["idTypeCarrosserie"]]?></span></li>
+					<li class="ilListeDescription"><span><?= $langue["kilometrage"] ?>: </span><span class="valeur"><?= $voiture["kilometrage"]?></span> km</li>
+				</ul>	
+				<ul class="ulListeDescription">
+					<li class="ilListeDescription"><span><?= $langue["transmission"] ?>: </span> /span> <span class="valeur"><?= $donnees["transmission"][$voiture["idTransmission"]]?></span></li>
+					<li class="ilListeDescription"><span><?= $langue["carburant"] ?>:</span> <span class="valeur"><?= $donnees["typeCarburant"][$voiture["idTypeCarburant"]]?></span></li>
+					<li class="ilListeDescription"><span><?= $langue["prix"] ?>:</span> <span class="valeur"><?=$voiture["prixVente"] ?>$</span></li>
+				</ul>			
+			</div>
 		</div>
 	</div>
 	<div class="ajouter-panier" data-js-ajouter-panier>
