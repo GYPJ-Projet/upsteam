@@ -4,18 +4,21 @@
 ?>
 
 <h2><?= (isset($marque)) ? $langue["formulaire_modif_marque"] : $langue["formulaire_ajout_marque"] ?></h2>
-<form class="formulaire" action="index.php?GestionDonnees_AJAX&action=sauvegarderMarque" method="post">
-    <label for="nom"><?= $langue["nom_marque"] ?> : </label>
-    <input type="text" name="nom" id="nom" value="<?= (isset($marque)) ? $marque->getNom() : "" ?>"/><br/>
+<form class="formulaire" action='index.php?GestionDonnees_AJAX&action=sauvegarderMarque<?= (isset($_GET["page"])) ? "&page=" . $_GET["page"] : "" ?>' method="post">
+    <div class="champ">
+        <label for="nom"><?= $langue["nom_marque"] ?> : </label>
+        <input type="text" name="nom" id="nom" value="<?= (isset($marque)) ? $marque->getNom() : "" ?>" required/>
+    </div>
 <?php
     if (isset($marque)) {
 ?>
+    <div class="champ">
         <label for="disponibilite"><?= $langue["disponibilite"] ?> : </label>
-        <input type="checkbox" name="disponibilite" id="disponibilite" <?= (isset($marque) && $marque->getDisponibilite() == 1) ? "checked" : "" ?>/><br>
+        <input type="checkbox" name="disponibilite" id="disponibilite" <?= (isset($marque) && $marque->getDisponibilite() == 1) ? "checked" : "" ?>/>
+    </div>
 <?php
     }
 ?>
-    
     <input type="hidden" name="id" value="<?= (isset($marque)) ? $marque->getId() : 0 ?>"/><br/>
-    <input class="bouton" type="submit" value="<?= $langue['button_soumettre'] ?>"/>
+    <input class="bouton" type="submit" value="<?= $langue['button_soumettre'] ?>"/>    
 </form>

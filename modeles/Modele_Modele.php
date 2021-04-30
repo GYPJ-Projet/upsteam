@@ -22,14 +22,29 @@
             return "";
         }
 
-        // Permet d'obtenir toutes les modèles avec l'information à propos de la marque
-        public function obtenirTousAvecMarque() {
+        // Permet d'obtenir le nombre de toutes les modeles dans la bd
+        public function obtenirNombreModeles() {
+            try {
+				$requete = "SELECT COUNT(id) AS nb FROM modele";
+				$requetePreparee = $this->db->prepare($requete);
+				$requetePreparee->execute();
+				return $requetePreparee->fetchColumn();
+			}
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+
+        // Permet d'obtenir toutes les modèles avec l'information à propos de la marque dans une plage donnée
+        public function obtenirTousAvecMarque($depart, $modelesParPage) {
 
             try {
                 $requete = "SELECT marque.nom AS nomMarque, marque.id AS idMarque, modele.id, modele.nom, modele.disponibilite
                             FROM modele
-                            JOIN marque ON modele.idMarque = marque.id
-                            ORDER BY modele.id";
+                            JOIN marque 
+                            ON modele.idMarque = marque.id
+                            ORDER BY modele.id
+                            LIMIT $depart, $modelesParPage";
                 $requetePreparee = $this->db->prepare($requete);
                 $requetePreparee->execute(); 
                 return $requetePreparee->fetchAll();
@@ -37,8 +52,7 @@
 			  catch(Exception $exc) {
 				return 0;
 			}   
-
-      }
+        }
 
         // Permet de sauvegarder la modele dans la base de données
         public function sauvegarder(Modele $laModele) {
