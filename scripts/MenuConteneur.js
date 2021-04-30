@@ -53,7 +53,7 @@ class MenuConteneur{
      */
     displayWindowSize = () =>{
         // if(window.innerWidth <= 414 && this._iconeBurger.classList.contains('cacher')){
-        if(window.innerWidth <= 414){
+        if(window.innerWidth <= iPhone){
             console.log('test');
             this._iconeBurger.classList.remove('cacher');
             this._element.classList.add('burger');

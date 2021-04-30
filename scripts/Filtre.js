@@ -19,14 +19,10 @@ class Filtre{
         this._elConteneurPropulsion =       this._element.querySelector('[data-js-propulsionConteneur]');
 
 
-        // console.log('this._elBoutonFiltre: ',this._elBoutonFiltre);
         this.init();
     }
 
     init =()=>{
-        // let test           = this._elConteneurPrix.querySelector('select');
-        // test.value = 'prixMin=0&prixMax=1500';
-        // document.getElementById('sel').value = 'bike'
 
         this.gestionPlus();
         this.populationModele();
@@ -151,34 +147,110 @@ class Filtre{
             let inputPrix           = this._elConteneurPrix.querySelector('select'),
                 inputMarque         = this._elConteneurMarque.querySelectorAll('input'),
                 inputModele         = this._elConteneurModele.querySelectorAll('input'),
-                inputAnne           = this._elConteneurAnnee.querySelectorAll('input'),
+                inputAnnee          = this._elConteneurAnnee.querySelectorAll('input'),
                 inputKm             = this._elConteneurKm.querySelector('select'),
                 inputCarburant      = this._elConteneurCarburant.querySelectorAll('input'),
                 inputCarrosserie    = this._elConteneurCarrosserie.querySelectorAll('input'),
                 inputTransmission   = this._elConteneurTransmission.querySelectorAll('input'),
                 inputPropulsion     = this._elConteneurPropulsion.querySelectorAll('input'),
-                result ='';
-                // listeReselectionner=;
+                resultat            ='';
 
-            // console.log('inputCarburant: ',inputCarburant[0]);
+                this.testAnnee(inputAnnee);
+  
+            //On vérifie le contenur de tout les champs par section de recherche.
+            let prixResultat = '&' + inputPrix.value,
+                marqueResultat = '&marques=' + this.verifSection(inputMarque, 'marque.nom'),
+                modeleResultat = '&modele=' + this.verifSection(inputModele, 'modele.nom'),
+                anneeResultat = `&anneeDeb=${inputAnnee[0].value}&anneeFin=${inputAnnee[1].value}`,
+                kmResultat = '&' + inputKm.value,
+                carburantResultat = '&carburant=' + this.verifSection(inputCarburant, 'typecarburant.nom'),
+                carrosserieResultat = '&carrosserie=' + this.verifSection(inputCarrosserie, 'typecarrosserie.nom'),
+                transmissionResultat = '&transmission=' + this.verifSection(inputTransmission, 'transmission.nom'),
+                propulsionResultat = '&propulsion=' + this.verifSection(inputPropulsion, 'motopropulseur.nom');
 
-            
-            // PRIX
-            let prixResult = inputPrix.value;
+            // CHAÎNE DE REQUÊTE ***************************************
 
-            // MARQUE
-            for(let element of inputMarque ){
+            resultat += 'index.php?Voiture&action=filtre'
+                    + prixResultat
+                    + marqueResultat
+                    + modeleResultat
+                    + anneeResultat
+                    + kmResultat
+                    + carburantResultat
+                    + carrosserieResultat
+                    + transmissionResultat
+                    + propulsionResultat;
 
-            }
-            console.log('inputMarque: ',inputMarque);
-
-
-
-            result += '&' + prixResult;
-
-            console.log('result: ',result);
-
+            window.location.href = resultat;
         });
+    }
 
+    /**
+     * PH
+     * Test pour savoir si la chaine retourner par verifList est vide.
+     * Si vide: on retourne le paramètre siVide
+     * Sinon on utilise ce que verifList à trouvé.
+     * @param {*} leInput Liste de input à tester
+     * @param {*} siVide  paramètre qui doit être envoyé au modele si aucune sélection.
+     * @returns 
+     */
+    verifSection =(leInput, siVide)=>{
+        let resultat = '',
+            temp = '';
+
+        temp = this.verifList(leInput);
+
+        if(temp === ''){
+            temp = siVide;
+        }
+        return resultat += temp;
+    }
+
+
+    /**
+     * PH
+     * liste toutes les option qui sont "checked".
+     * Pour les checkbox comme les marques.
+     * @param {*} leInput La série de inputs à vérifier
+     * @returns 
+     */
+    verifList = (leInput) =>{
+        let listeTemp = '';
+    
+        for(let i = 0, j = leInput.length; i<j ; i++ ){
+            if(leInput[i].checked){
+                if(listeTemp.length > 0){
+                    listeTemp += ',';
+                }
+                listeTemp += `'${leInput[i].value}'`;
+            }
+        }
+        return listeTemp;
+    }
+
+    /**
+     * PH
+     * Séri de validation des années.
+     * Seul paramètre avec input direct de l'usagé.
+     * Test:
+     *      Année Début vide
+     *      Année Fin vide
+     *      Année Début plus élevé que Année Fin.
+     * 
+     * @param {*} leInput Les deux champs à tester.
+     */
+    testAnnee = (leInput) =>{
+        if(leInput[0].value === ""){
+            leInput[0].value = new Date().getFullYear() - 20;
+        }
+
+        if(leInput[1].value === ""){
+            leInput[1].value = new Date().getFullYear() + 1;
+        }
+
+        if(leInput[0].value > leInput[1].value){
+            leInput[0].value = new Date().getFullYear() - 20;
+            leInput[1].value = new Date().getFullYear() + 1;
+        }
     }
 }
