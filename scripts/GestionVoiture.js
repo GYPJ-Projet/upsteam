@@ -1,4 +1,4 @@
-class GestionMarque {
+class GestionVoiture {
     constructor(el) {
         this._el = el;
         this._elsBtnModifier = this._el.querySelectorAll('[data-js-modifier]');
@@ -26,7 +26,7 @@ class GestionMarque {
                 if (tri == undefined) tri = e.target.parentNode.dataset.jsTri;
                 if (ordre == undefined) ordre = e.target.parentNode.dataset.jsOrdre;
 
-                window.location.href = 'index.php?GestionDonnees&action=gestionMarque&tri=' + tri + '&ordre=' + ordre + '&page=' + this.page;
+                window.location.href = 'index.php?GestionDonnees&action=gestionVoiture&tri=' + tri + '&ordre=' + ordre + '&page=' + this.page;
             });
         }
         
@@ -35,7 +35,7 @@ class GestionMarque {
             this._elsBtnModifier[i].addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                this.modifierMarque(e.target.dataset.jsId);
+                this.modifierVoiture(e.target.dataset.jsId);
             });
         }
 
@@ -43,7 +43,7 @@ class GestionMarque {
         this._elBtnAjouter.addEventListener('click', (e) => {
             e.preventDefault();
             
-            this.modifierMarque(0);
+            this.modifierVoiture(0);
         });
 
     }
@@ -57,7 +57,7 @@ class GestionMarque {
         }
     }
                 
-    modifierMarque = (id) => {
+    modifierVoiture = (id) => {
         // Déclaration de l'objet XMLHttpRequest
         var xhr;
         xhr = new XMLHttpRequest();
@@ -66,7 +66,7 @@ class GestionMarque {
         if (xhr) {	
 
             // Ouverture de la requète : fichier recherché
-            xhr.open('GET', 'index.php?GestionDonnees_AJAX&action=afficherFormulaireMarque&id=' + id + '&page=' + this.page);
+            xhr.open('GET', 'index.php?GestionDonnees_AJAX&action=afficherFormulaireVoiture&id=' + id + '&page=' + this.page);
 
             xhr.addEventListener('readystatechange', () => {
 
