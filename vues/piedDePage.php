@@ -2,13 +2,15 @@
         $langue = $donnees["langue"];       //Pour affichage des langues
     ?>
     
-    <footer>
-        <div class="pied_de_page">
-            <p class="footer__titre">
+    <footer class="pied_de_page">
+        <div class="footer__titre">
+            <p >
                 Vehicules d'Occasion INC.
             </p>
+        </div>
+        <div class="footer__sous-titre">
             <address class="footer__adresse">
-                <h3 class="footer__sous-titre">
+                <h3>
                 <?= $langue['pdp_contact'] ?>
                 </h3>
                 <p>
@@ -20,7 +22,7 @@
                 </p>
             </address>
             <section class="footer__heures">
-                <h3 class="footer__sous-titre">
+                <h3>
                     <?= $langue['pdp_heures'] ?>
                 </h3>
                 <p><?= $langue['pdp_lundi'] ?> - <?= $langue['pdp_vendredi'] ?>    : 8h - 18h</p>
@@ -28,7 +30,7 @@
                 <p><?= $langue['pdp_dimanche'] ?>           : 9h - 16h</p>
             </section>               
             <section class="footer__partage">
-                <h3 class="footer__sous-titre">
+                <h3>
                     <?= $langue['pdp_partager'] ?>
                 </h3>
                 <div>

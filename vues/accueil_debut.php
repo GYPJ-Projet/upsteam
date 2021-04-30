@@ -1,11 +1,11 @@
 <?php 
     $langue = $donnees["langue"];       //Pour affichage des langues
-    Debug::toLog($donnees["propulsion"]);
+    //Debug::toLog($donnees["propulsion"]);
 ?>
 
 <body >
 
-<div data-js-Controleur="Voiture">  
+<div data-js-controleur="Voiture">  
 
     <div class="bodyConteneur" data-js-bodyConteneur >
         <aside class="filtreConteneur" data-js-component="Filtre">

@@ -16,7 +16,7 @@ $langue['filtreModele']	        = 'MODEL';
 $langue['filtreAnnee']	        = 'YEAR';
 $langue['filtreKilometrage']	= 'MILEAGE';
 $langue['filtreCarburant']		= 'FUEL';
-$langue['filtreCarroserie']	    = 'BODY TYPE';
+$langue['filtreCarrosserie']	= 'BODY TYPE';
 $langue['filtreTransmission']   = 'TRANSMISSION';
 $langue['filtrePropulsion']     = 'DRIVE TRAIN';
 

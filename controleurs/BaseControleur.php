@@ -13,7 +13,7 @@
             
             if(file_exists($cheminVue))
             {
-                //n.b. le paramètre $donnees sera utilisé DIRECTEMENT dans la vue
+                //n.b. le paramsètre $donnees sera utilisé DIRECTEMENT dans la vue
                 include_once($cheminVue);
             }
             else
@@ -30,7 +30,7 @@
                 //on créé la connexion à la BD (les constantes sont dans config.php)
                 $connexionPDO = BDUsine::getBD(TYPEBD, NOMBD, HOTE, USAGER, MDP);
                 if ($nomTable != null) { 
-                    //on crée une instance de la classe Modele_$nomModele avec son paramètre
+                    //on crée une instance de la classe Modele_$nomModele avec son paramsètre
                     $objetModele = new $classe($connexionPDO, $nomTable); 
                 } else {
                     //on crée une instance de la classe Modele_$nomModele 
@@ -61,13 +61,13 @@
 
 
         // Méthode pour charger la langue pour ce contrôleur
-        public function chargerLangue($param) {
-
+        public function chargerLangue($params) {
+           
             $langue = array(); // Création de la table langue.
 
             // On va chercher la langue de choisi par l'usager ou 
             // la langue de l'usager selon le cas.
-            $langueAffichage = $this->trouveLangueAffichage($param);
+            $langueAffichage = $this->trouveLangueAffichage($params);
 
             // Chemin d'accès à la langue selon la langue d'affichage choisie
             $cheminLangue = RACINE . "langues/" .  $langueAffichage;
@@ -101,13 +101,13 @@
         
 
         // Méthode privée pour déterminer la langue d'affichage  
-        private function trouveLangueAffichage($param) {
+        private function trouveLangueAffichage($params) {
             
             $existeSessionLangue = false; // Est-ce que la variable de session "langue" existe ?
             $langueAffichage = "fr-fr";   // par défaut
-
+           
             // Si on a reçu une action ET que cette action est un changement de langue
-            if( isset($params["action"]) && $params["action"] === "changerLangue") {
+            if( isset($params["action"]) && $params["action"] == "changerLangue") {
                 if (isset($params["langue"])) {
                     $_SESSION["langue"] = $params["langue"];  // On retient la langue dans la session
                     $existeSessionLangue = true;              // La variable de session langue existe.
@@ -117,7 +117,7 @@
             } else if(isset($_SESSION["langue"])) {
                 $existeSessionLangue = true;  // La variable de session langue existe.
             }
-
+            
             // La langue choisi a prépondérance par rapport à la langue de l'usager
             // Il est a noter que la langue choisi peux être celle de l'usager de toute façon.
             if ($existeSessionLangue) {
