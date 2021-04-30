@@ -8,8 +8,6 @@
     align-items: center;
     background-color: var(--noir);
     margin-top: 50px;
-    height: 180px;
-    padding: 30px;
     border-top: solid 20px var(--cle);
 }
 
@@ -18,6 +16,14 @@
     font-size: var(--police_taille_h2Plus);
     color: var(--cle);
 
+}
+
+.footer__sous-titre {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: space-between;
+    padding: 50px;
 }
 
 .footer__adresse,
@@ -37,8 +43,8 @@
     color: var(--blanc);
 }
 
-/********** ADAPTATION POUR PETIT ÉCRAN, Iphone 11 (< 500 px) **********/
-@media screen and (max-width: 500px) {
+/********** ADAPTATION POUR PETIT ÉCRAN, Iphone 11 (< 414 px) **********/
+@media screen and (max-width: 414px) {
     .pied_de_page {
         flex-direction: column;
         text-align: center;

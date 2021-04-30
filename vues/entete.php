@@ -2,7 +2,7 @@
     $langue = $donnees["langue"];       //Pour affichage des langues
 ?>
 
-<header data-component="Header">
+<header data-js-component="Entete">
 	<div class="enteteConteneur">
 		<a href="index.php?Voiture&action=Accueil"><img src="logo/logo_v2.svg" alt="logo" width="400px"height="170px"></a>
 		<div>
@@ -10,7 +10,7 @@
 		</div>
 		<div class="entete__droit">
 			<a href="index.php?Usager&action=login" class="connexion"><?= $langue['entete_connexion'] ?></a>
-			<div class="entete__langue sourisPointer"><span><?= $langue['entete_choix_langue'] ?></span></div>
+			<div class="entete__langue sourisPointer" data-js-langue><p><?= $langue['entete_choix_langue'] ?></p></div>
 			<a href="index.php?Voiture&action=afficherPanier" class="entete__panierAchat vide" data-js-panier>
 				<span class="itemPanier" data-js-nombre-item></span>
 				<svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" class="entete__panier">

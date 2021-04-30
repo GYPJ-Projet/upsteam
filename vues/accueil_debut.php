@@ -5,7 +5,7 @@
 
 <body >
 
-<div data-js-Controleur="Voiture">  
+<div data-js-controleur="Voiture">  
 
     <div class="bodyConteneur" data-js-bodyConteneur >
         <aside class="filtreConteneur" data-js-component="Filtre">

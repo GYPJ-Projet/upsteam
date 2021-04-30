@@ -17,11 +17,11 @@
 
 
 .recherche {
-    width: 15.625vw;            /*300px*/
-    height: 1.822916vw;         /*35px*/
+    width: 300px;           
+    height: 35px;         
     top: 47px;
     background: #FFFFFF;
-    border: 0.15625vw solid #333333;
+    border: 3px solid #333333;
     box-sizing: border-box;
 }
 
@@ -52,8 +52,8 @@
 }
 
 .entete__panier {
-    height: 5vw;
-    width: 5vw;
+    height: 60px;
+    width: 60px;
 }
 
 .entete__panierAchat.fill .entete__panier__path {
@@ -65,8 +65,8 @@
     pointer-events: none;
 }
 
-/********** ADAPTATION POUR PETIT ÉCRAN, Iphone 11 (< 500 px) **********/
-@media screen and (max-width: 500px) {
+/********** ADAPTATION POUR PETIT ÉCRAN, Iphone 11 (< 414 px) **********/
+@media screen and (max-width: 414px) {
     .pied_de_page {
         flex-direction: column;
         text-align: center;

@@ -18,6 +18,7 @@
     
 	<!-- scripts -->
 	<script type="text/javascript" src="./scripts/var.js"></script>
+	<script type="text/javascript" src="./scripts/Entete.js"></script>
 	<script type="text/javascript" src="./scripts/Filtre.js"></script>
 	<script type="text/javascript" src="./scripts/Voiture.js"></script>
 	<script type="text/javascript" src="./scripts/VoirPlus.js"></script>
