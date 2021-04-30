@@ -15,14 +15,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700;800&family=Orbitron:wght@700&display=swap" rel="stylesheet"/>
 	 
 	<!-- scripts -->
-  <script type="text/javascript" src="./scripts/var.js"></script>
-	<script type="text/javascript" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="./scripts/var.js"></script>
+  	<script type="text/javascript" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="./scripts/Entete.js"></script>
 	<script type="text/javascript" src="./scripts/DescriptionVoiture.js"></script>
 	<script type="text/javascript" src="./scripts/Filtre.js"></script>
 	<script type="text/javascript" src="./scripts/Voiture.js"></script>
 	<script type="text/javascript" src="./scripts/VoirPlus.js"></script>
 	<script type="text/javascript" src="./scripts/GestionMarque.js"></script>
 	<script type="text/javascript" src="./scripts/GestionModele.js"></script>
+	<script type="text/javascript" src="./scripts/GestionCouleur.js"></script>
+	<script type="text/javascript" src="./scripts/GestionVoiture.js"></script>
 	<script type="text/javascript" src="./scripts/MenuConteneur.js"></script>
 	<script type="text/javascript" src="./scripts/classMapping.js"></script>
 	<script type="text/javascript" src="./scripts/script.js"></script>

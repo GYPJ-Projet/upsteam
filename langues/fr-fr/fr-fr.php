@@ -2,6 +2,7 @@
 
 // Id de la langue correspondante
 $langue["idLangue"] = 1;
+$langue["repertoireLangue"] = "en-gb";
 
 // textes Locale générique (s'il y en aura)
 $langue['texte_oui']              = 'Oui';
@@ -12,7 +13,6 @@ $langue['entete_choix_langue']   = 'EN';
 $langue['entete_recherche']      = 'Recherche';
 $langue['entete_connexion']      = 'Connexion';
 /*$langue['entete_connexion']      = 'Déconnexion';*/
-
 
 
 // menu
@@ -29,7 +29,7 @@ $langue['pdp_telephone']        = 'Téléphone';
 $langue['pdp_courriel']         = 'Courriel';
 $langue['pdp_heures']           = 'Heures';
 $langue['pdp_lundi']            = 'Lundi';
-$langue['pdp_vendredi']          = 'Vendredi';
+$langue['pdp_vendredi']         = 'Vendredi';
 $langue['pdp_samedi']           = 'Samedi';
 $langue['pdp_dimanche']         = 'Dimanche';
 $langue['pdp_partager']         = 'Partager';

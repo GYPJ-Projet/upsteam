@@ -1,7 +1,7 @@
 <?php 
     $langue = $donnees["langue"];       //Pour affichage des langues
+
     //Pour remettre les filtres séelctionnés.
-    Debug::toLog($_REQUEST);
     $prixMinRecu = '';
     $prixMaxRecu = '';
     $marquesRecu = '';
@@ -41,11 +41,12 @@
         $transmissionRecu = $_GET['transmission'];
         $propulsionRecu = $_GET['propulsion'];
     }
+
 ?>
 
 <body >
 
-<div data-js-Controleur="Voiture">  
+<div data-js-controleur="Voiture">  
 
     <div class="bodyConteneur" data-js-bodyConteneur >
         <aside class="filtreConteneur" data-js-component="Filtre">

@@ -11,7 +11,7 @@
 			
 			// Initialisation des donnees a un tableau vide par défaut
 			$donnees = array();
-
+			
 			// On charge les fichiers de langue selon la langue choisi par l'usager.
 			$donnees["langue"] = $this->chargerLangue($params);
 
@@ -29,7 +29,7 @@
 			$modelePropulsion      = $this->obtenirDAO("motopropulseur");
 			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
 
-   		$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
+   			$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
 			$modeleToutModeleDispo          = $this->obtenirDAO("Modele", "obtenirToutModeleDispo");
 			$modeleToutCarrosserieDispo     = $this->obtenirDAO("Carrosserie");
 
@@ -40,15 +40,13 @@
 			$donnees["transmission"]    = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
 			$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);	
       
-
       		//Obtention des informations pour le filtre.
 
             // PH - Obtention des informations pour le filtre.
 
 			$donnees["toutesMarquesDispo"]      = $modeleToutMarqueDispo->obtenirToutDisponible();
 			$donnees["propulsion"]              = $modelePropulsion->obtenirToutDisponible();
-      
-            // Si on a reçu une action, on la traite...
+                  // Si on a reçu une action, on la traite...
 			if (isset($params["action"])) {
 
 				// Switch en fonction de l'action qui est envoyée en paramètre de la requête
