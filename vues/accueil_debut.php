@@ -75,11 +75,11 @@
                     <div class="sousMenuConteneur">
                         <div class="sousMenuContenue">
                         <label for="anneeMin"><?=$langue["filtreAnneeDebut"]?></label>
-                        <input class="filtreInputWidth filtreInputColor" id="anneeMin" min="1800" max="9999" value="<?php echo date("Y")-5; ?>" type="number">
+                        <input class="filtreInputWidth filtreInputColor" id="anneeMin" min="1800" max="9999" value="<?php echo date("Y")-20; ?>" type="number">
                         </div>
                         <div class="sousMenuContenue">
                             <label for="anneeMax"><?=$langue["filtreAnneeFin"]?></label>
-                            <input class="filtreInputWidth filtreInputColor" id="anneeMax" min="1800" max="9999" value="<?php echo date("Y"); ?>" type="number">
+                            <input class="filtreInputWidth filtreInputColor" id="anneeMax" min="1800" max="9999" value="<?php echo date("Y")+1; ?>" type="number">
                         </div>
 
                     </div>
@@ -102,14 +102,17 @@
                 <div class="filtreSection" data-js-carburantConteneur>
                     <p class="titreSection"><?=$langue["filtreCarburant"]?></p>
                     <div class="sousMenuConteneur">
+
+<?php
+                    foreach($donnees["typeCarburant"] as $carburant){
+?>
                         <div class="sousMenuContenueRadio">
-                            <label for="essence"><?=$langue["filtreEssence"]?></label>
-                            <input class="radio" type="radio" name="carburant" id="essence" value="essence" data-js-carburant="1">
+                            <label for="essence"><?=$carburant?></label>
+                            <input class="radio" type="radio" name="carburant" id="<?=$carburant?>" value="<?=$carburant?>" data-js-carburant="<?=$carburant?>">
                         </div>
-                        <div class="sousMenuContenueRadio">
-                            <label for="diesel"><?=$langue["filtreDiesel"]?></label>
-                            <input class="radio" type="radio" name="carburant" id="diesel" value="diesel" data-js-carburant="2">
-                        </div>
+<?php
+                    }
+?>
                     </div>
                 </div>
 
@@ -130,7 +133,7 @@
 ?>  
                         <div class="listeConteneur">
                             <label for="<?=$carrosserie?>"><?=$carrosserie?></label>
-                            <input class="radio" type="checkbox" id="<?=$carrosserie?>" name="<?=$carrosserie?>" data-js-carrosserie="<?=$carrosserie?>">
+                            <input class="radio" type="checkbox" id="<?=$carrosserie?>" name="<?=$carrosserie?>" value="<?=$carrosserie?>" data-js-carrosserie="<?=$carrosserie?>">
                         </div>
 <?php                        
                     }

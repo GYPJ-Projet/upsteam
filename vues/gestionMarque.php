@@ -2,7 +2,8 @@
 <?php 
     $langue = $donnees["langue"];
     $pageCourante = $donnees["pageCourante"];
-    $nbPages = $donnees["nbPages"]; 
+    $nbPages = $donnees["nbPages"];
+    $tri = $donnees["tri"];
 ?>
         <h1><?= $langue["gestion_marques"] ?></h1>
 
@@ -11,8 +12,8 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th><?= $langue["nom_marque"] ?></th>
+                    <th><span>ID</span><div class="sourisPointer symboleTri"><svg class='<?= ($tri == 'id')? "cacher" : "" ?>' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" version="1.1" fill="#333333" width="1vw" height="1vw" data-js-tri="id"><path d="M10 132.5h980l-489.9 735L10 132.5z"/></svg></div></th>
+                    <th><span><?= $langue["nom_marque"] ?></span><div class="sourisPointer symboleTri"><svg class='<?= ($tri == 'nom')? "cacher" : "" ?>' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" version="1.1" fill="#333333" width="1vw" height="1vw" data-js-tri="nom"><path d="M10 132.5h980l-489.9 735L10 132.5z"/></svg></div></th>
                     <th><?= $langue["disponibilite"] ?></th>
                     <th></th>
                 </tr>
@@ -38,7 +39,7 @@
             if($pageCourante > 1) echo '<a href="index.php?GestionDonnees&action=gestionMarque&page='. ($pageCourante - 1) .'" class="fleche"><<</a>'; 
             for ($j = 1; $j <= $nbPages; $j++) {
                 if ($j == $pageCourante) {
-                    echo '<a href="index.php?GestionDonnees&action=gestionMarque&page='.$j.'" class="page-active">Page '.$j.'</a>';
+                    echo '<p class="page-active" data-js-page="'.$j.'">Page '.$j.'</p>';
                 } 
             }
             if($pageCourante < $nbPages) echo '<a href="index.php?GestionDonnees&action=gestionMarque&page='. ($pageCourante + 1) .'" class="fleche">>></a>';

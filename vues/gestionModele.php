@@ -1,6 +1,8 @@
 <section class="pageDonnees">
 <?php 
     $langue = $donnees["langue"];
+    $pageCourante = $donnees["pageCourante"];
+    $nbPages = $donnees["nbPages"];
 ?>
         <h1><?= $langue["gestion_modeles"] ?></h1>
 
@@ -32,6 +34,17 @@
 ?>
             </tbody>
         </table>
+        <div class="pagination">
+<?php
+            if($pageCourante > 1) echo '<a href="index.php?GestionDonnees&action=gestionModele&page='. ($pageCourante - 1) .'" class="fleche"><<</a>'; 
+            for ($j = 1; $j <= $nbPages; $j++) {
+                if ($j == $pageCourante) {
+                    echo '<p class="page-active" data-js-page="'.$j.'">Page '.$j.'</p>';
+                } 
+            }
+            if($pageCourante < $nbPages) echo '<a href="index.php?GestionDonnees&action=gestionModele&page='. ($pageCourante + 1) .'" class="fleche">>></a>';
+?>
+        </div>
     <div>
 </section>
 </div>

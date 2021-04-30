@@ -1,7 +1,7 @@
 <?php 
     $langue = $donnees["langue"];
 ?>
-<div class="bodyConteneur">
+<div class="bodyConteneur" data-js-Controleur="GestionDonnees">
     <aside class="listeDonnees">
         <ul>
             <li><a href="index.php?GestionDonnees&action=gestionMarque"><?= $langue["nom_marque"] ?></a></li>

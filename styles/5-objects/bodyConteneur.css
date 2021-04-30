@@ -1,3 +1,4 @@
 .bodyConteneur{
     display: flex;
+    background-color: var(--grisPale);
 }
