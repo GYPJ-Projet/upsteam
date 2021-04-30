@@ -3,12 +3,30 @@ class GestionMarque {
         this._el = el;
         this._elsBtnModifier = this._el.querySelectorAll('[data-js-modifier]');
         this._elBtnAjouter = this._el.querySelector('[data-js-ajouter]');
+        this._elsTri = this._el.querySelectorAll('[data-js-tri]');
+        this.page = this._el.querySelector('[data-js-page]').dataset.jsPage;
 
         this.init();
     }
 
     init = () => {
 
+        //Brancher le gestionnaire click sur les symboles Trier
+        for (let i = 0, l = this._elsTri.length; i < l; i++) {
+            this._elsTri[i].addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                //Cacher le symbole de tri
+                e.target.parentNode.classList.add("cacher");
+                //Afficher tous les autres boutons 
+                this.activer(i);
+                //Trier les champs, redireger vers controleur
+                let tri = e.target.dataset.jsTri;
+                if (tri == undefined) tri = e.target.parentNode.dataset.jsTri;
+                window.location.href = 'index.php?GestionDonnees&action=gestionMarque&tri=' + tri + '&page=' + this.page;
+            });
+        }
+        
         //Brancher le gestionnaire click sur les bouttons Modifier
         for (let i = 0, l = this._elsBtnModifier.length; i < l; i++) {
             this._elsBtnModifier[i].addEventListener('click', (e) => {
@@ -27,6 +45,15 @@ class GestionMarque {
 
     }
 
+    // Activer les autres boutons pour pouvoir trier
+    activer = (i) => {
+        var els = Array.from(this._elsTri);
+        els.splice(i, 1);
+        for (let i = 0, l = els.length; i < l; i++) {
+            els[i].firstChild.classList.remove("cacher");
+        }
+    }
+                
     modifierMarque = (id) => {
         // Déclaration de l'objet XMLHttpRequest
         var xhr;
@@ -36,7 +63,7 @@ class GestionMarque {
         if (xhr) {	
 
             // Ouverture de la requète : fichier recherché
-            xhr.open('GET', 'index.php?GestionDonnees_AJAX&action=afficherFormulaireMarque&id=' + id);
+            xhr.open('GET', 'index.php?GestionDonnees_AJAX&action=afficherFormulaireMarque&id=' + id + '&page=' + this.page);
 
             xhr.addEventListener('readystatechange', () => {
 
