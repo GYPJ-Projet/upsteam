@@ -23,13 +23,26 @@
         }
 
         // Permet d'obtenir toutes les couleurs en deux langues
-        public function obtenirTousAvecLangues() {
+        /*public function obtenirTousAvecLangues() {
             try {
-                $requete = "SELECT A.id, A.nom AS nomFr, B.nom AS nomEn 
+                $requete = "SELECT A.id, A.nom AS nomFr, B.nom AS nom 
                             FROM `couleur` AS A 
                             JOIN couleur AS B 
                             ON A.id = B.id 
                             WHERE A.idLangue = 1 AND B.idLangue = 2";
+                $requetePreparee = $this->db->prepare($requete);
+                $requetePreparee->execute(); 
+                return $requetePreparee->fetchAll();
+            }
+			catch(Exception $exc) {
+				return 0;
+			}   
+        }*/
+
+        // Permet d'obtenir toutes les couleurs en langue precise 
+        public function obtenirTousEnLangue($idLangue) {
+            try {
+                $requete = "SELECT id, nom FROM couleur WHERE idLangue=" . $idLangue;
                 $requetePreparee = $this->db->prepare($requete);
                 $requetePreparee->execute(); 
                 return $requetePreparee->fetchAll();

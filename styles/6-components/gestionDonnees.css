@@ -1,7 +1,7 @@
 .listeDonnees {
-    display: inline;
+    display: inline-block;
     flex-basis: calc(25% - var(--margeSection));
-    height: 100%;
+    align-items: stretch;
     margin-top: var(--margeSection);
     margin-left: var(--margeSection);
     margin-right: var(--margeSection);
@@ -10,11 +10,20 @@
     border-color: var(--gris);
     font-family: var(--orbitron);
     font-size: var(--police_taille_h2Plus);
+    background-color: var(--blanc);
+}
+
+.listeDonnees ul {
+    padding-left: var(--paddingMenu);
 }
 
 .listeDonnees li {
     list-style-type: none;
     padding-top: var(--paddingMenu);
+}
+
+.listeDonnees li:last-of-type {
+    padding-bottom: var(--paddingMenu);
 }
 
 .pageDonnees {
@@ -26,6 +35,7 @@
     border-width: var(--bordureI);
     border-color: var(--gris);
     padding: var(--paddingMenu);
+    background-color: var(--blanc);
 }
 
 .pageDonnees h1 {
@@ -35,16 +45,49 @@
     text-align: center;
 }
 
+.pageDonnees h2 {
+    margin-top: var(--margeSousSection);
+    text-align: center;
+}
+
 .pageDonnees p{
     font-family: var(--openSans);
-    font-size: var(--police_taille_sousTitre);
+    font-size: var(--police_taille_texte);
     text-align: center;
 }
 
 .formulaire {
-    margin-top: 2vw;
+    margin-top: var(--margeSousSection);
     font-family: var(--openSans);
     font-size: var(--police_taille_texte);
+    width: max-content;
+}
+
+.formulaire label {
+    display: inline-block;
+    width: 10vw;
+    margin-top: 1vw;
+    text-align: right;
+    padding: 0.5vw;
+}
+
+.formulaire select, .formulaire input {
+    width: 15vw;
+    padding: 0.5vw;
+}
+
+.formulaire input {
+    border-width: 1px;
+    box-sizing: border-box;
+}
+
+.formulaire input[type=checkbox] {
+    width: min-content;
+}
+
+.formulaire .bouton {
+    float: right;
+    position: relative;
 }
 
 .bouton {
@@ -74,26 +117,32 @@
     padding: 0.5vw;
 }
 
+.table th>span {
+    margin-right: 0.5vw;
+}
+
+.symboleTri {
+    display: inline-block;
+}
+
 /* Pagination */
 .pagination {
     margin-top: 20px;
-    color: #192734;
-    font-size: 18px;
-    font-weight: 500;
+    font-weight: var(--police_poid_normal);
     width: max-content;
     margin-left: auto;
     margin-right: auto;
 }
 
 .pagination>a {
-    padding: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5vw;
 }
 
 .page-active {
-    color: #A91E1D;
-    font-size: 22px;
-    text-decoration: none;
-    pointer-events: none;
+    display: inline-block;
+    padding: 0.5vw;
 }
 
 .fleche {
