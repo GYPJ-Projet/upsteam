@@ -16,8 +16,6 @@
 
 			$idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
 
-			Debug::toLog($params, "class Controleur_GestionDonnees - function traite - params :");
-
 			$this->afficheVue("tete");
 
 			$this->afficheVue("entete", $donnees);
