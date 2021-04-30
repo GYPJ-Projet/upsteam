@@ -16,6 +16,8 @@
 
 			$idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
 
+			Debug::toLog($params, "class Controleur_GestionDonnees - function traite - params :");
+
 			$this->afficheVue("tete");
 
 			$this->afficheVue("entete", $donnees);
@@ -126,6 +128,11 @@
 						$donnees["voitures"] = $modeleVoiture->obtenirToutesVoituresAvecTri($depart, $voituresParPage, $tri, $ordre);
 						$this->afficheVue("gestionVoiture", $donnees);
 						break;
+					default:
+						// Action par défaut
+						$this->afficheVue("listeDonnees", $donnees);
+						$this->afficheVue("pageDonnees", $donnees);
+				break;
 				}			
 			} else {
 				// Action par défaut
