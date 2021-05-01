@@ -6,7 +6,7 @@
 ?>
         <h1><?= $langue["gestion_modeles"] ?></h1>
 
-    <div data-js-component="GestionModele">
+    <div data-js-component="GestionModele" data-js-controleur-action="gestionModele">
         <button class="bouton" data-js-ajouter><?= $langue["button_ajouter"] ?></button>
         <table class="table">
             <thead>

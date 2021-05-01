@@ -8,7 +8,9 @@
 ?>
         <h1><?= $langue["gestion_voitures"] ?></h1>
 
-    <div data-js-component="GestionVoiture">
+
+    <div data-js-component="GestionVoiture" data-js-controleur-action="gestionVoiture">
+
         <button class="bouton" data-js-ajouter><?= $langue["button_ajouter"] ?></button>
         <table class="table">
             <thead>

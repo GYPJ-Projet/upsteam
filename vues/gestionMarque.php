@@ -8,7 +8,7 @@
 ?>
         <h1><?= $langue["gestion_marques"] ?></h1>
 
-    <div data-js-component="GestionMarque">
+    <div data-js-component="GestionMarque" data-js-controleur-action="gestionMarque">
         <button class="bouton" data-js-ajouter><?= $langue["button_ajouter"] ?></button>
         <table class="table">
             <thead>
