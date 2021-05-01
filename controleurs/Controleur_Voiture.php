@@ -17,6 +17,8 @@
 
 			$idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
 
+			Debug::toLog($params, "class Controleur_Voiture - function traite - params :");
+
 			$this->afficheVue("tete");
 			$this->afficheVue("entete", $donnees);
             $this->afficheVue("menu", $donnees);
@@ -106,7 +108,6 @@
                         break;	
 						
 					case "accueil":
-
 					default:
 						// Action par défaut
 
