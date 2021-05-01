@@ -80,7 +80,6 @@
                             isset($params["transmission"]) &&
                             isset($params["propulsion"])){
                                 
-                            // Debug::tolog($params);
                             $donnees["voitures"] = $modeleVoiture->obtenirVoitureFiltrer(
                                 $params["prixMin"],
                                 $params["prixMax"],
@@ -100,6 +99,7 @@
                             $this->afficheVue("accueil_fin_section_grille");
                             $this->afficheVue("voirPlus");
                             $this->afficheVue("accueil_fin");
+
                         }
                         break;	
 						
@@ -111,7 +111,6 @@
 
 						// On affiche les 12 premieres tuiles
 						$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
-                        
 						/* $vue = "Accueil";	 */	
 						$this->afficheVue("accueil_debut", $donnees);
 
@@ -127,7 +126,6 @@
 						$this->afficheVue("accueil_fin_section_grille");
 						$this->afficheVue("voirPlus");
 						$this->afficheVue("accueil_fin");
-                       
 						break;
 				}			
 			} else {

@@ -19,7 +19,7 @@ $langue['entete_connexion']      = 'Connexion';
 $langue['menu_accueil']         = 'Accueil';
 $langue['profil']               = 'Mon Profil';
 $langue['donnees']              = 'Données';
-$langue['employes']             = 'Employes';
+$langue['employes']             = 'Employés';
 $langue['commandes']            = 'Commandes';
 
 
