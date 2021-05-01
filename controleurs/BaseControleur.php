@@ -61,8 +61,8 @@
 
 
         // Méthode pour charger la langue pour ce contrôleur
-        public function chargerLangue(&$param) {
-
+        public function chargerLangue(&$params) {
+        
             $langue = array(); // Création de la table langue.
 
             // On va chercher la langue de choisi par l'usager ou 
