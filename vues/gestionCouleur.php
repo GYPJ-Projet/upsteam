@@ -4,7 +4,7 @@
 ?>
         <h1><?= $langue["gestion_couleurs"] ?></h1>
 
-    <div data-js-component="GestionCouleur">
+    <div data-js-component="GestionCouleur" data-js-controleur-action="gestionCouleur">
         <button class="bouton" data-js-ajouter><?= $langue["button_ajouter"] ?></button>
         <table class="table">
             <thead>

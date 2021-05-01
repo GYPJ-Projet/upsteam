@@ -2,22 +2,26 @@
 
 .pied_de_page {
     display: flex;
-    flex-wrap: wrap;
     position: relative;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: var(--noir);
     margin-top: 50px;
-    height: 180px;
-    padding: 30px;
     border-top: solid 20px var(--cle);
 }
 
 .footer__titre {
     font-family: var(--orbitron);
-    font-size: var(--police_taille_h2Plus);
+    font-size: var(--police_taille_h1);
     color: var(--cle);
 
+}
+
+.footer__sous-titre {
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+    background-color: var(--noir);
 }
 
 .footer__adresse,
@@ -27,6 +31,7 @@
     font-size: var( --police_taille_sousTitre);
     color: var(--grisPale);
     text-align: center;
+    padding: 20px 50px;
 }
 
 .footer__adresse p,
@@ -37,11 +42,18 @@
     color: var(--blanc);
 }
 
-/********** ADAPTATION POUR PETIT ÉCRAN, Iphone 11 (< 500 px) **********/
-@media screen and (max-width: 500px) {
+/********** ADAPTATION POUR PETIT ÉCRAN, Ippad (< 1024 px) **********/
+@media screen and (max-width: 1024px) {
     .pied_de_page {
         flex-direction: column;
         text-align: center;
     }
 }
 
+/********** ADAPTATION POUR PETIT ÉCRAN, Iphone 11 (< 414 px) **********/
+@media screen and (max-width: 414px) {
+    .footer__sous-titre {
+        flex-direction: column;
+        text-align: center;
+    }
+}
