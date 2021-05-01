@@ -116,7 +116,7 @@
  
                     // Si l'action pour le contrôleur existe 
                     // Il faut le lui faire exécuter en revenant dans le contrôleur, 
-                    // une fois que le tableau de langue aura été déterminé.
+                    // une fois que le tableau de langue aura été déterminé. 
                     if (isset($params["controleur-action"])) {
                         $params["action"] = $params["controleur-action"];
                     }
