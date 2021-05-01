@@ -5,7 +5,8 @@
 
 ?>
 <body >
-	
+	<div data-js-controleur="Voiture"  data-js-controleur-action="descriptionVoiture&id=<?=$voiture["id"] ?>">  
+
 	<div class="description" data-js-component="DescriptionVoiture">
         <div class="swiper-container">
             <div class="swiper-wrapper">
@@ -28,7 +29,7 @@
         </div>
 
 		<div class="descriptionVoiture clearFloat" data-js-voiture="<?=$voiture["id"] ?>">
-			<h2>Spécifications de la <?=$voiture["nomMarque"] ?> <?=$voiture["nomModele"] ?> <?=$voiture["annee"] ?></h2>
+			<h2><?= $langue['titreDescription'] ?> <?=$voiture["nomMarque"] ?> <?=$voiture["nomModele"] ?> <?=$voiture["annee"] ?></h2>
 			<div class="divColonne">
 				<ul class="ulListeDescription">
 					<li class="ilListeDescription"><span><?= $langue["modele"] ?>: </span> <span><?=$voiture["nomModele"] ?></span></li>

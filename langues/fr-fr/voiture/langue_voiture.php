@@ -8,6 +8,7 @@ $langue['kilometrage']		    = 'Kilom&eacute;trage';
 $langue['modele']               = 'Mod&egrave;le';
 $langue['motopropulseur']		= 'Groupe motopropulseur';
 $langue['prix']                 = 'Prix';
+$langue['titreDescription']     = 'Sp&eacute;cifications de la';
 $langue['transmission']		    = 'Transmission';
 
 

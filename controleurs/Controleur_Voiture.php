@@ -46,7 +46,8 @@
 
 			$donnees["toutesMarquesDispo"]      = $modeleToutMarqueDispo->obtenirToutDisponible();
 			$donnees["propulsion"]              = $modelePropulsion->obtenirToutDisponible();
-                  // Si on a reçu une action, on la traite...
+
+            // Si on a reçu une action, on la traite...
 			if (isset($params["action"])) {
 
 				// Switch en fonction de l'action qui est envoyée en paramètre de la requête
@@ -104,7 +105,6 @@
                         break;	
 						
 					case "accueil":
-
 					default:
 						// Action par défaut
 

@@ -48,7 +48,7 @@
 
 <body >
 
-    <div data-js-controleur="Voiture">  
+    <div data-js-controleur="Voiture"  data-js-controleur-action="accueil">  
 
     <div class="bodyConteneur" data-js-bodyConteneur >
         <aside class="filtreConteneur" data-js-component="Filtre" data-js-action="<?= $actionRecu ?>">

@@ -61,8 +61,8 @@
 
 
         // Méthode pour charger la langue pour ce contrôleur
-        public function chargerLangue($params) {
-           
+        public function chargerLangue(&$params) {
+        
             $langue = array(); // Création de la table langue.
 
             // On va chercher la langue de choisi par l'usager ou 
@@ -100,8 +100,11 @@
         } //  function chargerLangue
         
 
-        // Méthode privée pour déterminer la langue d'affichage  
-        private function trouveLangueAffichage($params) {
+        // Méthode privée pour déterminer la langue d'affichage 
+        // Noter qu'au changement de langue, nous recevons également l'action du controleur
+        // qu'il doit excuter pour l'affichage de la page d'où vient, la demande de 
+        // changement de langue.
+        private function trouveLangueAffichage(&$params) {
             
             $existeSessionLangue = false; // Est-ce que la variable de session "langue" existe ?
             $langueAffichage = "fr-fr";   // par défaut
@@ -111,6 +114,13 @@
                 if (isset($params["langue"])) {
                     $_SESSION["langue"] = $params["langue"];  // On retient la langue dans la session
                     $existeSessionLangue = true;              // La variable de session langue existe.
+ 
+                    // Si l'action pour le contrôleur existe, 
+                    // il faut le lui faire exécuter en revenant dans le contrôleur, 
+                    // une fois que le tableau de langue aura été déterminé. 
+                    if (isset($params["controleur-action"])) {
+                        $params["action"] = $params["controleur-action"];
+                    }
                 } else {
                     trigger_error("champ langue non présent dans la requête");
                 }
