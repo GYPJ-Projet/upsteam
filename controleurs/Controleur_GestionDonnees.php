@@ -25,6 +25,7 @@
 			$modeleMarque          = $this->obtenirDAO("Marque");
 			$modeleModele          = $this->obtenirDAO("Modele");
 			$modeleCouleur         = $this->obtenirDAO("Couleur");
+			$modeleVoiture         = $this->obtenirDAO("Voiture");
 
 			if (isset($params["action"])) {
 
@@ -50,11 +51,17 @@
     
         				$depart = ($donnees["pageCourante"] - 1) * $marquesParPage;
 
+						//Par defaut, on trie par id
 						if (isset($_GET["tri"])) $tri = $_GET["tri"];
 						else $tri = 'id';
+						//Par defaut, on tri dans l'ordre ascendente
+						if (isset($_GET["ordre"])) $ordre = $_GET["ordre"];
+						else $ordre = 'ASC';
+						//Passer les paramètres à la vue
 						$donnees["tri"] = $tri;
+						$donnees["ordre"] = $ordre;
 						$this->afficheVue("listeDonnees", $donnees);
-						$donnees["marques"] = $modeleMarque->obtenirMarques($depart, $marquesParPage, $tri);
+						$donnees["marques"] = $modeleMarque->obtenirMarques($depart, $marquesParPage, $tri, $ordre);
 						$this->afficheVue("gestionMarque", $donnees);
 						break;
 					// Affichage de la liste des modèles
@@ -86,6 +93,45 @@
 						$donnees["couleurs"] = $modeleCouleur->obtenirTousEnLangue($idLangue);
 						$this->afficheVue("gestionCouleur", $donnees);
 						break;
+					// Affichage de la liste des voitures
+					case "gestionVoiture":
+						// Nombre des voitures affichées sur une page
+        				$voituresParPage = 10;
+        				// Obtenir un nombre toutes les voitures dans la base de données
+						$nbVoituresTotal = $modeleVoiture->combienVoitures();
+						// Calculer le nombre des pages 
+        				$donnees["nbPages"] = ceil($nbVoituresTotal / $voituresParPage);
+        				if (isset($_GET["page"]) AND !empty($_GET["page"]) AND $_GET["page"] > 0 AND $_GET["page"] <= $donnees["nbPages"]) 
+        				{
+           					$_GET["page"] = intval($_GET["page"]);
+            				$donnees["pageCourante"] = $_GET["page"];
+        				} else 
+        				{
+            				$donnees["pageCourante"] = 1;
+        				}
+    
+        				$depart = ($donnees["pageCourante"] - 1) * $voituresParPage;
+						
+						//Par defaut, on trie par id
+						if (isset($_GET["tri"])) $tri = $_GET["tri"];
+						else $tri = 'id';
+						//Par defaut, on tri dans l'ordre ascendente
+						if (isset($_GET["ordre"])) $ordre = $_GET["ordre"];
+						else $ordre = 'ASC';
+
+						//Passer les paramètres à la vue
+						$donnees["tri"] = $tri;
+						$donnees["ordre"] = $ordre;
+						$this->afficheVue("listeDonnees", $donnees);
+						$donnees["voitures"] = $modeleVoiture->obtenirToutesVoituresAvecTri($depart, $voituresParPage, $tri, $ordre);
+						$this->afficheVue("gestionVoiture", $donnees);
+						break;
+
+					default:
+						// Action par défaut
+						$this->afficheVue("listeDonnees", $donnees);
+						$this->afficheVue("pageDonnees", $donnees);
+				    break;
 				}			
 			} else {
 				// Action par défaut

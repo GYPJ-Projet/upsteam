@@ -27,7 +27,7 @@
 				$requete = "SELECT COUNT(*) AS NombreDeVoitures FROM " . $this->getNomTable();
 				$requetePreparee = $this->db->prepare($requete);
 				$requetePreparee->execute();
-				return $requetePreparee->fetchAll();
+				return $requetePreparee->fetchColumn();
 			}
 			catch(Exception $exc) {
 				return 0;
@@ -70,7 +70,33 @@
 			}
         }
 
-		
+		// Méthode qui permet de prendre toutes les voiture triées selon index et le nombre désiré 
+		public function obtenirToutesVoituresAvecTri($indexDepart, $nombreVoulu, $tri, $ordre) {
+			try {
+				$stmt = $this->db->query("SELECT voiture.*,
+												 marque.id AS idMarque, 
+				                                 modele.nom AS nomModele, 
+				                                 marque.nom AS nomMarque, 
+												 annee.annee AS annee, 
+												 motopropulseur.nom AS nomMotoPropulseur, 
+												 image.lien AS lienPhotoPrincipale 
+											FROM voiture 
+											JOIN modele ON modele.id = voiture.idModele 
+											JOIN marque ON marque.id = modele.idMarque  
+											JOIN annee ON annee.id = voiture.idAnnee 
+											JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
+											JOIN image ON image.idVoiture = voiture.id AND image.sort = 0 
+											ORDER BY " . $tri .  " " . $ordre .  "
+											LIMIT " . $indexDepart . ", " . $nombreVoulu
+										);		
+													
+				$stmt->execute();
+				return $stmt->fetchAll();
+			}
+			catch(Exception $exc) {
+				return 0;
+			}
+		}
 
 		// Méthode qui permet de prendre les enregistrements voiture selon  index et le nombre désiré
 		public function obtenirLeNombreVoulu($indexDepart, $nombreVoulu, $tri) {
@@ -87,6 +113,7 @@
 											JOIN annee ON annee.id = voiture.idAnnee 
 											JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
 											JOIN image ON image.idVoiture = voiture.id AND image.sort = 0 
+											WHERE voiture.disponibilite = 1
 											ORDER BY " .$tri. "
 											LIMIT " . $indexDepart . ", " . $nombreVoulu
 										);		
@@ -162,8 +189,7 @@
                                         JOIN typecarrosserie ON typecarrosserie.id = voiture.idTypecarrosserie
                                         JOIN transmission ON transmission.id = voiture.idTransmission
                                         JOIN typecarburant ON typecarburant.id = voiture.idTypecarburant
-                                        JOIN image ON image.id = voiture.id AND image.sort = 0
-
+                                        JOIN image ON image.idVoiture = voiture.id AND image.sort = 0 
                                         WHERE marque.disponibilite = 1 AND modele.disponibilite = 1
                                         AND prixVente BETWEEN $prixMin AND $prixMax
                                         AND marque.nom IN ($marques)
