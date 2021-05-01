@@ -1,11 +1,14 @@
 <?php
 
-$langue['kilometrage']		    = 'Mileage';
-$langue['transmission']		    = 'Transmission';
-$langue['motopropulseur']		= 'Drive train';
+//Voiture
 $langue['carburant']            = 'Fuel';
+$langue['couleur']              = 'Color';
 $langue['habitacle']            = 'Body type';
+$langue['kilometrage']		    = 'Mileage';
+$langue['modele']               = 'Model';
+$langue['motopropulseur']		= 'Drive train';
 $langue['prix']                 = 'Price';
+$langue['transmission']		    = 'Transmission';
 
 
 //filtre

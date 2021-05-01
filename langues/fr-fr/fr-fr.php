@@ -18,14 +18,14 @@ $langue['entete_connexion']      = 'Connexion';
 // menu
 $langue['menu_accueil']         = 'Accueil';
 $langue['profil']               = 'Mon Profil';
-$langue['donnees']              = 'Données';
-$langue['employes']             = 'Employés';
+$langue['donnees']              = 'Donn&eacute;es';
+$langue['employes']             = 'Employes';
 $langue['commandes']            = 'Commandes';
 
 
 // Pied De Page (pdp)
 $langue['pdp_contact']          = 'Contactez-nous';
-$langue['pdp_telephone']        = 'Téléphone';
+$langue['pdp_telephone']        = 'T&eacute;l&eacute;phone';
 $langue['pdp_courriel']         = 'Courriel';
 $langue['pdp_heures']           = 'Heures';
 $langue['pdp_lundi']            = 'Lundi';

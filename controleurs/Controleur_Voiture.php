@@ -111,17 +111,9 @@
 
 						// On affiche les 12 premieres tuiles
 						$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
+
 						/* $vue = "Accueil";	 */	
 						$this->afficheVue("accueil_debut", $donnees);
-
-						// On affiche les 12 premieres tuiles
-						$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
-            
-						
-						/* $vue = "Accueil";	 */	
-
-						$this->afficheVue("accueil_debut", $donnees);
-
 						$this->afficheVue("listeVoitures", $donnees);
 						$this->afficheVue("accueil_fin_section_grille");
 						$this->afficheVue("voirPlus");
