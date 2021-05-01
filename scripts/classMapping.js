@@ -9,5 +9,6 @@ const classMapping = {
     'VoirPlus'              : VoirPlus,
     'Voiture'               : Voiture,
     'GestionModele'         : GestionModele,
-    'Filtre'                : Filtre
+    'Filtre'                : Filtre,
+    'Chercher'              : Chercher
 };
