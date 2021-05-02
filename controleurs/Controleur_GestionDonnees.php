@@ -136,11 +136,12 @@
 						$donnees["voitures"] = $modeleVoiture->obtenirToutesVoituresAvecTri($depart, $voituresParPage, $tri, $ordre);
 						$this->afficheVue("gestionVoiture", $donnees);
 						break;
+
 					default:
 						// Action par défaut
 						$this->afficheVue("listeDonnees", $donnees);
 						$this->afficheVue("pageDonnees", $donnees);
-				break;
+				    break;
 				}			
 			} else {
 				// Action par défaut
