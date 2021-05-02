@@ -24,8 +24,20 @@
 			// On pointes sur les modèles dont on a besoin.
 			$modeleMarque          = $this->obtenirDAO("Marque");
 			$modeleModele          = $this->obtenirDAO("Modele");
-			$modeleCouleur         = $this->obtenirDAO("Couleur");
 			$modeleVoiture         = $this->obtenirDAO("Voiture");
+			$modeleAnnee           = $this->obtenirDAO("Annee");
+			$modeleMotopropulseur  = $this->obtenirDAO("Motopropulseur");
+			
+			$modeleTypeCarburant   = $this->obtenirDAO("TabLangues", "typecarburant");
+			$modeleCouleur         = $this->obtenirDAO("TabLangues", "couleur"); 
+			$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
+			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
+			$modeleDescription     = $this->obtenirDAO("TabLangues", "description");
+			
+			// On prend les données dans la langue qu'il faut afficher.	
+			//$donnees["typeCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
+			//$donnees["transmission"]    = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
+			//$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);
 
 			if (isset($params["action"])) {
 
@@ -100,7 +112,7 @@
 					// Affichage de la liste des couleurs
 					case "gestionCouleur":
 						$this->afficheVue("listeDonnees", $donnees);
-						$donnees["couleurs"] = $modeleCouleur->obtenirTousEnLangue($idLangue);
+						$donnees["couleurs"] = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
 						$this->afficheVue("gestionCouleur", $donnees);
 						break;
 					// Affichage de la liste des voitures

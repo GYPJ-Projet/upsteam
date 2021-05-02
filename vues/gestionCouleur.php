@@ -16,15 +16,18 @@
             </thead>
             <tbody>
 <?php
-            foreach ($donnees["couleurs"] as $couleur) {
-?>
-                <tr>
-                    <td><?= $couleur["id"] ?></td>
-                    <td><?= $couleur["nom"] ?></td>
-                    <td><button data-js-modifier data-js-id=<?= $couleur["id"] ?>><?= $langue["button_modifier"] ?></button></td>
-                </tr>                 
-<?php
-            }
+            for ($i = 1, $l = count($donnees["couleurs"]); $i <= $l; $i++) {
+                $couleur = $donnees["couleurs"][$i];
+                if (isset($couleur)) {
+?>         
+                    <tr>
+                        <td><?= $i ?></td>
+                        <td><?= $couleur ?></td>
+                        <td><button data-js-modifier data-js-id=<?= $i ?>><?= $langue["button_modifier"] ?></button></td>
+                    </tr>   
+<?php       
+                }
+            }    
 ?>
             </tbody>
         </table>

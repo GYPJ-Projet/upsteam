@@ -49,7 +49,7 @@ class GestionMarque {
                 }
                 
                 //Obtenir le numéro de la page qu'il faut afficher
-                let page = this._elsTri[i].dataset.jsPage;
+                let page = e.target.dataset.jsPage;
              
                 if (tri == undefined) tri = 'id';
                 if (ordre == undefined) ordre = 'ASC';

@@ -4,7 +4,8 @@ class GestionCouleur {
         this._elsBtnModifier = this._el.querySelectorAll('[data-js-modifier]');
         this._elBtnAjouter = this._el.querySelector('[data-js-ajouter]');
         this._elsTri = this._el.querySelectorAll('[data-js-tri]');
-        this.page = this._el.querySelector('[data-js-page]').dataset.jsPage;
+        this._elsPage = this._el.querySelectorAll('[data-js-page]');
+        this.pageActive = this._el.querySelector('[data-js-pageActive]');
 
         this.init();
     }
