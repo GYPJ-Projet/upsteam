@@ -1,10 +1,8 @@
 <?php
 
 	$langue = $donnees["langue"];
-    //Debug::tolog('liste voiture',$donnees["voitures"]);
 	
 	foreach ($donnees["voitures"] as $voiture) {
-        //Debug::toLog('une voiture',$voiture);
 		$tableauLienImage = explode("/",$voiture["lienPhotoPrincipale"]);
 		$altImage = $tableauLienImage[Count($tableauLienImage)-1];
 ?>

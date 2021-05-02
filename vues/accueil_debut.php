@@ -1,14 +1,57 @@
 <?php 
     $langue = $donnees["langue"];       //Pour affichage des langues
-    //Debug::toLog($donnees["propulsion"]);
+
+    //Pour remettre les filtres séelctionnés.
+    $actionRecu = '';
+    $prixMinRecu = '';
+    $prixMaxRecu = '';
+    $marquesRecu = '';
+    $modeleRecu = '';
+    $anneeDebRecu = '';
+    $anneeFinRecu = '';
+    $kmMinRecu = '';
+    $kmMaxRecu = '';
+    $carburantRecu = '';
+    $carrosserieRecu = '';
+    $transmissionRecu = '';
+    $propulsionRecu = '';
+
+    if(isset(   $_GET['action'],
+                $_GET['prixMin'],
+                $_GET['prixMax'],
+                $_GET['marques'],
+                $_GET['modele'],
+                $_GET['anneeDeb'],
+                $_GET['anneeFin'],
+                $_GET['kmMin'],
+                $_GET['kmMax'],
+                $_GET['carburant'],
+                $_GET['carrosserie'],
+                $_GET['transmission'],
+                $_GET['propulsion']))
+        {
+        $actionRecu = $_GET['action'];
+        $prixMinRecu = $_GET['prixMin'];
+        $prixMaxRecu = $_GET['prixMax'];
+        $marquesRecu = $_GET['marques'];
+        $modeleRecu = $_GET['modele'];
+        $anneeDebRecu = $_GET['anneeDeb'];
+        $anneeFinRecu = $_GET['anneeFin'];
+        $kmMinRecu = $_GET['kmMin'];
+        $kmMaxRecu = $_GET['kmMax'];
+        $carburantRecu = $_GET['carburant'];
+        $carrosserieRecu = $_GET['carrosserie'];
+        $transmissionRecu = $_GET['transmission'];
+        $propulsionRecu = $_GET['propulsion'];
+    }
 ?>
 
 <body >
 
-<div data-js-controleur="Voiture">  
+    <div data-js-controleur="Voiture"  data-js-controleur-action="accueil">  
 
     <div class="bodyConteneur" data-js-bodyConteneur >
-        <aside class="filtreConteneur" data-js-component="Filtre">
+        <aside class="filtreConteneur" data-js-component="Filtre" data-js-action="<?= $actionRecu ?>">
 
             <form class="formConteneur" action="">
 
@@ -21,14 +64,14 @@
                 <div class="filtreSection" data-js-prixConteneur>
                     <p class="titreSection"><?=$langue["filtrePrix"]?></p>
                     <select class="sousMenuContenue filtreInputColor">
-                        <option value="prixMin=0&prixMax=9999999"><?=$langue["filtreChoisirPrix"]?></option>
-                        <option value="prixMin=0&prixMax=1500"><?=$langue["filtrePrix0_1500"]?></option>
-                        <option value="prixMin=1500&prixMax=5000"><?=$langue["filtrePrix1500_5000"]?></option>
-                        <option value="prixMin=5000&prixMax=10000"><?=$langue["filtrePrix5000_10000"]?></option>
-                        <option value="prixMin=10000&prixMax=20000"><?=$langue["filtrePrix10000_20000"]?></option>
-                        <option value="prixMin=20000&prixMax=30000"><?=$langue["filtrePrix20000_30000"]?></option>
-                        <option value="prixMin=30000&prixMax=60000"><?=$langue["filtrePrix30000_60000"]?></option>
-                        <option value="prixMin=60000&prixMax=9999999"><?=$langue["filtrePrix60000"]?></option>
+                        <option value="prixMin=0&prixMax=9999999" <?= ($prixMinRecu==0 && $prixMaxRecu==9999999)? 'selected':''; ?> ><?=$langue["filtreChoisirPrix"]?></option>
+                        <option value="prixMin=0&prixMax=1500" <?= ($prixMinRecu==0 && $prixMaxRecu==1500)? 'selected':''; ?> ><?=$langue["filtrePrix0_1500"]?></option>
+                        <option value="prixMin=1500&prixMax=5000" <?= ($prixMinRecu==1500 && $prixMaxRecu==5000)? 'selected':''; ?> ><?=$langue["filtrePrix1500_5000"]?></option>
+                        <option value="prixMin=5000&prixMax=10000" <?= ($prixMinRecu==5000 && $prixMaxRecu==10000)? 'selected':''; ?> ><?=$langue["filtrePrix5000_10000"]?></option>
+                        <option value="prixMin=10000&prixMax=20000" <?= ($prixMinRecu==10000 && $prixMaxRecu==20000)? 'selected':''; ?> ><?=$langue["filtrePrix10000_20000"]?></option>
+                        <option value="prixMin=20000&prixMax=30000" <?= ($prixMinRecu==20000 && $prixMaxRecu==30000)? 'selected':''; ?> ><?=$langue["filtrePrix20000_30000"]?></option>
+                        <option value="prixMin=30000&prixMax=60000" <?= ($prixMinRecu==30000 && $prixMaxRecu==60000)? 'selected':''; ?> ><?=$langue["filtrePrix30000_60000"]?></option>
+                        <option value="prixMin=60000&prixMax=9999999" <?= ($prixMinRecu==60000 && $prixMaxRecu==9999999)? 'selected':''; ?> ><?=$langue["filtrePrix60000"]?></option>
                     </select>
                 </div>
                 
@@ -47,7 +90,7 @@
 ?>  
                         <div class="listeConteneur">
                             <label for="<?=$marque["nom"]?>"><?=$marque["nom"]?></label>
-                            <input class="radio" type="checkbox" id="<?=$marque["nom"]?>" name="<?=$marque["nom"]?>" value="<?=$marque["nom"]?>" data-js-marque="<?=$marque["id"]?>">
+                            <input class="radio" type="checkbox" id="<?=$marque["nom"]?>" name="<?=$marque["nom"]?>" value="<?=$marque["nom"]?>" data-js-marque="<?=$marque["id"]?>" <?= (strpos($marquesRecu, $marque["nom"]))? 'checked':''; ?> >
                         </div>
 <?php                        
                     }
@@ -56,7 +99,7 @@
                 </div>
                 
                 <!-- MODELE -->
-                <div class="filtreSection" data-js-modeleConteneur>
+                <div class="filtreSection" data-js-modeleConteneur="<?= $modeleRecu ?>">
                     <div class="titreConteneur">
                         <p class="titreSection"><?=$langue["filtreModele"]?></p>
                         <div class="sourisPointer symbolePlus" data-js-SymbolePlus>
@@ -75,11 +118,11 @@
                     <div class="sousMenuConteneur">
                         <div class="sousMenuContenue">
                         <label for="anneeMin"><?=$langue["filtreAnneeDebut"]?></label>
-                        <input class="filtreInputWidth filtreInputColor" id="anneeMin" min="1800" max="9999" value="<?php echo date("Y")-20; ?>" type="number">
+                        <input class="filtreInputWidth filtreInputColor" id="anneeMin" min="1800" max="9999" value="<?php ($anneeDebRecu != '')? $laDate=$anneeDebRecu : $laDate = date("Y")-20; echo $laDate ?>" type="number">
                         </div>
                         <div class="sousMenuContenue">
                             <label for="anneeMax"><?=$langue["filtreAnneeFin"]?></label>
-                            <input class="filtreInputWidth filtreInputColor" id="anneeMax" min="1800" max="9999" value="<?php echo date("Y")+1; ?>" type="number">
+                            <input class="filtreInputWidth filtreInputColor" id="anneeMax" min="1800" max="9999" value="<?php ($anneeFinRecu != '')? $laDate=$anneeFinRecu : $laDate = date("Y")+1; echo $laDate ?>" type="number">
                         </div>
 
                     </div>
@@ -89,12 +132,12 @@
                 <div class="filtreSection" data-js-kmConteneur>
                     <p class="titreSection"><?=$langue["filtreKilometrage"]?></p>
                     <select class="sousMenuContenue filtreInputColor">
-                        <option value="kmMin=0&kmMax=9999999"><?=$langue["filtreChoisirKm"]?></option>
-                        <option value="kmMin=0&kmMax=10000"><?=$langue["filtreKm0_10000"]?></option>
-                        <option value="kmMin=10000&kmMax=25000"><?=$langue["filtreKm10000_25000"]?></option>
-                        <option value="kmMin=25000&kmMax=50000"><?=$langue["filtreKm25000_50000"]?></option>
-                        <option value="kmMin=50000&kmMax=100000"><?=$langue["filtreKm50000_100000"]?></option>
-                        <option value="kmMin=100000&kmMax=999999"><?=$langue["filtreKm100000"]?></option>
+                        <option value="kmMin=0&kmMax=9999999" <?=($kmMinRecu==0 && $kmMaxRecu==9999999)? 'selected':''; ?> ><?=$langue["filtreChoisirKm"]?></option>
+                        <option value="kmMin=0&kmMax=10000" <?=($kmMinRecu==0 && $kmMaxRecu==10000)? 'selected':''; ?> ><?=$langue["filtreKm0_10000"]?></option>
+                        <option value="kmMin=10000&kmMax=25000" <?=($kmMinRecu==10000)? 'selected':''; ?> ><?=$langue["filtreKm10000_25000"]?></option>
+                        <option value="kmMin=25000&kmMax=50000" <?=($kmMinRecu==25000)? 'selected':''; ?> ><?=$langue["filtreKm25000_50000"]?></option>
+                        <option value="kmMin=50000&kmMax=100000" <?=($kmMinRecu==50000)? 'selected':''; ?> ><?=$langue["filtreKm50000_100000"]?></option>
+                        <option value="kmMin=100000&kmMax=999999" <?=($kmMinRecu==100000)? 'selected':''; ?> ><?=$langue["filtreKm100000"]?></option>
                     </select>
                 </div>
 
@@ -108,7 +151,7 @@
 ?>
                         <div class="sousMenuContenueRadio">
                             <label for="essence"><?=$carburant?></label>
-                            <input class="radio" type="radio" name="carburant" id="<?=$carburant?>" value="<?=$carburant?>" data-js-carburant="<?=$carburant?>">
+                            <input class="radio" type="radio" name="carburant" id="<?=$carburant?>" value="<?=$carburant?>" data-js-carburant="<?=$carburant?>" <?= (strpos($carburantRecu, $carburant))? 'checked':''; ?>>
                         </div>
 <?php
                     }
@@ -133,7 +176,7 @@
 ?>  
                         <div class="listeConteneur">
                             <label for="<?=$carrosserie?>"><?=$carrosserie?></label>
-                            <input class="radio" type="checkbox" id="<?=$carrosserie?>" name="<?=$carrosserie?>" value="<?=$carrosserie?>" data-js-carrosserie="<?=$carrosserie?>">
+                            <input class="radio" type="checkbox" id="<?=$carrosserie?>" name="<?=$carrosserie?>" value="<?=$carrosserie?>" data-js-carrosserie="<?=$carrosserie?>" <?= (strpos($carrosserieRecu, $carrosserie))? 'checked':''; ?>>
                         </div>
 <?php                        
                     }
@@ -150,7 +193,7 @@
 ?> 
                     <div class="sousMenuContenueRadio">
                         <label for="<?=$transmission?>"><?=$transmission?></label>
-                        <input class="radio" type="radio" name="transmission" id="<?=$transmission?>" value="<?=$transmission?>" data-js-transmission="<?=$transmission?>">
+                        <input class="radio" type="radio" name="transmission" id="<?=$transmission?>" value="<?=$transmission?>" data-js-transmission="<?=$transmission?>" <?= (strpos($transmissionRecu, $transmission))? 'checked':''; ?>>
                     </div>
 <?php                        
                     }
@@ -168,7 +211,7 @@
 ?> 
                         <div class="sousMenuContenueRadio">
                             <label for="<?= $propulsion['nom'] ?>"><?=$propulsion['nom']?></label>
-                            <input class="radio" type="radio" name="propulsion" id="<?=$propulsion['nom']?>" value="<?=$propulsion['nom']?>" data-js-propulsion="<?=$propulsion['nom']?>">
+                            <input class="radio" type="radio" name="propulsion" id="<?=$propulsion['nom']?>" value="<?=$propulsion['nom']?>" data-js-propulsion="<?=$propulsion['nom']?>" <?= (strpos($propulsionRecu, $propulsion['nom']))? 'checked':''; ?>>
                         </div>
 <?php
                     }
@@ -187,4 +230,3 @@
         <main data-js-component="ListeVoitures">
             <section class="grille_voitures">
                 <div class="grille grille--2" data-js-results>
-

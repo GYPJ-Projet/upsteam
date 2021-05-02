@@ -10,6 +10,7 @@
 /* objects */
 @import url("5-objects/typo.css");
 @import url("5-objects/bodyConteneur.css");
+@import url("5-objects/iconeConteneur.css");
 /* components */
 @import url("6-components/descriptionVoiture.css");
 @import url("6-components/gestionDonnees.css");

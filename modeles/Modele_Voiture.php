@@ -189,8 +189,7 @@
                                         JOIN typecarrosserie ON typecarrosserie.id = voiture.idTypecarrosserie
                                         JOIN transmission ON transmission.id = voiture.idTransmission
                                         JOIN typecarburant ON typecarburant.id = voiture.idTypecarburant
-                                        JOIN image ON image.id = voiture.id AND image.sort = 0
-
+                                        JOIN image ON image.idVoiture = voiture.id AND image.sort = 0 
                                         WHERE marque.disponibilite = 1 AND modele.disponibilite = 1
                                         AND prixVente BETWEEN $prixMin AND $prixMax
                                         AND marque.nom IN ($marques)

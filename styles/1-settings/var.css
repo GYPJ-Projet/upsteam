@@ -30,7 +30,8 @@
     /* Les marges */
     --margeSection : 3.90625vw;                 /* 50px; */
     --margeSousSection : 1.953125vw;            /* 25px */
-
+    --margeInterieurSection : 0.9765625vw;      /* 12,5px */
+    
     /* Les padding */
     --paddingMenu: 1.953125vw;                  /* 25px */
     --paddingTuile: 2.5vw;                      /* 32px */
