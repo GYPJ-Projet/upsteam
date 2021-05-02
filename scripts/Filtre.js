@@ -9,6 +9,8 @@ class Filtre{
         this._listeMarquesAffiches =        this._element.querySelectorAll('[data-js-marque]');             //Toutes les marques!
         this._SymbolesPlus =                this._element.querySelectorAll('[data-js-SymbolePlus]');        //Gestion des bouton +
         this._elBoutonFiltre =              this._element.querySelector('[data-js-boutonFiltre]');          //pour eventlistener
+        this._elBoutonVider =               this._element.querySelector('[data-js-boutonVider]');           //pour eventlistener
+
 
         this._elConteneurPrix =             this._element.querySelector('[data-js-prixConteneur]');         //Liste des conteneur de section pour
         this._elConteneurMarque =           this._element.querySelector('[data-js-marqueConteneur]');       //filtrer les listes d'item sélectionnés.
@@ -28,11 +30,13 @@ class Filtre{
 
         window.addEventListener('resize', this.displayWindowSize);                  //Gestion de l'affichage du type de menu burger ou non.
         window.addEventListener('load',this.demarragePage);
+        this._elBoutonVider.addEventListener('click', this.viderFiltre);            //Redémarre la page afin de ne plus avoir de filtre.
 
         this.gestionPlus();
         this.populationModele();
         this.clickModelesSelectionnes();
         this.gestionFiltre();
+        this.viderFiltre();
 
         this._iconeFiltre.addEventListener('click', this.boutonBurger);             //Gestion du clique de l'icone
     }
@@ -326,5 +330,10 @@ class Filtre{
         }else{
         this._element.classList.add('cacher');
         }
+    }
+
+    viderFiltre =(e)=>{
+        e.preventDefault();
+        window.location.href ='index.php?Voiture';
     }
 }

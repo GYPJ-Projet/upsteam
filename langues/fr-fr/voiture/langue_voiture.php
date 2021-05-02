@@ -20,8 +20,8 @@ $langue['filtreTransmission']   = 'TRANSMISSION';
 $langue['filtrePropulsion']     = 'PROPULSION';
 
 $langue['filtreChoisirPrix']    = 'Choisir la plage de prix';
-$langue['filtreAnneeDebut']     = 'Années début';
-$langue['filtreAnneeFin']       = 'Années fin';
+$langue['filtreAnneeDebut']     = 'Début';
+$langue['filtreAnneeFin']       = 'Fin';
 $langue['filtreChoisirKm']      = 'Choisir le kilométrage';
 $langue['filtreEssence']        = 'Essence';
 $langue['filtreDiesel']         = 'Diesel';
@@ -30,6 +30,8 @@ $langue['filtreAutomatique']    = 'Automatique';
 $langue['filtre2x4']            = '2x4';
 $langue['filtre4x4']            = '4x4';
 $langue['filtreFiltrer']        = 'Filtrer';
+$langue['filtreVider']          = 'Vider filtres';
+
 
 $langue['filtrePrix0_1500']     = '0 - 1500$';
 $langue['filtrePrix1500_5000']  = '1500 - 5000$';
