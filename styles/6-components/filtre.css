@@ -79,6 +79,10 @@
 
     margin:1vw;
 }
+.filtreBoutonConteneur{
+    display:flex;
+    flex-direction: column;
+}
 
 .filtreInputWidth{
     min-width:8vw;

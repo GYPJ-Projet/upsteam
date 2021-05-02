@@ -221,8 +221,9 @@
                 </div>
 
                 <!-- FILTRER -->
-                <div class="filtreSection filtreSectionBottom sousMenuConteneur">
+                <div class="filtreSection filtreSectionBottom filtreBoutonConteneur">
                     <button class="bouton" data-js-boutonFiltre><?=$langue["filtreFiltrer"]?></button>
+                    <button class="bouton" data-js-boutonVider><?=$langue["filtreVider"]?></button>
                 </div>
 
             </form>

@@ -49,6 +49,7 @@ class GestionMarque {
                 }
                 
                 //Obtenir le numéro de la page qu'il faut afficher
+
                 let page = e.target.dataset.jsPage;
              
                 if (tri == undefined) tri = 'id';

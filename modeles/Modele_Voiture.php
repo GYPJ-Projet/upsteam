@@ -176,7 +176,7 @@
 
         /**
          * PH
-         * Pour obtenir les voitures qui sont filtrer dans filtre.js.
+         * Pour obtenir les voitures qui sont filtrer dans Filtre.js.
          */
         public function obtenirVoitureFiltrer($prixMin, $prixMax, $marques, $modele, $anneeDeb, $anneeFin, $kmMin, $kmMax, $carburant, $carrosserie, $transmission, $propulsion) {
             try {
@@ -214,6 +214,38 @@
             catch(Exception $exc) {
                 return 0;
             }
-}
-}
+        }
+
+    /**
+     * PH
+     * Pour obtenir les voitures qui sont rechercher dans Chercher.js.
+     */
+        public function obtenirVoitureChercher($critere) {
+            try {
+				$stmt =$this->db->query("SELECT DISTINCT voiture.*, 
+                                                modele.nom AS nomModele, 
+                                                marque.nom AS nomMarque, 
+                                                annee.annee AS annee, 
+                                                motopropulseur.nom AS nomMotoPropulseur,
+                                                marque.id AS idMarque,
+                                                image.lien AS lienPhotoPrincipale 
+                                        FROM voiture 
+                                        JOIN modele ON modele.id = voiture.idModele 
+										JOIN marque ON marque.id = modele.idMarque  
+										JOIN annee ON annee.id = voiture.idAnnee 
+										JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
+										JOIN image ON image.idVoiture = voiture.id AND image.sort = 0 
+                                        WHERE voiture.disponibilite = 1
+                                        AND (marque.nom LIKE $critere
+                                        OR modele.nom LIKE $critere
+                                        OR annee.annee LIKE $critere)");
+                $stmt->execute();
+                return $stmt->fetchAll();
+
+            }
+            catch(Exception $exc) {
+                return 0;
+            }
+        }
+    }
 ?>

@@ -1,5 +1,10 @@
 <?php 
     $langue = $donnees["langue"];       //Pour affichage des langues
+    $actionRecu = '';
+    if(isset($_GET['action'])){
+        $actionRecu = $_GET['action'];
+    }
+
 ?>
 
 <header data-js-component="Entete">
@@ -7,8 +12,8 @@
 		<a href="index.php?Voiture&action=Accueil">
 			<img src="logo/logo_v2.svg" alt="logo" width="400px"height="170px">
 		</a>
-		<div class="enteteRecherche">
-			<input type="search" class="recherche" placeholder="<?=$langue['entete_recherche'] ?>">
+		<div class="enteteRecherche" >
+			<input type="search" class="recherche" placeholder="<?=$langue['entete_recherche']?>" data-js-component="Chercher" data-js-action="<?= $actionRecu ?>">
 		</div>
 		<div class="entete__droit">
 			<a href="index.php?Usager&action=login" class="connexion"><?= $langue['entete_connexion'] ?></a>

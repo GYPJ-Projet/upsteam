@@ -102,6 +102,18 @@
 
                         }
                         break;	
+                    
+                    case "chercher":
+                        if( isset($params["critere"])){
+                            Debug::toLog($params["critere"]);
+                            $donnees["voitures"] = $modeleVoiture->obtenirVoitureChercher($params["critere"]);
+                            $this->afficheVue("accueil_debut", $donnees);
+                            $this->afficheVue("listeVoitures", $donnees);
+                            $this->afficheVue("accueil_fin_section_grille");
+                            $this->afficheVue("voirPlus");
+                            $this->afficheVue("accueil_fin");
+                        }
+                        break;
 						
 					case "accueil":
 					default:
