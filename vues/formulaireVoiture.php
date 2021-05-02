@@ -4,7 +4,7 @@
 ?>
 
 <h2><?= (isset($voiture)) ? $langue["formulaire_modif_voiture"] : $langue["formulaire_ajout_voiture"] ?></h2>
-<form class="formulaire" action="index.php?GestionDonnees_AJAX&action=sauvegarderModele" method="post">
+<form class="formulaire" action="index.php?GestionDonnees_AJAX&action=sauvegarderVoiture" method="post">
     <label for="marque"><?= $langue["nom_marque"] ?> : </label>
     <select name="idMarque" id="idMarque" required>
         <option value=""><?= $langue["option"] ?></option>
@@ -140,5 +140,6 @@
 ?>
     
     <input type="hidden" name="id" value="<?= (isset($voiture)) ? $voiture["id"] : 0 ?>"/><br/>
+    <input type="hidden" name="page" value="<?= (isset($donnees["page"])) ? $donnees["page"] : 1 ?>"/><br/>
     <input class="bouton" type="submit" value="<?= $langue['button_soumettre'] ?>"/>
 </form>

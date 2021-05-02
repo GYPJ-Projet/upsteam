@@ -82,6 +82,10 @@
             return $this->idTransmission;
         }
 
+        public function getIdCouleur() {
+            return $this->idCouleur;
+        }
+
         public function getIdTypeCarrosserie() {
             return $this->idTypeCarrosserie;
         }

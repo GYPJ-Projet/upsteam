@@ -69,7 +69,7 @@
 						}
 						break;
 					case "sauvegarderModele":
-						if (isset($params["id"]) && isset($params["nom"]) && isset($params["idMarque"])) {
+						if (isset($params["id"]) && isset($params["nom"]) && isset($params["idMarque"]) && isset($params["page"])) {
 							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
 							else $params["disponibilite"] = 0;
 							$nouvelleModele = new Modele($params["id"], $params["nom"], $params["idMarque"], $params["disponibilite"]);
@@ -118,6 +118,28 @@
 							$donnees["voiture"] = $modeleVoiture->obtenirParId($params["id"]);	
 						} 
 						$this->afficheVue("formulaireVoiture", $donnees);
+						break;
+					case "sauvegarderVoiture":
+						if (isset($params["id"])  && isset($params["idModele"]) && isset($params["idAnnee"]) && isset($params["kilometrage"])
+							&& isset($params["dateArrivee"]) && isset($params["prixAchat"]) && isset($params["prixVente"]) 
+							&& isset($params["idMotopropulseur"]) && isset($params["idTypeCarburant"]) && isset($params["idCouleur"])
+							&& isset($params["idTransmission"]) && isset($params["idTypeCarrosserie"]) && isset($params["vna"])
+							&& isset($params["page"])) {
+							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
+							else $params["disponibilite"] = 0;
+							
+							$nouvelleVoiture = new Voiture($params["id"], $params["idModele"], $params["idAnnee"], $params["kilometrage"],
+							$params["dateArrivee"], $params["prixAchat"], $params["prixVente"], $params["idMotopropulseur"], 
+							$params["idTypeCarburant"], $params["idCouleur"], $params["idTransmission"], $params["idTypeCarrosserie"],
+							$params["vna"], $params["disponibilite"]);
+								
+							$reponse = $modeleVoiture->sauvegarde($nouvelleVoiture);
+								
+							header("Location: index.php?GestionDonnees&action=gestionVoiture" . $params["page"]);
+									
+						} else { // Sinon, on affiche le formulaire pour l'ajout
+							$this->afficheVue("formulaireVoiture", $donnees);
+						}
 						break;
 				}			
 			} else {
