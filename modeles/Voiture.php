@@ -98,7 +98,5 @@
             return $this->vna;
         }
 
-
-
     }
 ?>
