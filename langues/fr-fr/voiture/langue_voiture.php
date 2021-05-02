@@ -1,15 +1,19 @@
 <?php
 
 //Voiture
+$langue['ajouterAuPanier']	    = 'Ajouter au panier';
 $langue['carburant']            = 'Carburant';
 $langue['couleur']              = 'Couleur';
+$langue['descriptionDesc']      = 'Description de la';
 $langue['habitacle']            = 'Habitacle';
 $langue['kilometrage']		    = 'Kilom&eacute;trage';
 $langue['modele']               = 'Mod&egrave;le';
 $langue['motopropulseur']		= 'Groupe motopropulseur';
 $langue['prix']                 = 'Prix';
-$langue['titreDescription']     = 'Sp&eacute;cifications de la';
+$langue['specificatioDesc']     = 'Sp&eacute;cifications de la';
 $langue['transmission']		    = 'Transmission';
+$langue['voirPlus']		        = 'Voir plus';
+
 
 
 //filtre

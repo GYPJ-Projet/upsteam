@@ -1,64 +1,76 @@
 body {
     background-color: var(--grisPale);
 }
-/* 
-.descriptionVoiture img {
-    width: 100%;
-    object-fit: cover;
-} */
+
 
 .descriptionVoiture {
     margin-top: var(--margeSection);       /* 50px; */
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
     font-family: var(--openSans);
     font-size:   var(--police_taille_texte);
     font-weight: var(--police_poid_normal);
 }
 
-.divColonne {
- /*    display:block; */
-    float: left;
-   
+.specification.specificationVoiture {
+    margin-top: var(--margeSection);       /* 50px; */
 }
 
-.clearFloat::after {
-    content: "";
-    clear: both;
-    display: table;
+.sectionDecriptionEntete {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items:flex-start;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: -(var(--margeInterieurSection)); 
 }
 
-.ulListeDescription {
-    margin-top: var(--margeSousSection);       /* 25px; */
+.sectionDecriptionPrincipale {
+    margin-top: var(--margeSection);       /* 50px; */
+    margin-left: auto;
+    margin-right: auto;
+    font-family: var(--openSans);
+    font-size:   var(--police_taille_texte);
+    font-weight: var(--police_poid_normal);
+}
+
+.sectionDecriptionPrincipale  > p {
+    margin-top: var(--marginUlStyle);       /* 25px; */
+}
+
+
+.ulListeDescription{
+    padding-inline-start: 20px; 
+    margin-top: var(--margeSousSection);       /* 50px; */
     list-style-image: url('../../images/symolePlusGrandQue.svg');
 }
 
+
 .ilListeDescription {
     margin-top: var(--margeInterieurSection);       /* 25px; */
+    margin-left: var(--paddingTuile);
 }
 
 
 .swiper-container {
-    height: 500px;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    max-height: auto;
     margin-top: var(--margeSection);       /* 50px; */
   }
 
 .swiper-slide {
-    background: var(--cle);
     display: flex;
 }
 
+
 .swiper-image {
-    width: auto;
-    max-height: 100%;
+    /* max-width: 100%; */
+    max-height: auto;
     margin-left: auto;
     margin-right: auto;
-  /*   object-fit: cover; */ 
+    object-fit: cover;
 }
+
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
@@ -67,21 +79,131 @@ body {
     transition: opacity .3s ease;
 }
 
+
 .swiper-container .swiper-pagination-bullet {
     background-color: var(--blanc);
     opacity: 0;
     transition: opacity .3s ease;
 }
 
+
 .swiper-container:hover .swiper-button-prev::after,
 .swiper-container:hover .swiper-button-next::after {
     opacity: 1;
 }
 
+
 .swiper-container:hover .swiper-pagination-bullet {
     opacity: .5;
 }
 
+
 .swiper-container:hover .swiper-pagination-bullet-active {
     opacity: 1;
+}
+
+
+.ajouter-panier {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.btn-ajouter-panier {
+    margin:auto;
+    color: var(--blanc);
+    background-color: var(--cle);
+    width: 256px;
+    text-align: center;
+    padding: 0.5vw;
+}
+
+
+@media screen and (min-width: 1025px){
+
+    .sectionDecriptionEntete, 
+    .sectionDecriptionPrincipale {
+        width: 95%
+    }
+    
+    .swiper-image {
+        max-width: 100%;
+        width: 100% 
+    }
+
+    .swiper-container {
+        width: 47.30%;
+   }
+
+    .descriptionVoiture {
+        width: 47.30%;
+        margin-left: var(--paddingTuile);
+        margin-right: var(--paddingTuile); 
+   }
+
+    .ajouter-panier {
+        width: 47.30%;
+   }
+    
+}
+
+@media screen and (max-width: 1024px) {
+
+    .sectionDecriptionEntete, 
+    .sectionDecriptionPrincipale {
+        width: 95%
+    }
+
+    .swiper-image {
+        max-width: 100%;
+        width: 100% 
+    }
+
+    .swiper-container {
+        width: 47.30%;
+    }
+
+    .descriptionVoiture {
+        width: 47.30%;
+        margin-left: var(--paddingTuile);
+        margin-right: var(--paddingTuile); 
+    }
+
+    .ajouter-panier {
+        width: 47.30%;
+    }
+}
+
+
+@media screen and (max-width: 414px) {
+
+    h2 {
+        font-size:   var(--police_taille_sousTitre);
+    }
+    
+    .sectionDecriptionEntete,
+    .sectionDecriptionPrincipale {
+        width: 95%
+    }
+
+    .swiper-image {
+        max-width: 100%;
+        width: 70% - var(--paddingVoiture);
+    }
+
+    .swiper-container {
+        width: 85% - var(--paddingVoiture);
+        margin-left: var(--paddingTuile);
+        margin-right: var(--paddingTuile); 
+    }  
+
+    .descriptionVoiture {
+       width: 100%;
+       margin-left: 0;
+/*        margin-right: 0; */
+    }
+
+    .ajouter-panier {
+        width: 70%;
+    }
 }

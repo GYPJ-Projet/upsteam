@@ -3,6 +3,7 @@
     box-sizing: border-box;
     border: var(--bordure) solid var(--blanc);
     padding-bottom: 1.5625vw;
+    min-width: 215px;
 } 
 
 .voiture * {
@@ -27,9 +28,9 @@
 .voiture > img {
     padding-top: 1.5625vw;
     max-width: calc(100% - var(--paddingVoiture));
+    height: auto;
     margin-left: auto;
     margin-right: auto;
-
 } 
 
 .voiture > h2,
@@ -61,3 +62,30 @@
     box-shadow: var(--bordure) 2px 22px var(--bordureInterne) rgba(0, 0, 0, 0.24);
 }
 
+
+/* @media screen and (min-width: 1025px) {
+    .voiture {
+        width: var(--minLargeurGrille2);
+    }
+
+    .voiture > img {
+        width: var(--minLargeurGrille2) - var(--paddingVoiture);
+    }
+}
+ */
+@media screen and (max-width: 1024px) {
+    .voiture {
+        width: var(--minLargeurGrille2);
+    }
+
+    .voiture > img {
+        width: var(--minLargeurGrille2) - var(--paddingVoiture);
+    }
+}
+
+
+@media screen and (max-width: 414px) {
+    .voiture {
+        min-width: 377px;
+    }
+}

@@ -29,10 +29,8 @@
 			$modelePropulsion      = $this->obtenirDAO("motopropulseur");
 			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
 
-   			$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
-			$modeleToutModeleDispo          = $this->obtenirDAO("Modele", "obtenirToutModeleDispo");
-
-			
+   			$modeleToutMarqueDispo          = $this->obtenirDAO("Marque");
+				
 			// On prend les données dans la langue qu'il faut afficher.	
 			$donnees["typeCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
 			$donnees["couleur"]         = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
@@ -58,8 +56,13 @@
 						// Affichage de la description de la voiture demandé
 						// Si on a reçu le paramètre id de la voiture à afficher.
 						if (isset($params["id"])) {
+							$modeleDescription = $this->obtenirDAO("TabLangues", "description");
 							$donnees["voiture"] = $modeleVoiture->obtenirParId($params["id"]);
 							$donnees["images"]  = $modeleVoiture->obtenirImagesParIdVoiture($params["id"]);
+							
+							// On prend l'instance de la description de la voiture dans la langue que l'on doit afficher
+							$uneLangueDescription = $modeleDescription->obtenirParId1Id2($donnees["voiture"]["id"] ,$idLangue);
+							$donnees["description"] = $uneLangueDescription->getNom(); // La description dans la bonne langue.
 						}
 
 						$this->afficheVue("descriptionVoiture", $donnees);
@@ -97,7 +100,7 @@
                             $this->afficheVue("accueil_debut", $donnees);
                             $this->afficheVue("listeVoitures", $donnees);
                             $this->afficheVue("accueil_fin_section_grille");
-                            $this->afficheVue("voirPlus");
+                            $this->afficheVue("voirPlus", $donnees);
                             $this->afficheVue("accueil_fin");
 
                         }
@@ -127,7 +130,7 @@
 						$this->afficheVue("accueil_debut", $donnees);
 						$this->afficheVue("listeVoitures", $donnees);
 						$this->afficheVue("accueil_fin_section_grille");
-						$this->afficheVue("voirPlus");
+						$this->afficheVue("voirPlus", $donnees);
 						$this->afficheVue("accueil_fin");
 						break;
 				}			
@@ -141,7 +144,7 @@
 				$this->afficheVue("accueil_debut", $donnees);
         		$this->afficheVue("listeVoitures", $donnees);
 				$this->afficheVue("accueil_fin_section_grille");
-				$this->afficheVue("voirPlus");
+				$this->afficheVue("voirPlus", $donnees);
 				$this->afficheVue("accueil_fin");
 			}
 

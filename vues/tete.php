@@ -21,6 +21,7 @@
 	<script type="text/javascript" src="./scripts/Chercher.js"></script>
 	<script type="text/javascript" src="./scripts/DescriptionVoiture.js"></script>
 	<script type="text/javascript" src="./scripts/Filtre.js"></script>
+	<script type="text/javascript" src="./scripts/ListeVoitures.js"></script>	
 	<script type="text/javascript" src="./scripts/Voiture.js"></script>
 	<script type="text/javascript" src="./scripts/VoirPlus.js"></script>
 	<script type="text/javascript" src="./scripts/GestionMarque.js"></script>

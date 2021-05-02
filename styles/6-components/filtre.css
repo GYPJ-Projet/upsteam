@@ -3,10 +3,9 @@
     font-family: var(--openSans);
 }
 
+
 .filtreConteneur{
     margin-top: var(--margeSection);
-    margin-left: var(--margeSection);
-    margin-right: var(--margeSection);
     flex-basis: 15%;
 }
 
@@ -108,3 +107,27 @@
     grid-row-gap: var(--paddingFiltreListe);
     grid-template-columns: repeat(2, 1fr);
 }
+
+@media screen and (min-width: 1025px){
+    .filtreConteneur > main {
+        margin-left: var(--margeSection);
+        margin-right: var(--margeSection);
+    }  
+}
+
+
+@media screen and (max-width: 1024px) {
+    .filtreConteneur {
+        margin-left: var(--margeSection);
+        margin-right: var(--margeSection);
+    }  
+}
+
+@media screen and (max-width: 414px) {
+
+    .filtreConteneur {
+        margin-left: var(--paddingTuile);
+        margin-right: var(--paddingTuile);
+    }
+}
+
