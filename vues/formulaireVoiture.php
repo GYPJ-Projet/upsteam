@@ -1,4 +1,5 @@
 <?php
+    var_dump($donnees["annees"]);
     $langue = $donnees["langue"];
     if ($donnees["voiture"]) $voiture = $donnees["voiture"];
 ?>
@@ -38,12 +39,14 @@
         foreach ($donnees["annees"] as $annee) {
 ?>         
             <option value="<?= $annee->getId() ?>" <?= (isset($voiture) && $voiture["idAnnee"] == $annee->getId()) ? "selected" : "" ?>>
-                <?= $annee->getNom() ?>
+                <?= $annee->getAnnee() ?>
             </option>      
 <?php
         }
 ?> 
     </select><br>
+    <label for="kilometrage"><?= $langue["nom_kilometrage"] ?> : </label>
+    <input type="number" name="kilometrage" id="kilometrage" value="<?= (isset($voiture)) ? $voiture["kilometrage"] : "" ?>"/><br>
 <?php
     if (isset($voiture)) {
 ?>

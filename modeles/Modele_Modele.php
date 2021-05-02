@@ -36,14 +36,14 @@
         }
 
         // Permet d'obtenir toutes les modèles avec l'information à propos de la marque dans une plage donnée
-        public function obtenirTousAvecMarque($depart, $modelesParPage) {
+        public function obtenirTousAvecMarque($depart, $modelesParPage, $tri, $ordre) {
 
             try {
                 $requete = "SELECT marque.nom AS nomMarque, marque.id AS idMarque, modele.id, modele.nom, modele.disponibilite
                             FROM modele
                             JOIN marque 
                             ON modele.idMarque = marque.id
-                            ORDER BY modele.id
+                            ORDER BY $tri $ordre 
                             LIMIT $depart, $modelesParPage";
                 $requetePreparee = $this->db->prepare($requete);
                 $requetePreparee->execute(); 
