@@ -82,9 +82,19 @@
         				}
     
         				$depart = ($donnees["pageCourante"] - 1) * $modelesParPage;
+						
+						//Par defaut, on trie par id
+						if (isset($_GET["tri"])) $tri = $_GET["tri"];
+						else $tri = 'id';
+						//Par defaut, on tri dans l'ordre ascendente
+						if (isset($_GET["ordre"])) $ordre = $_GET["ordre"];
+						else $ordre = 'ASC';
+						//Passer les paramètres à la vue
+						$donnees["tri"] = $tri;
+						$donnees["ordre"] = $ordre;
 
 						$this->afficheVue("listeDonnees", $donnees);
-						$donnees["modeles"] = $modeleModele->obtenirTousAvecMarque($depart, $modelesParPage);
+						$donnees["modeles"] = $modeleModele->obtenirTousAvecMarque($depart, $modelesParPage, $tri, $ordre);
 						$this->afficheVue("gestionModele", $donnees);
 						break;
 					// Affichage de la liste des couleurs
@@ -118,7 +128,7 @@
 						//Par defaut, on tri dans l'ordre ascendente
 						if (isset($_GET["ordre"])) $ordre = $_GET["ordre"];
 						else $ordre = 'ASC';
-
+					
 						//Passer les paramètres à la vue
 						$donnees["tri"] = $tri;
 						$donnees["ordre"] = $ordre;

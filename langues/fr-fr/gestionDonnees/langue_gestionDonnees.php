@@ -11,6 +11,8 @@ $langue['option']           = 'Choisissez ...';
 $langue['nom_marque']	    = 'Marque';
 $langue['nom_modele']	    = 'Modele';
 $langue['nom_annee']	    = 'Année';
+$langue['nom_kilometrage']  = 'Kilomètrage';
+$langue['dateArrivee']      = 'Date d\'arrivée';
 $langue['nom_prixAchat']    = 'Prix d\'achat';
 $langue['nom_prixVente']    = 'Prix de vente';
 $langue['nom_couleur']	    = 'Couleur';
@@ -19,10 +21,10 @@ $langue['disponibilite']    = 'Disponibilité';
 
 $langue['nom_langue']       = 'Français';
 
-$langue['formulaire_ajout_marque'] = 'Ajout d\'une nouvelle marque';
-$langue['formulaire_modif_marque'] = 'Modification de la marque';
-$langue['formulaire_ajout_modele'] = 'Ajout d\'une nouvelle modèle';
-$langue['formulaire_modif_modele'] = 'Modification de la modèle';
+$langue['formulaire_ajout_marque']  = 'Ajout d\'une nouvelle marque';
+$langue['formulaire_modif_marque']  = 'Modification de la marque';
+$langue['formulaire_ajout_modele']  = 'Ajout d\'une nouvelle modèle';
+$langue['formulaire_modif_modele']  = 'Modification de la modèle';
 $langue['formulaire_ajout_couleur'] = 'Ajout d\'une nouvelle couleur';
 $langue['formulaire_modif_couleur'] = 'Modification de la couleur';
 $langue['formulaire_ajout_voiture'] = 'Ajout d\'une nouvelle voiture';
