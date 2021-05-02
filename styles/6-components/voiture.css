@@ -62,3 +62,30 @@
     box-shadow: var(--bordure) 2px 22px var(--bordureInterne) rgba(0, 0, 0, 0.24);
 }
 
+
+/* @media screen and (min-width: 1025px) {
+    .voiture {
+        width: var(--minLargeurGrille2);
+    }
+
+    .voiture > img {
+        width: var(--minLargeurGrille2) - var(--paddingVoiture);
+    }
+}
+ */
+@media screen and (max-width: 1024px) {
+    .voiture {
+        width: var(--minLargeurGrille2);
+    }
+
+    .voiture > img {
+        width: var(--minLargeurGrille2) - var(--paddingVoiture);
+    }
+}
+
+
+@media screen and (max-width: 414px) {
+    .voiture {
+        min-width: 377px;
+    }
+}

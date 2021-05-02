@@ -26,6 +26,8 @@ class Filtre{
 
     init =()=>{
 
+        this.displayWindowSize(); // On vérifie la grandeur de l'écran en partant.
+        
         window.addEventListener('resize', this.displayWindowSize);                  //Gestion de l'affichage du type de menu burger ou non.
         window.addEventListener('load',this.demarragePage);
 

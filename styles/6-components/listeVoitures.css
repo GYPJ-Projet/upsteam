@@ -1,5 +1,11 @@
+/* .listeVoitureConteneur {
+    flex-basis: calc(100% - 24.02%);
+} */
+
 .bodyConteneur > main {
     min-width: var(--iPhone);
+    max-width: var(--iPad);
+    margin-left: var(--paddingTuile);
 }
 
 .grille {
@@ -61,11 +67,41 @@
     transform: translateY(50px);
 }
 
+.voir-plus {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20vw;
+}
+
 .btn-plus {
     margin:auto;
+
     color: var(--blanc);
     background-color: var(--cle);
     width: 20vw;
     text-align: center;
     padding: 0.5vw;
 }
+
+
+@media screen and (min-width: 1025px){
+    .bodyConteneur > main {
+        margin-left: 0;
+    }  
+}
+
+
+@media screen and (max-width: 1024px) {
+    .bodyConteneur > main {
+        margin-left: 0;
+    }  
+}
+
+@media screen and (max-width: 414px) {
+    .bodyConteneur > main {
+        margin-left: var(--paddingTuile);
+        flex-basis: 15%;
+    }
+}
+
+

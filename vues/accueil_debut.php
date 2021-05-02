@@ -227,6 +227,6 @@
 
             </form>
         </aside>
-        <main data-js-component="ListeVoitures">
+        <main class="listeVoitureConteneur" data-js-component="ListeVoitures">
             <section class="grille_voitures">
                 <div class="grille grille--2" data-js-results>

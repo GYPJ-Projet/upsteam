@@ -37,10 +37,12 @@
     --paddingMenu: 1.953125vw;                  /* 25px */
     --paddingTuile: 2.5vw;                      /* 32px */
     --paddingVoiture: 1.953125vw;               /* 25px */
-    --paddingFiltreListe: 0.866vw;                /* 15px */
+    --paddingFiltreListe: 0.866vw;              /* 15px */
 
     /* Bordures*/
     --bordure: 0.234375vw;                      /* 3px; */
     --bordureInterne: 0.078125vw;               /* 1px */
 
+    /* Voiture */
+    --minLargeurGrille2:240px                   /* 240px */
 }
