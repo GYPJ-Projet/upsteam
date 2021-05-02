@@ -3,6 +3,7 @@
     box-sizing: border-box;
     border: var(--bordure) solid var(--blanc);
     padding-bottom: 1.5625vw;
+    min-width: 215px;
 } 
 
 .voiture * {
@@ -27,9 +28,9 @@
 .voiture > img {
     padding-top: 1.5625vw;
     max-width: calc(100% - var(--paddingVoiture));
+    height: auto;
     margin-left: auto;
     margin-right: auto;
-
 } 
 
 .voiture > h2,

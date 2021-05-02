@@ -28,7 +28,7 @@
             <div class="swiper-button-prev"></div>
         </div>
 
-		<div class="descriptionVoiture clearFloat" data-js-voiture="<?=$voiture["id"] ?>">
+		<div class="descriptionVoiture" data-js-voiture="<?=$voiture["id"] ?>">
 			<h2><?= $langue['titreDescription'] ?> <?=$voiture["nomMarque"] ?> <?=$voiture["nomModele"] ?> <?=$voiture["annee"] ?></h2>
 			<div class="divColonne">
 				<ul class="ulListeDescription">
@@ -38,9 +38,9 @@
 					<li class="ilListeDescription"><span><?= $langue["kilometrage"] ?>: </span><span class="valeur"><?= $voiture["kilometrage"]?></span> km</li>
 				</ul>	
 				<ul class="ulListeDescription">
-					<li class="ilListeDescription"><span><?= $langue["transmission"] ?>: </span> /span> <span class="valeur"><?= $donnees["transmission"][$voiture["idTransmission"]]?></span></li>
-					<li class="ilListeDescription"><span><?= $langue["carburant"] ?>:</span> <span class="valeur"><?= $donnees["typeCarburant"][$voiture["idTypeCarburant"]]?></span></li>
-					<li class="ilListeDescription"><span><?= $langue["prix"] ?>:</span> <span class="valeur"><?=$voiture["prixVente"] ?>$</span></li>
+					<li class="ilListeDescription"><span><?= $langue["transmission"] ?>: </span><span class="valeur"><?= $donnees["transmission"][$voiture["idTransmission"]]?></span></li>
+					<li class="ilListeDescription"><span><?= $langue["carburant"] ?>:</span><span class="valeur"><?= $donnees["typeCarburant"][$voiture["idTypeCarburant"]]?></span></li>
+					<li class="ilListeDescription"><span><?= $langue["prix"] ?>: </span><span class="valeur"><?=$voiture["prixVente"] ?>$</span></li>
 				</ul>			
 			</div>
 		</div>

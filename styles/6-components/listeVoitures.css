@@ -1,8 +1,17 @@
+.bodyConteneur > main {
+    min-width: var(--iPhone);
+}
 
 .grille {
     display: grid;
     margin-top: var(--margeSection);       /* 50px; */
     margin-bottom: var(--margeSection);
+}
+
+.grille--1 {
+    column-gap: var(--paddingTuile);
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: var(--paddingTuile);
 }
 
 .grille--2 {
@@ -60,5 +69,3 @@
     text-align: center;
     padding: 0.5vw;
 }
-
-  

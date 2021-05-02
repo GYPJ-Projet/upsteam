@@ -17,21 +17,26 @@ body {
     font-weight: var(--police_poid_normal);
 }
 
+
 .divColonne {
- /*    display:block; */
-    float: left;
-   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items:flex-start;
+    margin-left: -(var(--margeSousSection));
+	margin-top: -(var(--margeInterieurSection));
 }
 
-.clearFloat::after {
-    content: "";
-    clear: both;
-    display: table;
+
+.ulListeDescription{
+    padding-inline-start: 20px; 
 }
+
 
 .ulListeDescription {
-    margin-top: var(--margeSousSection);       /* 25px; */
+    /* margin-top: var(--margeInterieurSection); */
     list-style-image: url('../../images/symolePlusGrandQue.svg');
+   /*  flex-basis: calc((100% / 2) - var(--margeSousSection));  */
 }
 
 .ilListeDescription {
@@ -40,10 +45,10 @@ body {
 
 
 .swiper-container {
-    height: 500px;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    max-height: auto;
     margin-top: var(--margeSection);       /* 50px; */
   }
 
@@ -53,11 +58,11 @@ body {
 }
 
 .swiper-image {
-    width: auto;
-    max-height: 100%;
+    width: 100%;
+    max-height: auto;
     margin-left: auto;
     margin-right: auto;
-  /*   object-fit: cover; */ 
+    object-fit: cover;
 }
 
 .swiper-button-prev::after,
