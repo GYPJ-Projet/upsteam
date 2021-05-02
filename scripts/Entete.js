@@ -6,6 +6,7 @@ class Entete{
         this._elNbrItem = this._el.querySelector('[data-js-nombre-item]');
         this._elPanier = this._el.querySelector('[data-js-panier]');
         this._elControleur = document.querySelector('[data-js-controleur]');
+        this._elControleurAction = document.querySelector('[data-js-controleur-action]');
         
         this.init();
     }
@@ -19,9 +20,10 @@ class Entete{
     // Le chargement de la page dans la langue choisie
     changerLangue = () => {
         let nomControleur = this._elControleur.dataset.jsControleur,
-            repertoireLangue = this._elLangue.dataset.jsLangue;
+            repertoireLangue = this._elLangue.dataset.jsLangue,
+            contoleurAction  = this._elControleurAction.dataset.jsControleurAction;
            
-        window.location.href = `index.php?${nomControleur}&action=changerLangue&langue=${repertoireLangue}`;
+        window.location.href = `index.php?${nomControleur}&action=changerLangue&langue=${repertoireLangue}&controleur-action=${contoleurAction}`;
         
     }
 

@@ -1,11 +1,16 @@
 <?php
 
-$langue['kilometrage']		    = 'Kilom&eacute;trage';
-$langue['transmission']		    = 'Transmission';
-$langue['motopropulseur']		= 'Groupe motopropulseur';
+//Voiture
 $langue['carburant']            = 'Carburant';
+$langue['couleur']              = 'Couleur';
 $langue['habitacle']            = 'Habitacle';
+$langue['kilometrage']		    = 'Kilom&eacute;trage';
+$langue['modele']               = 'Mod&egrave;le';
+$langue['motopropulseur']		= 'Groupe motopropulseur';
 $langue['prix']                 = 'Prix';
+$langue['titreDescription']     = 'Sp&eacute;cifications de la';
+$langue['transmission']		    = 'Transmission';
+
 
 //filtre
 $langue['filtreFiltres']        = 'FILTRES';
@@ -23,6 +28,7 @@ $langue['filtreChoisirPrix']    = 'Choisir la plage de prix';
 $langue['filtreAnneeDebut']     = 'Début';
 $langue['filtreAnneeFin']       = 'Fin';
 $langue['filtreChoisirKm']      = 'Choisir le kilométrage';
+
 $langue['filtreEssence']        = 'Essence';
 $langue['filtreDiesel']         = 'Diesel';
 $langue['filtreManuel']         = 'Manuel';

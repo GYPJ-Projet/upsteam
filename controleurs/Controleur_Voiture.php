@@ -46,7 +46,8 @@
 
 			$donnees["toutesMarquesDispo"]      = $modeleToutMarqueDispo->obtenirToutDisponible();
 			$donnees["propulsion"]              = $modelePropulsion->obtenirToutDisponible();
-                  // Si on a reçu une action, on la traite...
+
+            // Si on a reçu une action, on la traite...
 			if (isset($params["action"])) {
 
 				// Switch en fonction de l'action qui est envoyée en paramètre de la requête
@@ -116,24 +117,15 @@
                         break;
 						
 					case "accueil":
-
 					default:
 						// Action par défaut
 
 
 						// On affiche les 12 premieres tuiles
 						$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
+
 						/* $vue = "Accueil";	 */	
 						$this->afficheVue("accueil_debut", $donnees);
-
-						// On affiche les 12 premieres tuiles
-						$donnees["voitures"] = $modeleVoiture->obtenirLeNombreVoulu(0, 12, 'id');
-            
-						
-						/* $vue = "Accueil";	 */	
-
-						$this->afficheVue("accueil_debut", $donnees);
-
 						$this->afficheVue("listeVoitures", $donnees);
 						$this->afficheVue("accueil_fin_section_grille");
 						$this->afficheVue("voirPlus");

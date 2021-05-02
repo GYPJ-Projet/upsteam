@@ -9,10 +9,35 @@ body {
 
 .descriptionVoiture {
     margin-top: var(--margeSection);       /* 50px; */
-/*     display:block;
-    float: left; */
-    width: 100;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    font-family: var(--openSans);
+    font-size:   var(--police_taille_texte);
+    font-weight: var(--police_poid_normal);
 }
+
+.divColonne {
+ /*    display:block; */
+    float: left;
+   
+}
+
+.clearFloat::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.ulListeDescription {
+    margin-top: var(--margeSousSection);       /* 25px; */
+    list-style-image: url('../../images/symolePlusGrandQue.svg');
+}
+
+.ilListeDescription {
+    margin-top: var(--margeInterieurSection);       /* 25px; */
+}
+
 
 .swiper-container {
     height: 500px;
@@ -37,13 +62,13 @@ body {
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-    color: white;
+    color: var(--blanc);
     opacity: 0;
     transition: opacity .3s ease;
 }
 
 .swiper-container .swiper-pagination-bullet {
-    background-color: white;
+    background-color: var(--blanc);
     opacity: 0;
     transition: opacity .3s ease;
 }
