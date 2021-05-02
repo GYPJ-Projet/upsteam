@@ -130,13 +130,12 @@
 		// Méthode qui sauvegarde une voiture modifiée ou une nouvelle voiture dans la BD.
 		public function sauvegarde(Voiture $uneVoiture) {
 			//est-ce que la voiture que j'essaie de sauvegarder existe déjà (id différent de zéro)
-			Debug::toLog($uneVoiture, "sauvegarder");
 			if($uneVoiture->getId() != 0) {
-				Debug::toLog($uneVoiture, "mise à jour");
+				//Debug::toLog($uneVoiture, "mise à jour");
 				//mise à jour -- UPDATE voiture SET...
 			} else {
 				//ajout d'une nouvelle voiture
-				Debug::toLog($uneVoiture, "Objet");
+				//Debug::toLog($uneVoiture, "Objet");
 				$requete = "INSERT INTO voiture(idModele, idAnnee,kilometrage, dateArivee,
 												prixAchat, prixVente, idMotopropulseur, idTypeCarburant,
 												idCouleur, idTransmission, idTypeCarrosserie, vna, disponibilite ) 
