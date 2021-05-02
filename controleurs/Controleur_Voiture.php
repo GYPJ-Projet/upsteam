@@ -31,7 +31,6 @@
 
    			$modeleToutMarqueDispo          = $this->obtenirDAO("Marque", "obtenirToutMarqueDispo");
 			$modeleToutModeleDispo          = $this->obtenirDAO("Modele", "obtenirToutModeleDispo");
-			$modeleToutCarrosserieDispo     = $this->obtenirDAO("Carrosserie");
 
 			
 			// On prend les données dans la langue qu'il faut afficher.	

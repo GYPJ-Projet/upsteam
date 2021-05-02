@@ -38,6 +38,7 @@
             try {
 				Debug::toLog($id, "function obtenirParId() ");
 				$stmt = $this->db->query("SELECT voiture.*, 
+					marque.id AS idMarque,
 					modele.nom AS nomModele, 
 					marque.nom AS nomMarque, 
 					annee.annee AS annee, 
@@ -130,20 +131,21 @@
 		public function sauvegarde(Voiture $uneVoiture) {
 			//est-ce que la voiture que j'essaie de sauvegarder existe déjà (id différent de zéro)
 			if($uneVoiture->getId() != 0) {
+				//Debug::toLog($uneVoiture, "mise à jour");
 				//mise à jour -- UPDATE voiture SET...
 			} else {
 				//ajout d'une nouvelle voiture
-				$requete = "INSERT INTO voiture(idModele, idAnnee,kilometrage, photos, dateArrivee,
+				//Debug::toLog($uneVoiture, "Objet");
+				$requete = "INSERT INTO voiture(idModele, idAnnee,kilometrage, dateArivee,
 												prixAchat, prixVente, idMotopropulseur, idTypeCarburant,
-												idCouleur, idTransmission, idTypeCarrosserie ) 
+												idCouleur, idTransmission, idTypeCarrosserie, vna, disponibilite ) 
 							VALUES (:idModele, :idAnnee, :kilometrage, :photos, :dateArrivee,
 									:prixAchat, :prixVente, :idMotopropulseur, :idTypeCarburant, 
-									:idCouleur, :idTransmission, :idTypeCarrosserie)";
+									:idCouleur, :idTransmission, :idTypeCarrosserie, :vna, :disponibilite)";
 				$requetePreparee = $this->db->prepare($requete);
 				$idModele          = $uneVoiture->getIdModele();
 				$idAnnee           = $uneVoiture->getIdAnnee();
 				$kilometrage       = $uneVoiture->getKilometrage();
-				$photos            = $uneVoiture->getPhotos();
 				$dateArrivee       = $uneVoiture->getDateArrivee();
 				$prixAchat         = $uneVoiture->getPrixAchat();
 				$prixVente         = $uneVoiture->getPrixVente();
@@ -151,11 +153,13 @@
 				$idTypeCarburant   = $uneVoiture->getIdTypeCarburant();
 				$idCouleur         = $uneVoiture->getIdCouleur();
 				$idTransmission    = $uneVoiture->getIdTransmission();
-				$idTypeCarrosserie = $uneVoiture->getIdTypeCarrosserie(); 
+				$idTypeCarrosserie = $uneVoiture->getIdTypeCarrosserie();
+				$vna               = $uneVoiture->getVna();
+				$disponibilite     = $uneVoiture->getDisponibilite(); 
+				   
 				$requetePreparee->bindParam(":idModele", $idModele); 
 				$requetePreparee->bindParam(":idAnnee", $idAnnee);
 				$requetePreparee->bindParam(":kilometrage", $kilometrage);
-				$requetePreparee->bindParam(":photos"  , $photos); 
 				$requetePreparee->bindParam(":dateArrivee", $dateArrivee);
 				$requetePreparee->bindParam(":prixAchat", $prixAchat);
 				$requetePreparee->bindParam(":prixVente", $prixVente); 
@@ -164,6 +168,8 @@
 				$requetePreparee->bindParam(":idCouleur", $idCouleur); 
 				$requetePreparee->bindParam(":idTransmission", $idTransmission);
 				$requetePreparee->bindParam(":idTypeCarrosserie", $idTypeCarrosserie);
+				$requetePreparee->bindParam(":vna", $vna);
+				$requetePreparee->bindParam(":disponibilite", $disponibilite);
 				$requetePreparee->execute();
 			}
 		}
