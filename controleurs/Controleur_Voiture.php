@@ -30,10 +30,7 @@
 			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
 
    			$modeleToutMarqueDispo          = $this->obtenirDAO("Marque");
-	/* 		$modeleToutModeleDispo          = $this->obtenirDAO("Modele");
-			$modeleToutCarrosserieDispo     = $this->obtenirDAO("Carrosserie"); */
-
-			
+				
 			// On prend les données dans la langue qu'il faut afficher.	
 			$donnees["typeCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
 			$donnees["couleur"]         = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
@@ -108,6 +105,18 @@
 
                         }
                         break;	
+                    
+                    case "chercher":
+                        if( isset($params["critere"])){
+                            Debug::toLog($params["critere"]);
+                            $donnees["voitures"] = $modeleVoiture->obtenirVoitureChercher($params["critere"]);
+                            $this->afficheVue("accueil_debut", $donnees);
+                            $this->afficheVue("listeVoitures", $donnees);
+                            $this->afficheVue("accueil_fin_section_grille");
+                            $this->afficheVue("voirPlus");
+                            $this->afficheVue("accueil_fin");
+                        }
+                        break;
 						
 					case "accueil":
 					default:

@@ -6,12 +6,12 @@
     class Annee
     {
         private $id;
-        private $nom;
+        private $annee;
 
-        public function  __construct($id = 0, $nom = "")
+        public function  __construct($id = 0, $annee = "")
         {
             $this->id = $id;
-            $this->nom = $nom;   
+            $this->annee = $annee;   
         }
 
         public function getId()
@@ -19,9 +19,9 @@
             return $this->id;
         }
 
-        public function getNom()
+        public function getAnnee()
         {
-            return $this->nom;
+            return $this->annee;
         }
 
     }

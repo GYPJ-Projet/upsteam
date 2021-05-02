@@ -20,8 +20,13 @@
 			$modeleMarque          = $this->obtenirDAO("Marque");
 			$modeleModele          = $this->obtenirDAO("Modele");
 			$modeleAnnee           = $this->obtenirDAO("Annee");
-			$modeleCouleur         = $this->obtenirDAO("Couleur");
 			$modeleVoiture         = $this->obtenirDAO("Voiture");
+			$modeleMotopropulseur  = $this->obtenirDAO("Motopropulseur");
+			$modeleTypeCarburant   = $this->obtenirDAO("TabLangues", "typecarburant");
+			$modeleCouleur         = $this->obtenirDAO("TabLangues", "couleur"); 
+			$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
+			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
+			//$modeleDescription     = $this->obtenirDAO("TabLangues", "description");
 
 			if (isset($params["action"])) {
 
@@ -64,7 +69,7 @@
 						}
 						break;
 					case "sauvegarderModele":
-						if (isset($params["id"]) && isset($params["nom"]) && isset($params["idMarque"])) {
+						if (isset($params["id"]) && isset($params["nom"]) && isset($params["idMarque"]) && isset($params["page"])) {
 							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
 							else $params["disponibilite"] = 0;
 							$nouvelleModele = new Modele($params["id"], $params["nom"], $params["idMarque"], $params["disponibilite"]);
@@ -77,6 +82,16 @@
 							$this->afficheVue("formulaireMarque", $donnees);
 						}
 						break;
+					case "afficherFormulaireCouleur":
+						// Si le parametres id est existe, on affiche le formulaire pour la modification
+						if (isset($params["id"])) {
+							$donnees["couleurs"] = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
+							$this->afficheVue("formulaireCouleur", $donnees);
+						} else { // Sinon, on affiche le formulaire pour l'ajout
+							$donnees["marques"] = $modeleMarque->obtenirTousDisponible();
+							$this->afficheVue("formulaireModele", $donnees);
+						}
+						break;
 					case "afficherFormulaireVoiture":
 						// Obtenir toutes les marques
 						$donnees["marques"] = $modeleMarque->obtenirTousDisponible();
@@ -84,6 +99,18 @@
 						$donnees["modeles"] = $modeleModele->obtenirTousDisponible();
 						// Obtenir toutes les années
 						$donnees["annees"] = $modeleAnnee->obtenirTousDisponible();
+						// Obtenir toutes les motopropulseur
+						$donnees["motopropulseurs"] = $modeleMotopropulseur->obtenirTousDisponible();
+						// Obtenir toutes les types de carburant
+						$donnees["typesCarburant"] = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
+						// Obtenir toutes les couleurs
+						$donnees["couleurs"]         = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
+						// Obtenir toutes les types de transmission
+						$donnees["transmissions"]    = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
+						// Obtenir toutes les types de carrosserie
+						$donnees["typesCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);
+						// Obtenir toutes les types de carrosserie
+						//$donnees["descriptions"] = $this->creerTabLangue($modeleDescription->obtenirTousDisponible(), $idLangue);
 
 						// Si le parametres id est existe, on affiche le formulaire pour la modification
 						if (isset($params["id"])) {
@@ -91,6 +118,28 @@
 							$donnees["voiture"] = $modeleVoiture->obtenirParId($params["id"]);	
 						} 
 						$this->afficheVue("formulaireVoiture", $donnees);
+						break;
+					case "sauvegarderVoiture":
+						if (isset($params["id"])  && isset($params["idModele"]) && isset($params["idAnnee"]) && isset($params["kilometrage"])
+							&& isset($params["dateArrivee"]) && isset($params["prixAchat"]) && isset($params["prixVente"]) 
+							&& isset($params["idMotopropulseur"]) && isset($params["idTypeCarburant"]) && isset($params["idCouleur"])
+							&& isset($params["idTransmission"]) && isset($params["idTypeCarrosserie"]) && isset($params["vna"])
+							&& isset($params["page"])) {
+							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
+							else $params["disponibilite"] = 0;
+							
+							$nouvelleVoiture = new Voiture($params["id"], $params["idModele"], $params["idAnnee"], $params["kilometrage"],
+							$params["dateArrivee"], $params["prixAchat"], $params["prixVente"], $params["idMotopropulseur"], 
+							$params["idTypeCarburant"], $params["idCouleur"], $params["idTransmission"], $params["idTypeCarrosserie"],
+							$params["vna"], $params["disponibilite"]);
+								
+							$reponse = $modeleVoiture->sauvegarde($nouvelleVoiture);
+								
+							header("Location: index.php?GestionDonnees&action=gestionVoiture" . $params["page"]);
+									
+						} else { // Sinon, on affiche le formulaire pour l'ajout
+							$this->afficheVue("formulaireVoiture", $donnees);
+						}
 						break;
 				}			
 			} else {
