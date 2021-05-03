@@ -5,54 +5,64 @@
         public function getNomControleur() {
 			return "Usager";
 		}
+		
+
 
         public function traite(array $params) {
             $donnees = array();
             $vue = "";
 
+            // On charge les fichiers de langue selon la langue choisi par l'usager.
+            $donnees["langue"] = $this->chargerLangue($params);
+
+            $idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
+
             if (isset($params["action"])) {
-                 $action = $params["action"]; 
+                $action = $params["action"]; 
             } else {
                  //action par défaut
                 $action = "login";
             }
 
-            // On charge les fichiers de langue selon la langue choisi par l'usager.
-            $donnees["langue"] = $this->chargerLangue($params);
-
-            $this->afficheVue("tete");
-			$this->afficheVue("entete", $donnees);
-            $this->afficheVue("menu", $donnees);
-			
             //détermine la vue, remplir le modèle approprié
             switch($action) {
-                case "login":
+                case "connexion":
                     //faire afficher le formulaire de login
                     $donnees["erreurs"] = "";
-                    $this->afficheVue("formulaireLogin",  $donnees);
+                    
+                    $this->affiche($donnees);
+
                     break;
                 case "authentifier":
                     // On valide l'authentification de l'usager 
-                    if (isset($params["usager"], $params["pass"])) {
+                    if (isset($params["courriel"], $params["motPasse"])) {
+
                         $modeleUsager = $this->obtenirDAO("Usager");
-                        
-                        $idUsager = $modeleUsager->authentification($params["usager"], $params["pass"]);
+
+                        $unUsager = $modeleUsager->authentification($params["courriel"]);
 
                         // Si son authentification est valide 
-                        if ($idUsager > 0) {
-                            // On sauvegarde l'instance de l'usager courant dans la variable de session usager
-                            $_SESSION["usager"] =& $modeleUsager->obtenirParId($idUsager);
-                         
-                            // On affiche les voitures
-                            header("Location: index.php?Voitures");  
-                        } else {
+                        if ($unUsager !== false) {
+                            if($unUsager->getMotPasse() === $params["motPasse"]){
+                                $_SESSION["usager"] = $unUsager;
+                            header("Location: index.php");
+
+                            }else{
+                                $donnees["erreurs"] = "Combinaison nom d'usager / mot de passe invalide.";  // L'authentification n'est pas bonne 
+                                $this->affiche($donnees);
+                            }
+                        }else{
                             $donnees["erreurs"] = "Combinaison nom d'usager / mot de passe invalide.";  // L'authentification n'est pas bonne 
-                            // On recommence la connexion de l'usager. 
-                            $this->afficheVue("formulaireLogin", $donnees);                  
+                            $this->affiche($donnees);                  
                         }
+
+                    } else {
+                        $donnees["erreurs"] = "Combinaison nom d'usager / mot de passe invalide.";  // L'authentification n'est pas bonne 
+                        // On recommence la connexion de l'usager. 
+                        $this->affiche($donnees);                
                     }
                     break;
-                case "logout":
+                case "deconnexion":
                     // Détruit toutes les variables de session car l'usager quitte la session.
                     $_SESSION = array();
         
@@ -71,10 +81,17 @@
                     session_destroy();
         
                     //redirection vers le formulaire de login
-                    header("Location: index.php?Usager&action=Login");  
+                    header("Location: index.php");  
                     break;
             }
             $this->afficheVue("piedDePage", $donnees);
+        }
+
+        public function affiche($donnees) {
+            $this->afficheVue("tete");
+            $this->afficheVue("entete", $donnees);
+            $this->afficheVue("menu", $donnees);
+            $this->afficheVue("formulaireLogin", $donnees);
         }
     }
 ?>

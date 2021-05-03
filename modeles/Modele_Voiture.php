@@ -36,7 +36,6 @@
 
 		public function obtenirParId($id) {
             try {
-				Debug::toLog($id, "function obtenirParId() ");
 				$stmt = $this->db->query("SELECT voiture.*, 
 					marque.id AS idMarque,
 					modele.nom AS nomModele, 
@@ -131,11 +130,9 @@
 		public function sauvegarde(Voiture $uneVoiture) {
 			//est-ce que la voiture que j'essaie de sauvegarder existe déjà (id différent de zéro)
 			if($uneVoiture->getId() != 0) {
-				//Debug::toLog($uneVoiture, "mise à jour");
 				//mise à jour -- UPDATE voiture SET...
 			} else {
 				//ajout d'une nouvelle voiture
-				//Debug::toLog($uneVoiture, "Objet");
 				$requete = "INSERT INTO voiture(idModele, idAnnee,kilometrage, dateArivee,
 												prixAchat, prixVente, idMotopropulseur, idTypeCarburant,
 												idCouleur, idTransmission, idTypeCarrosserie, disponibilite, vna) 

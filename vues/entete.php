@@ -1,10 +1,10 @@
 <?php 
     $langue = $donnees["langue"];       //Pour affichage des langues
     $actionRecu = '';
+    // Debug::toLog($_SESSION["usager"]);
     if(isset($_GET['action'])){
         $actionRecu = $_GET['action'];
     }
-
 ?>
 
 <header data-js-component="Entete">
@@ -16,7 +16,17 @@
 			<input type="search" class="recherche" placeholder="<?=$langue['entete_recherche']?>" data-js-component="Chercher" data-js-action="<?= $actionRecu ?>">
 		</div>
 		<div class="entete__droit">
-			<a href="index.php?Usager&action=login" class="connexion"><?= $langue['entete_connexion'] ?></a>
+<?php
+            if(isset($_SESSION["usager"])){ 
+?>
+                <a href="index.php?Usager&action=deconnexion" class="connexion"><?= $langue['entete_deconnexion'] ?></a>
+<?php
+            }else{
+?>
+                <a href="index.php?Usager&action=connexion" class="connexion"><?= $langue['entete_connexion'] ?></a>
+<?php
+            }
+?>
 			<div class="entete__langue sourisPointer" data-js-langue="<?= $langue['repertoireLangue'] ?>">
 				<p data-js-codeLangue>
 					<?= $langue['entete_choix_langue'] ?>

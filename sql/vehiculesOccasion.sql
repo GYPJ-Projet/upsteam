@@ -37,7 +37,7 @@ INSERT INTO `role`(`nom`, `permission`) VALUES ('inactif', 'Lecture et Insertion
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `vehicules`.`usager` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `courreil` VARCHAR(45) NOT NULL,
+  `courriel` VARCHAR(45) UNIQUE NOT NULL,
   `motPasse` VARCHAR(255) NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `prenom` VARCHAR(45) NOT NULL,
@@ -69,10 +69,10 @@ CREATE TABLE IF NOT EXISTS `vehicules`.`usager` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `usager`(`courreil`, `motPasse`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `idLangue`, `idRole`) VALUES ('yulia@gmail.com','1234','Merkulova','Yulia','2003-08-26','8480 rue Jean-Brillon','H8N2P6',12,'LaSalle','4384983850','4384983850',1,2);
-INSERT INTO `usager`(`courreil`, `motPasse`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `idLangue`, `idRole`) VALUES ('jean@gmail.com','1234','Senneville','Jean','1990-04-15','111 rue Lafontaine','H1N4K7',12,'Montréal','5145555555','5145555555',1,2);
-INSERT INTO `usager`(`courreil`, `motPasse`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `idLangue`, `idRole`) VALUES ('gloria@gmail.com','1234','Kiese','Cloria','2000-01-01','111 rue Lafontaine','H1N5T2',12,'Montreal','5145555555','5145555555',1,1);
-INSERT INTO `usager`(`courreil`, `motPasse`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `idLangue`, `idRole`) VALUES ('phil@gmail.com','1234','Houle','Philippe','2024-12-12','72 Latour','j3n1l1',12,'Saint-Basile-le-Grand','5145555555','5145555555',1,3);
+INSERT INTO `usager`(`courriel`, `motPasse`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `idLangue`, `idRole`) VALUES ('yulia@gmail.com','1234','Merkulova','Yulia','2003-08-26','8480 rue Jean-Brillon','H8N2P6',12,'LaSalle','4384983850','4384983850',1,2);
+INSERT INTO `usager`(`courriel`, `motPasse`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `idLangue`, `idRole`) VALUES ('jean@gmail.com','1234','Senneville','Jean','1990-04-15','111 rue Lafontaine','H1N4K7',12,'Montréal','5145555555','5145555555',1,2);
+INSERT INTO `usager`(`courriel`, `motPasse`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `idLangue`, `idRole`) VALUES ('gloria@gmail.com','1234','Kiese','Cloria','2000-01-01','111 rue Lafontaine','H1N5T2',12,'Montreal','5145555555','5145555555',1,1);
+INSERT INTO `usager`(`courriel`, `motPasse`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `idProvince`, `ville`, `telephone`, `telephoneCellulaire`, `idLangue`, `idRole`) VALUES ('phil@gmail.com','1234','Houle','Philippe','2024-12-12','72 Latour','j3n1l1',12,'Saint-Basile-le-Grand','5145555555','5145555555',1,3);
 
 -- -----------------------------------------------------
 -- Table `vehicules`.`pays`
