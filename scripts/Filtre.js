@@ -38,7 +38,7 @@ class Filtre{
         this.populationModele();
         this.clickModelesSelectionnes();
         this.gestionFiltre();
-        this.viderFiltre();
+        //this.viderFiltre();
 
         this._iconeFiltre.addEventListener('click', this.boutonBurger);             //Gestion du clique de l'icone
     }
