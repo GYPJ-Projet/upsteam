@@ -108,7 +108,6 @@
                     
                     case "chercher":
                         if( isset($params["critere"])){
-                            Debug::toLog($params["critere"]);
                             $donnees["voitures"] = $modeleVoiture->obtenirVoitureChercher($params["critere"]);
                             $this->afficheVue("accueil_debut", $donnees);
                             $this->afficheVue("listeVoitures", $donnees);

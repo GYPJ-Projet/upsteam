@@ -15,10 +15,17 @@ class MenuConteneur{
         this.displayWindowSize();
 
         this._menuAcceuil.addEventListener('click', this.menuAcceuil);                      //Les eventslisteners du menu
-        this._menuMonProfil.addEventListener('click', this.menuMonProfil);
-        this._menuGestionDonnees.addEventListener('click', this.menuGestionDonnees);
-        this._menuGestionEmployes.addEventListener('click', this.menuGestionEmployes);
-        this._menuGestionCommandes.addEventListener('click', this.menuGestionCommandes);
+        if (this._menuMonProfil != null)
+            this._menuMonProfil.addEventListener('click', this.menuMonProfil);
+        
+        if (this._menuGestionDonnees != null)
+            this._menuGestionDonnees.addEventListener('click', this.menuGestionDonnees);
+        
+        if (this._menuGestionEmployes != null)
+            this._menuGestionEmployes.addEventListener('click', this.menuGestionEmployes);
+        
+        if (this._menuGestionCommandes != null)
+            this._menuGestionCommandes.addEventListener('click', this.menuGestionCommandes);
 
         this._iconeBurger.addEventListener('click', this.boutonBurger);             //Gestion du clique de l'icone
 
