@@ -63,7 +63,7 @@
 }
 
 
-/* @media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) {
     .voiture {
         width: var(--minLargeurGrille2);
     }
@@ -72,7 +72,7 @@
         width: var(--minLargeurGrille2) - var(--paddingVoiture);
     }
 }
- */
+ 
 @media screen and (max-width: 1024px) {
     .voiture {
         width: var(--minLargeurGrille2);
