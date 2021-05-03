@@ -79,7 +79,7 @@
 							header("Location: index.php?GestionDonnees&action=gestionModele");
 								
 						} else { // Sinon, on affiche le formulaire pour l'ajout
-							$this->afficheVue("formulaireMarque", $donnees);
+							$this->afficheVue("formulaireModele", $donnees);
 						}
 						break;
 					case "afficherFormulaireCouleur":
