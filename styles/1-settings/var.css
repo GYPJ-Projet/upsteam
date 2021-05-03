@@ -35,7 +35,7 @@
     
     /* Les padding */
     --paddingMenu: 1.953125vw;                  /* 25px */
-    --paddingTuile: 2.5vw;                      /* 32px */
+    --paddingTuile: 1.5vw;                      /* 32px */
     --paddingVoiture: 1.953125vw;               /* 25px */
     --paddingFiltreListe: 0.866vw;              /* 15px */
 
@@ -44,5 +44,5 @@
     --bordureInterne: 0.078125vw;               /* 1px */
 
     /* Voiture */
-    --minLargeurGrille2:240px                   /* 240px */
+    --minLargeurGrille2:255px                   /* 255px */
 }
