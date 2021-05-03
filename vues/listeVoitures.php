@@ -7,7 +7,7 @@
 		$altImage = $tableauLienImage[Count($tableauLienImage)-1];
 ?>
 		<article class="grille__item voiture" data-js-voiture="<?=$voiture["id"] ?>"  data-js-component="Voiture">
-			<h2><?=$voiture["nomMarque"] ?> <?=$voiture["nomModele"] ?> <?=$voiture["annee"] ?></h2>
+			<h2><?=$voiture["nomMarque"] ?> <?=$voiture["nomModele"] ?><br><?=$voiture["annee"] ?></h2>
 		    <img src="<?=$voiture["lienPhotoPrincipale"] ?>" alt="<?= $altImage ?>" class="gallery__image">
 			<div><span><?= $langue["kilometrage"] ?>:</span> <span class="valeur"><?= $voiture["kilometrage"]?> km</span></div>
 <!-- 			<div><span>< ?= $langue["transmission"] ?>:</span> <span class="valeur">< ?= $donnees["transmission"][$voiture["idTransmission"]]?></span></div>
