@@ -65,11 +65,11 @@
 
 @media screen and (min-width: 1025px) {
     .voiture {
-        width: var(--minLargeurGrille2);
+        width: 365px;
     }
 
     .voiture > img {
-        width: var(--minLargeurGrille2) - var(--paddingVoiture);
+        width: 365px - var(--paddingVoiture);
     }
 }
  
