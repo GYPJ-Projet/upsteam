@@ -1,5 +1,4 @@
 <?php
-    var_dump($donnees["annees"]);
     $langue = $donnees["langue"];
     if ($donnees["voiture"]) $voiture = $donnees["voiture"];
 ?>
