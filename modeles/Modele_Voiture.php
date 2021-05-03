@@ -86,7 +86,7 @@
 											JOIN marque ON marque.id = modele.idMarque  
 											JOIN annee ON annee.id = voiture.idAnnee 
 											JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
-											JOIN image ON image.idVoiture = voiture.id AND image.sort = 0 
+											JOIN image ON image.idVoiture = voiture.id  
 											ORDER BY " . $tri .  " " . $ordre .  "
 											LIMIT " . $indexDepart . ", " . $nombreVoulu
 										);		
@@ -138,10 +138,10 @@
 				//Debug::toLog($uneVoiture, "Objet");
 				$requete = "INSERT INTO voiture(idModele, idAnnee,kilometrage, dateArivee,
 												prixAchat, prixVente, idMotopropulseur, idTypeCarburant,
-												idCouleur, idTransmission, idTypeCarrosserie, vna, disponibilite ) 
-							VALUES (:idModele, :idAnnee, :kilometrage, :photos, :dateArrivee,
+												idCouleur, idTransmission, idTypeCarrosserie, disponibilite, vna) 
+							VALUES (:idModele, :idAnnee, :kilometrage, :dateArrivee,
 									:prixAchat, :prixVente, :idMotopropulseur, :idTypeCarburant, 
-									:idCouleur, :idTransmission, :idTypeCarrosserie, :vna, :disponibilite)";
+									:idCouleur, :idTransmission, :idTypeCarrosserie, :vna)";
 				$requetePreparee = $this->db->prepare($requete);
 				$idModele          = $uneVoiture->getIdModele();
 				$idAnnee           = $uneVoiture->getIdAnnee();
@@ -155,7 +155,6 @@
 				$idTransmission    = $uneVoiture->getIdTransmission();
 				$idTypeCarrosserie = $uneVoiture->getIdTypeCarrosserie();
 				$vna               = $uneVoiture->getVna();
-				$disponibilite     = $uneVoiture->getDisponibilite(); 
 				   
 				$requetePreparee->bindParam(":idModele", $idModele); 
 				$requetePreparee->bindParam(":idAnnee", $idAnnee);
@@ -169,7 +168,6 @@
 				$requetePreparee->bindParam(":idTransmission", $idTransmission);
 				$requetePreparee->bindParam(":idTypeCarrosserie", $idTypeCarrosserie);
 				$requetePreparee->bindParam(":vna", $vna);
-				$requetePreparee->bindParam(":disponibilite", $disponibilite);
 				$requetePreparee->execute();
 			}
 		}

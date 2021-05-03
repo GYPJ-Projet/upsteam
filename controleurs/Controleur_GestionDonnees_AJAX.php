@@ -131,7 +131,7 @@
 							$nouvelleVoiture = new Voiture($params["id"], $params["idModele"], $params["idAnnee"], $params["kilometrage"],
 							$params["dateArrivee"], $params["prixAchat"], $params["prixVente"], $params["idMotopropulseur"], 
 							$params["idTypeCarburant"], $params["idCouleur"], $params["idTransmission"], $params["idTypeCarrosserie"],
-							$params["vna"], $params["disponibilite"]);
+							$params["disponibilite"], $params["vna"]);
 								
 							$reponse = $modeleVoiture->sauvegarde($nouvelleVoiture);
 								
