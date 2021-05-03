@@ -4,7 +4,7 @@
 ?>
 
 <h2><?= (isset($modele)) ? $langue["formulaire_modif_modele"] : $langue["formulaire_ajout_modele"] ?></h2>
-<form class="formulaire" action="index.php?GestionDonnees_AJAX&action=sauvegarderModele" method="post">
+<form class="formulaire" action="index.php?GestionDonnees_AJAX&action=sauvegarderModele<?= (isset($_GET["page"])) ? "&page=" . $_GET["page"] : "" ?>" method="post">
     <label for="nom"><?= $langue["nom_modele"] ?> : </label>
     <input type="text" name="nom" id="nom" value="<?= (isset($modele)) ? $modele->getNom() : "" ?>" required/><br/>
     <label for="marque"><?= $langue["nom_marque"] ?> : </label>
@@ -13,7 +13,7 @@
 <?php
         foreach ($donnees["marques"] as $marque) {
 ?>         
-            <option value="<?= $marque->getId() ?>" <?= (isset($modele) && $marque->getId() == $modele->getIdMarque()) ? "selected" : "" ?>>
+            <option value="<?= $marque->getId() ?>" <?= (isset($modele) && $modele->getIdMarque() == $marque->getId()) ? "selected" : "" ?>>
                 <?= $marque->getNom() ?>
             </option>      
 <?php
