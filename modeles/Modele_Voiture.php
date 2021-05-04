@@ -36,7 +36,6 @@
 
 		public function obtenirParId($id) {
             try {
-				Debug::toLog($id, "function obtenirParId() ");
 				$stmt = $this->db->query("SELECT voiture.*, 
 					marque.id AS idMarque,
 					modele.nom AS nomModele, 

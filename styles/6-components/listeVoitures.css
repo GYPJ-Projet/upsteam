@@ -3,8 +3,10 @@
 } */
 
 .bodyConteneur > main {
-    min-width: var(--iPhone);
-    max-width: var(--iPad);
+       /* min-width: var(--iPhone);  */
+   /*  max-width: var(--iPad); */
+    /* width: calc(100% -; */
+    flex-basis: auto;
     margin-left: var(--paddingTuile);
 }
 
@@ -17,26 +19,26 @@
 .grille--1 {
     column-gap: var(--paddingTuile);
     grid-template-columns: repeat(1, 1fr);
-    grid-row-gap: var(--paddingTuile);
+    row-gap: var(--paddingTuile);
 }
 
 .grille--2 {
     column-gap: var(--paddingTuile);
     grid-template-columns: repeat(2, 1fr);
-    grid-row-gap: var(--paddingTuile);
+    row-gap: var(--paddingTuile);
 }
 
 .grille--3 {
     column-gap: var(--paddingTuile);
     grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: var(--paddingTuile);
+    row-gap: var(--paddingTuile);
 }
 
 
 .grille--4 {
     column-gap: var(--paddingTuile);
     grid-template-columns: repeat(4, 1fr);
-    grid-row-gap: var(--paddingTuile);
+    row-gap: var(--paddingTuile);
 }
 
 
@@ -84,23 +86,23 @@
 }
 
 
-@media screen and (min-width: 1025px){
-    .bodyConteneur > main {
-        margin-left: 0;
-    }  
+/* @media screen and (min-width: 1025px){
+/*     .bodyConteneur > main {
+       margin-left: 0;
+    }  * / 
 }
 
 
 @media screen and (max-width: 1024px) {
-    .bodyConteneur > main {
-        margin-left: 0;
-    }  
-}
+ / *    .bodyConteneur > main {
+         margin-left: 0;
+    }   * / 
+} */
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 884px) {
     .bodyConteneur > main {
         margin-left: var(--paddingTuile);
-        flex-basis: 15%;
+        flex-basis:  15%;
     }
 }
 
