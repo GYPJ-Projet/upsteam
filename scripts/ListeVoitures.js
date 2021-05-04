@@ -26,33 +26,16 @@ class ListeVoitures {
         console.log(window.innerWidth);
         console.log(iPhone);
 
-        console.log(this._elConteneur.clientWidth);
-        console.log(this._elAside.clientWidth);
-        console.log(getComputedStyle(this._elAside).marginLeft);
-
         // On prend la largeur du padding de l'élément "aside" calculé par le browser
         var largeurPaddingTuile = parseInt(getComputedStyle(this._elAside).marginLeft);
 
-        console.log("** largeurTuile ** :");
-        console.log(largeurTuile);
-        console.log(largeurPaddingTuile);
-        console.log(((largeurTuile*2) + largeurPaddingTuile + 8 + 10));
-        console.log(((largeurTuile*3) + (2*largeurPaddingTuile) + 12 + 10));
-        console.log(((largeurTuile*4) + (3*largeurPaddingTuile) + 16 + 10));
-
-
         // On calcule la largeur du conteneur des tuiles de voitures, soit de l'element "main"
         var largeurConteneurVoiture = this._elConteneur.clientWidth - this._elAside.clientWidth - (largeurPaddingTuile * 2) - 8; 
-
-        console.log("# largeurConteneurVoiture #:");
-        console.log(largeurConteneurVoiture); 
 
         // Si le conteneur peut contenir seulement une tuile dans l'écran 'un iPhone  
         if (largeurConteneurVoiture <= (iPhone + (largeurTuile-100)-1)) {
             // On retire la classe grille--? qui existe
             this.effacerClasseGrille(this._elGrille);
-
-            console.log("class ListeVoitures - function displayWindowSize - add grille--1");
 
             // On ajoute la classe avec une seul colonne 
             this._elGrille.classList.add('grille--1');
@@ -62,9 +45,7 @@ class ListeVoitures {
         } else if (largeurConteneurVoiture > largeurTuile && largeurConteneurVoiture <= ((largeurTuile*2) + largeurPaddingTuile) && largeurConteneurVoiture <= iPad) {
             this.effacerClasseGrille(this._elGrille);
            
-            console.log("class ListeVoitures - function displayWindowSize - add grille-1-1");
-
-             // On ajoute la classe avec deux colonne 
+            // On ajoute la classe avec deux colonne 
             this._elGrille.classList.add('grille--1');
 
 
@@ -73,10 +54,8 @@ class ListeVoitures {
             // On retire la classe grille--? qui existe
             this.effacerClasseGrille(this._elGrille);
 
-            console.log("class ListeVoitures - function displayWindowSize - add grille--4");
-
             // On ajoute la classe avec deux colonne 
-           this._elGrille.classList.add('grille--4');
+            this._elGrille.classList.add('grille--4');
 
 
         // Si le conteneur peut contenir 3 tuiles OU que le conteneur est plus grand que l'écran d'un iPad ET
@@ -85,8 +64,6 @@ class ListeVoitures {
                     largeurConteneurVoiture > iPad) && largeurConteneurVoiture <= iPadPro) {
             // On retire la classe grille--? qui existe
             this.effacerClasseGrille(this._elGrille);
-
-            console.log("class ListeVoitures - function displayWindowSize - add grille--3");
 
             // On ajoute la classe avec deux colonne 
             this._elGrille.classList.add('grille--3');
@@ -97,8 +74,6 @@ class ListeVoitures {
                    largeurConteneurVoiture <= iPad) {
             // On retire la classe grille--? qui existe
             this.effacerClasseGrille(this._elGrille);
-
-            console.log("class ListeVoitures - function displayWindowSize - add grille--2");
 
              // On ajoute la classe avec deux colonne 
             this._elGrille.classList.add('grille--2');     
