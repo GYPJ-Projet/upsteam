@@ -8,46 +8,46 @@
     class Usager
     {
         private $id;
-        private $nomUsager;
-        private $motDePasse;
+        private $courriel;
+        private $motPasse;
         private $nom;
         private $prenom;
         private $dateNaissance;
         private $adresse;
         private $codePostal;
         private $ville;
+        private $idProvince;
         private $telephone;
         private $telephoneCellulaire;
-        private $courriel;
         private $idLangue;
         private $idRole;
-        private $disponibilite;
-        private $nomLangue;
+        private $token;
+        private $code;
 
         public function  __construct(
-                                    $id = 0, $nomUsager = "", $motDePasse = "",
+                                    $id = 0, $motPasse = "", $courriel = "",
                                     $nom = "", $prenom = "", $dateNaissance = 0, 
                                     $adresse  = "", $codePostal = "", $ville = "", 
-                                    $telephone = "", $telephoneCellulaire = "", $courriel = "",
-                                    $idLangue = 0, $idRole = 0, $disponibilite = 1, $nomLangue = "")
+                                    $telephone = "", $telephoneCellulaire = "",
+                                    $idLangue = 0, $idRole = 0, $idProvince ="",
+                                    $token = "", $code = "")
         {
             $this->id = $id;
-            $this->nomUsager = $nomUsager;
-            $this->motDePasse = $motDePasse;
+            $this->courriel = $courriel;
+            $this->motPasse = $motPasse;
             $this->nom = $nom;
             $this->prenom = $prenom;
             $this->dateNaissance = $dateNaissance;
             $this->adresse = $adresse;
             $this->codePostal = $codePostal;
             $this->ville = $ville;
+            $this->idProvince = $idProvince;
             $this->telephone = $telephone;
             $this->telephoneCellulaire = $telephoneCellulaire;
-            $this->courriel = $courriel;
-            $this->idUsager = $idUsager;
             $this->idLangue = $idLangue;
             $this->idRole = $idRole;
-            $this->disponibilite = $disponibilite;
-            $this->nomLangue = $nomLangue;
+            $this->token = $token;
+            $this->code = $code;
             
         }
 
@@ -57,14 +57,13 @@
             return $this->id;
         }
 
-        public function getNomUsager()
-        {
-            return $this->nomUsager;
+        public function getCourriel() {
+            return $this->courriel;
         }
 
-        public function getMotDePasse()
+        public function getMotPasse()
         {
-            return $this->motDePasse;
+            return $this->motPasse;
         }
         public function getNom() {
             return $this->nom;
@@ -75,7 +74,7 @@
         }
 
         public function getDateNaissance() {
-            return $this->kilometrage;
+            return $this->dateNaissance;
         }
  
         public function getAdresse() {
@@ -90,20 +89,16 @@
             return $this->ville;
         }
 
+        public function getIdProvince() {
+            return $this->idProvince;
+        }
+
         public function getTelephone() {
             return $this->telephone;
         }
 
         public function getTelephoneCellulaire() {
             return $this->telephoneCellulaire;
-        }
-
-        public function getCourriel() {
-            return $this->courriel;
-        }
-
-        public function getIdUsager() {
-            return $this->idUsager;
         }
 
         public function getIdLangue() {
@@ -115,13 +110,12 @@
             return $this->idRole;
         }
 
-        public function getDisponibilite() {
-            return $this->disponibilite;
+        public function getToken() {
+            return $this->token;
         }
 
-        public function getNomLangue() {
-            return $this->nomLangue;
+        public function getCode() {
+            return $this->code;
         }
     }
-
 ?>

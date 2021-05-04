@@ -130,11 +130,9 @@
 		public function sauvegarde(Voiture $uneVoiture) {
 			//est-ce que la voiture que j'essaie de sauvegarder existe déjà (id différent de zéro)
 			if($uneVoiture->getId() != 0) {
-				//Debug::toLog($uneVoiture, "mise à jour");
 				//mise à jour -- UPDATE voiture SET...
 			} else {
 				//ajout d'une nouvelle voiture
-				//Debug::toLog($uneVoiture, "Objet");
 				$requete = "INSERT INTO voiture(idModele, idAnnee,kilometrage, dateArivee,
 												prixAchat, prixVente, idMotopropulseur, idTypeCarburant,
 												idCouleur, idTransmission, idTypeCarrosserie, disponibilite, vna) 

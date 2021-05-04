@@ -23,8 +23,6 @@ class ListeVoitures {
     // Calcule très difficiles, mais cela fonctionne bien pour le responsive de la 
     // grosseur de l'écran.
     displayWindowSize = () =>{
-        console.log(window.innerWidth);
-        console.log(iPhone);
 
         // On prend la largeur du padding de l'élément "aside" calculé par le browser
         var largeurPaddingTuile = parseInt(getComputedStyle(this._elAside).marginLeft);
@@ -35,12 +33,13 @@ class ListeVoitures {
         // Si le conteneur peut contenir seulement une tuile dans l'écran 'un iPhone  
         if (largeurConteneurVoiture <= (iPhone + (largeurTuile-100)-1)) {
             // On retire la classe grille--? qui existe
-            this.effacerClasseGrille(this._elGrille);
 
+            this.effacerClasseGrille(this._elGrille);
+            
             // On ajoute la classe avec une seul colonne 
             this._elGrille.classList.add('grille--1');
 
-
+          
         // Si le conteneur peut contenir seulement une tuile sans pouvoir en contenir 2 tuiles  ET que le conteneur entre dans l'écran d'un iPad
         } else if (largeurConteneurVoiture > largeurTuile && largeurConteneurVoiture <= ((largeurTuile*2) + largeurPaddingTuile) && largeurConteneurVoiture <= iPad) {
             this.effacerClasseGrille(this._elGrille);
@@ -52,6 +51,7 @@ class ListeVoitures {
         // Si le conteneur peut contenir 4 tuiles OU que le conteneur est plus grand que l'écran d'un iPadPro            
         } else if (largeurConteneurVoiture > ((largeurTuile*4) + (3*largeurPaddingTuile) + 26) || (largeurConteneurVoiture > iPadPro)) {
             // On retire la classe grille--? qui existe
+
             this.effacerClasseGrille(this._elGrille);
 
             // On ajoute la classe avec deux colonne 
