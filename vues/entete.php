@@ -23,7 +23,7 @@
 				</p>
 			</div>
 			<a href="index.php?Voiture&action=afficherPanier" class="entete__panierAchat vide" data-js-panier>
-				<span class="itemPanier" data-js-nombre-item></span>
+				<span class="itemPanier" data-js-nombre-voiture></span>
 				<svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" class="entete__panier">
 					<g transform="translate(0.000000,160.000000) scale(0.100000,-0.100000)">
 						<path class="entete__panier__path" d="M14 1235 c-15 -38 2 -45 100 -45 l95 0 132 -402 c72 -222 136 -409 142 -416 7 -9 108 -12 466 -10 l456 3 0 25 0 25 -440 5 -439 5 -136 410 -135 410 -118 3 c-98 2 -118 0 -123 -13z"/>
