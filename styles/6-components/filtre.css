@@ -108,22 +108,22 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
+/* pour la gestion du responsive avec les tuiles de voitues */
 @media screen and (min-width: 1025px){
     .filtreConteneur {
-        margin-left: var(--margeSection);
-        margin-right: var(--margeSection);
+        margin-left: var(--paddingTuile);
+        margin-right: 0; /* var(--margeSousSection);*/
     }  
 }
-
 
 @media screen and (max-width: 1024px) {
     .filtreConteneur {
-        margin-left: var(--margeSection);
-        margin-right: var(--margeSection);
+        margin-left: var(--paddingTuile);
+        margin-right: 0;/* var(--margeSousSection); */
     }  
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 884px) {
 
     .filtreConteneur {
         margin-left: var(--paddingTuile);
