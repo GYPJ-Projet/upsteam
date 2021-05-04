@@ -1,20 +1,24 @@
 class Entete{
     constructor(el){
-        this._el =  el;                                                            
+        this._el =  el;  
+        /* Gestion Langue*/                                                          
         this._elCodeLangue = this._el.querySelector('[data-js-codeLangue]');
         this._elLangue = this._el.querySelector('[data-js-langue]');
-        this._elNbrItem = this._el.querySelector('[data-js-nombre-item]');
-        this._elPanier = this._el.querySelector('[data-js-panier]');
         this._elControleur = document.querySelector('[data-js-controleur]');
         this._elControleurAction = document.querySelector('[data-js-controleur-action]');
+        
+       /* Panier */
+       this._panier = document.querySelector('[data-js-panier]');
+       this._nbrVoiture = document.querySelector('[data-js-nombre-voiture]'); 
         
         this.init();
     }
 
     init = ()=> {
         
-        this._elCodeLangue.addEventListener('click', this.changerLangue);  
-        this._elPanier.addEventListener('click', this.gestionPanier);           
+        this._elCodeLangue.addEventListener('click', this.changerLangue); 
+
+        this.verifierPanier();             
     }
 
     // Le chargement de la page dans la langue choisie
@@ -27,12 +31,12 @@ class Entete{
         
     }
 
-    gestionPanier = () => {
-        /*if (localStorage.getItem('itemNumber')) {
-            if (this._elCart.classList.contains('empty')) { 
-                this._elCart.classList.replace('empty', 'fill');
-                this._elItemNumber.textContent = parseInt(sessionStorage.getItem('itemNumber'));
+    verifierPanier = () => {
+        if (localStorage.getItem('nombreVoiture')) {
+            if (this._panier.classList.contains('vide')) { 
+                this._panier.classList.replace('vide', 'fill');
+                this._nbrVoiture.textContent = parseInt(localStorage.getItem('nombreVoiture'));
             }
-        }*/
+        }
     }
 }
