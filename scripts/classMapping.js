@@ -11,5 +11,6 @@ const classMapping = {
     'Voiture'               : Voiture,
     'GestionModele'         : GestionModele,
     'Filtre'                : Filtre,
+    'FormulaireConnexion'   : FormulaireConnexion,
     'Chercher'              : Chercher
 };

@@ -54,7 +54,7 @@
                 $requete = "INSERT INTO usager(nomUsager, motPasse, nom, prenom, dateNaissance, 
                                                adresse, codePostal, idVille, telephone, 
                                                telephoneCellulaire, courriel, idLangue,
-                                               idRole, disponibilite)
+                                               idRole)
                              VALUES (:usager, :mdp, :nom, :prenom, :dateNaissance, :adresse, 
                                      :codePostal, :idVille, :telephone, :telephoneCellulaire, 
                                      :courriel, :idLangue, :idRole)";
