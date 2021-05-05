@@ -9,9 +9,9 @@
 		public function traite(array $params) {
 			
 			//Vérifier la permission
-			/*if(isset($_SESSION["usager"]) && $_SESSION["usager"]->getIdRole() > 2) {
+			if (!(isset($_SESSION["usager"])) || isset($_SESSION["usager"]) && $_SESSION["usager"]->getIdRole() > 2) {
 				header("Location: index.php?Voiture");
-			}*/
+			}
 				
 			// Initialisation des donnees a un tableau vide par défaut
 			$donnees = array();
