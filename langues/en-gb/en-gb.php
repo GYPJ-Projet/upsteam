@@ -12,7 +12,7 @@ $langue['texte_non']             = 'No';
 $langue['entete_choix_langue']   = 'FR';
 $langue['entete_recherche']      = 'search';
 $langue['entete_connexion']      = 'Login';
-/*$langue['entete_connexion']    = 'Logout';*/
+$langue['entete_deconnexion']    = 'Logout';
 
 
 // menu
@@ -46,7 +46,7 @@ $langue['bouton_annuler']       = 'Cancel';
 $langue['button_modifier']		= 'Edit';
 $langue['button_ajouter']		= 'Add a new item';
 $langue['button_soumettre']		= 'Sumbit';
-$langue['button_joindre']		= 'Attach';
+//$langue['button_joindre']		= 'Attach';
 
 // Erreur
 

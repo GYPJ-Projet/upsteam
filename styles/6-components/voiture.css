@@ -3,7 +3,9 @@
     box-sizing: border-box;
     border: var(--bordure) solid var(--blanc);
     padding-bottom: 1.5625vw;
-    min-width: 215px;
+    min-width: 280px;
+    max-width: 379px;
+    /* flex-grow: 1; */
 } 
 
 .voiture * {
@@ -65,27 +67,27 @@
 
 @media screen and (min-width: 1025px) {
     .voiture {
-        width: 365px;
+        width: var(--minLargeurVoiture);
     }
 
     .voiture > img {
-        width: 365px - var(--paddingVoiture);
+        width: var(--minLargeurVoiture) - var(--paddingVoiture);
     }
 }
  
 @media screen and (max-width: 1024px) {
     .voiture {
-        width: var(--minLargeurGrille2);
+        width: var(--minLargeurVoiture);
     }
 
     .voiture > img {
-        width: var(--minLargeurGrille2) - var(--paddingVoiture);
+        width: var(--minLargeurVoiture) - var(--paddingVoiture);
     }
 }
 
-
-@media screen and (max-width: 414px) {
+ 
+@media screen and (max-width:700px) and (min-height: 800px){
     .voiture {
-        min-width: 377px;
+        min-width: 379px;
     }
 }

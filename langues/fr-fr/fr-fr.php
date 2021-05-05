@@ -12,7 +12,7 @@ $langue['texte_non']              = 'Non';
 $langue['entete_choix_langue']   = 'EN';
 $langue['entete_recherche']      = 'Recherche';
 $langue['entete_connexion']      = 'Connexion';
-/*$langue['entete_connexion']      = 'Déconnexion';*/
+$langue['entete_deconnexion']    = 'Déconnexion';
 
 
 // menu
@@ -45,7 +45,7 @@ $langue['bouton_annuler']       = 'Annuler';
 $langue['button_modifier']		= 'Modifier';
 $langue['button_ajouter']		= 'Ajouter d\'un nouvel élément';
 $langue['button_soumettre']		= 'Soumettre';
-$langue['button_joindre']		= 'Joindre';
+//$langue['button_joindre']		= 'Joindre';
 
 // Erreur
 

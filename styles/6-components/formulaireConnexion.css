@@ -1,0 +1,14 @@
+.formulaireConnexion {
+    display: inline-block;
+    flex-basis: calc(50% - var(--margeSection));
+    align-items: stretch;
+    margin-top: var(--margeSection);
+    margin-left: var(--margeSection);
+    margin-right: var(--margeSection);
+    border-style: solid;
+    border-width: var(--bordureI);
+    border-color: var(--gris);
+    font-family: var(--orbitron);
+    font-size: var(--police_taille_h2Plus);
+    background-color: var(--blanc);
+}

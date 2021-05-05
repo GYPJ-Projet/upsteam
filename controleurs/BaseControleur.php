@@ -136,7 +136,7 @@
                 // Si la varariable des sessions de l'usager, on prend sans langue choisi
                 // car l'usager n'a pas changé la langue dans la page web.
                 if (isset($_SESSION["usager"])) {
-                    $langueAffichage = $_SESSION["usager"]->getNomLangue(); 
+                    $langueAffichage = $_SESSION["usager"]->getCode(); 
                 }
             } 
 

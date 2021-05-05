@@ -1,6 +1,6 @@
 <?php 
     $langue = $donnees["langue"];       //Pour affichage des langues
-
+    
     //Pour remettre les filtres séelctionnés.
     $actionRecu = '';
     $prixMinRecu = '';

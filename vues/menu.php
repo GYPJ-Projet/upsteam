@@ -12,9 +12,29 @@
 
 <nav class="menuConteneur nonBurger " data-js-component="MenuConteneur">
     <div class="menuContenu sourisPointer" data-js-menuAcceuil><p><?=$langue["menu_accueil"]?></p></div>
+
+<?php 
+    if(isset($_SESSION["usager"])){
+?>
     <div class="menuContenu sourisPointer" data-js-menuMonProfil><p><?=$langue["profil"]?></p></div>
+<?php 
+    }
+?>
+
+<?php 
+    if(isset($_SESSION["usager"]) && $_SESSION["usager"]->getIdRole() <=2){
+?>
     <div class="menuContenu sourisPointer" data-js-menuGestionDonnees><p><?=$langue["donnees"]?></p></div>
+<?php 
+    }
+?>
+<?php 
+    if(isset($_SESSION["usager"]) && $_SESSION["usager"]->getIdRole() <=2){
+?>
     <div class="menuContenu sourisPointer" data-js-menuGestionEmployes><p><?=$langue["employes"]?></p></div>
+<?php 
+    }
+?>
     <div class="menuContenu sourisPointer" data-js-menuGestionCommandes><p><?=$langue["commandes"]?></p></div>
 </nav>
 
