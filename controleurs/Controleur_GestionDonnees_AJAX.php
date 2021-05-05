@@ -92,33 +92,6 @@
 							$this->afficheVue("formulaireModele", $donnees);
 						}
 						break;
-					case "afficherFormulaireVoiture":
-						// Obtenir toutes les marques
-						$donnees["marques"] = $modeleMarque->obtenirTousDisponible();
-						// Obtenir toutes les modeles
-						$donnees["modeles"] = $modeleModele->obtenirTousDisponible();
-						// Obtenir toutes les années
-						$donnees["annees"] = $modeleAnnee->obtenirTousDisponible();
-						// Obtenir toutes les motopropulseur
-						$donnees["motopropulseurs"] = $modeleMotopropulseur->obtenirTousDisponible();
-						// Obtenir toutes les types de carburant
-						$donnees["typesCarburant"] = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
-						// Obtenir toutes les couleurs
-						$donnees["couleurs"]         = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
-						// Obtenir toutes les types de transmission
-						$donnees["transmissions"]    = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
-						// Obtenir toutes les types de carrosserie
-						$donnees["typesCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);
-						// Obtenir toutes les types de carrosserie
-						//$donnees["descriptions"] = $this->creerTabLangue($modeleDescription->obtenirTousDisponible(), $idLangue);
-
-						// Si le parametres id est existe, on affiche le formulaire pour la modification
-						if (isset($params["id"])) {
-							// Obtenir les données à propos de la voiture avec id 
-							$donnees["voiture"] = $modeleVoiture->obtenirParId($params["id"]);	
-						} 
-						$this->afficheVue("formulaireVoiture", $donnees);
-						break;
 					case "sauvegarderVoiture":
 						if (isset($params["id"])  && isset($params["idModele"]) && isset($params["idAnnee"]) && isset($params["kilometrage"])
 							&& isset($params["dateArrivee"]) && isset($params["prixAchat"]) && isset($params["prixVente"]) 

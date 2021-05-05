@@ -36,7 +36,7 @@
 
 		public function obtenirParId($id) {
             try {
-				Debug::toLog($id, "function obtenirParId() ");
+				//Debug::toLog($id, "function obtenirParId() ");
 				$stmt = $this->db->query("SELECT voiture.*, 
 					marque.id AS idMarque,
 					modele.nom AS nomModele, 
@@ -51,6 +51,36 @@
 					WHERE voiture.id = " . $id);	
 				$stmt->execute();
 				return $stmt->fetch();	
+
+			}	
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+
+		// Méthode qui retourne toutes les descriptions de voitures qu'il y a dans la BD
+		public function obtenirDescriptionParId($id) {
+            try {
+				$stmt = $this->db->query("SELECT description.*, langue.nom AS nomLangue, langue.code AS code
+										FROM description 
+										JOIN langue 
+										ON description.idLangue = langue.id 
+										WHERE description.id =" . $id);	
+				$stmt->execute();
+				return $stmt->fetchAll();	
+
+			}	
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+
+		// Méthode qui retourne toutes les langues dans la BD
+		public function obtenirLangues() {
+            try {
+				$stmt = $this->db->query("SELECT * FROM langue");	
+				$stmt->execute();
+				return $stmt->fetchAll();	
 
 			}	
 			catch(Exception $exc) {
@@ -86,7 +116,7 @@
 											JOIN marque ON marque.id = modele.idMarque  
 											JOIN annee ON annee.id = voiture.idAnnee 
 											JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
-											JOIN image ON image.idVoiture = voiture.id  
+											JOIN image ON image.idVoiture = voiture.id  AND image.sort = 0
 											ORDER BY " . $tri .  " " . $ordre .  "
 											LIMIT " . $indexDepart . ", " . $nombreVoulu
 										);		

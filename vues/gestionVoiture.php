@@ -11,7 +11,8 @@
 
     <div data-js-component="GestionVoiture" data-js-controleur-action="gestionVoiture">
 
-        <button class="bouton" data-js-ajouter><?= $langue["button_ajouter"] ?></button>
+        <a class="bouton" href="index.php?GestionDonnees&action=afficherFormulaireVoiture&page=<?= $pageCourante ?>" data-js-ajouter><?= $langue["button_ajouter"] ?></a>    
+   
         <table class="table">
             <thead>
                 <tr>
@@ -80,7 +81,7 @@
                     <td><?= $voiture["prixAchat"] ?></td>
                     <td><?= $voiture["prixVente"] ?></td>
                     <td><?= ($voiture["disponibilite"] == true)? $langue["texte_oui"] : "" ?></td>
-                    <td><button data-js-modifier data-js-id=<?= $voiture["id"] ?>><?= $langue["button_modifier"] ?></button></td>
+                    <td><a href="index.php?GestionDonnees&action=afficherFormulaireVoiture&id=<?= $voiture["id"] ?>&page=<?= $pageCourante ?>" data-js-modifier data-js-id=<?= $voiture["id"] ?>><?= $langue["button_modifier"] ?></a></td>
                 </tr>                 
         <?php
             }
