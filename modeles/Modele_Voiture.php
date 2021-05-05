@@ -57,6 +57,36 @@
 			}
         }
 
+		// Méthode qui retourne toutes les descriptions de voitures qu'il y a dans la BD
+		public function obtenirDescriptionParId($id) {
+            try {
+				$stmt = $this->db->query("SELECT description.*, langue.nom AS nomLangue, langue.code AS code
+										FROM description 
+										JOIN langue 
+										ON description.idLangue = langue.id 
+										WHERE description.id =" . $id);	
+				$stmt->execute();
+				return $stmt->fetchAll();	
+
+			}	
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+
+		// Méthode qui retourne toutes les langues dans la BD
+		public function obtenirLangues() {
+            try {
+				$stmt = $this->db->query("SELECT * FROM langue");	
+				$stmt->execute();
+				return $stmt->fetchAll();	
+
+			}	
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+
 		public function obtenirImagesParIdVoiture($id) {
             try {
 				$stmt = $this->db->query("SELECT * FROM image WHERE idVoiture = " . $id . " 
@@ -85,7 +115,7 @@
 											JOIN marque ON marque.id = modele.idMarque  
 											JOIN annee ON annee.id = voiture.idAnnee 
 											JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
-											JOIN image ON image.idVoiture = voiture.id  
+											JOIN image ON image.idVoiture = voiture.id  AND image.sort = 0
 											ORDER BY " . $tri .  " " . $ordre .  "
 											LIMIT " . $indexDepart . ", " . $nombreVoulu
 										);		
