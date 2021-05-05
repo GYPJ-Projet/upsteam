@@ -12,7 +12,7 @@ $langue['texte_non']              = 'Non';
 $langue['entete_choix_langue']   = 'EN';
 $langue['entete_recherche']      = 'Recherche';
 $langue['entete_connexion']      = 'Connexion';
-/*$langue['entete_connexion']      = 'Déconnexion';*/
+$langue['entete_deconnexion']    = 'Déconnexion';
 
 
 // menu

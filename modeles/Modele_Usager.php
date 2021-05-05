@@ -27,26 +27,20 @@
         }
 
         //  On valide l'authentification de l'usager en comparant  le mot de passe qu'il a saisie avec celui de la BD.
-        public function authentification($nomUsager, $motDePasse) {
+        public function authentification($courriel) {
 
             $id = 0; // l'id de l'usager vaut 0 si usager est invalide lor de la répone
 
             //déterminer si la combinaison nomUsager / motDePasse est valide
-            $requete = "SELECT * FROM usager WHERE nomUsager=:user";
+            $requete = "SELECT *
+                        FROM usager 
+                        JOIN langue ON langue.id = usager.idLangue
+                        WHERE courriel=:courriel";
             $requetePreparee = $this->db->prepare($requete);
-            $requetePreparee->bindParam(":user", $nomUsager);
+            $requetePreparee->bindParam(":courriel", $courriel);
             $requetePreparee->execute();
             $requetePreparee->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Usager");
-            $unUsager = $requetePreparee->fetch();
-
-            //y'a-t-il une rangée retournée (est-ce que l'usager avec ce nomUsager existe?)
-            if ($unUsager) {
-                //utiliser password_verify pour comparer le mot de passe tapé par l'usager avec le mot de passe encrypté contenu dans la base de données
-                if (password_verify($motDePasse, $unUsager->getMotDePasse()))
-                    $id = $unUsager->getId();
-            }
-            
-            return $id; 
+            return $requetePreparee->fetch();
         }
 
 

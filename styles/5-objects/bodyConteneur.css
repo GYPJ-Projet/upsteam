@@ -1,6 +1,5 @@
 .bodyConteneur{
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     background-color: var(--grisPale);
 }
