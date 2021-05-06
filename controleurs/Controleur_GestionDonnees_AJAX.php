@@ -92,12 +92,18 @@
 							$this->afficheVue("formulaireModele", $donnees);
 						}
 						break;
+					case "afficheModeleParIdMarque":
+						if (isset($params["idMarque"])) {
+							$donnees["modeles"] = $modeleModele->rechercheParMarque($params["idMarque"]);
+							echo json_encode($donnees["modeles"]);
+						}	
+						break;
 					case "sauvegarderVoiture":
 						if (isset($params["id"])  && isset($params["idModele"]) && isset($params["idAnnee"]) && isset($params["kilometrage"])
 							&& isset($params["dateArrivee"]) && isset($params["prixAchat"]) && isset($params["prixVente"]) 
 							&& isset($params["idMotopropulseur"]) && isset($params["idTypeCarburant"]) && isset($params["idCouleur"])
 							&& isset($params["idTransmission"]) && isset($params["idTypeCarrosserie"]) && isset($params["vna"])
-							&& isset($params["page"])) {
+							&& isset($params["page"]) && isset($params["fr-fr"]) && isset($params["en-gb"])) {
 							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
 							else $params["disponibilite"] = 0;
 							
@@ -107,10 +113,55 @@
 							$params["disponibilite"], $params["vna"]);
 								
 							$reponse = $modeleVoiture->sauvegarde($nouvelleVoiture);
-								
+							//Création du repertoire avec nom - id de la voiture ajoutée
+							if (isset($reponse) && $reponse > 0) {
+								//Créer le repertoire avec le nom - id de voiture
+								mkdir(REPERTOIRE_IMAGES.$reponse, 0700);
+								// Enregistrer chaque fichier sur le serveur
+								for ($i = 0, $l = count($_FILES['images']["name"]); $i < $l; $i++) { 	
+									//noms de fichier
+									$nomFichier = $_FILES['images']["name"][$i];
+									//ficheir extention
+									$imageFichierType = strtolower(pathinfo($nomFichier, PATHINFO_EXTENSION));
+									//taille de fichier
+									$fichierTaille = $_FILES['images']["size"][$i];
+									$error =  FALSE;
+									//Vérifier extension
+									if($imageFichierType !="jpg" && $imageFichierType !="jpeg" && $imageFichierType != "png"
+									&& $imageFichierType !="gif")
+									{
+										$message = "Fichier doit être *.jpg";
+										$error = TRUE;
+									}
+									//Vérifier le taille 2mb
+									if($fichierTaille > 2000000){
+										$message = "File must be smaller than 2mb";
+										$error = TRUE;
+									}
+									//Vérifier si le fichier est exist;
+									if(file_exists(REPERTOIRE_IMAGES.$reponse.'/'.$nomFichier))
+									{
+										$message = "File already exist";
+										$error = TRUE;
+									}
+									
+									if($error == FALSE){
+										if(move_uploaded_file($_FILES['images']["tmp_name"][$i], REPERTOIRE_IMAGES.$reponse.'/'.$nomFichier)){
+											//enregistrer dans la BD
+						
+											$modeleVoiture->sauvegardeImages($nomFichier, $reponse);
+										}
+									}
+								}
+							}
+							//Enregistrer les description
+							$modeleVoiture->sauvegardeDescriptions($params["fr-fr"], $reponse, 1);
+							$modeleVoiture->sauvegardeDescriptions($params["en-gb"], $reponse, 2);
+
 							header("Location: index.php?GestionDonnees&action=gestionVoiture" . $params["page"]);
 									
 						} else { // Sinon, on affiche le formulaire pour l'ajout
+							
 							$this->afficheVue("formulaireVoiture", $donnees);
 						}
 						break;

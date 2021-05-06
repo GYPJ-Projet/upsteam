@@ -67,5 +67,4 @@ class GestionVoiture {
             els[i].firstChild.classList.remove("inactif");
         }
     }
-            
 }
