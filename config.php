@@ -8,6 +8,7 @@ define("HOTE", "localhost");
 define("NOMBD", "vehicules");
 define("USAGER", "root");
 define("MDP", "");
+define("REPERTOIRE_IMAGES", "./images/");
 
 //définition de la fonction d'autoload
 function mon_autoloader($classe)
