@@ -45,6 +45,7 @@ $langue['bouton_annuler']       = 'Annuler';
 $langue['button_modifier']		= 'Modifier';
 $langue['button_ajouter']		= 'Ajouter d\'un nouvel élément';
 $langue['button_soumettre']		= 'Soumettre';
+//$langue['button_joindre']		= 'Joindre';
 
 // Erreur
 

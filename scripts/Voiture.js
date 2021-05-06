@@ -21,6 +21,4 @@ class Voiture {
         window.location.href = 'index.php?Voiture&action=descriptionVoiture&id=' + this._id;
     }
 
- 
-  
 }

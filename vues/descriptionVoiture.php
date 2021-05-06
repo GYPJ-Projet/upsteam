@@ -13,8 +13,6 @@
 				<div class="swiper-wrapper">
 <?php
 	foreach ($donnees["images"]  as $unImage) {
-		/* $tableauLienImage = explode("/",$unImage["lien"]);
-		$altImage = $tableauLienImage[Count($tableauLienImage)-1]; */
 		$altImage = $unImage["lien"];
 		$cheminImageVoiture =  REPERTOIRE_IMAGES . $unImage["idVoiture"] . "/". $unImage["lien"];
 ?>  
@@ -33,15 +31,27 @@
 
 			<div class="descriptionVoiture"> 
 				<div class="ajouter-panier specificationVoiture" data-js-ajouter-panier>
-				<button class="btn-ajouter-panier" data-js-btn><?= $langue['ajouterAuPanier']?></button>
+					<button class="btn-ajouter-panier" data-js-btn><?= $langue['ajouterAuPanier']?></button>
+					
 				</div>
 
-				<div class="specification specificationVoiture" data-js-voiture="<?=$voiture["id"] ?>">
+				<div class="specification specificationVoiture" data-js-voiture="<?= $voiture["id"] ?>"
+																data-js-voiture-marque="<?= $voiture["nomMarque"] ?>"
+																data-js-voiture-modele="<?= $voiture["nomModele"] ?>"
+																data-js-voiture-annee="<?= $voiture["annee"] ?>"
+																data-js-voiture-habitacle="<?= $donnees["typeCarrosserie"][$voiture["idTypeCarrosserie"]] ?>"
+																data-js-voiture-couleur="<?= $donnees["couleur"][$voiture["idCouleur"]] ?>"
+																data-js-voiture-kilometrage="<?= $voiture["kilometrage"] ?>"
+																data-js-voiture-transmission="<?= $donnees["transmission"][$voiture["idTransmission"]] ?>"
+																data-js-voiture-carburant="<?= $donnees["typeCarburant"][$voiture["idTypeCarburant"]]?>"
+																data-js-voiture-prix="<?= $voiture["prixVente"] ?>"
+				>
+
 					<h2><?= $langue['specificatioDesc'] ?> <?=$voiture["nomMarque"] ?> <?=$voiture["nomModele"] ?> <?=$voiture["annee"] ?></h2>
 					<ul class="ulListeDescription">
 						<li class="ilListeDescription"><span><?= $langue["modele"] ?>: </span> <span><?=$voiture["nomModele"] ?></span></li>
 						<li class="ilListeDescription"><span><?= $langue["habitacle"] ?>: </span><span class="valeur"><?= $donnees["typeCarrosserie"][$voiture["idTypeCarrosserie"]]?></span></li>
-						<li class="ilListeDescription"><span><?= $langue["couleur"] ?>: </span><span class="valeur"><?= $donnees["couleur"][$voiture["idTypeCarrosserie"]]?></span></li>
+						<li class="ilListeDescription"><span><?= $langue["couleur"] ?>: </span><span class="valeur"><?= $donnees["couleur"][$voiture["idCouleur"]]?></span></li>
 						<li class="ilListeDescription"><span><?= $langue["kilometrage"] ?>: </span><span class="valeur"><?= $voiture["kilometrage"]?></span> km</li>
 						<li class="ilListeDescription"><span><?= $langue["transmission"] ?>: </span><span class="valeur"><?= $donnees["transmission"][$voiture["idTransmission"]]?></span></li>
 						<li class="ilListeDescription"><span><?= $langue["carburant"] ?>:</span><span class="valeur"><?= $donnees["typeCarburant"][$voiture["idTypeCarburant"]]?></span></li>

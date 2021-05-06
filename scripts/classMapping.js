@@ -2,6 +2,7 @@ const classMapping = {
     'Entete'                : Entete,
     'DescriptionVoiture'    : DescriptionVoiture,
     'MenuConteneur'         : MenuConteneur,
+    'FormulaireVoiture'     : FormulaireVoiture,
     'GestionMarque'         : GestionMarque,
     'GestionModele'         : GestionModele,
     'GestionCouleur'        : GestionCouleur,

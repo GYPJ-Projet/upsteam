@@ -8,6 +8,11 @@
 		// La fonction qui sera appelée par le routeur
 		public function traite(array $params) {
 			
+			//Vérifier la permission
+			if (!(isset($_SESSION["usager"])) || isset($_SESSION["usager"]) && $_SESSION["usager"]->getIdRole() > 2) {
+				header("Location: index.php?Voiture");
+			}
+				
 			// Initialisation des donnees a un tableau vide par défaut
 			$donnees = array();
 	
@@ -148,12 +153,42 @@
 						$donnees["voitures"] = $modeleVoiture->obtenirToutesVoituresAvecTri($depart, $voituresParPage, $tri, $ordre);
 						$this->afficheVue("gestionVoiture", $donnees);
 						break;
+					// Afficher le formulaire d'ajout ou de la modification
+					case "afficherFormulaireVoiture":
+						// Obtenir toutes les marques
+						$donnees["marques"] = $modeleMarque->obtenirTousDisponible();
+						// Obtenir toutes les modeles
+						$donnees["modeles"] = $modeleModele->obtenirTousDisponible();
+						// Obtenir toutes les années
+						$donnees["annees"] = $modeleAnnee->obtenirTousDisponible();
+						// Obtenir toutes les motopropulseur
+						$donnees["motopropulseurs"] = $modeleMotopropulseur->obtenirTousDisponible();
+						// Obtenir toutes les types de carburant
+						$donnees["typesCarburant"] = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
+						// Obtenir toutes les couleurs
+						$donnees["couleurs"]         = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
+						// Obtenir toutes les types de transmission
+						$donnees["transmissions"]    = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
+						// Obtenir toutes les types de carrosserie
+						$donnees["typesCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);
 
+						// Si le parametres id est existe, on affiche le formulaire pour la modification
+						if (isset($params["id"])) {
+							// Obtenir les données à propos de la voiture avec id 
+							$donnees["voiture"] = $modeleVoiture->obtenirParId($params["id"]);
+							// Obtenir les descriptions pour une voiture choisie
+							$donnees["descriptions"] = $modeleVoiture->obtenirDescriptionParId($params["id"]);
+						}
+						$donnees["langues"] = $modeleVoiture->obtenirLangues();
+						$this->afficheVue("listeDonnees", $donnees);
+						$this->afficheVue("formulaireVoiture", $donnees);
+						break;
+					
 					default:
 						// Action par défaut
 						$this->afficheVue("listeDonnees", $donnees);
 						$this->afficheVue("pageDonnees", $donnees);
-				    break;
+				    	break;
 				}			
 			} else {
 				// Action par défaut
