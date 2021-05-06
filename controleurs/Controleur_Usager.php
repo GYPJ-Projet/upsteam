@@ -112,7 +112,7 @@ class Controleur_Usager extends BaseControleur {
              * Si non retour vers page de création.
              */
             case "sauvegarderUsager":
-                Debug::tolog($params);
+                // Debug::tolog($params);
                 $usager =  new Usager(  $params['id'], $params['motPasse'], $params['courriel'], $params['nom'],
                                         $params['prenom'], $params['dateNaissance'], $params['adresse'], 
                                         $params['codePostal'], $params['ville'], $params['telephone'],  
@@ -124,7 +124,6 @@ class Controleur_Usager extends BaseControleur {
 
                 // PH Test si c'est une modification (update table)
                 if(isset($params['modif'])){
-                    Debug::toLog('modif');
                 }else{          //On procède àu test et à l'ajoût
                     
                     // Test si le courriel existe déjà.
@@ -197,6 +196,8 @@ class Controleur_Usager extends BaseControleur {
                     // Obtenir les données à propos de la voiture avec id 
                     $donnees["usager"] = $modeleUsager->obtenirParId($params["id"]);
                 }
+
+                Debug::toLog($donnees["usager"]);
 
                 if(isset($params['retour']))$donnees['retour'] = $params['retour'];
                 if(isset($params['modif']))$donnees['modif'] = $params['modif'];
