@@ -42,10 +42,21 @@
     $langue['erreurLangue']                 = 'There is an error in Language. ';
     $langue['erreurMotPasse']               = 'There is an error whit your password. ';
     $langue['erreurCourrielExist']          = 'This email is already taken. ';
+    $langue['erreurConnexion']              = 'Your email or password is in error. ';
+    $langue['erreurToken']                  = 'You need to confirm your account, check your emails. ';
 
     $langue['nom_langue']                   = 'English';
 
     $langue['formulaire_ajout_usager']      = 'Add a new user';
     $langue['formulaire_modif_usager']      = "User modification";
+
+    // Courriel
+    $langue['courrielSubjectNouveau']       = 'Inscription confirmation.';
+    $langue['courrielSubjectChangement']    = 'Password modification.';
+    $langue['courrielNouveau']              = 'To confirm your inscription, click on the link below.';
+    $langue['courrielChangement']           = 'To confirm your identity, click on the link below.';
+    $langue['courrielLien']                 = 'Click here to confirm.';
+    $langue['validationSucces']             = 'Your account has been activated.';
+    $langue['validationEchec']              = 'There was an error in the activation of your account, try again.';
 
 ?>

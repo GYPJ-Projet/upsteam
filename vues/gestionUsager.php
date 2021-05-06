@@ -9,7 +9,7 @@
         <h1><?= $langue["gestion_usager"] ?></h1>
 
 
-    <div data-js-component="GestionUsager" data-js-controleur-action="gestionUsager">
+    <div data-js-component="GestionUsager" data-js-controleur="Usager" data-js-controleur-action="gestionUsager">
 
         <!-- <a class="bouton" href="index.php?Usager&action=afficherFormulaireUsager&page=<?= $pageCourante ?>" data-js-ajouter><?= $langue["button_ajouter"] ?></a>     -->
         <a class="bouton" href="index.php?Usager&action=afficherFormulaireUsager&retour=gestionUsager" data-js-ajouter><?= $langue["button_ajouter"] ?></a>    

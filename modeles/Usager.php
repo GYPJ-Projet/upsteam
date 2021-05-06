@@ -114,6 +114,10 @@
             return $this->token;
         }
 
+        public function setToken($token) {
+            $this->token = $token;
+        }
+
         public function getCode() {
             return $this->code;
         }

@@ -42,12 +42,22 @@
     $langue['erreurLangue']                 = 'Il y a une erreur dans le champs Langue. ';
     $langue['erreurMotPasse']               = 'Il y a une erreur de mot de passe. ';
     $langue['erreurCourrielExist']          = 'Ce courriel est déjà utilisé. ';
-
-
+    $langue['erreurConnexion']              = 'Combinaison nom d\'usager / mot de passe invalide. ';
+    $langue['erreurToken']                  = 'Vous devez confirmer votre compte, vérifiez vos courriels. ';
 
     $langue['nom_langue']                   = 'Français';
 
     $langue['formulaire_ajout_usager']      = 'Ajout d\'un nouvel usager';
     $langue['formulaire_modif_usager']      = "Modification d'un usager";
+
+
+    // Courriel
+    $langue['courrielSubjectNouveau']       = 'Confirmation d\'inscription.';
+    $langue['courrielSubjectChangement']    = 'Changement de mot de passe.';
+    $langue['courrielNouveau']              = 'Afin de confirmer votre inscription, veuillez cliquez sur le liens suivant.';
+    $langue['courrielChangement']           = 'Pour confirmer votre identité, euillez cliquez sur le liens suivant.';
+    $langue['courrielLien']                 = 'Cliquez ici pour confirmer.';
+    $langue['validationSucces']             = 'Votre compte a été activé.';
+    $langue['validationEchec']              = 'Il y a eu une erreur dans l\'activation de votre compte veuillez réessayer.';
 
 ?>

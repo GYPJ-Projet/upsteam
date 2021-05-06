@@ -51,6 +51,38 @@
 				return 0;
 			}
         }
+
+        /**
+         * PH
+         * Pour test de retour de courriel.
+         */
+        public function obtenirUsagerParToken($token){
+            try {
+				$requete = "SELECT *
+                            FROM usager 
+                            WHERE token = '$token'";
+				$requetePreparee = $this->db->prepare($requete);
+				$requetePreparee->execute();
+				return $requetePreparee->fetch();
+			}
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+
+        /**
+         * PH
+         * Retire le token après confirmation de l'usager.
+         */
+        public function retireToken($id){
+            $requete = "UPDATE usager
+                        SET token = ''
+                        WHERE id = :id";
+            $requetePreparee = $this->db->prepare($requete);
+            $requetePreparee->bindParam(":id", $id);
+            return $requetePreparee->execute();
+        }
+        
 		// Méthode qui retourne le nombre d'usager qu'il y a dans la BD
 		public function combienUsager() {
 			try {
@@ -83,52 +115,96 @@
 
         // Méthode qui sauvegarde un usager modifié ou un nouvel usager dans la BD.
         public function sauvegarde(Usager $unUsager) {
-            //ajout d'un nouvel usager
-            $requete = "INSERT INTO usager(motPasse, nom, prenom, dateNaissance, 
-                                            adresse, codePostal, ville, telephone, 
-                                            telephoneCellulaire, courriel, idLangue,
-                                            idRole, idProvince)
-                            VALUES (:mdp, :nom, :prenom, :dateNaissance, :adresse, 
-                                    :codePostal, :ville, :telephone, :telephoneCellulaire, 
-                                    :courriel, :idLangue, :idRole, :idProvince)";
-            $requetePreparee        = $this->db->prepare($requete);
-            $motDePasse             = $unUsager->getMotPasse();
-            $nom                    = $unUsager->getNom();
-            $prenom                 = $unUsager->getPrenom();
-            $dateNaissance          = $unUsager->getDateNaissance();
-            $adresse                = $unUsager->getAdresse();
-            $codePostal             = $unUsager->getCodePostal();
-            $ville                  = $unUsager->getVille();
-            $idProvince             = $unUsager->getIdProvince();
-            $telephone              = $unUsager->getTelephone();
-            $telephoneCellulaire    = $unUsager->getTelephoneCellulaire();
-            $courriel               = $unUsager->getCourriel();
-            $idLangue               = $unUsager->getIdLangue();
-            $idRole                 = $unUsager->getIdRole();  
-            $requetePreparee->bindParam(":mdp", $motDePasse);
-            $requetePreparee->bindParam(":nom", $nom); 
-            $requetePreparee->bindParam(":prenom", $prenom);
-            $requetePreparee->bindParam(":dateNaissance", $dateNaissance);
-            $requetePreparee->bindParam(":adresse"  , $adresse); 
-            $requetePreparee->bindParam(":codePostal", $codePostal);
-            $requetePreparee->bindParam(":ville", $ville);
-            $requetePreparee->bindParam(":idProvince", $idProvince);
-            $requetePreparee->bindParam(":telephone", $telephone); 
-            $requetePreparee->bindParam(":telephoneCellulaire", $telephoneCellulaire);
-            $requetePreparee->bindParam(":courriel", $courriel); 
-            $requetePreparee->bindParam(":idLangue", $idLangue);
-            $requetePreparee->bindParam(":idRole", $idRole);
-            return $requetePreparee->execute();
+            if($unUsager->getId() != 0) {
+				//mise à jour
+                $requete = "UPDATE usager
+                            SET motPasse =  CASE WHEN :mdp =''
+                                            THEN motPasse ELSE :mdp
+                                            END,
+                                nom = :nom,
+                                prenom = :prenom,
+                                dateNaissance = :dateNaissance,
+                                adresse = :adresse,
+                                codePostal = :codePostal,
+                                ville = :ville,
+                                telephone = :telephone,
+                                telephoneCellulaire = :telephoneCellulaire,
+                                courriel = :courriel,
+                                idLangue = :idLangue,
+                                idRole = :idRole,
+                                idProvince = :idProvince
+                                WHERE id = :id";
+                $requetePreparee        = $this->db->prepare($requete);
+                $id                     = $unUsager->getId();
+                $motDePasse             = $unUsager->getMotPasse();
+                $nom                    = $unUsager->getNom();
+                $prenom                 = $unUsager->getPrenom();
+                $dateNaissance          = $unUsager->getDateNaissance();
+                $adresse                = $unUsager->getAdresse();
+                $codePostal             = $unUsager->getCodePostal();
+                $ville                  = $unUsager->getVille();
+                $idProvince             = $unUsager->getIdProvince();
+                $telephone              = $unUsager->getTelephone();
+                $telephoneCellulaire    = $unUsager->getTelephoneCellulaire();
+                $courriel               = $unUsager->getCourriel();
+                $idLangue               = $unUsager->getIdLangue();
+                $idRole                 = $unUsager->getIdRole();  
+                $requetePreparee->bindParam(":id", $id);
+                $requetePreparee->bindParam(":mdp", $motDePasse);
+                $requetePreparee->bindParam(":nom", $nom); 
+                $requetePreparee->bindParam(":prenom", $prenom);
+                $requetePreparee->bindParam(":dateNaissance", $dateNaissance);
+                $requetePreparee->bindParam(":adresse"  , $adresse); 
+                $requetePreparee->bindParam(":codePostal", $codePostal);
+                $requetePreparee->bindParam(":ville", $ville);
+                $requetePreparee->bindParam(":idProvince", $idProvince);
+                $requetePreparee->bindParam(":telephone", $telephone); 
+                $requetePreparee->bindParam(":telephoneCellulaire", $telephoneCellulaire);
+                $requetePreparee->bindParam(":courriel", $courriel); 
+                $requetePreparee->bindParam(":idLangue", $idLangue);
+                $requetePreparee->bindParam(":idRole", $idRole);
+                return $requetePreparee->execute();
+			} else {
+                //ajout d'un nouvel usager
+                $requete = "INSERT INTO usager(motPasse, nom, prenom, dateNaissance, 
+                                                adresse, codePostal, ville, telephone, 
+                                                telephoneCellulaire, courriel, idLangue,
+                                                idRole, idProvince, token)
+                                VALUES (:mdp, :nom, :prenom, :dateNaissance, :adresse, 
+                                        :codePostal, :ville, :telephone, :telephoneCellulaire, 
+                                        :courriel, :idLangue, :idRole, :idProvince, :token)";
+                $requetePreparee        = $this->db->prepare($requete);
+                $motDePasse             = $unUsager->getMotPasse();
+                $nom                    = $unUsager->getNom();
+                $prenom                 = $unUsager->getPrenom();
+                $dateNaissance          = $unUsager->getDateNaissance();
+                $adresse                = $unUsager->getAdresse();
+                $codePostal             = $unUsager->getCodePostal();
+                $ville                  = $unUsager->getVille();
+                $idProvince             = $unUsager->getIdProvince();
+                $telephone              = $unUsager->getTelephone();
+                $telephoneCellulaire    = $unUsager->getTelephoneCellulaire();
+                $courriel               = $unUsager->getCourriel();
+                $idLangue               = $unUsager->getIdLangue();
+                $idRole                 = $unUsager->getIdRole();  
+                $token                  = $unUsager->getToken();  
+                $requetePreparee->bindParam(":mdp", $motDePasse);
+                $requetePreparee->bindParam(":nom", $nom); 
+                $requetePreparee->bindParam(":prenom", $prenom);
+                $requetePreparee->bindParam(":dateNaissance", $dateNaissance);
+                $requetePreparee->bindParam(":adresse"  , $adresse); 
+                $requetePreparee->bindParam(":codePostal", $codePostal);
+                $requetePreparee->bindParam(":ville", $ville);
+                $requetePreparee->bindParam(":idProvince", $idProvince);
+                $requetePreparee->bindParam(":telephone", $telephone); 
+                $requetePreparee->bindParam(":telephoneCellulaire", $telephoneCellulaire);
+                $requetePreparee->bindParam(":courriel", $courriel); 
+                $requetePreparee->bindParam(":idLangue", $idLangue);
+                $requetePreparee->bindParam(":idRole", $idRole);
+                $requetePreparee->bindParam(":token", $token);
+                return $requetePreparee->execute();
+            }
         }
-
-        public function modifieAvecMotPasse(Usager $unUsager) {
-            // $requete = "UPDATE usager
-            //             SET"
-
-            // Vérifier le params['role'] pour lui mettre une valeur par défaut dans le contrôleur!
-        }
-        public function modifieSansMotPasse(Usager $unUsager) {}
-        
     }
 
 ?>

@@ -1,6 +1,8 @@
 <?php
-
 use JetBrains\PhpStorm\Language;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 class Controleur_Usager extends BaseControleur {
 
@@ -47,36 +49,51 @@ class Controleur_Usager extends BaseControleur {
 
                 break;
 
+            /**
+             * PH
+             * Vérifie si l'usager est dans la bd.
+             * Test si un token est en attente.
+             * authentifie l'usager si possible.
+             */
             case "authentifier":
                 // On valide l'authentification de l'usager 
                 if (isset($params["courriel"], $params["motPasse"])) {
-
                     $unUsager = $modeleUsager->authentification($params["courriel"]);
+                    $token = $unUsager->getToken();
+
+                    // Debug::toLog($unUsager);
+                    // Debug::toLog("token",$token);
 
                     // Si son authentification est valide 
                     if ($unUsager !== false) {
-                        if($unUsager->getMotPasse() === $params["motPasse"]){
-                            $_SESSION["usager"] = $unUsager;
-                        header("Location: index.php");
-
+                        if($unUsager->getMotPasse() === $params["motPasse"]){       //Test du mot de passe.
+                            if($token === null || $token === ''){                                    //Test de l'existence d'un token.
+                                $_SESSION["usager"] = $unUsager;
+                                header("Location: index.php");
+                            }else{
+                                $donnees["erreurs"] = $donnees['langue']['erreurToken'];  // L'authentification n'est pas bonne 
+                                $this->affiche($donnees);
+                                $this->afficheVue("formulaireConnexion", $donnees);
+                            }
                         }else{
-                            $donnees["erreurs"] = "Combinaison nom d'usager / mot de passe invalide.";  // L'authentification n'est pas bonne 
+                            $donnees["erreurs"] = $donnees['langue']['erreurConnexion'];  // L'authentification n'est pas bonne 
                             $this->affiche($donnees);
                             $this->afficheVue("formulaireConnexion", $donnees);
                         }
                     }else{
-                        $donnees["erreurs"] = "Combinaison nom d'usager / mot de passe invalide.";  // L'authentification n'est pas bonne 
+                        $donnees["erreurs"] = $donnees['langue']['erreurConnexion'];  // L'authentification n'est pas bonne 
                         $this->affiche($donnees);
                         $this->afficheVue("formulaireConnexion", $donnees);
                     }
 
                 } else {
-                    $donnees["erreurs"] = "Combinaison nom d'usager / mot de passe invalide.";  // L'authentification n'est pas bonne 
+                    $donnees["erreurs"] = $donnees['langue']['erreurConnexion'];  // L'authentification n'est pas bonne 
                     // On recommence la connexion de l'usager. 
                     $this->affiche($donnees);                
                     $this->afficheVue("formulaireConnexion", $donnees);
                 }
                 break;
+
             case "deconnexion":
                 // Détruit toutes les variables de session car l'usager quitte la session.
                 $_SESSION = array();
@@ -112,11 +129,15 @@ class Controleur_Usager extends BaseControleur {
              * Si non retour vers page de création.
              */
             case "sauvegarderUsager":
-                // Debug::tolog($params);
+                if(!isset($params['idRole'])){
+                    $params['idRole'] = 3;
+                }
+
                 $usager =  new Usager(  $params['id'], $params['motPasse'], $params['courriel'], $params['nom'],
                                         $params['prenom'], $params['dateNaissance'], $params['adresse'], 
                                         $params['codePostal'], $params['ville'], $params['telephone'],  
-                                        $params['cellulaire'], $params['langue'], $params['role'], $params['province']);
+                                        $params['cellulaire'], $params['langue'], $params['idRole'], $params['province']);
+
                 //Test les paramètre reçus.
                 $test = $this->testCreation($params, $donnees);
                 $valide = $test[0];
@@ -124,14 +145,36 @@ class Controleur_Usager extends BaseControleur {
 
                 // PH Test si c'est une modification (update table)
                 if(isset($params['modif'])){
+                    $modeleUsager->sauvegarde($usager);
+                    if(isset($params['retour'])){                           //Si on arrive du menu de gestion employer
+                        header("Location: index.php?Usager&action=gestionUsager");
+                    }else{                                                  //Si on arrive du menu de modif d'un usager.
+                        header("Location: index.php");
+                    }
                 }else{          //On procède àu test et à l'ajoût
                     
                     // Test si le courriel existe déjà.
                     $testCourriel = $modeleUsager->authentification($params["courriel"]);
                     if ($testCourriel === false){       //Courriel exite déjà ou non?
                         if($valide === true){           //Le formulaire est valide ou non?
+                            $token = $this->fabriqueToken();
+                            $usager->setToken($token);
                             $sauvegarde = $modeleUsager->sauvegarde($usager);
-                            if(isset($params['retour'])){       //On vérifie quelle page ouvrir.
+
+                            //On redéfinie l'usager selon les données de la bd.
+                            $resultat = $modeleUsager->obtenirUsagerParToken($token);
+
+                            $usager =  new Usager(  $resultat['id'], $resultat['motPasse'], $resultat['courriel'], $resultat['nom'],
+                                                    $resultat['prenom'], $resultat['dateNaissance'], $resultat['adresse'], 
+                                                    $resultat['codePostal'], $resultat['ville'], $resultat['telephone'],  
+                                                    $resultat['telephoneCellulaire'], $resultat['idLangue'], $resultat['idRole'],
+                                                    $resultat['idProvince'], $resultat['token']);
+
+                            Debug::toLog($usager);
+                            //Envoie d'un courriel à l'utilisateur pour confirmation de création de compte.
+                            $this->envoieCourriel($usager, $donnees, 'creation');
+
+                            if(isset($params['retour'])){       //On vérifie quelle page ouvrir.  
                                 header("Location: index.php?Usager&action=gestionUsager");
                             }else{
                                 $this->affiche($donnees);
@@ -191,21 +234,38 @@ class Controleur_Usager extends BaseControleur {
                 break;
 
             case "afficherFormulaireUsager":
-                // Si le parametres id est existe, on affiche le formulaire pour la modification
-                if (isset($params["id"])) {
-                    // Obtenir les données à propos de la voiture avec id 
-                    $donnees["usager"] = $modeleUsager->obtenirParId($params["id"]);
+            /**
+             * PH
+             * Valide que les informations reçu sont valide
+             * si ok:
+             *      retire le token de la bd.
+             *      transfert vers une page de confirmation.
+             * sinon
+             *      transfert vers une page d'erreur.
+             */
+            case "validationCompte":
+                if(isset($params['id'], $params['token'])){
+                    //On définie l'usager selon les données de la bd.
+                    $resultat = $modeleUsager->obtenirUsagerParToken($params['token']);
+                    $usager =  new Usager(  $resultat['id'], $resultat['motPasse'], $resultat['courriel'], $resultat['nom'],
+                                            $resultat['prenom'], $resultat['dateNaissance'], $resultat['adresse'], 
+                                            $resultat['codePostal'], $resultat['ville'], $resultat['telephone'],  
+                                            $resultat['telephoneCellulaire'], $resultat['idLangue'], $resultat['idRole'],
+                                            $resultat['idProvince'], $resultat['token']);
+                    
+                    if($usager->getId() === $params['id']){
+                        $modeleUsager->retireToken($usager->getId());
+                        $donnees['resultat'] = 'validationSucces';
+                        $this->affiche($donnees);
+                        $this->afficheVue("retourCourriel", $donnees);
+                    }else{
+                        $donnees['resultat'] = 'validationEchec';
+                        $this->affiche($donnees);
+                        $this->afficheVue("retourCourriel", $donnees);
+                    }
                 }
-
-                Debug::toLog($donnees["usager"]);
-
-                if(isset($params['retour']))$donnees['retour'] = $params['retour'];
-                if(isset($params['modif']))$donnees['modif'] = $params['modif'];
-                $this->affiche($donnees);
-                $this->afficheVue("formulaireUsager", $donnees);
                 break;
         }
-
 
         $this->afficheVue("piedDePage", $donnees);
     }
@@ -286,5 +346,64 @@ class Controleur_Usager extends BaseControleur {
 
 
     }
+
+    /**
+     * PH
+     * Fabrique un token.
+     */
+    public function fabriqueToken(){
+        $resultat = uniqid();  
+        return $resultat;
+    }
+
+    /**
+     * Prépare message.
+     * Prépare connexion à gmail.
+     * Envoie message.
+     * Ferme la connexion.
+     */
+    public function envoieCourriel($usager, $donnees, $switch){
+        require 'lib/PHPMailer.php';
+        require 'lib/SMTP.php';
+        require 'lib/Exception.php';
+        
+        //On crée le message
+        $lien = '<a href="http://127.0.0.1/GYPJ-Projet/upstream/index.php?Usager&action=validationCompte&token=';
+        $lien .= $usager->getToken();
+        $lien .= '&id=';
+        $lien .= $usager->getId();
+        $lien .= '">'. $donnees['langue']['courrielSubjectNouveau'] .'</a>';
+        
+        $sujet= $donnees['langue']['courrielLien'];
+        $text = $donnees['langue']['courrielNouveau'];
+        if(!$switch === "creation"){
+            $sujet = $donnees['langue']['courrielSubjectChangement'];
+            $text = $donnees['langue']['courrielChangement'];
+        }
+
+        $msg = "<h1>V&eacute;hicules d'occasion</h1><br>";
+        $msg .= "<p>" . $text ."</p><br>";
+        $msg .= $lien;
+
+        //paramètres de connexion et envoie
+        $courriel = new PHPMailer();
+        $courriel->isSMTP();
+        $courriel->Host = "smtp.gmail.com";
+        $courriel->SMTPAuth = "true";
+        $courriel->SMTPSecure = "tls";
+        $courriel->Port = "587";
+        $courriel->Username = "gypj.projet@gmail.com";
+        $courriel->Password = 'VLLMcRi3R4EGta2IGZyvIp87gEB5';
+        $courriel->Subject = $sujet;
+        $courriel->setFrom('gypj.projet@gmail.com');
+        $courriel->isHTML(true);
+        $courriel->Body = $msg;
+        // $courriel->addAddress("pathecard@gmail.com");
+        $courriel->addAddress($usager->getCourriel());
+        $courriel->send();
+        $courriel->smtpClose();
+    }
+
+
 }
 ?>

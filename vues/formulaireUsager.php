@@ -16,7 +16,7 @@
             <form class="formulaire" action="index.php?Usager&action=sauvegarderUsager<?= $retour . $modif?>" method="post">
                 <label for="nom"><?= $langue["nom_usager"] ?> : </label>
                 <input type="text" name="nom" min="0" id="nom" value="<?= (isset($usager)) ? $usager->getNom() : "" ?>" required/><br>
-
+                
                 <label for="prenom"><?= $langue["prenom_usager"] ?> : </label>
                 <input type="text" name="prenom" min="0" id="prenom" value="<?= (isset($usager)) ? $usager->getPrenom() : "" ?>" required/><br>
                 
@@ -92,10 +92,10 @@
     ?>
 
                 <label for="motPasse"><?= $langue["motPasse"] ?> : </label>
-                <input type="password" name="motPasse" min="0" id="motPasse" value="" required/><br>
+                <input type="password" name="motPasse" min="0" id="motPasse" value="" <?= (!isset($modif))? 'required' : '' ?>/><br>
                 
                 <label for="confMotPasse"><?= $langue["confMotPasse"] ?> : </label>
-                <input type="password" name="confMotPasse" min="0" id="confMotPasse" value="" required/><br>
+                <input type="password" name="confMotPasse" min="0" id="confMotPasse" value="" <?= (!isset($modif))? 'required' : '' ?>/><br>
 
 
     <?php
