@@ -6,6 +6,7 @@ const classMapping = {
     'GestionMarque'         : GestionMarque,
     'GestionModele'         : GestionModele,
     'GestionCouleur'        : GestionCouleur,
+    'GestionUsager'        : GestionUsager,
     'GestionVoiture'        : GestionVoiture,
     'ListeVoitures'         : ListeVoitures,
     'VoirPlus'              : VoirPlus,
