@@ -99,11 +99,12 @@
 						}	
 						break;
 					case "sauvegarderVoiture":
-						if (isset($params["id"])  && isset($params["idModele"]) && isset($params["idAnnee"]) && isset($params["kilometrage"])
-							&& isset($params["dateArrivee"]) && isset($params["prixAchat"]) && isset($params["prixVente"]) 
-							&& isset($params["idMotopropulseur"]) && isset($params["idTypeCarburant"]) && isset($params["idCouleur"])
-							&& isset($params["idTransmission"]) && isset($params["idTypeCarrosserie"]) && isset($params["vna"])
-							&& isset($params["page"]) && isset($params["fr-fr"]) && isset($params["en-gb"])) {
+						if (isset($params["id"])  && isset($params["idModele"]) && isset($params["idAnnee"]) && isset($params["kilometrage"]) && 
+							isset($params["dateArrivee"]) && isset($params["prixAchat"]) && isset($params["prixVente"]) && 
+							isset($params["idMotopropulseur"]) && isset($params["idTypeCarburant"]) && isset($params["idCouleur"]) && 
+							isset($params["idTransmission"]) && isset($params["idTypeCarrosserie"]) && isset($params["vna"]) && 
+							isset($params["page"]) && isset($params["fr-fr"]) && isset($params["en-gb"])) {
+
 							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
 							else $params["disponibilite"] = 0;
 							
@@ -113,10 +114,24 @@
 							$params["disponibilite"], $params["vna"]);
 								
 							$reponse = $modeleVoiture->sauvegarde($nouvelleVoiture);
+							
 							//Création du repertoire avec nom - id de la voiture ajoutée
+							//ou suppression des fichiers
 							if (isset($reponse) && $reponse > 0) {
-								//Créer le repertoire avec le nom - id de voiture
-								mkdir(REPERTOIRE_IMAGES.$reponse, 0700);
+								if ($params["id"] == 0) {
+									//Créer le repertoire avec le nom - id de voiture
+									mkdir(REPERTOIRE_IMAGES.$reponse, 0700);
+									$dossier = $reponse;
+								} else {
+									$files = glob(REPERTOIRE_IMAGES.$params["id"].'/*'); // obtenir tous les nom de fichiers
+									$dossier = $params["id"];
+									//On supprime chaque fichier
+									foreach($files as $file){ 
+  										if(is_file($file))
+    									unlink($file);
+									}
+								}
+							
 								// Enregistrer chaque fichier sur le serveur
 								for ($i = 0, $l = count($_FILES['images']["name"]); $i < $l; $i++) { 	
 									//noms de fichier
@@ -139,24 +154,28 @@
 										$error = TRUE;
 									}
 									//Vérifier si le fichier est exist;
-									if(file_exists(REPERTOIRE_IMAGES.$reponse.'/'.$nomFichier))
+									if(file_exists(REPERTOIRE_IMAGES.$dossier.'/'.$nomFichier))
 									{
 										$message = "File already exist";
 										$error = TRUE;
 									}
-									
+										
 									if($error == FALSE){
-										if(move_uploaded_file($_FILES['images']["tmp_name"][$i], REPERTOIRE_IMAGES.$reponse.'/'.$nomFichier)){
+										if(move_uploaded_file($_FILES['images']["tmp_name"][$i], REPERTOIRE_IMAGES.$dossier.'/'.$nomFichier)){
+											if ($params["id"] != 0) {
+												//Supprimer les image avec idVoiture avant d'ajouter
+												$modeleVoiture->supprimerImages($dossier);
+											}		
 											//enregistrer dans la BD
-						
-											$modeleVoiture->sauvegardeImages($nomFichier, $reponse);
+											$modeleVoiture->insererImages($nomFichier, $dossier);
+											
 										}
-									}
+									} 
 								}
-							}
-							//Enregistrer les description
-							$modeleVoiture->sauvegardeDescriptions($params["fr-fr"], $reponse, 1);
-							$modeleVoiture->sauvegardeDescriptions($params["en-gb"], $reponse, 2);
+								//Enregistrer les description
+								$modeleVoiture->sauvegardeDescriptions($params["fr-fr"], $dossier, 1);
+								$modeleVoiture->sauvegardeDescriptions($params["en-gb"], $dossier, 2);
+							} 							
 
 							header("Location: index.php?GestionDonnees&action=gestionVoiture" . $params["page"]);
 									

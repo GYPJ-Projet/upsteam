@@ -161,7 +161,9 @@
 			//est-ce que la voiture que j'essaie de sauvegarder existe déjà (id différent de zéro)
 			if($uneVoiture->getId() != 0) {
 				// Mise à jour de la voiture
-				$requete = "UPDATE voiture SET idModele = :idModele, idAnnee = :idAnnee, disponibilite = :d WHERE id = :i";
+				$requete = "UPDATE voiture SET idModele = :idModele, idAnnee = :idAnnee, kilometrage = :kilometrage, dateArivee = :dateArrivee,
+				prixAchat = :prixAchat, prixVente = :prixVente, idMotopropulseur = :idMotopropulseur, idTypeCarburant = :idTypeCarburant,
+				idCouleur = :idCouleur, idTransmission = :idTransmission, idTypeCarrosserie = :idTypeCarrosserie, vna = :vna, disponibilite = :d WHERE id = :i";
 				$requetePreparee   = $this->db->prepare($requete);
 				$id                = $uneVoiture->getId(); 
 				$idModele          = $uneVoiture->getIdModele();
@@ -193,6 +195,7 @@
 				$requetePreparee->bindParam(":vna", $vna);
 				$requetePreparee->bindParam(":d", $disponibilite);
 				$requetePreparee->execute();
+				return true;
 			} else {
 				//ajout d'une nouvelle voiture
 				$requete = "INSERT INTO voiture(idModele, idAnnee, kilometrage, dateArivee,
@@ -233,8 +236,16 @@
 			}
 		}
 
+		// Méthode qui supprime des images par idVoiture
+		public function supprimerImages($idVoiture) {
+			$requete = "DELETE image WHERE idVoiture = :idV)";
+			$requetePreparee = $this->db->prepare($requete);
+			$requetePreparee->bindParam(":idV", $idVoiture);
+			$requetePreparee->execute();
+		}
+		
 		// Méthode qui sauvegarde des images d'une nouvelle voiture dans la BD.
-		public function sauvegardeImages($chemin, $idVoiture) {
+		public function insererImages($chemin, $idVoiture) {
 			$requete = "INSERT INTO image(lien, idVoiture) VALUES (:lien, :idV)";
 			$requetePreparee = $this->db->prepare($requete);
 			$requetePreparee->bindParam(":lien", $chemin);
@@ -244,7 +255,13 @@
 
 		
 		// Méthode qui sauvegarde des descriptions d'une nouvelle voiture dans la BD.
-		public function sauvegardeDescriptions($description, $idVoiture, $idLangue) {
+		public function insererDescriptions($description, $idVoiture, $idLangue) {
+			
+			$requete = "DELETE description WHERE id = :idV)";
+			$requetePreparee = $this->db->prepare($requete);
+			$requetePreparee->bindParam(":idV", $idVoiture);
+			$requetePreparee->execute();
+			
 			$requete = "INSERT INTO description(id, idLangue, nom) VALUES (:idV, :idL, :nom)";
 			$requetePreparee = $this->db->prepare($requete);
 			$requetePreparee->bindParam(":nom", $description);

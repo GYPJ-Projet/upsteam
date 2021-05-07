@@ -25,8 +25,7 @@ $langue['nom_couleur']	    = 'Color';
 $langue['nom_voiture']	    = 'Car';
 $langue['disponibilite']    = 'Availability';
 
-$langue['nom_langue_fr']    = 'French';
-$langue['nom_langue_en']    = 'English';
+$langue['nom_langue']       = 'English';
 $langue['nom_joindre']      = 'Attach photos';
 
 $langue['formulaire_ajout_marque']  = 'Add new brand';
