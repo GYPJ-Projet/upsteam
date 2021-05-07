@@ -7,6 +7,10 @@
     $langue['tempMotPasse']                 = 'Your password.';
     $langue['btnConnexion']                 = 'Connection';
     $langue['creerCompte']                  = 'Create an account.';
+    $langue['motPassePerdu']                = 'Password lost?';
+    $langue['motPassePerduTitre']           = 'Enter your email';
+    $langue['motPassePerduExplication']     = 'We are going to send you an email whit your new password.';
+    $langue['btnMotPassePerdu']             = 'Send';
 
     //Gestion usager
     $langue['gestion_texte']                = 'This page is used to enter data into the database. <br/> << - On the left, select the section you want to work with. <br/> Have a good job!';
@@ -58,5 +62,7 @@
     $langue['courrielLien']                 = 'Click here to confirm.';
     $langue['validationSucces']             = 'Your account has been activated.';
     $langue['validationEchec']              = 'There was an error in the activation of your account, try again.';
+    $langue['motPassePerduPresentation']    = 'Your new password is:';
+
 
 ?>

@@ -8,6 +8,10 @@
     justify-content: center;
     align-items: center;
 }
+.boutonConteneur{
+    display:flex;
+    flex-direction: column;
+}
 
 .formulaireConnexion {
     display: flex;
@@ -16,10 +20,12 @@
     /* align-items: stretch; */
     text-align: center;
     margin: var(--margeSousSection);
-    flex-basis: calc(65% - var(--margeSection));
+    flex-basis: calc(40% - var(--margeSection));
     margin-top: var(--margeSection);
-    margin-left: var(--margeSection);
-    margin-right: var(--margeSection);
+    /* margin-left: var(--margeSection);
+    margin-left: 100vw;
+    /* margin-right: var(--margeSection); */
+    /* margin-right: 10vw;  */
     border-style: solid;
     border-width: var(--bordureI);
     border-color: var(--gris);

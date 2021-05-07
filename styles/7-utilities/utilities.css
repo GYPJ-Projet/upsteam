@@ -10,3 +10,6 @@
     flex-basis: calc(25% - var(--margeSection));
 }
 
+.margeHautSousSection{
+    margin-top: var(--margeSousSection);
+}
