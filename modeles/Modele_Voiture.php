@@ -160,12 +160,44 @@
 		public function sauvegarde(Voiture $uneVoiture) {
 			//est-ce que la voiture que j'essaie de sauvegarder existe déjà (id différent de zéro)
 			if($uneVoiture->getId() != 0) {
-				//mise à jour -- UPDATE voiture SET...
+				// Mise à jour de la voiture
+				$requete = "UPDATE voiture SET idModele = :idModele, idAnnee = :idAnnee, disponibilite = :d WHERE id = :i";
+				$requetePreparee   = $this->db->prepare($requete);
+				$id                = $uneVoiture->getId(); 
+				$idModele          = $uneVoiture->getIdModele();
+				$idAnnee           = $uneVoiture->getIdAnnee();
+				$kilometrage       = $uneVoiture->getKilometrage();
+				$dateArrivee       = $uneVoiture->getDateArrivee();
+				$prixAchat         = $uneVoiture->getPrixAchat();
+				$prixVente         = $uneVoiture->getPrixVente();
+				$idMotopropulseur  = $uneVoiture->getIdMotopropulseur();
+				$idTypeCarburant   = $uneVoiture->getIdTypeCarburant();
+				$idCouleur         = $uneVoiture->getIdCouleur();
+				$idTransmission    = $uneVoiture->getIdTransmission();
+				$idTypeCarrosserie = $uneVoiture->getIdTypeCarrosserie();
+				$vna               = $uneVoiture->getVna();
+				$disponibilite     = $uneVoiture->getDisponibilite();
+
+				$requetePreparee->bindParam(":i", $id);
+				$requetePreparee->bindParam(":idModele", $idModele); 
+				$requetePreparee->bindParam(":idAnnee", $idAnnee);
+				$requetePreparee->bindParam(":kilometrage", $kilometrage);
+				$requetePreparee->bindParam(":dateArrivee", $dateArrivee);
+				$requetePreparee->bindParam(":prixAchat", $prixAchat);
+				$requetePreparee->bindParam(":prixVente", $prixVente); 
+				$requetePreparee->bindParam(":idMotopropulseur", $idMotopropulseur);
+				$requetePreparee->bindParam(":idTypeCarburant", $idTypeCarburant);
+				$requetePreparee->bindParam(":idCouleur", $idCouleur); 
+				$requetePreparee->bindParam(":idTransmission", $idTransmission);
+				$requetePreparee->bindParam(":idTypeCarrosserie", $idTypeCarrosserie);
+				$requetePreparee->bindParam(":vna", $vna);
+				$requetePreparee->bindParam(":d", $disponibilite);
+				$requetePreparee->execute();
 			} else {
 				//ajout d'une nouvelle voiture
-				$requete = "INSERT INTO voiture(idModele, idAnnee,kilometrage, dateArivee,
+				$requete = "INSERT INTO voiture(idModele, idAnnee, kilometrage, dateArivee,
 												prixAchat, prixVente, idMotopropulseur, idTypeCarburant,
-												idCouleur, idTransmission, idTypeCarrosserie, disponibilite, vna) 
+												idCouleur, idTransmission, idTypeCarrosserie, vna) 
 							VALUES (:idModele, :idAnnee, :kilometrage, :dateArrivee,
 									:prixAchat, :prixVente, :idMotopropulseur, :idTypeCarburant, 
 									:idCouleur, :idTransmission, :idTypeCarrosserie, :vna)";
@@ -196,7 +228,29 @@
 				$requetePreparee->bindParam(":idTypeCarrosserie", $idTypeCarrosserie);
 				$requetePreparee->bindParam(":vna", $vna);
 				$requetePreparee->execute();
+				//on retourne l'identifiant de la dernière insertion
+				return $this->db->lastInsertId();
 			}
+		}
+
+		// Méthode qui sauvegarde des images d'une nouvelle voiture dans la BD.
+		public function sauvegardeImages($chemin, $idVoiture) {
+			$requete = "INSERT INTO image(lien, idVoiture) VALUES (:lien, :idV)";
+			$requetePreparee = $this->db->prepare($requete);
+			$requetePreparee->bindParam(":lien", $chemin);
+			$requetePreparee->bindParam(":idV", $idVoiture);
+			$requetePreparee->execute();
+		}
+
+		
+		// Méthode qui sauvegarde des descriptions d'une nouvelle voiture dans la BD.
+		public function sauvegardeDescriptions($description, $idVoiture, $idLangue) {
+			$requete = "INSERT INTO description(id, idLangue, nom) VALUES (:idV, :idL, :nom)";
+			$requetePreparee = $this->db->prepare($requete);
+			$requetePreparee->bindParam(":nom", $description);
+			$requetePreparee->bindParam(":idV", $idVoiture);
+			$requetePreparee->bindParam(":idL", $idLangue);
+			$requetePreparee->execute();
 		}
 
         /**
