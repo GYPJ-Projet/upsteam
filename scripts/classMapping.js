@@ -9,6 +9,7 @@ const classMapping = {
     'GestionUsager'        : GestionUsager,
     'GestionVoiture'        : GestionVoiture,
     'ListeVoitures'         : ListeVoitures,
+    'Paypal'                : Paypal,
     'VoirPlus'              : VoirPlus,
     'Voiture'               : Voiture,
     'GestionModele'         : GestionModele,
