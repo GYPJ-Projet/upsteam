@@ -1,6 +1,8 @@
+<section class="pageDonnees">
 <?php
+    if (isset($donnees["usager"])) $usager = $donnees["usager"];
     $langue = $donnees["langue"];
-    if ($donnees["marque"]) $marque = $donnees["marque"];
+    if (isset($donnees["marque"])) $marque = $donnees["marque"];
 ?>
 
 <h2><?= (isset($marque)) ? $langue["formulaire_modif_marque"] : $langue["formulaire_ajout_marque"] ?></h2>
@@ -10,7 +12,7 @@
         <input type="text" name="nom" id="nom" value="<?= (isset($marque)) ? $marque->getNom() : "" ?>" required/>
     </div>
 <?php
-    if (isset($marque)) {
+    if (isset($marque) && $usager->getIdRole() == 1) {
 ?>
     <div class="champ">
         <label for="disponibilite"><?= $langue["disponibilite"] ?> : </label>
@@ -22,3 +24,6 @@
     <input type="hidden" name="id" value="<?= (isset($marque)) ? $marque->getId() : 0 ?>"/><br/>
     <input class="bouton" type="submit" value="<?= $langue['button_soumettre'] ?>"/>    
 </form>
+</section>
+
+</div>

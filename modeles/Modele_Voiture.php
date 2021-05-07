@@ -108,14 +108,14 @@
 				                                 modele.nom AS nomModele, 
 				                                 marque.nom AS nomMarque, 
 												 annee.annee AS annee, 
-												 motopropulseur.nom AS nomMotoPropulseur, 
-												 image.lien AS lienPhotoPrincipale 
+												 motopropulseur.nom AS nomMotoPropulseur/*, 
+												 image.lien AS lienPhotoPrincipale */
 											FROM voiture 
 											JOIN modele ON modele.id = voiture.idModele 
 											JOIN marque ON marque.id = modele.idMarque  
 											JOIN annee ON annee.id = voiture.idAnnee 
 											JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
-											JOIN image ON image.idVoiture = voiture.id  AND image.sort = 0
+											/*JOIN image ON image.idVoiture = voiture.id  AND image.sort = 0*/
 											ORDER BY " . $tri .  " " . $ordre .  "
 											LIMIT " . $indexDepart . ", " . $nombreVoulu
 										);		
@@ -237,12 +237,22 @@
 		}
 
 		// Méthode qui supprime des images par idVoiture
-		public function supprimerImages($idVoiture) {
-			$requete = "DELETE image WHERE idVoiture = :idV)";
+		/*public function supprimerImages($idVoiture) {
+			$requete = "DELETE image WHERE idVoiture = :idVoiture";
 			$requetePreparee = $this->db->prepare($requete);
-			$requetePreparee->bindParam(":idV", $idVoiture);
+			$requetePreparee->bindParam(":idVoiture", $idVoiture);
 			$requetePreparee->execute();
-		}
+		}*/
+
+		public function supprimerImages($idVoiture) {
+            try {
+				$stmt = $this->db->query("DELETE image WHERE idVoiture =".$idVoiture);	
+				$stmt->execute();
+			}	
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
 		
 		// Méthode qui sauvegarde des images d'une nouvelle voiture dans la BD.
 		public function insererImages($chemin, $idVoiture) {
@@ -253,15 +263,30 @@
 			$requetePreparee->execute();
 		}
 
-		
+		// Méthode qui modifie des descriptions par idVoiture
+		public function modifierDescriptions($description, $idVoiture, $idLangue) {
+			$requete = "UPDATE `description` SET id = :idV, idLangue = :idL, nom = :nom";
+			$requetePreparee = $this->db->prepare($requete);
+			$requetePreparee->bindParam(":nom", $description);
+			$requetePreparee->bindParam(":idV", $idVoiture);
+			$requetePreparee->bindParam(":idL", $idLangue);
+			$requetePreparee->execute();
+		}
+
+		/*public function modifierDescriptions($description, $idVoiture, $idLangue) {
+            try {
+				$stmt = $this->db->query("DELETE description WHERE id = $idVoiture ");	
+				Debug::toLog("//stmt", $stmt);
+				$stmt->execute();
+			}	
+			catch(Exception $exc) {
+				return 0;
+			}
+        }*/
+
 		// Méthode qui sauvegarde des descriptions d'une nouvelle voiture dans la BD.
 		public function insererDescriptions($description, $idVoiture, $idLangue) {
-			
-			$requete = "DELETE description WHERE id = :idV)";
-			$requetePreparee = $this->db->prepare($requete);
-			$requetePreparee->bindParam(":idV", $idVoiture);
-			$requetePreparee->execute();
-			
+			Debug::toLog("Insert idVoiture - ", $idVoiture);
 			$requete = "INSERT INTO description(id, idLangue, nom) VALUES (:idV, :idL, :nom)";
 			$requetePreparee = $this->db->prepare($requete);
 			$requetePreparee->bindParam(":nom", $description);

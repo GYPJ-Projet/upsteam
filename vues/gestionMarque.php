@@ -9,7 +9,7 @@
         <h1><?= $langue["gestion_marques"] ?></h1>
 
     <div data-js-component="GestionMarque" data-js-controleur-action="gestionMarque">
-        <button class="bouton" data-js-ajouter><?= $langue["button_ajouter"] ?></button>
+    <a class="bouton" href="index.php?GestionDonnees&action=afficherFormulaireMarque&page=<?= $pageCourante ?>" data-js-ajouter><?= $langue["button_ajouter"] ?></a>    
         <table class="table">
             <thead>
                 <tr>
@@ -46,7 +46,7 @@
                     <td><?= $marque->getId() ?></td>
                     <td><?= $marque->getNom() ?></td>
                     <td><?= ($marque->getDisponibilite() == true)? $langue["texte_oui"] : "" ?></td>
-                    <td><button data-js-modifier data-js-id=<?= $marque->getId() ?>><?= $langue["button_modifier"] ?></button></td>
+                    <td><a href="index.php?GestionDonnees&action=afficherFormulaireMarque&id=<?= $marque->getId() ?>&page=<?= $pageCourante ?>" data-js-modifier data-js-id=<?= $marque->getId() ?>><?= $langue["button_modifier"] ?></a></td>
                 </tr>                 
         <?php
             }

@@ -81,6 +81,17 @@
 						$donnees["marques"] = $modeleMarque->obtenirMarques($depart, $marquesParPage, $tri, $ordre);
 						$this->afficheVue("gestionMarque", $donnees);
 						break;
+					case "afficherFormulaireMarque":
+						$donnees["usager"] = $_SESSION["usager"];
+						$this->afficheVue("listeDonnees", $donnees);
+						// Si le parametres id est existe, on affiche le formulaire pour la modification
+						if (isset($params["id"])) {
+							$donnees["marque"] = $modeleMarque->obtenirParId($params["id"]);
+							$this->afficheVue("formulaireMarque", $donnees);
+						} else { // Sinon, on affiche le formulaire pour l'ajout
+							$this->afficheVue("formulaireMarque", $donnees);
+						}
+						break;
 					// Affichage de la liste des modèles
 					case "gestionModele":
 						// Nombre des modeles affichées sur une page
@@ -113,6 +124,19 @@
 						$this->afficheVue("listeDonnees", $donnees);
 						$donnees["modeles"] = $modeleModele->obtenirTousAvecMarque($depart, $modelesParPage, $tri, $ordre);
 						$this->afficheVue("gestionModele", $donnees);
+						break;
+					case "afficherFormulaireModele":
+						$donnees["usager"] = $_SESSION["usager"];
+						$this->afficheVue("listeDonnees", $donnees);
+						// Si le parametres id est existe, on affiche le formulaire pour la modification
+						if (isset($params["id"])) {
+							$donnees["marques"] = $modeleMarque->obtenirTousDisponible();
+							$donnees["modele"] = $modeleModele->obtenirParId($params["id"]);
+							$this->afficheVue("formulaireModele", $donnees);
+						} else { // Sinon, on affiche le formulaire pour l'ajout
+							$donnees["marques"] = $modeleMarque->obtenirTousDisponible();
+							$this->afficheVue("formulaireModele", $donnees);
+						}
 						break;
 					// Affichage de la liste des couleurs
 					case "gestionCouleur":
@@ -155,6 +179,7 @@
 						break;
 					// Afficher le formulaire d'ajout ou de la modification
 					case "afficherFormulaireVoiture":
+						$donnees["usager"] = $_SESSION["usager"];
 						// Obtenir toutes les marques
 						$donnees["marques"] = $modeleMarque->obtenirTousDisponible();
 						// Obtenir toutes les modeles
