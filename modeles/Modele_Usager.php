@@ -116,7 +116,7 @@
             $id = 0; // l'id de l'usager vaut 0 si usager est invalide lor de la répone
 
             //déterminer si la combinaison nomUsager / motDePasse est valide
-            $requete = "SELECT *
+            $requete = "SELECT *, usager.nom AS nom
                         FROM usager 
                         JOIN langue ON langue.id = usager.idLangue
                         WHERE courriel=:courriel";

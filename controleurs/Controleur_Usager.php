@@ -60,10 +60,6 @@
                     if (isset($params["courriel"], $params["motPasse"])) {
                         $unUsager = $modeleUsager->authentification($params["courriel"]);
                         $token = $unUsager->getToken();
-
-                        // Debug::toLog($unUsager);
-                        // Debug::toLog("token",$token);
-
                         // Si son authentification est valide 
                         if ($unUsager !== false) {
                             if($unUsager->getMotPasse() === $params["motPasse"]){       //Test du mot de passe.
@@ -135,7 +131,6 @@
                     if(!isset($params['idRole'])){
                         $params['idRole'] = 3;
                     }
-
                     $usager =  new Usager(  $params['id'], $params['motPasse'], $params['courriel'], $params['nom'],
                                             $params['prenom'], $params['dateNaissance'], $params['adresse'], 
                                             $params['codePostal'], $params['ville'], $params['telephone'],  
@@ -149,6 +144,8 @@
                     // PH Test si c'est une modification (update table)
                     if(isset($params['modif'])){
                         $modeleUsager->sauvegarde($usager);
+                        $unUsager = $modeleUsager->authentification($params["courriel"]);
+                        $_SESSION['usager'] = $unUsager;
                         if(isset($params['retour'])){                           //Si on arrive du menu de gestion employer
                             header("Location: index.php?Usager&action=gestionUsager");
                         }else{                                                  //Si on arrive du menu de modif d'un usager.
@@ -299,7 +296,7 @@
                  * Affiche la page de modification des information d'un employer.
                  */
                 case "formulaireMonProfil":
-                    Debug::toLog($_SESSION['usager']);
+                    if(isset($params['modif']))$donnees['modif'] = $params['modif'];
                     $donnees["usager"] = $_SESSION['usager'];
                     $this->affiche($donnees);
                     $this->afficheVue("formulaireUsager", $donnees);

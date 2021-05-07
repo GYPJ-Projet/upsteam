@@ -36,7 +36,6 @@
                 <select name="province" id="province" required>
                     <option value=""><?= $langue["option"] ?></option>
     <?php
-                    // Debug::toLog($usager->getIdProvince());
                     for ($i = 1; $i <= count($donnees["province"]); $i++) {
     ?>         
                     <option value="<?= $i ?>" <?= (isset($usager) && $usager->getIdProvince() == $i) ? "selected" : "" ?>>
@@ -99,7 +98,6 @@
 
 
     <?php
-            // Debug::toLog($donnees["erreurs"]);
             if(isset($donnees["erreurs"]) && $donnees["erreurs"] != ""){
     ?>
             <p class="connexionErreur"><?= $donnees["erreurs"] ?></p>
