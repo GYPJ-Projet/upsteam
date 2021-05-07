@@ -1,6 +1,8 @@
+<section class="pageDonnees">
 <?php
+    if (isset($donnees["usager"])) $usager = $donnees["usager"];
     $langue = $donnees["langue"];
-    if ($donnees["modele"]) $modele = $donnees["modele"];
+    if (isset($donnees["modele"])) $modele = $donnees["modele"];
 ?>
 
 <h2><?= (isset($modele)) ? $langue["formulaire_modif_modele"] : $langue["formulaire_ajout_modele"] ?></h2>
@@ -21,7 +23,7 @@
 ?>        
     </select><br>
 <?php
-    if (isset($modele)) {
+    if (isset($modele) && $usager->getIdRole() == 1) {
 ?>
         <label for="disponibilite"><?= $langue["disponibilite"] ?> : </label>
         <input type="checkbox" name="disponibilite" id="disponibilite" <?= (isset($modele) && $modele->getDisponibilite() == 1) ? "checked" : "" ?>/><br>
@@ -32,3 +34,6 @@
     <input type="hidden" name="id" value="<?= (isset($modele)) ? $modele->getId() : 0 ?>"/><br/>
     <input class="bouton" type="submit" value="<?= $langue['button_soumettre'] ?>"/>
 </form>
+</section>
+
+</div>

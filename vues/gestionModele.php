@@ -9,7 +9,7 @@
         <h1><?= $langue["gestion_modeles"] ?></h1>
 
     <div data-js-component="GestionModele" data-js-controleur-action="gestionModele">
-        <button class="bouton" data-js-ajouter><?= $langue["button_ajouter"] ?></button>
+    <a class="bouton" href="index.php?GestionDonnees&action=afficherFormulaireModele&page=<?= $pageCourante ?>" data-js-ajouter><?= $langue["button_ajouter"] ?></a>
         <table class="table">
             <thead>
                 <tr>
@@ -53,7 +53,7 @@
                     <td><?= $modele["nom"] ?></td>
                     <td><?= $modele["nomMarque"] ?></td>
                     <td><?= ($modele["disponibilite"] == true)? $langue["texte_oui"] : "" ?></td>
-                    <td><button data-js-modifier data-js-id=<?= $modele["id"] ?>><?= $langue["button_modifier"] ?></button></td>
+                    <td><a href="index.php?GestionDonnees&action=afficherFormulaireModele&id=<?= $modele["id"] ?>&page=<?= $pageCourante ?>" data-js-modifier data-js-id=<?= $modele["id"] ?>><?= $langue["button_modifier"] ?></a></td>
                 </tr>                 
 <?php
             }

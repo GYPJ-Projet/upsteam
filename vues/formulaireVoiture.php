@@ -1,6 +1,7 @@
 <section class="pageDonnees">
 <?php
     $langueInfo = $donnees["langue"];
+    if (isset($donnees["usager"])) $usager = $donnees["usager"];
     if (isset($donnees["voiture"])) $voiture = $donnees["voiture"];
     if (isset($donnees["descriptions"])) $descriptions = $donnees["descriptions"];
     if (isset($donnees["langues"])) $langues = $donnees["langues"];
@@ -160,7 +161,7 @@
             </div>
         <?php
             
-            if (isset($voiture)) {
+            if (isset($voiture) && $usager->getIdRole() == 1) {
         ?>
                 <label for="disponibilite"><?= $langueInfo["disponibilite"] ?> : </label>
                 <input type="checkbox" name="disponibilite" id="disponibilite" <?= (isset($voiture) && $voiture["disponibilite"] == 1) ? "checked" : "" ?>/><br>

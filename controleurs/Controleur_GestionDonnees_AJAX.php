@@ -33,16 +33,6 @@
 				// Switch en fonction de l'action qui est envoyée en paramètre de la requête
 				// Ce switch détermine la vue $vue et obtient le modèle $data
 				switch($params["action"]) {
-
-					case "afficherFormulaireMarque":
-						// Si le parametres id est existe, on affiche le formulaire pour la modification
-						if (isset($params["id"])) {
-							$donnees["marque"] = $modeleMarque->obtenirParId($params["id"]);
-							$this->afficheVue("formulaireMarque", $donnees);
-						} else { // Sinon, on affiche le formulaire pour l'ajout
-							$this->afficheVue("formulaireMarque", $donnees);
-						}
-						break;
 					case "sauvegarderMarque":
 						if (isset($params["id"]) && isset($params["nom"]) && isset($params["page"])) {
 							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
@@ -57,17 +47,6 @@
 						}
 						break;
 					
-					case "afficherFormulaireModele":
-						// Si le parametres id est existe, on affiche le formulaire pour la modification
-						if (isset($params["id"])) {
-							$donnees["marques"] = $modeleMarque->obtenirTousDisponible();
-							$donnees["modele"] = $modeleModele->obtenirParId($params["id"]);
-							$this->afficheVue("formulaireModele", $donnees);
-						} else { // Sinon, on affiche le formulaire pour l'ajout
-							$donnees["marques"] = $modeleMarque->obtenirTousDisponible();
-							$this->afficheVue("formulaireModele", $donnees);
-						}
-						break;
 					case "sauvegarderModele":
 						if (isset($params["id"]) && isset($params["nom"]) && isset($params["idMarque"]) && isset($params["page"])) {
 							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
@@ -99,11 +78,12 @@
 						}	
 						break;
 					case "sauvegarderVoiture":
-						if (isset($params["id"])  && isset($params["idModele"]) && isset($params["idAnnee"]) && isset($params["kilometrage"])
-							&& isset($params["dateArrivee"]) && isset($params["prixAchat"]) && isset($params["prixVente"]) 
-							&& isset($params["idMotopropulseur"]) && isset($params["idTypeCarburant"]) && isset($params["idCouleur"])
-							&& isset($params["idTransmission"]) && isset($params["idTypeCarrosserie"]) && isset($params["vna"])
-							&& isset($params["page"]) && isset($params["fr-fr"]) && isset($params["en-gb"])) {
+						if (isset($params["id"])  && isset($params["idModele"]) && isset($params["idAnnee"]) && isset($params["kilometrage"]) && 
+							isset($params["dateArrivee"]) && isset($params["prixAchat"]) && isset($params["prixVente"]) && 
+							isset($params["idMotopropulseur"]) && isset($params["idTypeCarburant"]) && isset($params["idCouleur"]) && 
+							isset($params["idTransmission"]) && isset($params["idTypeCarrosserie"]) && isset($params["vna"]) && 
+							isset($params["page"]) && isset($params["fr-fr"]) && isset($params["en-gb"])) {
+
 							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
 							else $params["disponibilite"] = 0;
 							
@@ -113,10 +93,31 @@
 							$params["disponibilite"], $params["vna"]);
 								
 							$reponse = $modeleVoiture->sauvegarde($nouvelleVoiture);
+							
+							if ($params["id"] != 0) {
+								Debug::toLog("//Supprimer les image avec idVoiture avant d'ajoute");
+								//Supprimer les image avec idVoiture avant d'ajouter
+								$modeleVoiture->supprimerImages($params["id"]);
+							}
+							
 							//Création du repertoire avec nom - id de la voiture ajoutée
+							//ou suppression des fichiers
 							if (isset($reponse) && $reponse > 0) {
-								//Créer le repertoire avec le nom - id de voiture
-								mkdir(REPERTOIRE_IMAGES.$reponse, 0700);
+								if ($params["id"] == 0) {
+									//Créer le repertoire avec le nom - id de voiture
+									mkdir(REPERTOIRE_IMAGES.$reponse, 0700);
+									$dossier = $reponse;
+								} else {
+									$files = glob(REPERTOIRE_IMAGES.$params["id"].'/*'); // obtenir tous les nom de fichiers
+									$dossier = $params["id"];
+									Debug::toLog("Supprimer tous les fichiers");
+									//On supprime chaque fichier
+									foreach($files as $file){ 
+  										if(is_file($file))
+    									unlink($file);
+									}
+								}
+							
 								// Enregistrer chaque fichier sur le serveur
 								for ($i = 0, $l = count($_FILES['images']["name"]); $i < $l; $i++) { 	
 									//noms de fichier
@@ -139,24 +140,35 @@
 										$error = TRUE;
 									}
 									//Vérifier si le fichier est exist;
-									if(file_exists(REPERTOIRE_IMAGES.$reponse.'/'.$nomFichier))
+									if(file_exists(REPERTOIRE_IMAGES.$dossier.'/'.$nomFichier))
 									{
 										$message = "File already exist";
 										$error = TRUE;
 									}
-									
+
 									if($error == FALSE){
-										if(move_uploaded_file($_FILES['images']["tmp_name"][$i], REPERTOIRE_IMAGES.$reponse.'/'.$nomFichier)){
+										if(move_uploaded_file($_FILES['images']["tmp_name"][$i], REPERTOIRE_IMAGES.$dossier.'/'.$nomFichier)){
 											//enregistrer dans la BD
-						
-											$modeleVoiture->sauvegardeImages($nomFichier, $reponse);
+											Debug::toLog("//Inserer les image avec idVoiture avant d'ajoute");
+											$modeleVoiture->insererImages($nomFichier, $dossier);	
 										}
-									}
+									} 
 								}
-							}
-							//Enregistrer les description
-							$modeleVoiture->sauvegardeDescriptions($params["fr-fr"], $reponse, 1);
-							$modeleVoiture->sauvegardeDescriptions($params["en-gb"], $reponse, 2);
+
+								if ($params["id"] != 0) {
+									Debug::toLog("//Modifier les description avec idVoiture avant d'ajouter", $dossier);
+									//Supprimer les description avec idVoiture avant d'ajouter
+									$modeleVoiture->modifierDescriptions($params["fr-fr"], $dossier, 1);
+									$modeleVoiture->modifierDescriptions($params["en-gb"], $dossier, 2);
+								} else {
+									Debug::toLog("//Inderer les description avec idVoiture avant d'ajouter", $dossier);
+									//Enregistrer les description
+									$modeleVoiture->insererDescriptions($params["fr-fr"], $dossier, 1);
+									$modeleVoiture->insererDescriptions($params["en-gb"], $dossier, 2);
+								}	
+								
+								
+							} 							
 
 							header("Location: index.php?GestionDonnees&action=gestionVoiture" . $params["page"]);
 									
