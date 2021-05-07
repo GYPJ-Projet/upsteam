@@ -82,7 +82,21 @@
             $requetePreparee->bindParam(":id", $id);
             return $requetePreparee->execute();
         }
-        
+
+        /**
+         * PH
+         * Pour procédure de perte de mot de passe.
+         */
+        public function changeMotPasse($courriel, $motPasse){
+            $requete = "UPDATE usager
+                        SET motPasse = :motPasse
+                        WHERE courriel = :courriel";
+            $requetePreparee = $this->db->prepare($requete);
+            $requetePreparee->bindParam(":courriel", $courriel);
+            $requetePreparee->bindParam(":motPasse", $motPasse);
+            return $requetePreparee->execute();
+        }
+
 		// Méthode qui retourne le nombre d'usager qu'il y a dans la BD
 		public function combienUsager() {
 			try {
@@ -102,7 +116,7 @@
             $id = 0; // l'id de l'usager vaut 0 si usager est invalide lor de la répone
 
             //déterminer si la combinaison nomUsager / motDePasse est valide
-            $requete = "SELECT *
+            $requete = "SELECT *, usager.nom AS nom
                         FROM usager 
                         JOIN langue ON langue.id = usager.idLangue
                         WHERE courriel=:courriel";
@@ -133,7 +147,7 @@
                                 idLangue = :idLangue,
                                 idRole = :idRole,
                                 idProvince = :idProvince
-                                WHERE id = :id";
+                                WHERE courriel = :courriel";
                 $requetePreparee        = $this->db->prepare($requete);
                 $id                     = $unUsager->getId();
                 $motDePasse             = $unUsager->getMotPasse();

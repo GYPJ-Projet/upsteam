@@ -38,7 +38,7 @@ class MenuConteneur{
     }
 
     menuMonProfil = () =>{
-        window.location = 'index.php?Usager';
+        window.location = 'index.php?Usager&action=formulaireMonProfil&modif';
     }
 
     menuGestionDonnees = () =>{

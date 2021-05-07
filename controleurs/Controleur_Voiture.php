@@ -5,7 +5,6 @@
 		public function getNomControleur() {
 			return "Voiture";
 		}
-
 		// La fonction qui sera appelée par le routeur
 		public function traite(array $params) {
 			
