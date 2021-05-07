@@ -36,7 +36,7 @@ class ListeVoitures {
 
             this.effacerClasseGrille(this._elGrille);
             
-            // On ajoute la classe avec une seul colonne 
+            // On ajoute la classe avec une seule colonne 
             this._elGrille.classList.add('grille--1');
 
           
@@ -47,6 +47,15 @@ class ListeVoitures {
             // On ajoute la classe avec deux colonne 
             this._elGrille.classList.add('grille--1');
 
+        // Si le conteneur peut contenir 4 tuiles OU que le conteneur est plus grand que l'écran d'un laptop            
+        } else if (largeurConteneurVoiture > ((largeurTuile*5) + (4*largeurPaddingTuile) + 30) || (largeurConteneurVoiture > laptop)) {
+            // On retire la classe grille--? qui existe
+
+            this.effacerClasseGrille(this._elGrille);
+
+            // On ajoute la classe avec 5 colonnes 
+            this._elGrille.classList.add('grille--5');
+
 
         // Si le conteneur peut contenir 4 tuiles OU que le conteneur est plus grand que l'écran d'un iPadPro            
         } else if (largeurConteneurVoiture > ((largeurTuile*4) + (3*largeurPaddingTuile) + 26) || (largeurConteneurVoiture > iPadPro)) {
@@ -54,7 +63,7 @@ class ListeVoitures {
 
             this.effacerClasseGrille(this._elGrille);
 
-            // On ajoute la classe avec deux colonne 
+            // On ajoute la classe avec 4 colonnes 
             this._elGrille.classList.add('grille--4');
 
 
@@ -65,7 +74,7 @@ class ListeVoitures {
             // On retire la classe grille--? qui existe
             this.effacerClasseGrille(this._elGrille);
 
-            // On ajoute la classe avec deux colonne 
+            // On ajoute la classe avec 3 colonnes 
             this._elGrille.classList.add('grille--3');
  
 
@@ -75,7 +84,7 @@ class ListeVoitures {
             // On retire la classe grille--? qui existe
             this.effacerClasseGrille(this._elGrille);
 
-             // On ajoute la classe avec deux colonne 
+             // On ajoute la classe avec deux colonnes 
             this._elGrille.classList.add('grille--2');     
          }
     }
