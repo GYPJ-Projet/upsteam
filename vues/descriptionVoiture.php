@@ -13,10 +13,10 @@
 				<div class="swiper-wrapper">
 <?php
 	foreach ($donnees["images"]  as $unImage) {
-		$tableauLienImage = explode("/",$unImage["lien"]);
-		$altImage = $tableauLienImage[Count($tableauLienImage)-1];
+		$altImage = $unImage["lien"];
+		$cheminImageVoiture =  REPERTOIRE_IMAGES . $unImage["idVoiture"] . "/". $unImage["lien"];
 ?>  
-            		<div class="swiper-slide"><img src="<?=$unImage["lien"] ?>" alt="<?= $altImage ?>" class="swiper-image" data-js-image="<?= $unImage["sort"] ?>"></div>
+            		<div class="swiper-slide"><img src="<?= $cheminImageVoiture ?>" alt="<?= $altImage ?>" class="swiper-image"></div>
 <?php
 	}
 ?>               

@@ -1,7 +1,22 @@
+.formulaireConnexionConteneur{
+    display: flex;
+    justify-content: center;
+}
+
+.formulaireConnexionInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .formulaireConnexion {
-    display: inline-block;
-    flex-basis: calc(50% - var(--margeSection));
-    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: stretch; */
+    text-align: center;
+    margin: var(--margeSousSection);
+    flex-basis: calc(65% - var(--margeSection));
     margin-top: var(--margeSection);
     margin-left: var(--margeSection);
     margin-right: var(--margeSection);
@@ -11,4 +26,54 @@
     font-family: var(--orbitron);
     font-size: var(--police_taille_h2Plus);
     background-color: var(--blanc);
+}
+
+.formulaireConnexionform{
+    margin-top: var(--margeSousSection);
+    margin-right: var(--margeSection);
+    margin-left: var(--margeSection);
+    font-family: var(--orbitron);
+    font-size: var( --police_taille_sousTitre);
+    color: var(--gris);
+}
+
+.formulaireConnexionInput {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.boutonFormConnexion {
+    color: var(--blanc);
+    background-color: var(--cle);
+    margin-top: var(--margeSousSection);
+    text-align: center;
+    padding: 0.5vw;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.boutonFormCreerCompte {
+    color: var(--blanc);
+    background-color: var(--cle);
+    text-align: center;
+    padding: 0.5vw;
+    display: block;
+    margin-top: 1vw;
+    margin-bottom: var(--margeSousSection);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.connexionErreur{
+    color: var(--cle);
+    text-align: center;
+}
+
+@media screen and (max-width: 414px) {
+    .formulaireConnexionInput{
+        flex-direction: column;
+        margin-right: auto;
+
+    }
 }

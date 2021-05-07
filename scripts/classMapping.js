@@ -6,11 +6,13 @@ const classMapping = {
     'GestionMarque'         : GestionMarque,
     'GestionModele'         : GestionModele,
     'GestionCouleur'        : GestionCouleur,
+    'GestionUsager'        : GestionUsager,
     'GestionVoiture'        : GestionVoiture,
     'ListeVoitures'         : ListeVoitures,
     'VoirPlus'              : VoirPlus,
     'Voiture'               : Voiture,
     'GestionModele'         : GestionModele,
     'Filtre'                : Filtre,
+    'FormulaireConnexion'   : FormulaireConnexion,
     'Chercher'              : Chercher
 };

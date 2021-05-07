@@ -32,6 +32,12 @@
             //chaque classe controleur s'appelle Controleur_NomControleur
             $classe = "Controleur_" . $controleur;
 
+            // Si la classe saisie ou entrée n'existe pas, on afficher l'erreur 404
+            if(!class_exists($classe)) {
+                $controleur = "Erreur404";
+                $classe = "Controleur_" . $controleur;
+            }
+
             if(class_exists($classe))
             {
                 //instanciation dynamique de classe

@@ -46,7 +46,7 @@ class MenuConteneur{
     }
 
     menuGestionEmployes = () =>{
-        window.location.href = 'index.php?GestionUsagers';
+        window.location.href = 'index.php?Usager&action=gestionUsager';
     }
 
     menuGestionCommandes = () =>{
