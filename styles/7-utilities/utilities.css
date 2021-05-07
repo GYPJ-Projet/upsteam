@@ -6,3 +6,7 @@
     display: none;
 }
 
+.tampon{
+    flex-basis: calc(25% - var(--margeSection));
+}
+
