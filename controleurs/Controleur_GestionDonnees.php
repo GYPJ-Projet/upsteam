@@ -34,9 +34,9 @@
 			$modeleProvince        = $this->obtenirDAO("province");
 			$modeleAnnee           = $this->obtenirDAO("Annee");
 			$modeleMotopropulseur  = $this->obtenirDAO("Motopropulseur");
+			$modeleCouleur         = $this->obtenirDAO("Couleur"); 
 			
 			$modeleTypeCarburant   = $this->obtenirDAO("TabLangues", "typecarburant");
-			$modeleCouleur         = $this->obtenirDAO("TabLangues", "couleur"); 
 			$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
 			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
 			$modeleDescription     = $this->obtenirDAO("TabLangues", "description");
@@ -47,7 +47,7 @@
 			//$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);
 
 			if (isset($params["action"])) {
-
+                Debug::toLog($params);
 				// Switch en fonction de l'action qui est envoyée en paramètre de la requête
 				// Ce switch détermine la vue $vue et obtient le modèle $data
 				switch($params["action"]) {
@@ -142,10 +142,53 @@
 						break;
 					// Affichage de la liste des couleurs
 					case "gestionCouleur":
+                        // Nombre des marques affichées sur une page
+        				$couleursParPage = 10;
+        				// Obtenir un nombre toutes les marques dans la base de données
+						$nbCouleursTotal = $modeleCouleur->obtenirNombreCouleurs() / 2;
+						// Calculer le nombre des pages 
+        				$donnees["nbPages"] = ceil($nbCouleursTotal / $couleursParPage);
+        				if (isset($_GET["page"]) AND !empty($_GET["page"]) AND $_GET["page"] > 0 AND $_GET["page"] <= $donnees["nbPages"]) 
+        				{
+           					$_GET["page"] = intval($_GET["page"]);
+            				$donnees["pageCourante"] = $_GET["page"];
+        				} else 
+        				{
+            				$donnees["pageCourante"] = 1;
+        				}
+    
+        				$depart = ($donnees["pageCourante"] - 1) * $couleursParPage;
+
+						//Par defaut, on trie par id
+						if (isset($_GET["tri"])) $tri = $_GET["tri"];
+						else $tri = 'id';
+						//Par defaut, on tri dans l'ordre ascendente
+						if (isset($_GET["ordre"])) $ordre = $_GET["ordre"];
+						else $ordre = 'ASC';
+						//Passer les paramètres à la vue
+						$donnees["tri"] = $tri;
+						$donnees["ordre"] = $ordre;
+                        
 						$this->afficheVue("listeDonnees", $donnees);
-						$donnees["couleurs"] = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
+
+                        $donnees["couleurs"] = $modeleCouleur->obtenirParIdLangueCouleurs($depart, $couleursParPage, $tri, $ordre, $idLangue);
 						$this->afficheVue("gestionCouleur", $donnees);
 						break;
+                    
+                    case "afficherFormulaireCouleur":
+                        $donnees["usager"] = $_SESSION["usager"];
+						$this->afficheVue("listeDonnees", $donnees);
+
+						// Si le parametres id existe, on affiche le formulaire pour la modification
+						if (isset($params["id"])) {
+							$donnees["couleur"] = $modeleCouleur->obtenirParIdCouleurs($params["id"]);
+                            Debug::toLog($donnees["couleur"]);
+							$this->afficheVue("formulaireCouleur", $donnees);
+						} else { // Sinon, on affiche le formulaire pour l'ajout
+							$this->afficheVue("formulaireCouleur", $donnees);
+						}
+                        break;
+
 					// Affichage de la liste des voitures
 					case "gestionVoiture":
 						// Nombre des voitures affichées sur une page
@@ -240,7 +283,6 @@
                         $donnees["ordre"] = $ordre;
                         $this->afficheVue("listeDonnees", $donnees);
                         $donnees["taxes"] = $modeleTaxe->obtenirTaxes($depart, $taxesParPage, $tri, $ordre, $idLangue);
-                        
                         $this->afficheVue("gestionTaxe", $donnees);
                         break;
 

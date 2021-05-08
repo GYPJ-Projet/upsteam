@@ -297,9 +297,7 @@ ENGINE = InnoDB;
  
 
 INSERT INTO couleur (id, idLangue, nom) VALUES
-                    (1, 1, 'Noir'), (1, 2, 'Black'), (2, 1,'Blanc'), (2, 2, 'White'), (3, 1, 'Rouge'), (3, 2, 'Red'), (4, 1, 'Vert'), (4, 2, 'Green'), (5, 1, 'Bleu'), (5, 2, 'Blue'), (6, 1, 'Gris'), 	(6, 2, 'Grey'), (7, 1, 'Brun'), (7, 2, 'Brown'), (8, 1, 'Bourgogne'), (8, 2, 'Burgundy ');
-
-
+                    (1, 1, 'Noir'), (1, 2, 'Black'), (2, 1,'Blanc'), (2, 2, 'White'), (3, 1, 'Rouge'), (3, 2, 'Red'), (4, 1, 'Vert'), (4, 2, 'Green'), (5, 1, 'Bleu'), (5, 2, 'Blue'), (6, 1, 'Gris'), 	(6, 2, 'Grey'), (7, 1, 'Brun'), (7, 2, 'Brown'), (8, 1, 'Bourgogne'), (8, 2, 'Burgundy '), (9, 1, 'Bleu Gazon'), (9, 2, 'Turf Blue'), (10, 1, 'Rouge Nintendo'), (10, 2, 'Nintendo Red'), (11, 1, 'Noir Lumineux'), (11, 2, 'Bright Black');
 
 -- -----------------------------------------------------
 -- Table `vehicules`.`transmission`

@@ -20,6 +20,15 @@
                 <label for="disponibilite"><?= $langue["disponibilite"] ?> : </label>
                 <input type="checkbox" name="disponibilite" id="disponibilite" <?= (isset($marque) && $marque->getDisponibilite() == 1) ? "checked" : "" ?>/>
             </div>
+            <?php
+            }else{
+                if(isset($marque) && $marque->getDisponibilite() == 1){
+                    $resultat = 'on';
+                }else{
+                    $resultat = '';
+                }
+        ?>
+                <input type="hidden" name="disponibilite" value="<?= $resultat ?>"/><br/>
         <?php
             }
         ?>

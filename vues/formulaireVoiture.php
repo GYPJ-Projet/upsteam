@@ -166,6 +166,15 @@
                 <label for="disponibilite"><?= $langueInfo["disponibilite"] ?> : </label>
                 <input type="checkbox" name="disponibilite" id="disponibilite" <?= (isset($voiture) && $voiture["disponibilite"] == 1) ? "checked" : "" ?>/><br>
         <?php
+            }else{
+                if(isset($voiture) && $voiture["disponibilite"] == 1){
+                    $resultat = 'on';
+                }else{
+                    $resultat = '';
+                }
+        ?>
+                <input type="hidden" name="disponibilite" value="<?= $resultat ?>"/><br/>
+        <?php
             }
         ?>
             <input type="hidden" name="id" value="<?= (isset($voiture)) ? $voiture["id"] : 0 ?>" data-js-idVoiture="<?= (isset($voiture)) ? $voiture["id"] : 0 ?>"/><br/>
