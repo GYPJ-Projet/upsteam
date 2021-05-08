@@ -11,7 +11,6 @@
 		public function traite(array $params) {				
 			// Initialisation des donnees a un tableau vide par défaut
 			$donnees = array();
-
             // On charge les fichiers de langue selon la langue choisi par l'usager.
             $donnees["langue"] = $this->chargerLangue($params);
 

@@ -31,6 +31,7 @@
 				return $requetePreparee->fetchAll();
 			}
 			catch(Exception $exc) {
+
 				return 0;
 			}
         }

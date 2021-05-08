@@ -26,6 +26,7 @@
 	<script type="text/javascript" src="./scripts/VoirPlus.js"></script>
 	<script type="text/javascript" src="./scripts/GestionMarque.js"></script>
 	<script type="text/javascript" src="./scripts/GestionModele.js"></script>
+	<script type="text/javascript" src="./scripts/GestionTaxe.js"></script>
 	<script type="text/javascript" src="./scripts/GestionCouleur.js"></script>
 	<script type="text/javascript" src="./scripts/GestionUsager.js"></script>
 	<script type="text/javascript" src="./scripts/GestionVoiture.js"></script>

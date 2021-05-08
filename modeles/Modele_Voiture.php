@@ -276,7 +276,6 @@
 		/*public function modifierDescriptions($description, $idVoiture, $idLangue) {
             try {
 				$stmt = $this->db->query("DELETE description WHERE id = $idVoiture ");	
-				Debug::toLog("//stmt", $stmt);
 				$stmt->execute();
 			}	
 			catch(Exception $exc) {
@@ -286,7 +285,6 @@
 
 		// Méthode qui sauvegarde des descriptions d'une nouvelle voiture dans la BD.
 		public function insererDescriptions($description, $idVoiture, $idLangue) {
-			Debug::toLog("Insert idVoiture - ", $idVoiture);
 			$requete = "INSERT INTO description(id, idLangue, nom) VALUES (:idV, :idL, :nom)";
 			$requetePreparee = $this->db->prepare($requete);
 			$requetePreparee->bindParam(":nom", $description);

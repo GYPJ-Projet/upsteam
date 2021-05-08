@@ -95,7 +95,6 @@
 							$reponse = $modeleVoiture->sauvegarde($nouvelleVoiture);
 							
 							if ($params["id"] != 0) {
-								Debug::toLog("//Supprimer les image avec idVoiture avant d'ajoute");
 								//Supprimer les image avec idVoiture avant d'ajouter
 								$modeleVoiture->supprimerImages($params["id"]);
 							}
@@ -110,7 +109,6 @@
 								} else {
 									$files = glob(REPERTOIRE_IMAGES.$params["id"].'/*'); // obtenir tous les nom de fichiers
 									$dossier = $params["id"];
-									Debug::toLog("Supprimer tous les fichiers");
 									//On supprime chaque fichier
 									foreach($files as $file){ 
   										if(is_file($file))
@@ -149,19 +147,16 @@
 									if($error == FALSE){
 										if(move_uploaded_file($_FILES['images']["tmp_name"][$i], REPERTOIRE_IMAGES.$dossier.'/'.$nomFichier)){
 											//enregistrer dans la BD
-											Debug::toLog("//Inserer les image avec idVoiture avant d'ajoute");
 											$modeleVoiture->insererImages($nomFichier, $dossier);	
 										}
 									} 
 								}
 
 								if ($params["id"] != 0) {
-									Debug::toLog("//Modifier les description avec idVoiture avant d'ajouter", $dossier);
 									//Supprimer les description avec idVoiture avant d'ajouter
 									$modeleVoiture->modifierDescriptions($params["fr-fr"], $dossier, 1);
 									$modeleVoiture->modifierDescriptions($params["en-gb"], $dossier, 2);
 								} else {
-									Debug::toLog("//Inderer les description avec idVoiture avant d'ajouter", $dossier);
 									//Enregistrer les description
 									$modeleVoiture->insererDescriptions($params["fr-fr"], $dossier, 1);
 									$modeleVoiture->insererDescriptions($params["en-gb"], $dossier, 2);
