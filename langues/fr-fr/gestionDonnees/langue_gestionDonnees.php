@@ -5,6 +5,7 @@ $langue['gestion_marques']  = 'Gestion des marques';
 $langue['gestion_modeles']  = 'Gestion des modèles';
 $langue['gestion_couleurs'] = 'Gestion des couleurs';
 $langue['gestion_voitures'] = 'Gestion des voitures';
+$langue['gestion_taxe']     = 'Gestion des taxes';
 $langue['gestion_texte']    = 'Cette page est utilisée pour saisir des données dans la base de données. <br/><<-- À gauche, sélectionnez la section avec laquelle vous souhaitez travailler. <br/>Bon travail!';
 $langue['option']           = 'Choisissez ...';
 
@@ -23,10 +24,12 @@ $langue['nom_description']  = 'Specification';
 $langue['nom_transmission']	= 'Transmission';
 $langue['nom_couleur']	    = 'Couleur';
 $langue['nom_voiture']	    = 'Voiture';
+$langue['nom_taxe']	        = 'Taxe';
+$langue['nom_taux']	        = 'Taux';
+$langue['nom_province']	    = 'Province';
 $langue['disponibilite']    = 'Disponibilité';
 
-$langue['nom_langue_fr']    = 'Français';
-$langue['nom_langue_en']    = 'Anglais';
+$langue['nom_langue']       = 'Français';
 $langue['nom_joindre']      = 'Joindre des photos';
 
 $langue['formulaire_ajout_marque']  = 'Ajout d\'une nouvelle marque';
@@ -37,5 +40,7 @@ $langue['formulaire_ajout_couleur'] = 'Ajout d\'une nouvelle couleur';
 $langue['formulaire_modif_couleur'] = 'Modification de la couleur';
 $langue['formulaire_ajout_voiture'] = 'Ajout d\'une nouvelle voiture';
 $langue['formulaire_modif_voiture'] = 'Modification de la voiture';
+$langue['formulaire_ajout_taxe']    = 'Ajout d\'une nouvelle taxe';
+$langue['formulaire_modif_taxe']    = 'Modification de la taxe';
 
 ?>

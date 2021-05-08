@@ -1,4 +1,4 @@
-class GestionVoiture {
+class GestionTaxe {
     constructor(el) {
         this._el = el;
         this._elsTri = this._el.querySelectorAll('[data-js-tri]');
@@ -9,7 +9,6 @@ class GestionVoiture {
     }
 
     init = () => {
-
         //Brancher le gestionnaire click sur les symboles Trier
         for (let i = 0, l = this._elsTri.length; i < l; i++) {
             this._elsTri[i].addEventListener('click', (e) => {
@@ -19,16 +18,16 @@ class GestionVoiture {
                 e.target.parentNode.classList.add("inactif");
                 //Afficher tous les autres boutons 
                 this.activer(i);
-                //Trier les champs
+                //Trier les champs, redireger vers controleur
                 let tri = e.target.dataset.jsTri;
                 let ordre = e.target.dataset.jsOrdre;
                 let page = this.pageActive.dataset.jsPageactive;
-                
+
                 if (tri == undefined) tri = e.target.parentNode.dataset.jsTri;
                 if (ordre == undefined) ordre = e.target.parentNode.dataset.jsOrdre;
                 if (page == undefined) page = 1;
-                // Redireger vers controleur
-                window.location.href = 'index.php?GestionDonnees&action=gestionVoiture&tri=' + tri + '&ordre=' + ordre + '&page=' + page;
+
+                window.location.href = 'index.php?GestionDonnees&action=gestionTaxe&tri=' + tri + '&ordre=' + ordre + '&page=' + page;
             });
         }
 
@@ -49,14 +48,13 @@ class GestionVoiture {
                 //Obtenir le numéro de la page qu'il faut afficher
                 let page = e.target.dataset.jsPage;
                 
-                if (tri == undefined) tri = 'id';
+                if (tri == undefined) tri = 'taxe.id';
                 if (ordre == undefined) ordre = 'ASC';
                 if (page == undefined) page = '1';
-
-                window.location.href = 'index.php?GestionDonnees&action=gestionVoiture&tri=' + tri + '&ordre=' + ordre + '&page=' + page;
+                
+                window.location.href = 'index.php?GestionDonnees&action=gestionTaxe&tri=' + tri + '&ordre=' + ordre + '&page=' + page;
             });
         }
-
     }
 
     // Activer les autres boutons pour pouvoir trier
@@ -67,4 +65,5 @@ class GestionVoiture {
             els[i].firstChild.classList.remove("inactif");
         }
     }
+    
 }

@@ -29,8 +29,8 @@
                                     $nom = "", $prenom = "", $dateNaissance = 0, 
                                     $adresse  = "", $codePostal = "", $ville = "", 
                                     $telephone = "", $telephoneCellulaire = "",
-                                    $idLangue = 0, $idRole = 0, $idProvince ="",
-                                    $token = "", $code = "")
+                                    $idLangue = 0, $idRole = 3, $idProvince ="",
+                                    $token = "", $code = '')
         {
             $this->id = $id;
             $this->courriel = $courriel;
@@ -112,6 +112,10 @@
 
         public function getToken() {
             return $this->token;
+        }
+
+        public function setToken($token) {
+            $this->token = $token;
         }
 
         public function getCode() {

@@ -1,4 +1,4 @@
-class GestionVoiture {
+class GestionUsager {
     constructor(el) {
         this._el = el;
         this._elsTri = this._el.querySelectorAll('[data-js-tri]');
@@ -9,7 +9,6 @@ class GestionVoiture {
     }
 
     init = () => {
-
         //Brancher le gestionnaire click sur les symboles Trier
         for (let i = 0, l = this._elsTri.length; i < l; i++) {
             this._elsTri[i].addEventListener('click', (e) => {
@@ -28,7 +27,7 @@ class GestionVoiture {
                 if (ordre == undefined) ordre = e.target.parentNode.dataset.jsOrdre;
                 if (page == undefined) page = 1;
                 // Redireger vers controleur
-                window.location.href = 'index.php?GestionDonnees&action=gestionVoiture&tri=' + tri + '&ordre=' + ordre + '&page=' + page;
+                window.location.href = 'index.php?Usager&action=gestionUsager&tri=' + tri + '&ordre=' + ordre + '&page=' + page;
             });
         }
 
@@ -53,7 +52,7 @@ class GestionVoiture {
                 if (ordre == undefined) ordre = 'ASC';
                 if (page == undefined) page = '1';
 
-                window.location.href = 'index.php?GestionDonnees&action=gestionVoiture&tri=' + tri + '&ordre=' + ordre + '&page=' + page;
+                window.location.href = 'index.php?Usager&action=gestionUsager&tri=' + tri + '&ordre=' + ordre + '&page=' + page;
             });
         }
 
@@ -67,4 +66,5 @@ class GestionVoiture {
             els[i].firstChild.classList.remove("inactif");
         }
     }
+            
 }

@@ -1,15 +1,16 @@
 <section class="pageDonnees">
 <?php
     $langueInfo = $donnees["langue"];
+    if (isset($donnees["usager"])) $usager = $donnees["usager"];
     if (isset($donnees["voiture"])) $voiture = $donnees["voiture"];
     if (isset($donnees["descriptions"])) $descriptions = $donnees["descriptions"];
     if (isset($donnees["langues"])) $langues = $donnees["langues"];
 ?>
     <div data-js-component="FormulaireVoiture" data-js-controleur-action="afficherFormulaireVoiture">
         <h2><?= (isset($voiture)) ? $langueInfo["formulaire_modif_voiture"] : $langueInfo["formulaire_ajout_voiture"] ?></h2>
-        <form class="formulaire" enctype="multipart/form-data" action="index.php?GestionDonnees_AJAX&action=sauvegarderVoiture" method="post">
+        <form class="formulaire" enctype="multipart/form-data" action="index.php?GestionDonnees_AJAX&action=sauvegarderVoiture" method="post" data-js-form>
             <label for="marque"><?= $langueInfo["nom_marque"] ?> : </label>
-            <select name="idMarque" id="idMarque" required>
+            <select name="idMarque" id="idMarque" data-js-marque required>
                 <option value=""><?= $langueInfo["option"] ?></option>
         <?php
                 foreach ($donnees["marques"] as $marque) {
@@ -22,7 +23,7 @@
         ?> 
             </select><br>
             <label for="modele"><?= $langueInfo["nom_modele"] ?> : </label>
-            <select name="idModele" id="idModele" required>
+            <select name="idModele" id="idModele" data-js-modele required>
                 <option value=""><?= $langueInfo["option"] ?></option>
         <?php
                 foreach ($donnees["modeles"] as $modele) {
@@ -138,7 +139,7 @@
         ?>
                         <div>
                             <label for="<?=$description["code"]?>"><?= $description["nomLangue"] ?> : </label>
-                            <textarea name="<?=$description["code"]?>" id="<?=$description["code"]?>" required><?= $description["nom"] ?></textarea><br>
+                            <textarea name="<?=$description["code"]?>" id="<?=$description["code"]?>" data-js-description required><?= $description["nom"] ?></textarea><br>
                         </div>          
         <?php            
                     }
@@ -147,7 +148,7 @@
         ?>
                         <div>
                             <label for="<?= $langue["code"] ?>"><?= $langue["nom"] ?></label>
-                            <textarea  name="<?= $langue["code"] ?>" id="<?= $langue["code"] ?>" required></textarea><br>
+                            <textarea  name="<?= $langue["code"] ?>" id="<?= $langue["code"] ?>" data-js-description required></textarea><br>
                         </div>          
         <?php            
                     }
@@ -155,19 +156,19 @@
         ?>           
             </div>
             <div>
-                <label for="photo"><?= $langueInfo["nom_joindre"] ?> : </label>
-                <input type="file" name="photo" multiple accept="images/*,images/jpeg"/>
+                <label for="images"><?= $langueInfo["nom_joindre"] ?> : </label>
+                <input type="file" name="images[]" multiple accept=".jpg, .jpeg, .png" data-js-images required/>
             </div>
         <?php
             
-            if (isset($voiture)) {
+            if (isset($voiture) && $usager->getIdRole() == 1) {
         ?>
                 <label for="disponibilite"><?= $langueInfo["disponibilite"] ?> : </label>
                 <input type="checkbox" name="disponibilite" id="disponibilite" <?= (isset($voiture) && $voiture["disponibilite"] == 1) ? "checked" : "" ?>/><br>
         <?php
             }
         ?>
-            <input type="hidden" name="id" value="<?= (isset($voiture)) ? $voiture["id"] : 0 ?>"/><br/>
+            <input type="hidden" name="id" value="<?= (isset($voiture)) ? $voiture["id"] : 0 ?>" data-js-idVoiture="<?= (isset($voiture)) ? $voiture["id"] : 0 ?>"/><br/>
             <input type="hidden" name="page" value="<?= (isset($donnees["page"])) ? $donnees["page"] : 1 ?>"/><br/>
             <input class="bouton" type="submit" value="<?= $langueInfo['button_soumettre'] ?>" data-js-soumettre/>
         </form>
