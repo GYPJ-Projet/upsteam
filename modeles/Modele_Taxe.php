@@ -77,68 +77,43 @@
 			}
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-        /***********************************************************************************/
-        /****************************MARQUE*************************************************/
-        /***********************************************************************************/
-        /***********************************************************************************/
-
-
-
-        
-        // Permet de sauvegarder la marque dans la base de données
-        public function sauvegarder(Marque $laMarque) {
-            // Est-ce que la marque que j'essaie de sauvegarder existe déjà (id différent de zéro)
-            if($laMarque->getId() != 0)
+        public function sauvegarder(Taxe $laTaxe) {
+            // Est-ce que la taxe que j'essaie de sauvegarder existe déjà (id différent de zéro)
+            if($laTaxe->getIdTaxe() != 0)
             {
-                // Mise à jour de la marque 
-                $requete = "UPDATE marque SET nom = :n, disponibilite = :d WHERE id = :i";
+                // Mise à jour de la taxe 
+                $requete = "UPDATE taxe 
+                            SET nom = :nom,
+                                taux = :taux,
+                                idProvince = :idProvince,
+                                disponibilite = :disponibilite 
+                            WHERE id = :id";
                 $requetePreparee = $this->db->prepare($requete);
-                $id              = $laMarque->getId(); 
-                $nom             = $laMarque->getNom();
-                $disponibilite   = $laMarque->getDisponibilite();
-                $requetePreparee->bindParam(":i", $id);
-                $requetePreparee->bindParam(":n", $nom);
-                $requetePreparee->bindParam(":d", $disponibilite);
+                $id              = $laTaxe->getIdTaxe(); 
+                $nom             = $laTaxe->getNomTaxe();
+                $taux            = $laTaxe->getTaux();
+                $disponibilite   = $laTaxe->getDisponibilite();
+                $idProvince      = $laTaxe->getIdProvince();
+                $requetePreparee->bindParam(":id", $id);
+                $requetePreparee->bindParam(":nom", $nom);
+                $requetePreparee->bindParam(":taux", $taux);
+                $requetePreparee->bindParam(":disponibilite", $disponibilite);
+                $requetePreparee->bindParam(":idProvince", $idProvince);
                 $requetePreparee->execute();
             }
             else
             {
-                // Ajout d'une nouvelle marque
-                $requete = "INSERT INTO marque(nom) VALUES (:n)";
+                // Ajout d'une nouvelle taxe
+                $requete = "INSERT INTO taxe(nom, taux, idProvince) VALUES (:nom, :taux, :idProvince)";
                 $requetePreparee = $this->db->prepare($requete);
-                $nom             = $laMarque->getNom();
-                $requetePreparee->bindParam(":n", $nom);
+                $nom             = $laTaxe->getNomTaxe();
+                $taux            = $laTaxe->getTaux();
+                $idProvince      = $laTaxe->getIdProvince();
+                $requetePreparee->bindParam(":nom", $nom);
+                $requetePreparee->bindParam(":taux", $taux);
+                $requetePreparee->bindParam(":idProvince", $idProvince);
                 $requetePreparee->execute();
             }
-        }
-
-        /**
-         * PH
-         * Obtient la liste de tout les marques
-         */
-        public function obtenirToutDisponible(){
-            try {
-				$requete = "SELECT nom, id FROM marque WHERE disponibilite = 1 ORDER BY nom";
-				$requetePreparee = $this->db->prepare($requete);
-				$requetePreparee->execute();
-				return $requetePreparee->fetchAll();
-			}
-			catch(Exception $exc) {
-				return 0;
-			}
-        
         }
     }
 ?>

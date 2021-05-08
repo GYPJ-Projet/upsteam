@@ -19,6 +19,7 @@
 			// On pointes sur les modèles dont on a besoin.
 			$modeleMarque          = $this->obtenirDAO("Marque");
 			$modeleModele          = $this->obtenirDAO("Modele");
+			$modeleTaxe            = $this->obtenirDAO("Taxe");
 			$modeleAnnee           = $this->obtenirDAO("Annee");
 			$modeleVoiture         = $this->obtenirDAO("Voiture");
 			$modeleMotopropulseur  = $this->obtenirDAO("Motopropulseur");
@@ -61,6 +62,30 @@
 							$this->afficheVue("formulaireModele", $donnees);
 						}
 						break;
+
+                        case "sauvegarderTaxe":
+                            Debug::toLog('sauvegarderTaxe');
+                            Debug::toLog($params);
+                            if (isset($params["id"], $params["nom"], $params["taux"], $params["idProvince"], $params["page"])) {
+                                Debug::toLog('A');
+                                if (isset($params["disponibilite"]) && $params["disponibilite"] == "on"){ 
+                                    Debug::toLog('B');
+                                    $params["disponibilite"] = 1;
+                                }else{
+                                    Debug::toLog('C');
+                                    $params["disponibilite"] = 0;
+                                }
+                                Debug::toLog('D');
+                                $nouvelleTaxe = new Taxe($params["id"], $params["nom"], $params["taux"], $params["disponibilite"], $params["idProvince"]);
+                                $reponse = $modeleTaxe->sauvegarder($nouvelleTaxe);
+                                Debug::toLog($reponse);
+                                
+                                header("Location: index.php?GestionDonnees&action=gestionTaxe&page=" . $params["page"]);
+                    
+                            } else { // Sinon, on affiche le formulaire pour l'ajout
+                                $this->afficheVue("formulaireTaxe", $donnees);
+                            }
+                            break;
 					case "afficherFormulaireCouleur":
 						// Si le parametres id est existe, on affiche le formulaire pour la modification
 						if (isset($params["id"])) {

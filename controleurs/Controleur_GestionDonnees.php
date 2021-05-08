@@ -31,6 +31,7 @@
 			$modeleModele          = $this->obtenirDAO("Modele");
 			$modeleVoiture         = $this->obtenirDAO("Voiture");
 			$modeleTaxe            = $this->obtenirDAO("Taxe");
+			$modeleProvince        = $this->obtenirDAO("province");
 			$modeleAnnee           = $this->obtenirDAO("Annee");
 			$modeleMotopropulseur  = $this->obtenirDAO("Motopropulseur");
 			
@@ -246,6 +247,8 @@
                     case "afficherFormulaireTaxe":
                         $donnees["usager"] = $_SESSION["usager"];
                         $this->afficheVue("listeDonnees", $donnees);
+                        // On ajoute la liste des province pour le select du formulaire.
+                        $donnees["province"] = $modeleProvince->obtenirToutParLangueProvince($idLangue);
                         // Si le parametres id existe, on affiche le formulaire pour la modification
                         if (isset($params["id"])) {
                             $donnees["taxe"] = $modeleTaxe->obtenirTaxeParId($params["id"], $idLangue);
