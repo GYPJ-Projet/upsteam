@@ -11,12 +11,12 @@
          */
         public static function toLog($data, $data1 = ''){
             // Création d'un répertoire log si il n'existe pas.
-            if(is_dir('./logs') === false){
-                mkdir("./logs");
+            if(is_dir('.\logs') === false){
+                mkdir(".\logs");
             }
 
             // Ouverture du fichier
-            $log_file = fopen("logs/Debug_log.txt", "a");
+            $log_file = fopen("logs\Debug_log.txt", "a");
             
             // Rend le contenue lisible
             $result_data = print_r($data,true);
@@ -24,10 +24,22 @@
             
             //Ajout des datas au fichier
             fwrite($log_file, date("d-m-Y h:i:s")."\n");
-            fwrite($log_file, $result_data."\n");
             fwrite($log_file, $result_data1."\n");
+            fwrite($log_file, $result_data."\n\n");
 
             // Fermeture du fichier
+            fclose($log_file);
+        }
+ 
+
+        public static function creation_fichier_log() {
+            // Création d'un répertoire log si il n'existe pas.
+            if(is_dir('.\logs') === false){
+                mkdir(".\logs");
+            }
+
+            $log_file = fopen("logs\Debug_log.txt", 'w');
+            fwrite($log_file, "");
             fclose($log_file);
         }
     }

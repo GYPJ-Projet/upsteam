@@ -61,7 +61,6 @@
 
         // Méthode pour charger la langue pour ce contrôleur
         public function chargerLangue(&$params) {
-        
             $langue = array(); // Création de la table langue.
 
             // On va chercher la langue de choisi par l'usager ou 
@@ -75,10 +74,10 @@
             // nom du contrôleur qui fait la demande
             $nomControleur =  strtolower($this->getNomControleur());
 
-             // Chemin d'accès du contrôleur selon la langue d'affichage choisie
+            // Chemin d'accès du contrôleur selon la langue d'affichage choisie
             $cheminFichierLangueControleur = $cheminLangue . "/" . $nomControleur;
 
-             // Fichier de langue du contrôleur
+            // Fichier de langue du contrôleur
             $fichierLangueControleur = "langue_" . $nomControleur . ".php";
     
             // Chargrement du fichier de langue commun pour tous 
@@ -93,6 +92,7 @@
             if (is_file($file)) {
                 require($file);
             }
+
 
             return $langue;
 
@@ -111,20 +111,38 @@
             // Si on a reçu une action ET que cette action est un changement de langue
             if( isset($params["action"]) && $params["action"] == "changerLangue") {
                 if (isset($params["langue"])) {
-                    $_SESSION["langue"] = $params["langue"];  // On retient la langue dans la session
-                    $existeSessionLangue = true;              // La variable de session langue existe.
  
-                    // Si l'action pour le contrôleur existe, 
-                    // il faut le lui faire exécuter en revenant dans le contrôleur, 
-                    // une fois que le tableau de langue aura été déterminé. 
-                    if (isset($params["controleur-action"])) {
-                        $params["action"] = $params["controleur-action"];
+                    // On vérifie que le répertoire  de langue reçu existe 
+                    if (file_exists( RACINE . "langues/" .  $params["langue"])) {
+                        $_SESSION["langue"] = $params["langue"];  // On retient la langue dans la session
+                        $existeSessionLangue = true;              // La variable de session langue existe.
+    
+                        // Si l'action pour le contrôleur existe, 
+                        // il faut le lui faire exécuter en revenant dans le contrôleur, 
+                        // une fois que le tableau de langue aura été déterminé. 
+                        if (isset($params["controleur-action"])) {
+                            $params["action"] = $params["controleur-action"];
+                        }
+                    } else {
+                        trigger_error("la valeur du champ langue, '" .  $params["langue"] . "', n'existe pas");
+                        //Efface le cache de se répertoire
+                        clearstatcache(true, RACINE . "langues/" .  $params["langue"]);
+                        unset($_SESSION["langue"]);
                     }
                 } else {
                     trigger_error("champ langue non présent dans la requête");
                 }
             } else if(isset($_SESSION["langue"])) {
-                $existeSessionLangue = true;  // La variable de session langue existe.
+                // On vérifie que le répertoire  de langue reçu existe 
+                if (file_exists( RACINE . "langues/" .  $_SESSION["langue"])) {
+                   $existeSessionLangue = true;  // La variable de session langue existe.
+                } else {
+                     trigger_error("la valeur du champ langue, '" .  $_SESSION["langue"] . "', n'existe pas");
+                    //Efface le cache de se répertoire
+                    clearstatcache(true, RACINE . "langues/" .  $_SESSION["langue"]);
+                    unset($_SESSION["langue"]);
+
+                }
             }
             
             // La langue choisi a prépondérance par rapport à la langue de l'usager
