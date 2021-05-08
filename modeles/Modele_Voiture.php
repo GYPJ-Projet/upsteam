@@ -266,6 +266,7 @@
 			$requetePreparee->execute();
 		}
 
+
 		// Méthode qui sauvegarde des descriptions d'une nouvelle voiture dans la BD.
 		public function insererDescriptions($description, $idVoiture, $idLangue) {
 			$requete = "INSERT INTO description(id, idLangue, nom) VALUES (:idV, :idL, :nom)";

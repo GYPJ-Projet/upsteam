@@ -30,6 +30,8 @@
 			$modeleMarque          = $this->obtenirDAO("Marque");
 			$modeleModele          = $this->obtenirDAO("Modele");
 			$modeleVoiture         = $this->obtenirDAO("Voiture");
+			$modeleTaxe            = $this->obtenirDAO("Taxe");
+			$modeleProvince        = $this->obtenirDAO("province");
 			$modeleAnnee           = $this->obtenirDAO("Annee");
 			$modeleMotopropulseur  = $this->obtenirDAO("Motopropulseur");
 			
@@ -208,6 +210,53 @@
 						$this->afficheVue("listeDonnees", $donnees);
 						$this->afficheVue("formulaireVoiture", $donnees);
 						break;
+
+                    case "gestionTaxe":
+                        // Nombre des marques affichées sur une page
+                        $taxesParPage = 10;
+                        // Obtenir un nombre toutes les marques dans la base de données
+                        $nbTaxesTotal = $modeleTaxe->obtenirNombreTaxes();
+                        // Calculer le nombre des pages 
+                        $donnees["nbPages"] = ceil($nbTaxesTotal / $taxesParPage);
+                        if (isset($_GET["page"]) AND !empty($_GET["page"]) AND $_GET["page"] > 0 AND $_GET["page"] <= $donnees["nbPages"]) 
+                        {
+                                $_GET["page"] = intval($_GET["page"]);
+                            $donnees["pageCourante"] = $_GET["page"];
+                        } else 
+                        {
+                            $donnees["pageCourante"] = 1;
+                        }
+    
+                        $depart = ($donnees["pageCourante"] - 1) * $taxesParPage;
+
+                        //Par defaut, on trie par id
+                        if (isset($_GET["tri"])) $tri = $_GET["tri"];
+                        else $tri = 'taxe.id';
+                        //Par defaut, on tri dans l'ordre ascendente
+                        if (isset($_GET["ordre"])) $ordre = $_GET["ordre"];
+                        else $ordre = 'ASC';
+                        //Passer les paramètres à la vue
+                        $donnees["tri"] = $tri;
+                        $donnees["ordre"] = $ordre;
+                        $this->afficheVue("listeDonnees", $donnees);
+                        $donnees["taxes"] = $modeleTaxe->obtenirTaxes($depart, $taxesParPage, $tri, $ordre, $idLangue);
+                        
+                        $this->afficheVue("gestionTaxe", $donnees);
+                        break;
+
+                    case "afficherFormulaireTaxe":
+                        $donnees["usager"] = $_SESSION["usager"];
+                        $this->afficheVue("listeDonnees", $donnees);
+                        // On ajoute la liste des province pour le select du formulaire.
+                        $donnees["province"] = $modeleProvince->obtenirToutParLangueProvince($idLangue);
+                        // Si le parametres id existe, on affiche le formulaire pour la modification
+                        if (isset($params["id"])) {
+                            $donnees["taxe"] = $modeleTaxe->obtenirTaxeParId($params["id"], $idLangue);
+                            $this->afficheVue("formulaireTaxe", $donnees);
+                        } else { // Sinon, on affiche le formulaire pour l'ajout
+                            $this->afficheVue("formulaireTaxe", $donnees);
+                        }
+                        break;
 					
 					default:
 						// Action par défaut
