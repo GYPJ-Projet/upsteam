@@ -23,26 +23,7 @@ class FormulaireVoiture {
 
             this.afficherModeleParIdMarque(this._elMarque.value);
         });
-        
-        //Brancher le gestionnaire click sur le boutton Soumettre
-        /*this._elSoumettre.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            //Enregistrer les données à propos de la voiture dans la bd table Voiture
-            //Retourner id de voiture ajoutée
-            this.sauvegarderVoiture();
-            //Créer le repertoire avec le nom - id de voiture
-            //Placer les images dans ce repertoire 
-            //Enregistrer les images de la voiture dans la bd table images
-            this.sauvegarderImages();
-
-             //Enregistrer les descriptions dans la bd
-            for (let i = 0, l = this._elsDescription.length; i < l; i++) {
-                this.sauvegarderDescription(this._elsDescription[i]);
-            }
-
-            //window.location.href = 'index.php?GestionDonnees&action=gestionVoiture';
-        });*/
+    
     }
      
     afficherModeleParIdMarque = (idMarque) => {
