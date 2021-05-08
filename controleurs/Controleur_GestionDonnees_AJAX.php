@@ -172,21 +172,25 @@
 									if($error == FALSE){
 										if(move_uploaded_file($_FILES['images']["tmp_name"][$i], REPERTOIRE_IMAGES.$dossier.'/'.$nomFichier)){
 											//enregistrer dans la BD
-											$modeleVoiture->insererImages($nomFichier, $dossier);	
+	
+
+											$modeleVoiture->insererImages($nomFichier, $dossier, $i);	
+
 										}
 									} 
 								}
 
 								if ($params["id"] != 0) {
-									//Supprimer les description avec idVoiture avant d'ajouter
+
+                //Modifier les description avec idVoiture avant d'ajouter
+
 									$modeleVoiture->modifierDescriptions($params["fr-fr"], $dossier, 1);
 									$modeleVoiture->modifierDescriptions($params["en-gb"], $dossier, 2);
 								} else {
 									//Enregistrer les description
 									$modeleVoiture->insererDescriptions($params["fr-fr"], $dossier, 1);
 									$modeleVoiture->insererDescriptions($params["en-gb"], $dossier, 2);
-								}	
-								
+								}
 								
 							} 							
 

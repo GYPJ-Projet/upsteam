@@ -236,17 +236,9 @@
 			}
 		}
 
-		// Méthode qui supprime des images par idVoiture
-		/*public function supprimerImages($idVoiture) {
-			$requete = "DELETE image WHERE idVoiture = :idVoiture";
-			$requetePreparee = $this->db->prepare($requete);
-			$requetePreparee->bindParam(":idVoiture", $idVoiture);
-			$requetePreparee->execute();
-		}*/
-
 		public function supprimerImages($idVoiture) {
             try {
-				$stmt = $this->db->query("DELETE image WHERE idVoiture =".$idVoiture);	
+				$stmt = $this->db->query("DELETE FROM image WHERE idVoiture =".$idVoiture);
 				$stmt->execute();
 			}	
 			catch(Exception $exc) {
@@ -255,17 +247,18 @@
         }
 		
 		// Méthode qui sauvegarde des images d'une nouvelle voiture dans la BD.
-		public function insererImages($chemin, $idVoiture) {
-			$requete = "INSERT INTO image(lien, idVoiture) VALUES (:lien, :idV)";
+		public function insererImages($chemin, $idVoiture, $sort) {
+			$requete = "INSERT INTO image(lien, idVoiture, sort) VALUES (:lien, :idV, :s)";
 			$requetePreparee = $this->db->prepare($requete);
 			$requetePreparee->bindParam(":lien", $chemin);
 			$requetePreparee->bindParam(":idV", $idVoiture);
+			$requetePreparee->bindParam(":s", $sort);
 			$requetePreparee->execute();
 		}
 
 		// Méthode qui modifie des descriptions par idVoiture
 		public function modifierDescriptions($description, $idVoiture, $idLangue) {
-			$requete = "UPDATE `description` SET id = :idV, idLangue = :idL, nom = :nom";
+			$requete = "UPDATE `description` SET nom = :nom WHERE id = :idV AND idLangue = :idL";
 			$requetePreparee = $this->db->prepare($requete);
 			$requetePreparee->bindParam(":nom", $description);
 			$requetePreparee->bindParam(":idV", $idVoiture);
@@ -273,15 +266,6 @@
 			$requetePreparee->execute();
 		}
 
-		/*public function modifierDescriptions($description, $idVoiture, $idLangue) {
-            try {
-				$stmt = $this->db->query("DELETE description WHERE id = $idVoiture ");	
-				$stmt->execute();
-			}	
-			catch(Exception $exc) {
-				return 0;
-			}
-        }*/
 
 		// Méthode qui sauvegarde des descriptions d'une nouvelle voiture dans la BD.
 		public function insererDescriptions($description, $idVoiture, $idLangue) {
