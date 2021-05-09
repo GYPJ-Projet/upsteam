@@ -19,8 +19,9 @@
 @import url("6-components/menu.css");
 @import url("6-components/filtre.css");
 @import url("6-components/voiture.css");
-@import url("6-components/header.css");
-@import url("6-components/footer.css");
+@import url("6-components/pageCommande.css");
+@import url("6-components/entete.css");
+@import url("6-components/piedDePage.css");
 /* utilities */
 @import url("7-utilities/utilities.css");
 

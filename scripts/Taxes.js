@@ -1,126 +1,101 @@
 class Taxes {
 
-    constructor(el) {
-        this._el = el;
-        this._taxesProvince = [];
+    static _taxeFederale = 0;
+    static _taxeProvinciale = 0; 
+    static _taxesProvince = [];
 
-        console.log("class Taxes - fonction constructor - this._el : ");
-        console.log(this._el);
 
-        this.init();
+    static getTaxeFederale() {
+        return Taxes._taxeFederale;
     }
 
-    //  Initialisation de la class Taxes lui donner vie !
-    init = () => {
+    static getTaxeProvinciale() {
+        return Taxes._taxeProvinciale;
+    }
 
-        console.log("class Taxes - fonction init - this._elIdProvince : ");
-        console.log(this._el.dataset.jsProvince);
+    static getTaxesAreReady() {
+        return Taxes._taxesAreReady;
+    }
 
-        let idProvince = parseInt(this._el.dataset.jsProvince);
+    // Pour la gestion des taxess de la province de l'usager, 
+    // il faut aller les chercher.
+    static getTaxes() {
+        let elIdProvince = document.querySelector('[ data-js-province]'); 
+       
+        let idProvince = parseInt(elIdProvince.dataset.jsProvince);
 
-
-        
-
-        // Si l'id de la province dans cette page web est different de l'id province en cours... 
-        if ( idProvince != taxeIdProvince ) {
+        if ( idProvince != 0 ) {
+            // Déclaration de l'objet XMLHttpRequest
+            var xhr;
+            xhr = new XMLHttpRequest();
             
-            console.log("class Taxes - fonction init - idProvince != taxeIdProvince  - taxeIdProvince : ");
-            console.log(taxeIdProvince);
-            // On début,  il faut aller chercher le nombre de tuiles (items) qu'il y a dans la BD
-            // pour pouvoir gérer l'affichage à partir de ListeVoitures.js
-            this.getTaxesDeLaProvince(idProvince);
+            // Initialisation de la requête
+            if (xhr) {	
+
+                // Ouverture de la requête : fichier recherché
+                xhr.open('GET', `index.php?Taxes_AJAX&action=getTaxesProvince&idProvince=${idProvince}`);
+
+                xhr.addEventListener('readystatechange', () => {
+
+                    if (xhr.readyState === 4) {							
+                        if (xhr.status === 200) {
+
+                            // Les données ont été reçues
+                            // Traitement de la réponse
+                            if (xhr.response != 'ERREUR') {
+                                // on converti le tableau JSON reçu en array litéraux.
+                                Taxes._taxesProvince = JSON.parse(xhr.responseText);
+
+                                Taxes.sauvegardeLesTaxes(idProvince);
+
+                            } else {
+                                Taxes._taxesProvince = [];
+
+                            }
+
+                        } else if (xhr.status === 404) {
+                            console.log('Le fichier appelé dans la méthode open() n’existe pas.');
+                        }
+                    }
+                });
+
+                // Envoi de la requête
+                xhr.send();
+            }
         }
-    
     }
 
-    sauvegarderLesTaxes = (idProvince) => {
+
+    static sauvegardeLesTaxes() {
 
         let arrayLength = 0;
-        for (let i in this._taxesProvince) {
+        for (let i in Taxes._taxesProvince) {
             arrayLength++;
         }
-
-        console.log("class Taxes - fonction sauvegarderLesTaxes IN - arrayLength : ");
-        console.log(arrayLength);
   
         if ( arrayLength> 0) {
-            // On conserve l'id de la Province à qui appartient les taxes.
-            taxeIdProvince = idProvince;
-
-            console.log("class Taxes - fonction sauvegarderLesTaxes - taxeIdProvince: ")
-            console.log(taxeIdProvince);
-
+            
             // S'il y a 2 taxes dans cette province
             if (arrayLength == 2) {
-                for (let i = 0; i < arrayLength; i++) {
-                    console.log("class Taxes - fonction init - FOR   nomTaxe: ")
-                    console.log(this._taxesProvince[i]["nomTaxe"]);
-                    
-                    if (this._taxesProvince[i]["nomTaxe"] == "TPS") {
-                        console.log("class Taxes - fonction init - == TPS   taux: ")
-                        console.log(this._taxesProvince[i]["taux"]);
-        
-                        taxeFederale = (parseFloat(this._taxesProvince[i]["taux"]) / 100).toFixed(5);
+                for (let i = 0; i < arrayLength; i++) {                  
+                    if (Taxes._taxesProvince[i]["nomTaxe"] == "TPS") {
+                        Taxes._taxeFederale = (parseFloat(Taxes._taxesProvince[i]["taux"]) / 100).toFixed(5);
                     } else {
-                        taxeProvinciale = (parseFloat(this._taxesProvince[i]["taux"]) / 100).toFixed(5);
+                        Taxes._taxeProvinciale = (parseFloat(Taxes._taxesProvince[i]["taux"]) / 100).toFixed(5);
                     }
                 }
 
             // S'il y a 1 seule  taxe dans cette province
             } else if (arrayLength == 1) {
-                taxeFederale = (parseFloat(this._taxesProvince[0]["nomTaxe"]) / 100).toFixed(5);
-                taxeProvinciale = 0;
+                Taxes._taxeFederale = (parseFloat(Taxes._taxesProvince[0]["nomTaxe"]) / 100).toFixed(5);
+                Taxes._taxeProvinciale = 0;
             }
 
-            console.log("class Taxes - addEventListener('DOMContentLoaded'  taxeFederale ET taxeProvinciale : ");
-            console.log(taxeFederale);
-            console.log(taxeProvinciale);
-        }
-    }
+            Taxes._taxesAreReady = true; // Les taxes sont prête
 
-    // Pour la gestion des taxess de la province de l'usager, 
-    // il faut aller les chercher.
-    getTaxesDeLaProvince = (idProvince) => {
-
-        // Déclaration de l'objet XMLHttpRequest
-        var xhr;
-        xhr = new XMLHttpRequest();
-        
-        // Initialisation de la requête
-        if (xhr) {	
-
-            // Ouverture de la requête : fichier recherché
-            xhr.open('GET', `index.php?Taxes_AJAX&action=getTaxesProvince&idProvince=${idProvince}`);
-
-            xhr.addEventListener('readystatechange', () => {
-
-                if (xhr.readyState === 4) {							
-                    if (xhr.status === 200) {
-
-                        // Les données ont été reçues
-                        // Traitement de la réponse
-                        if (xhr.response != 'ERREUR') {
-                            // on converti le tableau JSON reçu en array litéraux.
-                            this._taxesProvince = JSON.parse(xhr.responseText);
-                            console.log("class Taxes - fonction getTaxesDeLaProvince - xhr.response -> this._taxesProvince[0] : ")
-                            console.log(this._taxesProvince[0]);
-                            console.log("class Taxes - fonction getTaxesDeLaProvince - xhr.response -> this._taxesProvince[1] : ")
-                            console.log(this._taxesProvince[1]);
-
-                            this.sauvegarderLesTaxes(idProvince);
-
-                        } else {
-                            this._taxesProvince = [];
-                        }
-
-                    } else if (xhr.status === 404) {
-                        console.log('Le fichier appelé dans la méthode open() n’existe pas.');
-                    }
-                }
-            });
-
-            // Envoi de la requête
-            xhr.send();
+            console.log("class Taxes - addEventListener('DOMContentLoaded'  _taxeFederale ET _taxeProvinciale : ");
+            console.log(Taxes._taxeFederale);
+            console.log(Taxes._taxeProvinciale);
         }
     }
 

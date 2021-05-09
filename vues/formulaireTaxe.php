@@ -41,6 +41,15 @@
                 <input type="checkbox" name="disponibilite" id="disponibilite" <?= (isset($taxe) && $taxe->getDisponibilite() == 1) ? "checked" : "" ?>/>
             </div>
         <?php
+            }else{
+                if(isset($taxe) && $taxe->getDisponibilite() == 1){
+                    $resultat = 'on';
+                }else{
+                    $resultat = '';
+                }
+        ?>
+                <input type="hidden" name="disponibilite" value="<?= $resultat ?>"/><br/>
+        <?php
             }
         ?>
             <input type="hidden" name="id" value="<?= (isset($taxe)) ? $taxe->getIdTaxe() : 0 ?>"/><br/>

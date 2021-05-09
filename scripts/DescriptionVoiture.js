@@ -4,17 +4,17 @@ class DescriptionVoiture {
         this._el = el;       // l'élément Voiture de l'instance
 
         //Détail de la voiture 
-        this._id = this._el.querySelector('[data-js-voiture]');
-        this._image = this._el.querySelector('[data-js-image="0"]');
-        this._marque = this._el.querySelector('[data-js-voiture-marque]');
-        this._modele = this._el.querySelector('[data-js-voiture-modele]');
-        this._annee = this._el.querySelector('[data-js-voiture-annee]');
-        this._habitacle = this._el.querySelector('[data-js-voiture-habitacle]');
-        this._couleur = this._el.querySelector('[data-js-voiture-couleur]');
-        this._kilometrage = this._el.querySelector('[data-js-voiture-kilometrage]');
-        this._transmission = this._el.querySelector('[data-js-voiture-transmission]');
-        this._carburant = this._el.querySelector('[data-js-voiture-carburant]');
-        this._prix = this._el.querySelector('[data-js-voiture-prix]');
+        this._elId = this._el.querySelector('[data-js-voiture]');
+        this._elImage = this._el.querySelector('[data-js-image="0"]');
+        this._elMarque = this._el.querySelector('[data-js-voiture-marque]');
+        this._elModele = this._el.querySelector('[data-js-voiture-modele]');
+        this._elAnnee = this._el.querySelector('[data-js-voiture-annee]');
+        this._elHabitacle = this._el.querySelector('[data-js-voiture-habitacle]');
+        this._elCouleur = this._el.querySelector('[data-js-voiture-couleur]');
+        this._elKilometrage = this._el.querySelector('[data-js-voiture-kilometrage]');
+        this._elTransmission = this._el.querySelector('[data-js-voiture-transmission]');
+        this._elCarburant = this._el.querySelector('[data-js-voiture-carburant]');
+        this._elPrix = this._el.querySelector('[data-js-voiture-prix]');
 
         /*Bouton Ajout Panier */
         this._elBouton =  this._el.querySelector('[data-js-btn]');
@@ -22,7 +22,6 @@ class DescriptionVoiture {
         /* Panier */
         this._panier = document.querySelector('[data-js-panier]');
         this._nbrVoiture = document.querySelector('[data-js-nombre-voiture]');   
-
         this.init();    
     }
 
@@ -36,7 +35,7 @@ class DescriptionVoiture {
         this._elBouton.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // Rendre le Panier est cliquable
+            // le Panier est cliquable
             if (this._panier.classList.contains('vide')) { 
                 this._panier.classList.replace('vide', 'fill');
             }
@@ -85,87 +84,73 @@ class DescriptionVoiture {
 
        // Incrémente le nombre de voiture affiché dans le header
         if (!localStorage.getItem('nombreVoiture')) {
+
             localStorage.setItem('nombreVoiture', 1);
+
             this._nbrVoiture.innerHTML = 1;
-        } else {
+        }
+        else {
             let nbrVoiture = parseInt(localStorage.getItem('nombreVoiture')) + 1;
             localStorage.setItem('nombreVoiture', nbrVoiture);
             this._nbrVoiture.innerHTML = nbrVoiture;
         }
             
         // Ajouter le produit dans le sessionStorage panierAchat
-        let voiture = {},
-            panier;                    
+        let panier = [];                    
 
         if (!localStorage.getItem('panierAchat')) { 
 
-            panier = [];
-            voiture.id = this._id.dataset.jsVoiture;
-            voiture.image = this._image.src;   
-            voiture.marque = this._marque.dataset.jsVoitureMarque;
-            voiture.modele = this._modele.dataset.jsVoitureModele;
-            voiture.annee = this._annee.dataset.jsVoitureAnnee;
-            voiture.habitacle = this._habitacle.dataset.jsVoitureHabitacle;
-            voiture.couleur = this._couleur.dataset.jsVoitureCouleur;
-            voiture.kilometrage = this._kilometrage.dataset.jsVoitureKilometrage;
-            voiture.transmission = this._transmission.dataset.jsVoitureTransmission;
-            voiture.carburant = this._carburant.dataset.jsVoitureCarburant;
-            voiture.prix = this._prix.dataset.jsVoiturePrix;
-            voiture.quantite = 1;
-                    
-            panier.push(voiture);       
+            this.creerPanier(panier);                
+                   
             localStorage.setItem('panierAchat', JSON.stringify(panier));
        }
         
         else {
             panier = JSON.parse(localStorage.getItem('panierAchat'));
 
-            let idVoiture = this._id.dataset.jsVoiture,
-                nbrIdVoiture = false;
+            let idVoiture = this._elId.dataset.jsVoiture,
+                existVoiture = false;
             if (panier.length > 0) { 
-                for(let i = 0; i < panier.length; i++) {  //Boucle à travers les voitures présents,
-                    if (idVoiture === panier[i].id) {
-                        nbrIdVoiture = true;                 //Incrémente si c'est le même item qu'on ajoute dans le panier
-                        panier[i].quantite++;               //On augmente la quantité du panier à cahque ajout.
+                for(let i = 0; i < panier.length; i++) {        //Boucle à travers les voitures présents,
+                    if(panier[i] != null) { 
+                        if (idVoiture === panier[i].id) {
+                            existVoiture = true;                 //Incrémente si c'est le même item qu'on ajoute dans le panier
+                            panier[i].quantite++;               //On augmente la quantité du panier à cahque ajout.
+                        }
                     }                
                 } 
                     
-                if (nbrIdVoiture == false) {
-                            
-                    voiture.id = this._id.dataset.jsVoiture;
-                    voiture.image = this._image.src;   
-                    voiture.marque = this._marque.dataset.jsVoitureMarque;
-                    voiture.modele = this._modele.dataset.jsVoitureModele;
-                    voiture.annee = this._annee.dataset.jsVoitureAnnee;
-                    voiture.habitacle = this._habitacle.dataset.jsVoitureHabitacle;
-                    voiture.couleur = this._couleur.dataset.jsVoitureCouleur;
-                    voiture.kilometrage = this._kilometrage.dataset.jsVoitureKilometrage;
-                    voiture.transmission = this._transmission.dataset.jsVoitureTransmission;
-                    voiture.carburant = this._carburant.dataset.jsVoitureCarburant;
-                    voiture.prix = this._prix.dataset.jsVoiturePrix;
-                    voiture.quantite = 1;
-                            
-                    panier.push(voiture);
+                if (existVoiture == false) {
 
+                    this.creerPanier(panier);                    
                 }
+                
             } else {
-                voiture.id = this._id.dataset.jsVoiture;
-                voiture.image = this._image.src;   
-                voiture.marque = this._marque.dataset.jsVoitureMarque;
-                voiture.modele = this._modele.dataset.jsVoitureModele;
-                voiture.annee = this._annee.dataset.jsVoitureAnnee;
-                voiture.habitacle = this._habitacle.dataset.jsVoitureHabitacle;
-                voiture.couleur = this._couleur.dataset.jsVoitureCouleur;
-                voiture.kilometrage = this._kilometrage.dataset.jsVoitureKilometrage;
-                voiture.transmission = this._transmission.dataset.jsVoitureTransmission;
-                voiture.carburant = this._carburant.dataset.jsVoitureCarburant;
-                voiture.prix = this._prix.dataset.jsVoiturePrix;
-                voiture.quantite = 1;
-                        
-                panier.push(voiture);
+
+                this.creerPanier(panier);                
             }   
             
             localStorage.setItem('panierAchat', JSON.stringify(panier));
         }          
+    }
+
+    creerPanier = (panier) => {
+        let voiture = {};
+        
+        voiture.id = this._elId.dataset.jsVoiture;
+        voiture.image = this._elImage.src;   
+        voiture.marque = this._elMarque.dataset.jsVoitureMarque;
+        voiture.modele = this._elModele.dataset.jsVoitureModele;
+        voiture.annee = this._elAnnee.dataset.jsVoitureAnnee;
+        voiture.habitacle = this._elHabitacle.dataset.jsVoitureHabitacle;
+        voiture.couleur = this._elCouleur.dataset.jsVoitureCouleur;
+        voiture.kilometrage = this._elKilometrage.dataset.jsVoitureKilometrage;
+        voiture.transmission = this._elTransmission.dataset.jsVoitureTransmission;
+        voiture.carburant = this._elCarburant.dataset.jsVoitureCarburant;
+        voiture.prix = this._elPrix.dataset.jsVoiturePrix;
+        voiture.quantite = 1;
+
+        //panier.push(voiture);
+        panier[parseInt(voiture.id)] = voiture;
     }
 }

@@ -10,7 +10,6 @@
         // envoyer des données pour la demande du AJAX.
         public function afficheVue($nomVue, $donnees = null) {
             $cheminVue = RACINE . "vues/" . $nomVue . ".php";
-            
             if(file_exists($cheminVue))
             {
                 //n.b. le paramsètre $donnees sera utilisé DIRECTEMENT dans la vue

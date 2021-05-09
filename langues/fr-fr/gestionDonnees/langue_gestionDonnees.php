@@ -26,11 +26,15 @@ $langue['nom_couleur']	    = 'Couleur';
 $langue['nom_voiture']	    = 'Voiture';
 $langue['nom_taxe']	        = 'Taxe';
 $langue['nom_taux']	        = 'Taux';
+$langue['nom_couleur']	    = 'Couleur';
 $langue['nom_province']	    = 'Province';
 $langue['disponibilite']    = 'Disponibilité';
 
 $langue['nom_langue']       = 'Français';
 $langue['nom_joindre']      = 'Joindre des photos';
+
+$langue['francais']         = 'Français';
+$langue['anglais']          = 'Anglais';
 
 $langue['formulaire_ajout_marque']  = 'Ajout d\'une nouvelle marque';
 $langue['formulaire_modif_marque']  = 'Modification de la marque';
