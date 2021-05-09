@@ -174,7 +174,7 @@
 						$donnees["tri"] = $tri;
 						$donnees["ordre"] = $ordre;
 						$this->afficheVue("listeDonnees", $donnees);
-						$donnees["voitures"] = $modeleVoiture->obtenirToutesVoituresAvecTri($depart, $voituresParPage, $tri, $ordre);
+						$donnees["voitures"] = $modeleVoiture->obtenirToutesVoituresAvecTri($depart, $voituresParPage, $tri, $ordre, $idLangue);
 						$this->afficheVue("gestionVoiture", $donnees);
 						break;
 					// Afficher le formulaire d'ajout ou de la modification
@@ -187,9 +187,9 @@
 						// Obtenir toutes les années
 						$donnees["annees"] = $modeleAnnee->obtenirTousDisponible();
 						// Obtenir toutes les motopropulseur
-						$donnees["motopropulseurs"] = $modeleMotopropulseur->obtenirTousDisponible();
+						$donnees["motopropulseurs"]  = $modeleMotopropulseur->obtenirTousDisponible();
 						// Obtenir toutes les types de carburant
-						$donnees["typesCarburant"] = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
+						$donnees["typesCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
 						// Obtenir toutes les couleurs
 						$donnees["couleurs"]         = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
 						// Obtenir toutes les types de transmission
