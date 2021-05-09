@@ -38,7 +38,7 @@ class MenuConteneur{
     }
 
     menuMonProfil = () =>{
-        window.location = 'index.php?Usager';
+        window.location = 'index.php?Usager&action=formulaireMonProfil&modif';
     }
 
     menuGestionDonnees = () =>{
@@ -46,7 +46,7 @@ class MenuConteneur{
     }
 
     menuGestionEmployes = () =>{
-        window.location.href = 'index.php?GestionUsagers';
+        window.location.href = 'index.php?Usager&action=gestionUsager';
     }
 
     menuGestionCommandes = () =>{

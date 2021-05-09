@@ -4,7 +4,6 @@
     align-items: stretch;
     margin-top: var(--margeSection);
     margin-left: var(--margeSection);
-    margin-right: var(--margeSection);
     border-style: solid;
     border-width: var(--bordureI);
     border-color: var(--gris);
@@ -30,7 +29,7 @@
     display: inline-block;
     flex-basis: calc(65% - var(--margeSection));
     margin-top: var(--margeSection);
-    margin-right: var(--margeSection);
+    margin-left: var(--margeSection);
     border-style: solid;
     border-width: var(--bordureI);
     border-color: var(--gris);
@@ -65,15 +64,27 @@
 
 .formulaire label {
     display: inline-block;
-    width: 10vw;
-    margin-top: 1vw;
+    width: 15vw;
+    margin-bottom: 1vw;
     text-align: right;
     padding: 0.5vw;
+    min-width: 120px;
 }
 
 .formulaire select, .formulaire input {
-    width: 15vw;
+    width: 20vw;
     padding: 0.5vw;
+    min-width: 150px;
+}
+
+.formulaire textarea {
+    width: 20vw;
+    padding: 0.5vw;
+    min-width: 150px;
+    border-width: 1px;
+    box-sizing: border-box;
+    height: 150px;
+    align-self: flex-end;
 }
 
 .formulaire input {
@@ -90,7 +101,8 @@
     position: relative;
 }
 
-.bouton {
+a.bouton {
+    font-size: var(--police_taille_texte);
     color: var(--blanc);
     background-color: var(--cle);
     width: 20vw;
@@ -98,6 +110,25 @@
     padding: 0.5vw;
     display: block;
     margin: 1vw auto;
+    min-width: 150px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: var(--gris);
+}
+
+.bouton {
+    font-size: var(--police_taille_texte);
+    color: var(--blanc);
+    background-color: var(--cle);
+    width: 20vw;
+    text-align: center;
+    padding: 0.5vw;
+    display: block;
+    margin: 1vw auto;
+    min-width: 150px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: var(--gris);
 }
 
 .table {
@@ -123,6 +154,10 @@
 
 .symboleTri {
     display: inline-block;
+}
+.symboleTri svg {
+    min-width: 10px;
+    min-height: 10px;
 }
 
 .inactif {
@@ -154,3 +189,44 @@
     padding: 0.5vw;
 }
 
+.description {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1vw;
+}
+
+.description>div {
+    display: flex;
+    margin-bottom: 1vw;
+}
+
+.description>div>label {
+    margin-top: 0;
+    align-self: center;
+}
+
+@media screen and (min-width: 1025px) {
+   
+}
+ 
+@media screen and (max-width: 1024px) {
+    .listeDonnees {
+        flex-basis: calc(25% - var(--margeInterieurSection));
+    }
+    .pageDonnees {
+        flex-basis: calc(50% - var(--margeInterieurSection));
+    }
+}
+
+
+@media screen and (max-width: 414px) {
+    .listeDonnees {
+        flex-basis: calc(100% - var(--margeInterieurSection));
+    }
+    .pageDonnees {
+        flex-basis: calc(100% - var(--margeInterieurSection));
+    }
+    .listeDonnees li {
+        text-align: center;
+    }
+}

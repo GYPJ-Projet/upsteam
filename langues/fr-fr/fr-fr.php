@@ -19,7 +19,7 @@ $langue['entete_deconnexion']    = 'Déconnexion';
 $langue['menu_accueil']         = 'Accueil';
 $langue['profil']               = 'Mon Profil';
 $langue['donnees']              = 'Donn&eacute;es';
-$langue['employes']             = 'Employes';
+$langue['employes']             = 'Employés';
 $langue['commandes']            = 'Commandes';
 
 
@@ -45,6 +45,7 @@ $langue['bouton_annuler']       = 'Annuler';
 $langue['button_modifier']		= 'Modifier';
 $langue['button_ajouter']		= 'Ajouter d\'un nouvel élément';
 $langue['button_soumettre']		= 'Soumettre';
+//$langue['button_joindre']		= 'Joindre';
 
 // Erreur
 

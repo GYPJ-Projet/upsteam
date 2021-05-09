@@ -1,7 +1,6 @@
 <?php 
     $langue = $donnees["langue"];       //Pour affichage des langues
     $actionRecu = '';
-    // Debug::toLog($_SESSION["usager"]);
     if(isset($_GET['action'])){
         $actionRecu = $_GET['action'];
     }

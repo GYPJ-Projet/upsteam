@@ -1,4 +1,5 @@
 <?php
+
     class Modele_Modele extends BaseDAO {
 
         // Permet à l'instance de dire dans quelle table de la BD elle doit aller chercher les données

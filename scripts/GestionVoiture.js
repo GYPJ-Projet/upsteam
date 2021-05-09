@@ -1,8 +1,6 @@
 class GestionVoiture {
     constructor(el) {
         this._el = el;
-        this._elsBtnModifier = this._el.querySelectorAll('[data-js-modifier]');
-        this._elBtnAjouter = this._el.querySelector('[data-js-ajouter]');
         this._elsTri = this._el.querySelectorAll('[data-js-tri]');
         this._elsPage = this._el.querySelectorAll('[data-js-page]');
         this.pageActive = this._el.querySelector('[data-js-pageActive]');
@@ -58,22 +56,6 @@ class GestionVoiture {
                 window.location.href = 'index.php?GestionDonnees&action=gestionVoiture&tri=' + tri + '&ordre=' + ordre + '&page=' + page;
             });
         }
-        
-        //Brancher le gestionnaire click sur les bouttons Modifier
-        for (let i = 0, l = this._elsBtnModifier.length; i < l; i++) {
-            this._elsBtnModifier[i].addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                this.modifierVoiture(e.target.dataset.jsId);
-            });
-        }
-
-        //Brancher le gestionnaire click sur les bouttons Ajouter
-        this._elBtnAjouter.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            this.modifierVoiture(0);
-        });
 
     }
 
@@ -83,37 +65,6 @@ class GestionVoiture {
         els.splice(i, 1);
         for (let i = 0, l = els.length; i < l; i++) {
             els[i].firstChild.classList.remove("inactif");
-        }
-    }
-                
-    modifierVoiture = (id) => {
-        // Déclaration de l'objet XMLHttpRequest
-        var xhr;
-        xhr = new XMLHttpRequest();
-        
-        // Initialisation de la requète
-        if (xhr) {	
-
-            // Ouverture de la requète : fichier recherché
-            xhr.open('GET', 'index.php?GestionDonnees_AJAX&action=afficherFormulaireVoiture&id=' + id + '&page=' + this.pageActive.dataset.jsPageActive);
-
-            xhr.addEventListener('readystatechange', () => {
-
-                if (xhr.readyState === 4) {							
-                    if (xhr.status === 200) {
-
-                        // Les données ont été reçues
-                        // Traitement du DOM
-                        this._el.innerHTML = xhr.responseText;
-
-                    } else if (xhr.status === 404) {
-                        console.log('Le fichier appelé dans la méthode open() n’existe pas.');
-                    }
-                }
-            });
-
-            // Envoi de la requète
-            xhr.send();
         }
     }
 }

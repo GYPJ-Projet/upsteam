@@ -5,7 +5,6 @@
 		public function getNomControleur() {
 			return "Voiture";
 		}
-
 		// La fonction qui sera appelée par le routeur
 		public function traite(array $params) {
 			
@@ -82,7 +81,7 @@
                             isset($params["carrosserie"]) &&
                             isset($params["transmission"]) &&
                             isset($params["propulsion"])){
-                                
+                            
                             $donnees["voitures"] = $modeleVoiture->obtenirVoitureFiltrer(
                                 $params["prixMin"],
                                 $params["prixMax"],
@@ -96,7 +95,7 @@
                                 $params["carrosserie"],
                                 $params["transmission"],
                                 $params["propulsion"]);
-                                                                                    
+                            
                             $this->afficheVue("accueil_debut", $donnees);
                             $this->afficheVue("listeVoitures", $donnees);
                             $this->afficheVue("accueil_fin_section_grille");
