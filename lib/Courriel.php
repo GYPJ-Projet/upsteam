@@ -1,0 +1,43 @@
+<?php
+
+    /* Classe       : Courriel
+     * Description  : Permet d'envoyer des courriels.
+     *
+     * PH
+     * On doit fournir
+     * Le courriel du destinataire
+     * Le sujet du courriel
+     * Le contenue du courriel.
+     */
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
+    class Courriel
+    {
+        public static function envoieCourriel($adrCourriel, $sujet, $message, $fichier=''){
+            require 'lib/PHPMailer.php';
+            require 'lib/SMTP.php';
+            require 'lib/Exception.php';
+
+            //paramètres de connexion et envoie
+            $courriel = new PHPMailer();
+            $courriel->isSMTP();
+            $courriel->Host = "smtp.gmail.com";
+            $courriel->SMTPAuth = "true";
+            $courriel->SMTPSecure = "tls";
+            $courriel->Port = "587";
+            $courriel->Username = "gypj.projet@gmail.com";
+            $courriel->Password = 'VLLMcRi3R4EGta2IGZyvIp87gEB5';
+            $courriel->Subject = $sujet;
+            $courriel->setFrom('gypj.projet@gmail.com');
+            $courriel->isHTML(true);
+            $courriel->addAttachment($fichier);
+            $courriel->Body = $message;
+            $courriel->addAddress($adrCourriel);
+            $courriel->send();
+            $courriel->smtpClose();
+        }
+    }
+
+?>

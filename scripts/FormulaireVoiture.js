@@ -5,6 +5,8 @@ class FormulaireVoiture {
         this._elPrixVente = this._el.querySelector("#prixVente");
         this._elMarque = this._el.querySelector('[data-js-marque]');
         this._elModele = this._el.querySelector('[data-js-modele]');
+        // this._elImages = this._el.querySelector('[data-js-images]');
+        // this._elImageTouche = this._el.querySelector('[data-js-imageTouche]');
 
         this.init();
     }
@@ -23,6 +25,13 @@ class FormulaireVoiture {
 
             this.afficherModeleParIdMarque(this._elMarque.value);
         });
+
+        //Vérifie que l'on a modifié ou non les images
+        // this._elImages.addEventListener('click', (e) => {
+        //     e.preventDefault();
+
+        //     this._elImageTouche.dataset.jsImageTouche = true;
+        // });
     
     }
      

@@ -24,8 +24,8 @@
             
             //Ajout des datas au fichier
             fwrite($log_file, date("d-m-Y h:i:s")."\n");
-            fwrite($log_file, $result_data1."\n");
-            fwrite($log_file, $result_data."\n\n");
+            fwrite($log_file, $result_data."\n");
+            fwrite($log_file, $result_data1."\n\n");
 
             // Fermeture du fichier
             fclose($log_file);

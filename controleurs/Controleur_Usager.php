@@ -1,8 +1,5 @@
 <?php
     use JetBrains\PhpStorm\Language;
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
 
     class Controleur_Usager extends BaseControleur {
 
@@ -177,7 +174,7 @@
                                 $msg .= "<p>" . $donnees['langue']['courrielNouveau'] ."</p><br>";
                                 $msg .= $lien;
                                 $courriel = $usager->getCourriel();
-                                $this->envoieCourriel($courriel, $donnees['langue']['courrielSubjectNouveau'], $msg);
+                                Courriel::envoieCourriel($courriel, $donnees['langue']['courrielSubjectNouveau'], $msg);
 
                                 if(isset($params['retour'])){       //On vérifie quelle page ouvrir.  
                                     header("Location: index.php?Usager&action=gestionUsager");
@@ -319,7 +316,7 @@
                         $msg .= "<p>" . $donnees['langue']['motPassePerduPresentation'] ."</p><br>";
                         $msg .= "<p>" . $motPasse ."</p><br>";
                         $courriel = $params['courriel'];
-                        $this->envoieCourriel($courriel, $donnees['langue']['courrielSubjectChangement'], $msg);
+                        Courriel::envoieCourriel($courriel, $donnees['langue']['courrielSubjectChangement'], $msg);
                         header("Location: index.php?Usager&action=connexion");
 
                         break;
@@ -413,37 +410,6 @@
         public function fabriqueToken(){
             $resultat = uniqid();  
             return $resultat;
-        }
-
-        /**
-         * PH
-         * On doit fournir
-         * Le courriel du destinataire
-         * Le sujet du courriel
-         * Le contenue du courriel.
-         */
-        public function envoieCourriel($adrCourriel, $sujet, $message){
-            require 'lib/PHPMailer.php';
-            require 'lib/SMTP.php';
-            require 'lib/Exception.php';
-
-
-            //paramètres de connexion et envoie
-            $courriel = new PHPMailer();
-            $courriel->isSMTP();
-            $courriel->Host = "smtp.gmail.com";
-            $courriel->SMTPAuth = "true";
-            $courriel->SMTPSecure = "tls";
-            $courriel->Port = "587";
-            $courriel->Username = "gypj.projet@gmail.com";
-            $courriel->Password = 'VLLMcRi3R4EGta2IGZyvIp87gEB5';
-            $courriel->Subject = $sujet;
-            $courriel->setFrom('gypj.projet@gmail.com');
-            $courriel->isHTML(true);
-            $courriel->Body = $message;
-            $courriel->addAddress($adrCourriel);
-            $courriel->send();
-            $courriel->smtpClose();
         }
     }
 ?>
