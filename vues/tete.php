@@ -20,6 +20,8 @@
 	<script type="text/javascript" src="./scripts/Entete.js"></script>
 	<script type="text/javascript" src="./scripts/Chercher.js"></script>
 	<script type="text/javascript" src="./scripts/DescriptionVoiture.js"></script>
+	<script type="text/javascript" src="./scripts/TraiterCommande.js"></script>
+	<script type="text/javascript" src="./scripts/CommandeVoiture.js"></script>
 	<script type="text/javascript" src="./scripts/Filtre.js"></script>
 	<script type="text/javascript" src="./scripts/ListeVoitures.js"></script>	
 	<script type="text/javascript" src="./scripts/Voiture.js"></script>

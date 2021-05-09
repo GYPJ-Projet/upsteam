@@ -12,13 +12,15 @@ class Entete{
        this._nbrVoiture = document.querySelector('[data-js-nombre-voiture]'); 
         
         this.init();
+
     }
 
     init = ()=> {
         
         this._elCodeLangue.addEventListener('click', this.changerLangue); 
 
-        this.verifierPanier();             
+        this.verifierPanier();  
+        this._panier.addEventListener('click', this.afficherCommande); 
     }
 
     // Le chargement de la page dans la langue choisie
@@ -38,5 +40,14 @@ class Entete{
                 this._nbrVoiture.textContent = parseInt(localStorage.getItem('nombreVoiture'));
             }
         }
+    }
+
+    afficherCommande = () => {
+        if (localStorage.getItem('panierAchat')) { 
+                         
+            let panier = localStorage.getItem("panierAchat");  
+            
+            window.location.href = "index.php?Commande&action=afficherCommande&panier=" + panier;            
+        } 
     }
 }
