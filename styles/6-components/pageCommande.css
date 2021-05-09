@@ -50,6 +50,17 @@ ul .info {
     color: var(--gris);
 }
 
+ul .info span {
+    float: right;
+    padding-top: 1.5625vw;
+    padding-left: var(--paddingVoiture);
+    padding-right: var(--paddingVoiture);
+    font-size: var(--police_taille_texte);
+    font-family: var(--openSans);
+    font-weight: var(--police_poid_gras);
+    color: var(--bleu);
+}
+
 ul .liste {    
     list-style-type: none;
     padding-top: var(--paddingMenu);

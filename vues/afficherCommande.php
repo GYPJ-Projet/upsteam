@@ -23,8 +23,8 @@
                     <p class="commande"> <?= $uneVoiture['marque'] ?> <?= $uneVoiture['modele'] ?> <?= $uneVoiture['annee'] ?></p>
                     <img src="<?= $uneVoiture['image'] ?>">
                     <div class="info">
-                        <p> <?= $langue['couleur'] ?> &nbsp;&nbsp;&nbsp;&nbsp;: <span><?= $uneVoiture['couleur'] ?> </span></p>
-                        <p> <?= $langue['kilometrage'] ?> &nbsp;&nbsp;: <span><?= $uneVoiture['kilometrage'] ?> </span></p>
+                        <p> <?= $langue['couleur'] ?> : <span><?= $uneVoiture['couleur'] ?> </span></p>
+                        <p> <?= $langue['kilometrage'] ?> : <span><?= $uneVoiture['kilometrage'] ?> </span></p>
                         <p> <?= $langue['prix'] ?> : <span data-js-prix><?= $uneVoiture['prix'] ?></span> $ </p>
                         <p> <?= $langue['quantite'] ?> : <span data-js-quantite><?= $uneVoiture['quantite'] ?> </span></p>
                         <div class="option">
