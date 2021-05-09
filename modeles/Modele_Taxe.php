@@ -30,11 +30,30 @@
                                     disponibilite, 
                                     idProvince
                             FROM taxe 
-                            WHERE id = $id";
+                            WHERE id = " . $id;
 				$requetePreparee = $this->db->prepare($requete);
 				$requetePreparee->execute();
                 $requetePreparee->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->getNomInstance());
 				return $requetePreparee->fetch();
+			}
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+
+        public function obtenirTaxesParIdProvince($idProvince){
+            try {
+				$requete = "SELECT  id AS idTaxe, 
+                                    nom AS nomTaxe, 
+                                    taux, 
+                                    disponibilite, 
+                                    idProvince
+                            FROM taxe 
+                            WHERE idProvince = " . $idProvince; 
+				$requetePreparee = $this->db->prepare($requete);
+				$requetePreparee->execute();
+                $requetePreparee->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->getNomInstance());
+				return $requetePreparee->fetchAll();
 			}
 			catch(Exception $exc) {
 				return 0;

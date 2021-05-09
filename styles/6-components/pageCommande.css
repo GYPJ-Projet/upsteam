@@ -2,14 +2,19 @@
 
 /* Page Commande */
 
+.listepanierConteneur {
+    width: 100%;
+}
+
+.listepanierConteneur > * {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 .listepanier {
-    display: inline-block;
-    flex-basis: calc(50% - var(--margeSection));
-    align-items: stretch;
-    width: auto;
+    /* display: inline-block; */
     margin-top: var(--margeSection);
-    margin-left: var(--margeSection);
-    margin-right: var(--margeSection);
     background-color: var(--blanc);
     border: solid var(--bordure) var(--gris);
 }

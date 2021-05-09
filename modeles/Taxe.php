@@ -5,12 +5,12 @@
      */
     class Taxe
     {
-        private $idTaxe;
-        private $nomTaxe;
-        private $taux;
-        private $disponibilite;
-        private $idProvince;
-        private $nomProvince;
+        public $idTaxe;
+        public $nomTaxe;
+        public $taux;
+        public $disponibilite;
+        public $idProvince;
+        public $nomProvince;
 
         public function  __construct($idTaxe = 0, $nomTaxe = "", $taux = 0, $disponibilite = 1, $idProvince = 0, $nomProvince = 0)
         {
