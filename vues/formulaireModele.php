@@ -29,6 +29,15 @@
                 <label for="disponibilite"><?= $langue["disponibilite"] ?> : </label>
                 <input type="checkbox" name="disponibilite" id="disponibilite" <?= (isset($modele) && $modele->getDisponibilite() == 1) ? "checked" : "" ?>/><br>
         <?php
+            }else{
+                if(isset($modele) && $modele->getDisponibilite() == 1){
+                    $resultat = 'on';
+                }else{
+                    $resultat = '';
+                }
+        ?>
+                <input type="hidden" name="disponibilite" value="<?= $resultat ?>"/><br/>
+        <?php
             }
         ?>
             
