@@ -1,13 +1,19 @@
 <?php 
     $langue = $donnees["langue"];       //Pour affichage des langues
     $actionRecu = '';
+	$idProvince =  0;
     if(isset($_GET['action'])){
         $actionRecu = $_GET['action'];
     }
+
+	// Si l'usager exite on prend la province où il habite.
+	if(isset($_SESSION["usager"])) {
+	 	$idProvince = $_SESSION["usager"]->getIdProvince();
+	}
 ?>
 
 <header data-js-component="Entete">
-	<div class="enteteConteneur">
+	<div class="enteteConteneur" data-js-province="<?= $idProvince ?>" data-js-component="Taxes">
 		<a href="index.php?Voiture&action=Accueil">
 			<img src="logo/logo_v2.svg" alt="logo" width="400px"height="170px">
 		</a>

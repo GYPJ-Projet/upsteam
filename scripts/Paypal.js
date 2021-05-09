@@ -98,8 +98,9 @@ class Paypal {
 
     preparerOrder = () => {
       console.log("class Paypal - function preparerOrder - IN");
-      let unObjAmount = ""; 
+    
       let unObjItem = "";
+      let unObjAmount = new this.Amount();
       let tabPanier = JSON.parse(localStorage.getItem('panierAchat'));
 
       for (let i = 0, l = tabPanier.length; i < l; i++) {
@@ -112,6 +113,7 @@ class Paypal {
               console.log("class Paypal - function preparerOrder - AFTER ->  new this.Item 0  unObjItem : ");
               console.log(unObjItem);
               
+              unObjAmount.details.subtotal += parseInt(unObjItem.price) * parseInt(unObjItem.quantite);
               this._items.push(unObjItem);
           }
       }

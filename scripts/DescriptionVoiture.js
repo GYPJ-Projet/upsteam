@@ -22,23 +22,6 @@ class DescriptionVoiture {
         /* Panier */
         this._panier = document.querySelector('[data-js-panier]');
         this._nbrVoiture = document.querySelector('[data-js-nombre-voiture]');   
-          
-        console.log(this._el); 
-        console.log(this._image.src); 
-        console.log(this._id.dataset.jsVoiture);       
-        console.log(this._marque.dataset.jsVoitureMarque);       
-        console.log(this._modele.dataset.jsVoitureModele);       
-        console.log(this._annee.dataset.jsVoitureAnnee);       
-        console.log(this._habitacle.dataset.jsVoitureHabitacle);       
-        console.log(this._couleur.dataset.jsVoitureCouleur);       
-        console.log(this._kilometrage.dataset.jsVoitureKilometrage);       
-        console.log(this._transmission.dataset.jsVoitureTransmission);       
-        console.log(this._carburant.dataset.jsVoitureCarburant);       
-        console.log(this._prix.dataset.jsVoiturePrix);       
-        console.log(this._elBouton);
-        console.log(this._panier);
-        console.log(this._nbrVoiture);
-
 
         this.init();    
     }

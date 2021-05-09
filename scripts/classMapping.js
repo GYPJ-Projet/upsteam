@@ -16,5 +16,6 @@ const classMapping = {
     'GestionModele'         : GestionModele,
     'Filtre'                : Filtre,
     'FormulaireConnexion'   : FormulaireConnexion,
-    'Chercher'              : Chercher
+    'Chercher'              : Chercher,
+    'Taxes'                 : Taxes
 };
