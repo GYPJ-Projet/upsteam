@@ -1,0 +1,134 @@
+
+
+/* Page Commande */
+
+.listepanier {
+    display: inline-block;
+    flex-basis: calc(50% - var(--margeSection));
+    align-items: stretch;
+    width: auto;
+    margin-top: var(--margeSection);
+    margin-left: var(--margeSection);
+    margin-right: var(--margeSection);
+    background-color: var(--blanc);
+    border: solid var(--bordure) var(--gris);
+}
+
+.titre {
+    font-size: var(--police_taille_h2Plus);
+    font-family: var(--orbitron);
+    font-weight: var(--police_poid_tres_gras);
+    color: var(--cle);
+    text-align: center;
+    padding: var(--paddingMenu);
+}
+
+.commande {
+    font-size: var(--police_taille_sousTitre);
+    font-family: var(--orbitron);
+    font-weight: var(--police_poid_gras);
+    color: var(--noir);
+    text-align: center;
+}
+
+ul .liste img {
+    padding-top: 1.5625vw;
+    width: 240px;
+    height: 180px;
+    padding-left: var(--paddingVoiture);
+    padding-right: var(--paddingVoiture);
+} 
+
+ul .info {
+    float: right;
+    padding-top: 1.5625vw;
+    padding-left: var(--paddingVoiture);
+    padding-right: var(--paddingVoiture);
+    font-size: var(--police_taille_texte);
+    font-family: var(--openSans);
+    font-weight: var(--police_poid_gras);
+    color: var(--gris);
+}
+
+ul .liste {    
+    list-style-type: none;
+    padding-top: var(--paddingMenu);
+    padding-bottom: var(--paddingMenu);
+}
+
+.buttonOption {
+    font-family: var(--openSans);
+    font-size: var(--police_taille_h2Plus);
+    background-color: var(--gris);
+    color: var(--blanc);
+    margin: var(--margeSousSection);
+    padding-left: var(--margeInterieurSection);
+    padding-right: var(--margeInterieurSection);
+    text-align: center;
+    border: none;    
+    cursor: pointer;
+    outline: none;    
+    transition: background-color .3s ease;
+}
+
+.montant {
+    padding-top: var(--paddingMenu);    
+    font-size: var(--police_taille_texte);
+    font-family: var(--openSans);
+    font-weight: var(--police_poid_gras);
+    color: var(--noir);
+}
+
+.total {   
+    padding: var(--paddingMenu);    
+    font-size: var(--police_taille_sousTitre);
+    font-family: var(--openSans);
+    font-weight: var(--police_poid_gras);
+    color: var(--gris);
+}
+
+.total span {
+    font-size: var(--police_taille_sousTitre);
+    color: var(--bleu);
+    font-weight: var(--police_poid_gras);
+}
+
+.button {
+    align-items: center;
+    font-family: var(--openSans);
+    font-size: var(--police_taille_sousTitre);
+    font-weight: var(--police_poid_gras);
+    margin:auto;
+    padding: var(--paddingFiltreListe);
+    padding-right: var(--paddingVoiture);
+    padding-left: var(--paddingVoiture);
+    background-color: var(--cle);
+    color: var(--blanc);
+    text-align: center;
+    border: none;    
+    cursor: pointer;
+    outline: none;    
+    transition: background-color .3s ease;
+}
+
+.magasiner {
+    align-items: center;
+    font-family: var(--openSans);
+    font-size: var(--police_taille_texte);
+    font-weight: var(--police_poid_gras);
+    margin:auto;
+    padding-left: var(--paddingVoiture);
+    padding-right: var(--paddingVoiture);
+    background-color: var(--gris);
+    color: var(--blanc);
+    text-align: center;
+    border: none;    
+    cursor: pointer;
+    outline: none;    
+    transition: background-color .3s ease;
+    width: fit-content;
+}
+
+.hidden {
+    display: none;
+}

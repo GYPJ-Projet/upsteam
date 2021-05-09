@@ -19,11 +19,12 @@
 			// On pointes sur les modèles dont on a besoin.
 			$modeleMarque          = $this->obtenirDAO("Marque");
 			$modeleModele          = $this->obtenirDAO("Modele");
+			$modeleTaxe            = $this->obtenirDAO("Taxe");
 			$modeleAnnee           = $this->obtenirDAO("Annee");
 			$modeleVoiture         = $this->obtenirDAO("Voiture");
 			$modeleMotopropulseur  = $this->obtenirDAO("Motopropulseur");
+			$modeleCouleur         = $this->obtenirDAO("Couleur"); 
 			$modeleTypeCarburant   = $this->obtenirDAO("TabLangues", "typecarburant");
-			$modeleCouleur         = $this->obtenirDAO("TabLangues", "couleur"); 
 			$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
 			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
 			//$modeleDescription     = $this->obtenirDAO("TabLangues", "description");
@@ -49,7 +50,8 @@
 					
 					case "sauvegarderModele":
 						if (isset($params["id"]) && isset($params["nom"]) && isset($params["idMarque"]) && isset($params["page"])) {
-							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
+							if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") 
+                                $params["disponibilite"] = 1;
 							else $params["disponibilite"] = 0;
 							$nouvelleModele = new Modele($params["id"], $params["nom"], $params["idMarque"], $params["disponibilite"]);
 							
@@ -61,6 +63,47 @@
 							$this->afficheVue("formulaireModele", $donnees);
 						}
 						break;
+
+                    case "sauvegarderCouleur":
+                        Debug::toLog($params);
+                        if (isset($params["id"]) && isset($params["nomFr"]) && isset($params["nomEn"]) && isset($params["page"])) {
+                            if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
+                            else $params["disponibilite"] = 0;
+
+                            $couleurFr = new Couleur($params["id"], 1, $params["nomFr"], $params["disponibilite"]);
+                            $couleurEn = new Couleur($params["id"], 2, $params["nomEn"], $params["disponibilite"]);
+                            
+                            $maxId = $modeleCouleur->obtenirMaxId();
+                            Debug::toLog('$maxId',$maxId);
+                            $maxId ++;
+                            Debug::toLog('$maxId',$maxId);
+                            $reponse = $modeleCouleur->sauvegarder($couleurFr, $maxId);
+                            $reponse = $modeleCouleur->sauvegarder($couleurEn, $maxId);
+                            
+                            header("Location: index.php?GestionDonnees&action=gestionCouleur");
+                                
+                        } else { // Sinon, on affiche le formulaire pour l'ajout
+                            $this->afficheVue("formulaireCouleur", $donnees);
+                        }
+                        break;
+
+                        case "sauvegarderTaxe":
+                            Debug::toLog($params);
+                            if (isset($params["id"], $params["nom"], $params["taux"], $params["idProvince"], $params["page"])) {
+                                if (isset($params["disponibilite"]) && $params["disponibilite"] == "on"){ 
+                                    $params["disponibilite"] = 1;
+                                }else{
+                                    $params["disponibilite"] = 0;
+                                }
+                                $nouvelleTaxe = new Taxe($params["id"], $params["nom"], $params["taux"], $params["disponibilite"], $params["idProvince"]);
+                                $reponse = $modeleTaxe->sauvegarder($nouvelleTaxe);
+                                
+                                header("Location: index.php?GestionDonnees&action=gestionTaxe&page=" . $params["page"]);
+                    
+                            } else { // Sinon, on affiche le formulaire pour l'ajout
+                                $this->afficheVue("formulaireTaxe", $donnees);
+                            }
+                            break;
 					case "afficherFormulaireCouleur":
 						// Si le parametres id est existe, on affiche le formulaire pour la modification
 						if (isset($params["id"])) {
@@ -147,13 +190,18 @@
 									if($error == FALSE){
 										if(move_uploaded_file($_FILES['images']["tmp_name"][$i], REPERTOIRE_IMAGES.$dossier.'/'.$nomFichier)){
 											//enregistrer dans la BD
+	
+
 											$modeleVoiture->insererImages($nomFichier, $dossier, $i);	
+
 										}
 									} 
 								}
 
 								if ($params["id"] != 0) {
-									//Modifier les description avec idVoiture avant d'ajouter
+
+                //Modifier les description avec idVoiture avant d'ajouter
+
 									$modeleVoiture->modifierDescriptions($params["fr-fr"], $dossier, 1);
 									$modeleVoiture->modifierDescriptions($params["en-gb"], $dossier, 2);
 								} else {

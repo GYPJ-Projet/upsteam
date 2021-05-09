@@ -1,11 +1,9 @@
-class GestionCouleur {
+class GestionTaxe {
     constructor(el) {
         this._el = el;
-        this._elsBtnModifier    = this._el.querySelectorAll('[data-js-modifier]');
-        this._elBtnAjouter      = this._el.querySelector('[data-js-ajouter]');
-        this._elsTri            = this._el.querySelectorAll('[data-js-tri]');
-        this._elsPage           = this._el.querySelectorAll('[data-js-page]');
-        this.pageActive         = this._el.querySelector('[data-js-pageActive]');
+        this._elsTri = this._el.querySelectorAll('[data-js-tri]');
+        this._elsPage = this._el.querySelectorAll('[data-js-page]');
+        this.pageActive = this._el.querySelector('[data-js-pageActive]');
 
         this.init();
     }
@@ -23,13 +21,16 @@ class GestionCouleur {
                 //Trier les champs, redireger vers controleur
                 let tri = e.target.dataset.jsTri;
                 let ordre = e.target.dataset.jsOrdre;
+                let page = this.pageActive.dataset.jsPageactive;
+
                 if (tri == undefined) tri = e.target.parentNode.dataset.jsTri;
                 if (ordre == undefined) ordre = e.target.parentNode.dataset.jsOrdre;
+                if (page == undefined) page = 1;
 
-                window.location.href = 'index.php?GestionDonnees&action=gestionCouleur&tri=' + tri + '&ordre=' + ordre + '&page=' + this.page;
+                window.location.href = 'index.php?GestionDonnees&action=gestionTaxe&tri=' + tri + '&ordre=' + ordre + '&page=' + page;
             });
         }
-        
+
         //Brancher le gestionnaire click sur les bouttons Pagination
         for (let i = 0, l = this._elsPage.length; i < l; i++) {
             this._elsPage[i].addEventListener('click', (e) => {
@@ -45,14 +46,13 @@ class GestionCouleur {
                 }
                 
                 //Obtenir le numéro de la page qu'il faut afficher
-
                 let page = e.target.dataset.jsPage;
                 
-                if (tri == undefined) tri = 'id';
+                if (tri == undefined) tri = 'taxe.id';
                 if (ordre == undefined) ordre = 'ASC';
                 if (page == undefined) page = '1';
                 
-                window.location.href = 'index.php?GestionDonnees&action=gestionCouleur&tri=' + tri + '&ordre=' + ordre + '&page=' + page;
+                window.location.href = 'index.php?GestionDonnees&action=gestionTaxe&tri=' + tri + '&ordre=' + ordre + '&page=' + page;
             });
         }
     }
@@ -65,4 +65,5 @@ class GestionCouleur {
             els[i].firstChild.classList.remove("inactif");
         }
     }
+    
 }
