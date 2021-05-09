@@ -45,8 +45,8 @@ class Taxes {
                             if (xhr.response != 'ERREUR') {
                                 // on converti le tableau JSON reçu en array litéraux.
                                 Taxes._taxesProvince = JSON.parse(xhr.responseText);
-
-                                Taxes.sauvegardeLesTaxes(idProvince);
+  
+                                Taxes.sauvegarderLesTaxes(idProvince);
 
                             } else {
                                 Taxes._taxesProvince = [];
@@ -66,7 +66,7 @@ class Taxes {
     }
 
 
-    static sauvegardeLesTaxes() {
+    static sauvegarderLesTaxes() {
 
         let arrayLength = 0;
         for (let i in Taxes._taxesProvince) {
@@ -77,8 +77,8 @@ class Taxes {
             
             // S'il y a 2 taxes dans cette province
             if (arrayLength == 2) {
-                for (let i = 0; i < arrayLength; i++) {                  
-                    if (Taxes._taxesProvince[i]["nomTaxe"] == "TPS") {
+                for (let i = 0; i < arrayLength; i++) {
+                    if (Taxes._taxesProvince[i]["nomTaxe"] == "TPS") {      
                         Taxes._taxeFederale = (parseFloat(Taxes._taxesProvince[i]["taux"]) / 100).toFixed(5);
                     } else {
                         Taxes._taxeProvinciale = (parseFloat(Taxes._taxesProvince[i]["taux"]) / 100).toFixed(5);

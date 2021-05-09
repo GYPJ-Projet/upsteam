@@ -30,16 +30,12 @@
                         
                         if (isset($params["idProvince"])) {
 
-                            Debug::toLog($params["idProvince"], "class Controleur_Taxes_AJAX - function traite - case getTaxesProvince  - params[idProvince] :");
-
                             $modeleTaxe  = $this->obtenirDAO("Taxe");
 
                             // On va chercher les taxe de la Province dans la table Taxe de la BD
 
                             $donnees["taxes"] = $modeleTaxe->obtenirTaxesParIdProvince($params["idProvince"]);
-
-                            Debug::toLog($donnees["taxes"], "class Controleur_Taxes_AJAX - function traite - case getTaxesProvince  - donnees[taxes] :");
-                            
+                           
                             $vue = "envoyerLesTaxesProvince";
                             $this->afficheVue($vue, $donnees); // On retourne ce nombre au javascript AJAX.
                             break;
