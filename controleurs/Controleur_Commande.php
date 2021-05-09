@@ -29,21 +29,19 @@
 				// Ce switch détermine la vue $vue et obtient le modèle $data
 				switch($params["action"]) {
 
-					case "afficerCommande" :
+					case "afficherCommande" :
 
 						// Affichage de la commande du client 
 						// Si on a reçu les paramètres Panier .
 						if (isset($params["panier"])) {
-
-							 // on converti le tableau reçu en array
-							 $tabPanier = json_decode($params["panier"], true);
+							Debug::toLog($params["panier"], "class Controleur_Commande - function traite - case afficherCommande - params panier: ");
+							// on converti le tableau reçu en array
+							$donnees["panier"] = json_decode($params["panier"], true);
 						}
 
-						$this->afficheVue("afficerCommande", $donnees);
+						$this->afficheVue("AfficherCommande", $donnees);
 
-						break;
-
-                   
+						break;                   
 				}			
 			} else {
 				// traitement à determiner ici
