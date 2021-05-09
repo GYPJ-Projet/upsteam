@@ -23,6 +23,7 @@
                             <svg class='<?= ($tri == 'id' && $ordre == "DESC")? "inactif" : "" ?>' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" version="1.1" fill="#333333" width="1vw" height="1vw" data-js-tri="id" data-js-ordre="DESC"><path d="M10 881.1h980L500 118.9 10 881.1z"/></svg>
                         </div>
                     </th>
+                    <th>Photo</th>
                     <th>
                         <span><?= $langue["nom_marque"] ?></span>
                         <div class="sourisPointer symboleTri">
@@ -101,6 +102,20 @@
                         </div>
                     </th>
                     <th>
+                        <span><?= $langue["nom_carrosserie"] ?></span>
+                        <div class="sourisPointer symboleTri">
+                            <svg class='<?= ($tri == 'nomTypeCarrosserie' && $ordre == "ASC")? "inactif" : "" ?>' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" version="1.1" fill="#333333" width="1vw" height="1vw" data-js-tri="nomTypeCarrosserie" data-js-ordre="ASC"><path d="M10 132.5h980l-489.9 735L10 132.5z"/></svg>
+                            <svg class='<?= ($tri == 'nomTypeCarrosserie' && $ordre == "DESC")? "inactif" : "" ?>'xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" version="1.1" fill="#333333" width="1vw" height="1vw" data-js-tri="nomTypeCarrosserie" data-js-ordre="DESC"><path d="M10 881.1h980L500 118.9 10 881.1z"/></svg>
+                        </div>
+                    </th>
+                    <th>
+                        <span><?= $langue["nom_vna"] ?></span>
+                        <div class="sourisPointer symboleTri">
+                            <svg class='<?= ($tri == 'vna' && $ordre == "ASC")? "inactif" : "" ?>' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" version="1.1" fill="#333333" width="1vw" height="1vw" data-js-tri="vna" data-js-ordre="ASC"><path d="M10 132.5h980l-489.9 735L10 132.5z"/></svg>
+                            <svg class='<?= ($tri == 'vna' && $ordre == "DESC")? "inactif" : "" ?>'xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" version="1.1" fill="#333333" width="1vw" height="1vw" data-js-tri="vna" data-js-ordre="DESC"><path d="M10 881.1h980L500 118.9 10 881.1z"/></svg>
+                        </div>
+                    </th>
+                    <th>
                         <span><?= $langue["disponibilite"] ?></span>
                         <div class="sourisPointer symboleTri">
                             <svg class='<?= ($tri == 'disponibilite' && $ordre == "ASC")? "inactif" : "" ?>' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" version="1.1" fill="#333333" width="1vw" height="1vw" data-js-tri="disponibilite" data-js-ordre="ASC"><path d="M10 132.5h980l-489.9 735L10 132.5z"/></svg>
@@ -117,6 +132,7 @@
         ?>
                 <tr>
                     <td><?= $voiture["id"] ?></td>
+                    <td><img class="photoPetit" src="<?= REPERTOIRE_IMAGES . $voiture["id"]. '/'. $voiture["lienPhotoPrincipale"] ?>" alt="<?= $voiture["lienPhotoPrincipale"] ?>"></td>
                     <td><?= $voiture["nomMarque"] ?></td>
                     <td><?= $voiture["nomModele"] ?></td>
                     <td><?= $voiture["annee"] ?></td>
@@ -128,6 +144,8 @@
                     <td><?= $voiture["nomTypeCarburant"] ?></td>
                     <td><?= $voiture["nomCouleur"] ?></td>
                     <td><?= $voiture["nomTransmission"] ?></td>
+                    <td><?= $voiture["nomTypeCarrosserie"] ?></td>
+                    <td><?= $voiture["vna"] ?></td>
                     <td><?= ($voiture["disponibilite"] == true)? $langue["texte_oui"] : "" ?></td>
                     <td><a href="index.php?GestionDonnees&action=afficherFormulaireVoiture&id=<?= $voiture["id"] ?>&page=<?= $pageCourante ?>" data-js-modifier data-js-id=<?= $voiture["id"] ?>><?= $langue["button_modifier"] ?></a></td>
                 </tr>                 

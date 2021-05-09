@@ -111,8 +111,9 @@
 												 motopropulseur.nom AS nomMotoPropulseur,
 												 typeCarburant.nom AS nomTypeCarburant,
 												 couleur.nom AS nomCouleur,
-												 transmission.nom AS nomTransmission/*, 
-												 image.lien AS lienPhotoPrincipale */
+												 transmission.nom AS nomTransmission,
+												 typeCarrosserie.nom AS nomTypeCarrosserie, 
+												 image.lien AS lienPhotoPrincipale 
 											FROM voiture 
 											JOIN modele ON modele.id = voiture.idModele 
 											JOIN marque ON marque.id = modele.idMarque  
@@ -121,9 +122,11 @@
 											JOIN typeCarburant ON typeCarburant.id = voiture.idTypeCarburant
 											JOIN couleur ON couleur.id = voiture.idCouleur
 											JOIN transmission ON transmission.id = voiture.idTransmission
+											JOIN typeCarrosserie ON typeCarrosserie.id = voiture.idTypeCarrosserie
+											JOIN image ON image.idVoiture = voiture.id  AND image.sort = 0
 											WHERE typeCarburant.idLangue = ". $idLangue. " AND couleur.idLangue = ". $idLangue ."
-											AND transmission.idLangue = ". $idLangue ." 
-											/*JOIN image ON image.idVoiture = voiture.id  AND image.sort = 0*/
+											AND transmission.idLangue = ". $idLangue ." AND typeCarrosserie.idLangue = ". $idLangue ."
+											
 											ORDER BY " . $tri .  " " . $ordre .  "
 											LIMIT " . $indexDepart . ", " . $nombreVoulu
 										);		
