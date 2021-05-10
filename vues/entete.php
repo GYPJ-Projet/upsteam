@@ -1,13 +1,19 @@
 <?php 
     $langue = $donnees["langue"];       //Pour affichage des langues
     $actionRecu = '';
+	$idProvince =  0;
     if(isset($_GET['action'])){
         $actionRecu = $_GET['action'];
     }
-?>
 
+	// Si l'usager exite on prend la province où il habite.
+	if(isset($_SESSION["usager"])) {
+	 	$idProvince = $_SESSION["usager"]->getIdProvince();
+	}
+?>
+<!-- data-js-component="Taxes" -->
 <header data-js-component="Entete">
-	<div class="enteteConteneur">
+	<div class="enteteConteneur" data-js-province="<?= $idProvince ?>" >
 		<a href="index.php?Voiture&action=Accueil">
 			<img src="logo/logo_v2.svg" alt="logo" width="400px"height="170px">
 		</a>
@@ -16,11 +22,12 @@
 		</div>
 		<div class="entete__droit">
 <?php
-            if(isset($_SESSION["usager"])){ 
+            if(isset($_SESSION["usager"])){ 				
 ?>
+				
                 <a href="index.php?Usager&action=deconnexion" class="connexion"><?= $langue['entete_deconnexion'] ?></a>
 <?php
-            }else{
+            } else{
 ?>
                 <a href="index.php?Usager&action=connexion" class="connexion"><?= $langue['entete_connexion'] ?></a>
 <?php
@@ -31,7 +38,7 @@
 					<?= $langue['entete_choix_langue'] ?>
 				</p>
 			</div>
-			<a href="index.php?Voiture&action=afficherPanier" class="entete__panierAchat vide" data-js-panier>
+			<div class="entete__panierAchat vide" data-js-panier>
 				<span class="itemPanier" data-js-nombre-voiture></span>
 				<svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" class="entete__panier">
 					<g transform="translate(0.000000,160.000000) scale(0.100000,-0.100000)">
@@ -41,7 +48,7 @@
 						<path class="entete__panier__path" d="M1189 291 c-20 -20 -29 -39 -29 -61 0 -43 47 -90 90 -90 43 0 90 47 90 90 0 43 -47 90 -90 90 -22 0 -41 -9 -61 -29z"/>
 					</g>
 				</svg>
-			</a>
+			</div>
 		</div>	
 	</div>
 </header>
