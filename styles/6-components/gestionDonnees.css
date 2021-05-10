@@ -205,6 +205,10 @@ a.bouton {
     align-self: center;
 }
 
+.photoPetit {
+    width: 8vw;
+}
+
 @media screen and (min-width: 1025px) {
    
 }

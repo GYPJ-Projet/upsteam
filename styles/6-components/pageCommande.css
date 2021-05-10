@@ -2,14 +2,19 @@
 
 /* Page Commande */
 
+.listepanierConteneur {
+    width: 100%;
+}
+
+.listepanierConteneur > * {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 .listepanier {
-    display: inline-block;
-    flex-basis: calc(50% - var(--margeSection));
-    align-items: stretch;
-    width: auto;
+    /* display: inline-block; */
     margin-top: var(--margeSection);
-    margin-left: var(--margeSection);
-    margin-right: var(--margeSection);
     background-color: var(--blanc);
     border: solid var(--bordure) var(--gris);
 }
@@ -42,23 +47,11 @@ ul .liste img {
 ul .info {
     float: right;
     padding-top: 1.5625vw;
-    padding-left: var(--paddingVoiture);
-    padding-right: var(--paddingVoiture);
     font-size: var(--police_taille_texte);
     font-family: var(--openSans);
     font-weight: var(--police_poid_gras);
-    color: var(--gris);
-}
-
-ul .info span {
-    float: right;
-    padding-top: 1.5625vw;
-    padding-left: var(--paddingVoiture);
-    padding-right: var(--paddingVoiture);
-    font-size: var(--police_taille_texte);
-    font-family: var(--openSans);
-    font-weight: var(--police_poid_gras);
-    color: var(--bleu);
+    color: var(--gris);           
+    margin-right: var(--paddingTuile); 
 }
 
 ul .liste {    
@@ -69,22 +62,19 @@ ul .liste {
 
 .buttonOption {
     font-family: var(--openSans);
-    font-size: var(--police_taille_h2Plus);
+    font-size: var(--police_taille_sousTitre);
     background-color: var(--gris);
     color: var(--blanc);
-    margin: var(--margeSousSection);
+    margin-top: var(--margeInterieurSection);
+    margin-right: var(--margeInterieurSection);
     padding-left: var(--margeInterieurSection);
     padding-right: var(--margeInterieurSection);
     text-align: center;
-    border: none;    
-    cursor: pointer;
-    outline: none;    
-    transition: background-color .3s ease;
 }
 
 .montant {
     padding-top: var(--paddingMenu);    
-    font-size: var(--police_taille_texte);
+    font-size: var(--police_taille_sousTitre);
     font-family: var(--openSans);
     font-weight: var(--police_poid_gras);
     color: var(--noir);
@@ -105,39 +95,28 @@ ul .liste {
 }
 
 .button {
-    align-items: center;
-    font-family: var(--openSans);
-    font-size: var(--police_taille_sousTitre);
-    font-weight: var(--police_poid_gras);
-    margin:auto;
-    padding: var(--paddingFiltreListe);
-    padding-right: var(--paddingVoiture);
-    padding-left: var(--paddingVoiture);
-    background-color: var(--cle);
     color: var(--blanc);
+    background-color: var(--cle);
+    margin-top: var(--margeInterieurSection);
+    margin-bottom: var(--margeInterieurSection);
     text-align: center;
-    border: none;    
-    cursor: pointer;
-    outline: none;    
-    transition: background-color .3s ease;
+    padding: 0.5vw;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: var(--paddingVoiture);
+    padding-right: var(--paddingVoiture);
 }
 
 .magasiner {
-    align-items: center;
-    font-family: var(--openSans);
-    font-size: var(--police_taille_texte);
-    font-weight: var(--police_poid_gras);
-    margin:auto;
-    padding-left: var(--paddingVoiture);
-    padding-right: var(--paddingVoiture);
-    background-color: var(--gris);
     color: var(--blanc);
+    margin-top: var(--margeInterieurSection);
     text-align: center;
-    border: none;    
-    cursor: pointer;
-    outline: none;    
-    transition: background-color .3s ease;
-    width: fit-content;
+    padding: 0.5vw;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;;
+    background-color: var(--gris);
 }
 
 .hidden {

@@ -101,21 +101,32 @@
         }
 
 		// Méthode qui permet de prendre toutes les voiture triées selon index et le nombre désiré 
-		public function obtenirToutesVoituresAvecTri($indexDepart, $nombreVoulu, $tri, $ordre) {
+		public function obtenirToutesVoituresAvecTri($indexDepart, $nombreVoulu, $tri, $ordre, $idLangue) {
 			try {
 				$stmt = $this->db->query("SELECT voiture.*,
 												 marque.id AS idMarque, 
 				                                 modele.nom AS nomModele, 
 				                                 marque.nom AS nomMarque, 
 												 annee.annee AS annee, 
-												 motopropulseur.nom AS nomMotoPropulseur/*, 
-												 image.lien AS lienPhotoPrincipale */
+												 motopropulseur.nom AS nomMotoPropulseur,
+												 typeCarburant.nom AS nomTypeCarburant,
+												 couleur.nom AS nomCouleur,
+												 transmission.nom AS nomTransmission,
+												 typeCarrosserie.nom AS nomTypeCarrosserie, 
+												 image.lien AS lienPhotoPrincipale 
 											FROM voiture 
 											JOIN modele ON modele.id = voiture.idModele 
 											JOIN marque ON marque.id = modele.idMarque  
 											JOIN annee ON annee.id = voiture.idAnnee 
 											JOIN motopropulseur ON motopropulseur.id = voiture.idMotopropulseur 
-											/*JOIN image ON image.idVoiture = voiture.id  AND image.sort = 0*/
+											JOIN typeCarburant ON typeCarburant.id = voiture.idTypeCarburant
+											JOIN couleur ON couleur.id = voiture.idCouleur
+											JOIN transmission ON transmission.id = voiture.idTransmission
+											JOIN typeCarrosserie ON typeCarrosserie.id = voiture.idTypeCarrosserie
+											JOIN image ON image.idVoiture = voiture.id  AND image.sort = 0
+											WHERE typeCarburant.idLangue = ". $idLangue. " AND couleur.idLangue = ". $idLangue ."
+											AND transmission.idLangue = ". $idLangue ." AND typeCarrosserie.idLangue = ". $idLangue ."
+											
 											ORDER BY " . $tri .  " " . $ordre .  "
 											LIMIT " . $indexDepart . ", " . $nombreVoulu
 										);		

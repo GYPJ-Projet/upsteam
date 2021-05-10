@@ -7,16 +7,19 @@ class CommandeVoiture {
         this._elQteVoiture = this._el.querySelector('[data-js-quantite]');
         this._elPrix = this._el.querySelector('[data-js-prix]');
         this._elMontant = this._el.querySelector('[data-js-montant]');
-        this._elTotalPartiel = this._el.querySelector('[data-js-total-patiel]'); 
+        this._elTotalPartiel = document.querySelector('[data-js-total-patiel]'); 
         this._panier = JSON.parse(localStorage.getItem('panierAchat'));
         this._idVoiture = parseInt(this._el.dataset.jsCommandevoiture);
         this._elControleurAction = document.querySelector('[data-js-controleur-action]');  
-                   
+            
+        
+        Taxes.getTaxes();
+
         this.init();
     }
 
     init = () => {
-        
+
         this._elPlus.addEventListener('click', (e) => {
             e.preventDefault();
                      
@@ -25,10 +28,8 @@ class CommandeVoiture {
 
         this._elMoins.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log(this._elMoins); 
             this.retirerVoiture();
         });
-
     }
     
     ajouterVoiture = (e) => {
@@ -36,6 +37,8 @@ class CommandeVoiture {
         let montant =  parseInt(this._elMontant.innerHTML);
         let prix =  parseInt(this._elPrix.innerHTML);
         let sousTotal = parseInt(this._elTotalPartiel.innerHTML);
+        let taxeFederale = Taxes.getTaxeFederale();
+        let taxeProvinciale = Taxes.getTaxeProvinciale();
 
         qte++;
         this._panier[this._idVoiture].quantite++;
@@ -58,7 +61,9 @@ class CommandeVoiture {
         let montant =  parseInt(this._elMontant.innerHTML);
         let prix =  parseInt(this._elPrix.innerHTML);
         let sousTotal = parseInt(this._elTotalPartiel.innerHTML);
-
+        let taxeFederale = Taxes.getTaxeFederale();
+        let taxeProvinciale = Taxes.getTaxeProvinciale();
+ 
         if (qte > 0) { 
             qte--;  
             this._panier[this._idVoiture].quantite--; 
@@ -73,8 +78,6 @@ class CommandeVoiture {
             this._elTotalPartiel.innerHTML = sousTotal;
 
             if (qte == 0) this._elMoins.disabled = true;
-        }
-                
+        } 
     }
-
 }
