@@ -132,7 +132,7 @@ a.bouton {
 }
 
 .table {
-    width: 90%;
+    width: 80%;
     border-collapse: collapse;
     text-align: center;
     margin: 1vw auto;
@@ -207,6 +207,40 @@ a.bouton {
 
 .photoPetit {
     width: 8vw;
+}
+
+.photoPetit:hover {
+    transform: scale(1.1);
+}
+
+.form-images {
+    display: grid; 
+    column-gap: var(--paddingTuile);
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: var(--paddingTuile);
+}
+
+.croix {
+    display: block;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background-color: var(--cle);
+    color: var(--blanc);
+    padding: 0 5px;
+}
+
+.croix:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.form-image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 7vw;
 }
 
 @media screen and (min-width: 1025px) {

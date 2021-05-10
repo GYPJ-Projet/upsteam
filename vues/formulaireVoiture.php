@@ -3,6 +3,7 @@
     $langueInfo = $donnees["langue"];
     if (isset($donnees["usager"])) $usager = $donnees["usager"];
     if (isset($donnees["voiture"])) $voiture = $donnees["voiture"];
+    if (isset($donnees["images"])) $images = $donnees["images"];
     if (isset($donnees["descriptions"])) $descriptions = $donnees["descriptions"];
     if (isset($donnees["langues"])) $langues = $donnees["langues"];
 ?>
@@ -155,9 +156,27 @@
                 }
         ?>           
             </div>
+<?php
+            if (isset($images)) {
+?>
+            <div class="form-images">
+<?php                
+                foreach ($images as $image) {
+?>
+                    <div class="form-image">
+                        <div class="croix" data-js-imageId="<?= $image["id"] ?>" data-js-imageNom="<?= $image["lien"] ?>">x</div>
+                        <img src="<?= REPERTOIRE_IMAGES.$voiture["id"].'/'.$image["lien"] ?>" alt="Image">
+                    </div>
+<?php
+                }
+?>   
+            </div>
+<?php
+            }
+?>
             <div>
                 <label for="images"><?= $langueInfo["nom_joindre"] ?> : </label>
-                <input type="file" name="images[]" multiple accept=".jpg, .jpeg, .png" data-js-images required/>
+                <input type="file" name="images[]" multiple accept=".jpg, .jpeg, .png" data-js-images <?= (isset($voiture)) ? "" : "required" ?>/>
             </div>
         <?php
             

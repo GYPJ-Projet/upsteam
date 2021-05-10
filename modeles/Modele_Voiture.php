@@ -247,7 +247,16 @@
 			}
 		}
 
-		public function supprimerImages($idVoiture) {
+		public function supprimerImage($id) {
+            try {
+				$stmt = $this->db->query("DELETE FROM image WHERE id =".$id);
+				$stmt->execute();
+			}	
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+		/*public function supprimerImages($idVoiture) {
             try {
 				$stmt = $this->db->query("DELETE FROM image WHERE idVoiture =".$idVoiture);
 				$stmt->execute();
@@ -255,7 +264,7 @@
 			catch(Exception $exc) {
 				return 0;
 			}
-        }
+        }*/
 		
 		// Méthode qui sauvegarde des images d'une nouvelle voiture dans la BD.
 		public function insererImages($chemin, $idVoiture, $sort) {

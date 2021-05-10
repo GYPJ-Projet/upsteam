@@ -132,7 +132,7 @@
         ?>
                 <tr>
                     <td><?= $voiture["id"] ?></td>
-                    <td><img class="photoPetit" src="<?= REPERTOIRE_IMAGES . $voiture["id"]. '/'. $voiture["lienPhotoPrincipale"] ?>" alt="<?= $voiture["lienPhotoPrincipale"] ?>"></td>
+                    <td><a href="?Voiture&action=descriptionVoiture&id=<?= $voiture["id"] ?>"><img class="photoPetit" src="<?= REPERTOIRE_IMAGES . $voiture["id"]. '/'. $voiture["lienPhotoPrincipale"] ?>" alt="<?= $voiture["lienPhotoPrincipale"] ?>"></a></td>
                     <td><?= $voiture["nomMarque"] ?></td>
                     <td><?= $voiture["nomModele"] ?></td>
                     <td><?= $voiture["annee"] ?></td>
