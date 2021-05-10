@@ -22,10 +22,7 @@
 		</div>
 		<div class="entete__droit">
 <?php
-            if(isset($_SESSION["usager"])){ 
-				/*$unUsager = $_SESSION["usager"];		
-				<h4>Bienvenue : <?=  <?= $usager->getNom() ?> <?= $unUsager->getPrenom() ?> </h4>*/
-					
+            if(isset($_SESSION["usager"])){ 				
 ?>
 				
                 <a href="index.php?Usager&action=deconnexion" class="connexion"><?= $langue['entete_deconnexion'] ?></a>
