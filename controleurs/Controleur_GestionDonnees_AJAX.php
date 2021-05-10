@@ -120,7 +120,7 @@
                         Debug::toLog('files',$_FILES);
                         Debug::toLog('combien',count($_FILES['images']['name']));
                         Debug::toLog('nom', $_FILES['images']['name'][0]);
-                        if(count($_FILES['images']['name']) === 1 && $_FILES[0]['images']['name'][0] === ""){
+                        if(count($_FILES['images']['name']) === 1 && $_FILES['images']['name'][0] === ""){
                             Debug::toLog('vide');
                         }else{
                             Debug::toLog('Pas vide');
@@ -141,7 +141,7 @@
 								
 							$reponse = $modeleVoiture->sauvegarde($nouvelleVoiture);
 							
-							if ($params["id"] != 0 && isset($_FILES)) {
+							if ($params["id"] != 0) {
 								//Supprimer les image avec idVoiture avant d'ajouter
 								$modeleVoiture->supprimerImages($params["id"]);
 							}
