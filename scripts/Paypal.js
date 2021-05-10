@@ -42,30 +42,32 @@ class Paypal {
   
               intent:"SALE",
   
-              // onClick is called when the button is clicked
+ /*              // onClick is called when the button is clicked
               onClick: function()  {
   
-                // Show a validation error if the checkbox is not checked
-         /*        if (!document.querySelector('#check').checked) {
-                  document.querySelector('#error').classList.remove('hidden');
-                
-                } */
                 console.log("class Paypal - function gestionBoutonPaypal - paypal.Buttons - onClick - IN")
                 this.preparerOrder();
   
-              },
+              }, */
   
   
               createOrder: function(data, actions) {
+                this._elTotal = document.querySelector('[data-js-total]');
+                this._elTotalPartiel = document.querySelector('[data-js-total-patiel]'); 
+                let montant =  parseFloat(this._elTotalPartiel.innerHTML).toFixed(2);
+   /*              montant = '1.75'; */
+                console.log("class Paypal - function createOrder - IN - montant :");
+                console.log(montant);
+                console.log(`'${montant}'`);               
                   // This function sets up the details of the transaction, including the amount and line item details.
                   return actions.order.create({
-                    purchase_units: [
-                      {
-                        description: this.product.description,
+                    purchase_units: [{           
+                        /* description: this.product.description, */
                       
                         amount: {
-                          currency_code: 'CAD',
-                          value: this.product.price
+                         /*  currency_code: 'CAD', */
+                          value: `${montant}`
+                        /*   value: '1.50' */
                         }
                     }]
                   });
@@ -74,28 +76,30 @@ class Paypal {
               onApprove: function(data, actions) {
                 // This function captures the funds from the transaction.
                 return actions.order.capture().then(function(details) {
+                  console.log(details);
                   // This function shows a transaction success message to your buyer.
                   alert('Transaction completed by ' + details.payer.name.given_name);
+                  window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
                 });
-              },
-  
-              onCancel: function (data) {
-                // Show a cancel page, or return to cart
-                window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
-              },
-  
-              onError: function (err) {
-                // For example, redirect to a specific error page
-                window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
               }
   
+/*                onCancel: function (data) {
+                // Show a cancel page, or return to cart
+                alert('Transaction cancel by ' + details.payer.name.given_name);
+                window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
+              }, */
   
-     
+/*               onError: function (err) {
+                // For example, redirect to a specific error page
+                alert('Transaction error for ' + details.payer.name.given_name);
+                window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
+              }  */
+  
             }).render('#paypal-button-container');
       
     }
 
-
+ 
     preparerOrder = () => {
       console.log("class Paypal - function preparerOrder - IN");
     
@@ -117,7 +121,7 @@ class Paypal {
               this._items.push(unObjItem);
           }
       }
-
+ 
       
     
     }
