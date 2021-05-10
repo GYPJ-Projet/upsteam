@@ -152,6 +152,7 @@
 								
 							$reponse = $modeleVoiture->sauvegarde($nouvelleVoiture);
 							
+							
 							/*if ($params["id"] != 0) {
 								//Supprimer les image avec idVoiture avant d'ajouter
 								$modeleVoiture->supprimerImages($params["id"]);

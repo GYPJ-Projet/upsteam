@@ -176,16 +176,7 @@
 ?>
             <div>
                 <label for="images"><?= $langueInfo["nom_joindre"] ?> : </label>
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <input type="file" name="images[]" multiple accept=".jpg, .jpeg, .png" data-js-images <?= (isset($voiture)) ? "" : "required" ?>/>
-=======
-                <input type="file" name="images[]" multiple accept=".jpg, .jpeg, .png" data-js-images <?= (!isset($voiture)) ? "required":"" ?> />
->>>>>>> 85dcff57d3087f26796c2e4e315f02e96c324300
-=======
-                <input type="file" name="images[]" multiple accept=".jpg, .jpeg, .png" data-js-images <?= (isset($voiture)) ? "" : "required" ?>/>
-
->>>>>>> 1101aa3299f9a242d5b8b58da3acb2c4f34e8c98
             </div>
         <?php
             
