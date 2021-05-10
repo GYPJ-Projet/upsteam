@@ -5,8 +5,13 @@ class FormulaireVoiture {
         this._elPrixVente = this._el.querySelector("#prixVente");
         this._elMarque = this._el.querySelector('[data-js-marque]');
         this._elModele = this._el.querySelector('[data-js-modele]');
+<<<<<<< HEAD
         this._elsCroix = this._el.querySelectorAll('[data-js-imageId]');
         this._elVoiture = this._el.querySelector('[data-js-idVoiture]').dataset.jsIdvoiture;
+=======
+        // this._elImages = this._el.querySelector('[data-js-images]');
+        // this._elImageTouche = this._el.querySelector('[data-js-imageTouche]');
+>>>>>>> 85dcff57d3087f26796c2e4e315f02e96c324300
 
         this.init();
     }
@@ -26,6 +31,7 @@ class FormulaireVoiture {
             this.afficherModeleParIdMarque(this._elMarque.value);
         });
 
+<<<<<<< HEAD
         for (let i = 0, l = this._elsCroix.length; i < l; i++) {
             this._elsCroix[i].addEventListener('click', (e) => {
                 // Supprimer l'image dans la bd
@@ -34,6 +40,14 @@ class FormulaireVoiture {
                 this.supprimerImageFormulaire(e.target);
             }) 
         }
+=======
+        //Vérifie que l'on a modifié ou non les images
+        // this._elImages.addEventListener('click', (e) => {
+        //     e.preventDefault();
+
+        //     this._elImageTouche.dataset.jsImageTouche = true;
+        // });
+>>>>>>> 85dcff57d3087f26796c2e4e315f02e96c324300
     
     }
      

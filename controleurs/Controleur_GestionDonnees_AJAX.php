@@ -65,7 +65,6 @@
 						break;
 
                     case "sauvegarderCouleur":
-                        Debug::toLog($params);
                         if (isset($params["id"]) && isset($params["nomFr"]) && isset($params["nomEn"]) && isset($params["page"])) {
                             if (isset($params["disponibilite"]) && $params["disponibilite"] == "on") $params["disponibilite"] = 1;
                             else $params["disponibilite"] = 0;
@@ -74,9 +73,7 @@
                             $couleurEn = new Couleur($params["id"], 2, $params["nomEn"], $params["disponibilite"]);
                             
                             $maxId = $modeleCouleur->obtenirMaxId();
-                            Debug::toLog('$maxId',$maxId);
                             $maxId ++;
-                            Debug::toLog('$maxId',$maxId);
                             $reponse = $modeleCouleur->sauvegarder($couleurFr, $maxId);
                             $reponse = $modeleCouleur->sauvegarder($couleurEn, $maxId);
                             
@@ -88,7 +85,6 @@
                         break;
 
                         case "sauvegarderTaxe":
-                            Debug::toLog($params);
                             if (isset($params["id"], $params["nom"], $params["taux"], $params["idProvince"], $params["page"])) {
                                 if (isset($params["disponibilite"]) && $params["disponibilite"] == "on"){ 
                                     $params["disponibilite"] = 1;
@@ -132,6 +128,14 @@
 						}
 						break;
 					case "sauvegarderVoiture":
+                        Debug::toLog('files',$_FILES);
+                        Debug::toLog('combien',count($_FILES['images']['name']));
+                        Debug::toLog('nom', $_FILES['images']['name'][0]);
+                        if(count($_FILES['images']['name']) === 1 && $_FILES[0]['images']['name'][0] === ""){
+                            Debug::toLog('vide');
+                        }else{
+                            Debug::toLog('Pas vide');
+                        }
 						if (isset($params["id"])  && isset($params["idModele"]) && isset($params["idAnnee"]) && isset($params["kilometrage"]) && 
 							isset($params["dateArrivee"]) && isset($params["prixAchat"]) && isset($params["prixVente"]) && 
 							isset($params["idMotopropulseur"]) && isset($params["idTypeCarburant"]) && isset($params["idCouleur"]) && 
@@ -148,7 +152,11 @@
 								
 							$reponse = $modeleVoiture->sauvegarde($nouvelleVoiture);
 							
+<<<<<<< HEAD
 							/*if ($params["id"] != 0) {
+=======
+							if ($params["id"] != 0 && isset($_FILES)) {
+>>>>>>> 85dcff57d3087f26796c2e4e315f02e96c324300
 								//Supprimer les image avec idVoiture avant d'ajouter
 								$modeleVoiture->supprimerImages($params["id"]);
 							}*/
@@ -211,7 +219,7 @@
 
 								if ($params["id"] != 0) {
 
-                //Modifier les description avec idVoiture avant d'ajouter
+                                    //Modifier les description avec idVoiture avant d'ajouter
 
 									$modeleVoiture->modifierDescriptions($params["fr-fr"], $dossier, 1);
 									$modeleVoiture->modifierDescriptions($params["en-gb"], $dossier, 2);

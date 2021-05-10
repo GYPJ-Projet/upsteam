@@ -1,13 +1,19 @@
 <?php 
     $langue = $donnees["langue"];       //Pour affichage des langues
     $actionRecu = '';
+	$idProvince =  0;
     if(isset($_GET['action'])){
         $actionRecu = $_GET['action'];
     }
-?>
 
+	// Si l'usager exite on prend la province où il habite.
+	if(isset($_SESSION["usager"])) {
+	 	$idProvince = $_SESSION["usager"]->getIdProvince();
+	}
+?>
+<!-- data-js-component="Taxes" -->
 <header data-js-component="Entete">
-	<div class="enteteConteneur">
+	<div class="enteteConteneur" data-js-province="<?= $idProvince ?>" >
 		<a href="index.php?Voiture&action=Accueil">
 			<img src="logo/logo_v2.svg" alt="logo" width="400px"height="170px">
 		</a>
@@ -16,10 +22,7 @@
 		</div>
 		<div class="entete__droit">
 <?php
-            if(isset($_SESSION["usager"])){ 
-				/*$unUsager = $_SESSION["usager"];		
-				<h4>Bienvenue : <?=  <?= $usager->getNom() ?> <?= $unUsager->getPrenom() ?> </h4>*/
-					
+            if(isset($_SESSION["usager"])){ 				
 ?>
 				
                 <a href="index.php?Usager&action=deconnexion" class="connexion"><?= $langue['entete_deconnexion'] ?></a>

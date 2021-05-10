@@ -176,7 +176,11 @@
 ?>
             <div>
                 <label for="images"><?= $langueInfo["nom_joindre"] ?> : </label>
+<<<<<<< HEAD
                 <input type="file" name="images[]" multiple accept=".jpg, .jpeg, .png" data-js-images <?= (isset($voiture)) ? "" : "required" ?>/>
+=======
+                <input type="file" name="images[]" multiple accept=".jpg, .jpeg, .png" data-js-images <?= (!isset($voiture)) ? "required":"" ?> />
+>>>>>>> 85dcff57d3087f26796c2e4e315f02e96c324300
             </div>
         <?php
             
@@ -197,6 +201,7 @@
             }
         ?>
             <input type="hidden" name="id" value="<?= (isset($voiture)) ? $voiture["id"] : 0 ?>" data-js-idVoiture="<?= (isset($voiture)) ? $voiture["id"] : 0 ?>"/><br/>
+            <!-- <input type="hidden" name="imageTouche" value="false" data-js-imageTouche/><br/> -->
             <input type="hidden" name="page" value="<?= (isset($donnees["page"])) ? $donnees["page"] : 1 ?>"/><br/>
             <input class="bouton" type="submit" value="<?= $langueInfo['button_soumettre'] ?>" data-js-soumettre/>
         </form>
