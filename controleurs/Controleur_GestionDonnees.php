@@ -47,7 +47,6 @@
 			//$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);
 
 			if (isset($params["action"])) {
-                Debug::toLog($params);
 				// Switch en fonction de l'action qui est envoyée en paramètre de la requête
 				// Ce switch détermine la vue $vue et obtient le modèle $data
 				switch($params["action"]) {
@@ -182,7 +181,6 @@
 						// Si le parametres id existe, on affiche le formulaire pour la modification
 						if (isset($params["id"])) {
 							$donnees["couleur"] = $modeleCouleur->obtenirParIdCouleurs($params["id"]);
-                            Debug::toLog($donnees["couleur"]);
 							$this->afficheVue("formulaireCouleur", $donnees);
 						} else { // Sinon, on affiche le formulaire pour l'ajout
 							$this->afficheVue("formulaireCouleur", $donnees);
@@ -191,6 +189,13 @@
 
 					// Affichage de la liste des voitures
 					case "gestionVoiture":
+                        //PH
+                        //GARDER CE COMMENTAIRE. C'EST IMPORTANT POUR L'INSTANT.
+//                         $texte = 
+//                                 'Une ligne,
+// deux, lignes,
+// trois lignes';
+//                         CreerPDF::creationPDF('test', 'Invoice', $texte);
 						// Nombre des voitures affichées sur une page
         				$voituresParPage = 10;
         				// Obtenir un nombre toutes les voitures dans la base de données
@@ -219,7 +224,7 @@
 						$donnees["tri"] = $tri;
 						$donnees["ordre"] = $ordre;
 						$this->afficheVue("listeDonnees", $donnees);
-						$donnees["voitures"] = $modeleVoiture->obtenirToutesVoituresAvecTri($depart, $voituresParPage, $tri, $ordre);
+						$donnees["voitures"] = $modeleVoiture->obtenirToutesVoituresAvecTri($depart, $voituresParPage, $tri, $ordre, $idLangue);
 						$this->afficheVue("gestionVoiture", $donnees);
 						break;
 					// Afficher le formulaire d'ajout ou de la modification
@@ -232,9 +237,9 @@
 						// Obtenir toutes les années
 						$donnees["annees"] = $modeleAnnee->obtenirTousDisponible();
 						// Obtenir toutes les motopropulseur
-						$donnees["motopropulseurs"] = $modeleMotopropulseur->obtenirTousDisponible();
+						$donnees["motopropulseurs"]  = $modeleMotopropulseur->obtenirTousDisponible();
 						// Obtenir toutes les types de carburant
-						$donnees["typesCarburant"] = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
+						$donnees["typesCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
 						// Obtenir toutes les couleurs
 						$donnees["couleurs"]         = $this->creerTabLangue($modeleCouleur->obtenirTousDisponible(), $idLangue);
 						// Obtenir toutes les types de transmission
