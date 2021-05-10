@@ -22,7 +22,6 @@ class DescriptionVoiture {
         /* Panier */
         this._panier = document.querySelector('[data-js-panier]');
         this._nbrVoiture = document.querySelector('[data-js-nombre-voiture]');   
-          
         this.init();    
     }
 

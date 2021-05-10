@@ -2,6 +2,5 @@
     display: flex;
     flex-wrap: wrap;
     background-color: var(--grisPale);
-    min-height: 100%;
 }
 

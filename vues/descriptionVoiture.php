@@ -44,8 +44,7 @@
 																data-js-voiture-kilometrage="<?= $voiture["kilometrage"] ?>"
 																data-js-voiture-transmission="<?= $donnees["transmission"][$voiture["idTransmission"]] ?>"
 																data-js-voiture-carburant="<?= $donnees["typeCarburant"][$voiture["idTypeCarburant"]]?>"
-																data-js-voiture-prix="<?= $voiture["prixVente"] ?>"
-				>
+																data-js-voiture-prix="<?= $voiture["prixVente"] ?>">
 
 					<h2><?= $langue['specificatioDesc'] ?> <?=$voiture["nomMarque"] ?> <?=$voiture["nomModele"] ?> <?=$voiture["annee"] ?></h2>
 					<ul class="ulListeDescription">
