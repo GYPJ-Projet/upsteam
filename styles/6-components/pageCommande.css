@@ -40,12 +40,10 @@ ul .liste img {
     padding-top: 1.5625vw;
     width: 240px;
     height: 180px;
-    padding-left: var(--paddingVoiture);
-    padding-right: var(--paddingVoiture);
+  
 } 
 
 ul .info {
-    float: right;
     padding-top: 1.5625vw;
     font-size: var(--police_taille_texte);
     font-family: var(--openSans);
