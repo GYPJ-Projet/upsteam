@@ -116,6 +116,17 @@
 							echo json_encode($donnees["modeles"]);
 						}	
 						break;
+					case "supprimerImage":
+						if (isset($params["id"])) {
+							$modeleVoiture->supprimerImage($params["id"]);
+							// Obtenir l'image dans le repertoire
+							$files = glob(REPERTOIRE_IMAGES.$params["idVoiture"].'/'.$params["nomImage"]); 
+							foreach($files as $file){ 
+								if(is_file($file))
+							  		unlink($file);
+						  	}
+						}
+						break;
 					case "sauvegarderVoiture":
                         if(count($_FILES['images']['name']) === 1 && $_FILES['images']['name'][0] === ""){
                         }else{
@@ -136,10 +147,12 @@
 								
 							$reponse = $modeleVoiture->sauvegarde($nouvelleVoiture);
 							
+
 							if ($params["id"] != 0) {
+
 								//Supprimer les image avec idVoiture avant d'ajouter
 								$modeleVoiture->supprimerImages($params["id"]);
-							}
+							}*/
 							
 							//Création du repertoire avec nom - id de la voiture ajoutée
 							//ou suppression des fichiers
@@ -149,13 +162,13 @@
 									mkdir(REPERTOIRE_IMAGES.$reponse, 0700);
 									$dossier = $reponse;
 								} else {
-									$files = glob(REPERTOIRE_IMAGES.$params["id"].'/*'); // obtenir tous les nom de fichiers
+									//$files = glob(REPERTOIRE_IMAGES.$params["id"].'/*'); // obtenir tous les nom de fichiers
 									$dossier = $params["id"];
 									//On supprime chaque fichier
-									foreach($files as $file){ 
+									/*foreach($files as $file){ 
   										if(is_file($file))
     									unlink($file);
-									}
+									}*/
 								}
 							
 								// Enregistrer chaque fichier sur le serveur
