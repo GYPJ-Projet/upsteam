@@ -8,6 +8,11 @@ $langue['totalPartiel']             = 'Total partiel';
 $langue['continuer']                = 'Continuer &agrave; magasiner';
 $langue['passerCommande']           = 'Passer la commande';
 $langue['total']                    = 'Total';
+$langue['retirer']                  = 'Retirer voiture';
+$langue['choix-expedition']         = 'Choisissez votre mode d\'exp&eacute;dition';
+$langue['payer']                    = 'Mode de paiement';
+$langue['credit']                   = 'Carte de cr&eacute;dit';
+$langue['cash']                     = 'Comptant &agrave; la livraison';
 
 $langue['carburant']                = 'Carburant';
 $langue['couleur']                  = 'Couleur';

@@ -13,6 +13,7 @@ $langue['entete_choix_langue']   = 'EN';
 $langue['entete_recherche']      = 'Recherche';
 $langue['entete_connexion']      = 'Connexion';
 $langue['entete_deconnexion']    = 'Déconnexion';
+$langue['entete_usager']         = 'Bienvenue';
 
 
 // menu

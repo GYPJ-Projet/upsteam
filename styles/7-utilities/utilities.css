@@ -13,3 +13,9 @@
 .margeHautSousSection{
     margin-top: var(--margeSousSection);
 }
+
+.defilement{
+    width:85vw;
+    Overflow-x:scroll;
+    white-space: nowrap;
+}

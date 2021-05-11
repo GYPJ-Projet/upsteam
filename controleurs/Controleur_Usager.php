@@ -62,6 +62,9 @@
                             if($unUsager->getMotPasse() === $params["motPasse"]){       //Test du mot de passe.
                                 if($token === null || $token === ''){                                    //Test de l'existence d'un token.
                                     $_SESSION["usager"] = $unUsager;
+                                    $ip = $_SERVER['REMOTE_ADDR'];
+                                    $modeleUsager->journalConnexion($unUsager->getId(), $ip);
+
                                     header("Location: index.php");
                                 }else{
                                     $donnees["erreurs"] = $donnees['langue']['erreurToken'];  // L'authentification n'est pas bonne 

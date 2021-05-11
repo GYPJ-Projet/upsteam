@@ -189,8 +189,8 @@
 
 					// Affichage de la liste des voitures
 					case "gestionVoiture":
-                        //PH
-                        //GARDER CE COMMENTAIRE. C'EST IMPORTANT POUR L'INSTANT.
+//                         //PH
+//                         //GARDER CE COMMENTAIRE. C'EST IMPORTANT POUR L'INSTANT.
 //                         $texte = 
 //                                 'Une ligne,
 // deux, lignes,

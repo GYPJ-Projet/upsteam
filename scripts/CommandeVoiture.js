@@ -2,15 +2,16 @@ class CommandeVoiture {
 
     constructor(el) {
         this._el = el;
-        this._elPlus = this._el.querySelector('[data-js-qtePlus]');
-        this._elMoins = this._el.querySelector('[data-js-qteMoins]');
+        this._elRetrait = this._el.querySelector('[data-js-retrait]');
         this._elQteVoiture = this._el.querySelector('[data-js-quantite]');
         this._elPrix = this._el.querySelector('[data-js-prix]');
         this._elMontant = this._el.querySelector('[data-js-montant]');
-        this._elTotalPartiel = document.querySelector('[data-js-total-patiel]'); 
+        this._elTotalPartiel = document.querySelector('[data-js-total-partiel]'); 
         this._panier = JSON.parse(localStorage.getItem('panierAchat'));
+        this._nbrVoiture = parseInt(localStorage.getItem('nombreVoiture')); 
         this._idVoiture = parseInt(this._el.dataset.jsCommandevoiture);
         this._elControleurAction = document.querySelector('[data-js-controleur-action]');  
+        this._Commander = document.querySelector('[data-js-commander]'); 
             
         
         Taxes.getTaxes();
@@ -20,17 +21,11 @@ class CommandeVoiture {
 
     init = () => {
 
-        this._elPlus.addEventListener('click', (e) => {
-            e.preventDefault();
-                     
-            this.ajouterVoiture();
-        });
-
-        this._elMoins.addEventListener('click', (e) => {
+        this._elRetrait.addEventListener('click', (e) => {
             e.preventDefault();
             this.retirerVoiture();
         });
-    }
+    }    
     
     ajouterVoiture = (e) => {
         let qte = parseInt(this._elQteVoiture.innerHTML);
@@ -63,7 +58,9 @@ class CommandeVoiture {
         if (qte > 0) { 
             qte--;  
             this._panier[this._idVoiture].quantite--; 
+            this._nbrVoiture = parseInt(localStorage.getItem('nombreVoiture')) - 1;
             localStorage.setItem('panierAchat', JSON.stringify(this._panier));      
+            localStorage.setItem('nombreVoiture', JSON.stringify(this._nbrVoiture));      
             this._elControleurAction.dataset.jsControleurAction = `afficherCommande&panier= ${JSON.stringify(this._panier)}`;   
            
             montant = prix * qte;
@@ -72,8 +69,14 @@ class CommandeVoiture {
             this._elQteVoiture.innerHTML = qte;
             this._elMontant.innerHTML = montant;
             this._elTotalPartiel.innerHTML = sousTotal;
-
-            if (qte == 0) this._elMoins.disabled = true;
+            this._el.setAttribute('style', 'display:none');
+            
+            if (this._panier == null) {
+                if (this._nbrVoiture == 0){
+                    this._Commander.classList.add('hidden')
+                }
+            }
+            
         } 
     }
 }

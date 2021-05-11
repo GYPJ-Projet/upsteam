@@ -5,7 +5,7 @@
 
 ?>
 <body >
-	<div data-js-controleur="Voiture"  data-js-controleur-action="descriptionVoiture&id=<?=$voiture["id"] ?>">  
+	<div class="contenueConteneur" data-js-controleur="Voiture"  data-js-controleur-action="descriptionVoiture&id=<?=$voiture["id"] ?>">  
 
 	<div class="description" data-js-component="DescriptionVoiture">
 		<section class="sectionDecriptionEntete">
@@ -30,11 +30,22 @@
 			</div>
 
 			<div class="descriptionVoiture"> 
+<?php
+			if(isset($_SESSION["usager"])){ 					
+?>				
 				<div class="ajouter-panier specificationVoiture" data-js-ajouter-panier>
 					<button class="btn-ajouter-panier" data-js-btn><?= $langue['ajouterAuPanier']?></button>
 					
 				</div>
-
+<?php
+			} else {
+?>
+				<div class="connexion_panier" data-js-ajouter-panier>
+					<a href="index.php?Usager&action=connexion" class="connexion"><?= $langue['connexionAjoutPanier']?></a>					
+				</div>
+<?php
+			}
+?>
 				<div class="specification specificationVoiture" data-js-voiture="<?= $voiture["id"] ?>"
 																data-js-voiture-marque="<?= $voiture["nomMarque"] ?>"
 																data-js-voiture-modele="<?= $voiture["nomModele"] ?>"

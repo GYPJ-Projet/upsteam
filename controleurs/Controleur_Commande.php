@@ -51,7 +51,6 @@
 						// Affichage de la commande du client 
 						// Si on a reçu les paramètres Panier .
 						if (isset($params["panier"])) {
-						/* 	Debug::toLog($params["panier"], "class Controleur_Commande - function traite - case afficherCommande - params panier: "); */
 							// on converti le tableau reçu en array
 							$donnees["panier"] = json_decode($params["panier"], true);
 						}

@@ -3,7 +3,7 @@
 ?>
 
 <body>
-	<div data-js-controleur="Erreur404"  data-js-controleur-action=""> 
+	<div class="bodyConteneur" data-js-controleur="Erreur404"  data-js-controleur-action=""> 
 		<div class="erreur404Conteneur">
 			<div class="mainbox">
 				<div class="err">4 0 4</div>

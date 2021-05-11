@@ -2,6 +2,7 @@
 
 //Voiture
 $langue['ajouterAuPanier']	    = 'Ajouter au panier';
+$langue['connexionAjoutPanier'] = 'Connectez-vous pour ajouter au panier';
 $langue['carburant']            = 'Carburant';
 $langue['couleur']              = 'Couleur';
 $langue['descriptionDesc']      = 'Description de la';

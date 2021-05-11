@@ -20,6 +20,11 @@
             require 'lib/SMTP.php';
             require 'lib/Exception.php';
 
+            // $logo = '../logo/logo_v2.jpg';
+            $message .= '<br><br><p>L\'équipe de voiture d\'occasion </p><br>
+                        <img src="../logo/logo_v2.jpg" alt="logo">';
+            $message = utf8_decode($message);
+
             //paramètres de connexion et envoie
             $courriel = new PHPMailer();
             $courriel->isSMTP();
@@ -34,6 +39,7 @@
             $courriel->isHTML(true);
             $courriel->addAttachment($fichier);
             $courriel->Body = $message;
+            $courriel->AddEmbeddedImage('../logo/logo_v2.jpg','logo_v2.jpg');
             $courriel->addAddress($adrCourriel);
             $courriel->send();
             $courriel->smtpClose();
