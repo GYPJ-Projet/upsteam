@@ -21,35 +21,53 @@
         ?>
                     <li class="liste" data-js-component="CommandeVoiture" data-js-commandeVoiture="<?= $uneVoiture['id'] ?>">
                         <p class="commande"> <?= $uneVoiture['marque'] ?> <?= $uneVoiture['modele'] ?> <?= $uneVoiture['annee'] ?></p>
-                        <img src="<?= $uneVoiture['image'] ?>">
-                        <div class="info">
-                            <p> <?= $langue['couleur'] ?> : <span><?= $uneVoiture['couleur'] ?> </span></p>
-                            <p> <?= $langue['kilometrage'] ?> : <span><?= $uneVoiture['kilometrage'] ?> </span></p>
-                            <p> <?= $langue['prix'] ?> : <span data-js-prix><?= $uneVoiture['prix'] ?></span> $ </p>
-                            <p> <?= $langue['quantite'] ?> : <span data-js-quantite><?= $uneVoiture['quantite'] ?> </span></p>
-                            <div class="option">
-                                <button class="buttonOption" data-js-qtePlus>+</button>
-                                <button class="buttonOption" data-js-qteMoins>−</button>
+                        <div class="detail">
+                            <div class="img-commamde">
+                                <img src="<?= $uneVoiture['image'] ?>">
                             </div>
-                            <p class="montant"> <?= $langue['montant'] ?> : <span data-js-montant><?= floatval($montant) ?> </span> $ </p>
+                            <div class="info">
+                                <p> <?= $langue['couleur'] ?> : <span><?= $uneVoiture['couleur'] ?> </span></p>
+                                <p> <?= $langue['kilometrage'] ?> : <span><?= $uneVoiture['kilometrage'] ?> </span></p>
+                                <p> <?= $langue['prix'] ?> : <span data-js-prix><?= $uneVoiture['prix'] ?></span> $ </p>
+                                <p> <?= $langue['quantite'] ?> : <span data-js-quantite><?= $uneVoiture['quantite'] ?> </span></p>                                
+                                <p class="montant"> <?= $langue['montant'] ?> : <span data-js-montant><?= floatval($montant) ?> </span> $ </p>
+<!-- < ?php
+                            foreach($donnees["expedition"] as $expedier) {
+?>  
+                                <div class="expedition">
+                                    <p>< ?= $langue['choix-expedition'] ?></p>
+                                    <label for="< ?=$expedier["nom"]?>">< ?=$expedier["nom"]?></label>
+                                    <input class="radio" type="checkbox" id="< ?=$expedier["nom"]?>" name="< ?=$expedier["nom"]?>" value="< ?=$expedier["nom"]?>" data-js-expedition="< ?=$expedier["id"]?>" < ?= (strpos($expedierRecu, $expedier["nom"]))? 'checked':''; ?> >
+                                </div>
+< ?php                        
+                            }
+?> -->                        
+                                <div class="retrait">
+                                    <button class="buttonRetrait" data-js-retrait><?= $langue['retirer'] ?></button>
+                                </div>
+                            </div>
                         </div>
-                    </li>    
                         <hr>
+                    </li>                       
         <?php
                     }
                 }            
         ?>
             </ul>
 
-            <h3 class="total"><?= $langue['totalPartiel']?> : <span data-js-total-patiel> <?= $montantSousTotal ?></span> $<h3>
+            <p class="total" data-js-partiel><?= $langue['totalPartiel']?> : <span data-js-total-partiel> <?= $montantSousTotal ?></span> $</p>
             <button class="magasiner" data-js-magasiner><?= $langue['continuer'] ?></button></br>
             <button class="button" data-js-commander><?= $langue['passerCommande'] ?></button>
-            <div class="hidden total-final" data-js-total-final>
-                <p><?= $langue['totalPartiel']?> : <span data-js-total-patiel> <?= $montantSousTotal ?></span> $ </p>
-                <p>TPS : <span data-js-tvq></span> $ </p>
-                <p>TVQ : <span data-js-tps></span> $ </p>
-                <p><?= $langue['total']?> : <span data-js-total></span> $ </p>
-                <div id="paypal-button-container" data-js-component="Paypal"></div>
+            <div class="hidden taxation" data-js-total-final>
+                <p class="tps">TPS : <span data-js-tvq></span> $ </p>
+                <p class="tvq">TVQ : <span data-js-tps></span> $ </p>
+                <p class="total-final"><?= $langue['total']?> : <span data-js-total></span> $ </p>
+                <div class="paiement">
+                    <p><?= $langue['payer'] ?> : </p>
+                    <div id="paypal-button-container" data-js-component="Paypal"></div>
+                    <button class="button" data-js-payer><?= $langue['credit'] ?></button>
+                    <button class="button" data-js-payer><?= $langue['cash'] ?></button>
+                </div>
             </div>
         </section>
     </div>    
