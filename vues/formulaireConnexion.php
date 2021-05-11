@@ -1,7 +1,7 @@
 <?php
     $langue = $donnees["langue"];       //Pour affichage des langues
 ?>
-<section class="formulaireConnexionConteneur contenueConteneur" data-js-component="FormulaireConnexion">
+<section class="formulaireConnexionConteneur" data-js-component="FormulaireConnexion">
     <div class="formulaireConnexion" data-js-controleur="Usager"  data-js-controleur-action="connexion"> 
         <h4><?= $langue['connexion'] ?></h4>
         <form class="formulaireConnexionform" action="index.php?Usager" method="post">
