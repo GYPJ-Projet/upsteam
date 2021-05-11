@@ -6,8 +6,9 @@ class Paypal {
         this._elControleurAction = document.querySelector('[data-js-controleur-action]');
         this._nomControleur = this._elControleur.dataset.jsControleur,
         this._contoleurAction  = this._elControleurAction.dataset.jsControleurAction;
-        this._amount = "";
-        this._items = "";
+       
+/*         this._amount = "";
+        this._items = ""; */
         this.init();
     
     }
@@ -52,9 +53,9 @@ class Paypal {
   
   
               createOrder: function(data, actions) {
-                this._elTotal = document.querySelector('[data-js-total]');
-                this._elTotalPartiel = document.querySelector('[data-js-total-patiel]'); 
-                let montant =  parseFloat(this._elTotalPartiel.innerHTML).toFixed(2);
+                /* let elTotal = document.querySelector('[data-js-total]'); */
+                let elTotalPartiel = document.querySelector('[data-js-total-patiel]'); 
+                let montant =  parseFloat(elTotalPartiel.innerHTML).toFixed(2);
    /*              montant = '1.75'; */
                 console.log("class Paypal - function createOrder - IN - montant :");
                 console.log(montant);
@@ -65,21 +66,24 @@ class Paypal {
                         /* description: this.product.description, */
                       
                         amount: {
-                         /*  currency_code: 'CAD', */
                           value: `${montant}`
-                        /*   value: '1.50' */
                         }
                     }]
                   });
               },
   
               onApprove: function(data, actions) {
+                let panier = localStorage.getItem('panierAchat');
+                let taxeFederale = Taxes.getTaxeFederale();
+                let taxeProvinciale = Taxes.getTaxeProvinciale();
+
                 // This function captures the funds from the transaction.
                 return actions.order.capture().then(function(details) {
-                  console.log(details);
                   // This function shows a transaction success message to your buyer.
-                  alert('Transaction completed by ' + details.payer.name.given_name);
-                  window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
+                  window.location.href = "index.php?Commande&action=sauvegarderCommande&panier=" + panier + 
+                                                                                      "&details=" + JSON.stringify(details) + 
+                                                                                      "&taxeFederale=" + taxeFederale + 
+                                                                                      "&taxeProvinciale=" + taxeProvinciale;
                 });
               }
   
@@ -99,13 +103,13 @@ class Paypal {
       
     }
 
- 
+ /* 
     preparerOrder = () => {
       console.log("class Paypal - function preparerOrder - IN");
     
       let unObjItem = "";
       let unObjAmount = new this.Amount();
-      let tabPanier = JSON.parse(localStorage.getItem('panierAchat'));
+
 
       for (let i = 0, l = tabPanier.length; i < l; i++) {
 
@@ -143,5 +147,5 @@ class Paypal {
       this.details.shipping = 0;
       this.details.tax = 0;
       
-    }
+    } */
 }

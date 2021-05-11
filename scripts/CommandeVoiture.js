@@ -37,9 +37,7 @@ class CommandeVoiture {
         let montant =  parseInt(this._elMontant.innerHTML);
         let prix =  parseInt(this._elPrix.innerHTML);
         let sousTotal = parseInt(this._elTotalPartiel.innerHTML);
-        let taxeFederale = Taxes.getTaxeFederale();
-        let taxeProvinciale = Taxes.getTaxeProvinciale();
-
+        
         qte++;
         this._panier[this._idVoiture].quantite++;
         localStorage.setItem('panierAchat', JSON.stringify(this._panier));
@@ -61,8 +59,6 @@ class CommandeVoiture {
         let montant =  parseInt(this._elMontant.innerHTML);
         let prix =  parseInt(this._elPrix.innerHTML);
         let sousTotal = parseInt(this._elTotalPartiel.innerHTML);
-        let taxeFederale = Taxes.getTaxeFederale();
-        let taxeProvinciale = Taxes.getTaxeProvinciale();
  
         if (qte > 0) { 
             qte--;  

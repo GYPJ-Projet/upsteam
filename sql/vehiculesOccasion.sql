@@ -588,6 +588,8 @@ INSERT INTO `modepaiement`(`id`, `idLangue`, `nom`) VALUES (3,1,'Carte de débit
 INSERT INTO `modepaiement`(`id`, `idLangue`, `nom`) VALUES (3,2,'Debit card');
 INSERT INTO `modepaiement`(`id`, `idLangue`, `nom`) VALUES (4,1,'Virement bancaire');
 INSERT INTO `modepaiement`(`id`, `idLangue`, `nom`) VALUES (4,2,'Bank transfer');
+INSERT INTO `modepaiement`(`id`, `idLangue`, `nom`) VALUES (5,1,'Paypal');
+INSERT INTO `modepaiement`(`id`, `idLangue`, `nom`) VALUES (5,2,'Paypal');
 
 -- -----------------------------------------------------
 -- Table `vehicules`.`facture`
@@ -601,9 +603,10 @@ CREATE TABLE IF NOT EXISTS `vehicules`.`facture` (
   `idStatut` INT NOT NULL,
   `idExpedition` INT NOT NULL,
   `idModePaiement` INT NOT NULL,
+  `noAutorisation` VARCHAR(50),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`idClient`)
-  REFERENCES `vehicules`.`client` (`id`),
+  REFERENCES `vehicules`.`usager` (`id`),
   FOREIGN KEY (`idStatut`)
   REFERENCES `vehicules`.`statut` (`id`),
   FOREIGN KEY (`idExpedition`)
