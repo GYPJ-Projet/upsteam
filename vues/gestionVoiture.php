@@ -12,7 +12,7 @@
     <div data-js-component="GestionVoiture" data-js-controleur-action="gestionVoiture">
 
         <a class="bouton" href="index.php?GestionDonnees&action=afficherFormulaireVoiture&page=<?= $pageCourante ?>" data-js-ajouter><?= $langue["button_ajouter"] ?></a>    
-        <div class="defilement">
+        <div class="defilementDonnees">
         <table class="table">
             <thead>
                 <tr>

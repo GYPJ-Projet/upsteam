@@ -102,6 +102,9 @@ $langue['info_terme_sup_texte']  = "En accédant et en utilisant le site Web vé
 
 // Erreur
 $langue['sansPhoto']            = 'Pas de photo pour cette voiture';
+$langue['section_vide']         = 'Cette section est vide!';
+
+
 
 
 

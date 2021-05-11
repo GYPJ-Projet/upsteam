@@ -12,7 +12,6 @@
 			if (!(isset($_SESSION["usager"])) || isset($_SESSION["usager"]) && $_SESSION["usager"]->getIdRole() > 2) {
 				header("Location: index.php?Voiture");
 			}
-				
 			// Initialisation des donnees a un tableau vide par défaut
 			$donnees = array();
 	
@@ -34,14 +33,21 @@
 			$modeleProvince        = $this->obtenirDAO("province");
 			$modeleAnnee           = $this->obtenirDAO("Annee");
 			$modeleMotopropulseur  = $this->obtenirDAO("Motopropulseur");
-			$modeleCouleur         = $this->obtenirDAO("Couleur"); 
+			$modeleCouleur         = $this->obtenirDAO("Couleur");
+			$modeleFacture		   = $this->obtenirDAO("Facture");
 			
 			$modeleTypeCarburant   = $this->obtenirDAO("TabLangues", "typecarburant");
 			$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
 			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
 			$modeleDescription     = $this->obtenirDAO("TabLangues", "description");
-			
+			$modeleStatut          = $this->obtenirDAO("TabLangues", "statut");
+			//$modeleModePaiement    = $this->obtenirDAO("TabLangues", "modepaiement");
+			//$modeleExpedition      = $this->obtenirDAO("TabLangues", "expedition");
+
 			// On prend les données dans la langue qu'il faut afficher.	
+			$donnees["statut"]   = $this->creerTabLangue($modeleStatut->obtenirTous(), $idLangue);
+			//$donnees["modePaiement"] = $this->creerTabLangue($modeleModePaiement->obtenirTousDisponible(), $idLangue);
+			//$donnees["expedition"]   = $this->creerTabLangue($modeleExpedition->obtenirTousDisponible(), $idLangue);
 			//$donnees["typeCarburant"]   = $this->creerTabLangue($modeleTypeCarburant->obtenirTousDisponible(), $idLangue);
 			//$donnees["transmission"]    = $this->creerTabLangue($modeleTransmission->obtenirTousDisponible(), $idLangue);
 			//$donnees["typeCarrosserie"] = $this->creerTabLangue($modeleTypeCarrosserie->obtenirTousDisponible(), $idLangue);
@@ -305,8 +311,51 @@
                         } else { // Sinon, on affiche le formulaire pour l'ajout
                             $this->afficheVue("formulaireTaxe", $donnees);
                         }
-                        break;
+                    	break;
 					
+					case "gestionCommande":
+                        // Nombre des commandes affichées sur une page
+                        $commandesParPage = 10;
+                        // Obtenir un nombre toutes les commandes dans la base de données
+                        $nbCommandesTotal = $modeleFacture->obtenirNombreCommandes();
+                        // Calculer le nombre des pages 
+                        $donnees["nbPages"] = ceil($nbCommandesTotal / $commandesParPage);
+                        if (isset($_GET["page"]) AND !empty($_GET["page"]) AND $_GET["page"] > 0 AND $_GET["page"] <= $donnees["nbPages"]) 
+                        {
+                            $_GET["page"] = intval($_GET["page"]);
+                            $donnees["pageCourante"] = $_GET["page"];
+                        } else 
+                        {
+                            $donnees["pageCourante"] = 1;
+                        }
+    
+                        $depart = ($donnees["pageCourante"] - 1) * $commandesParPage;
+
+                        //Par defaut, on trie par id
+                        if (isset($_GET["tri"])) $tri = $_GET["tri"];
+                        else $tri = 'id';
+                        //Par defaut, on tri dans l'ordre ascendente
+                        if (isset($_GET["ordre"])) $ordre = $_GET["ordre"];
+                        else $ordre = 'ASC';
+                        //Passer les paramètres à la vue
+                        $donnees["tri"] = $tri;
+                        $donnees["ordre"] = $ordre;
+                        $this->afficheVue("listeDonnees", $donnees);
+                        $donnees["commandes"] = $modeleFacture->obtenirToutCommandesAvecTri($depart, $commandesParPage, $tri, $ordre, $idLangue);
+                        $this->afficheVue("gestionCommande", $donnees);
+                        break;
+
+					case "afficherFormulaireCommande":
+						// Obtenir tous les status
+						$donnees["statut"]   = $this->creerTabLangue($modeleStatut->obtenirTous(), $idLangue);
+						
+						$this->afficheVue("listeDonnees", $donnees);
+						// Si le parametres id existe, on affiche le formulaire pour la modification
+						if (isset($params["id"])) {
+							$donnees["commande"] = $modeleFacture->obtenirCommandeParId($params["id"], $idLangue);
+							$this->afficheVue("formulaireCommande", $donnees);
+						} 
+						break;
 					default:
 						// Action par défaut
 						$this->afficheVue("listeDonnees", $donnees);

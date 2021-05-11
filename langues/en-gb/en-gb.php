@@ -103,5 +103,5 @@ $langue['button_joindre']		= 'Attach';
 
 // Erreur
 $langue['sansPhoto']            = 'No photo for this car';
-
+$langue['section_vide']         = 'This section is empty!';
 ?>

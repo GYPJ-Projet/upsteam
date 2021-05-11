@@ -23,7 +23,8 @@
 			$modeleAnnee           = $this->obtenirDAO("Annee");
 			$modeleVoiture         = $this->obtenirDAO("Voiture");
 			$modeleMotopropulseur  = $this->obtenirDAO("Motopropulseur");
-			$modeleCouleur         = $this->obtenirDAO("Couleur"); 
+			$modeleCouleur         = $this->obtenirDAO("Couleur");
+			$modeleFacture         = $this->obtenirDAO("Facture"); 
 			$modeleTypeCarburant   = $this->obtenirDAO("TabLangues", "typecarburant");
 			$modeleTransmission    = $this->obtenirDAO("TabLangues", "transmission");
 			$modeleTypeCarrosserie = $this->obtenirDAO("TabLangues", "typecarrosserie");
@@ -84,22 +85,34 @@
                         }
                         break;
 
-                        case "sauvegarderTaxe":
-                            if (isset($params["id"], $params["nom"], $params["taux"], $params["idProvince"], $params["page"])) {
-                                if (isset($params["disponibilite"]) && $params["disponibilite"] == "on"){ 
-                                    $params["disponibilite"] = 1;
-                                }else{
-                                    $params["disponibilite"] = 0;
-                                }
-                                $nouvelleTaxe = new Taxe($params["id"], $params["nom"], $params["taux"], $params["disponibilite"], $params["idProvince"]);
-                                $reponse = $modeleTaxe->sauvegarder($nouvelleTaxe);
-                                
-                                header("Location: index.php?GestionDonnees&action=gestionTaxe&page=" . $params["page"]);
-                    
-                            } else { // Sinon, on affiche le formulaire pour l'ajout
-                                $this->afficheVue("formulaireTaxe", $donnees);
+                    case "sauvegarderTaxe":
+                        if (isset($params["id"], $params["nom"], $params["taux"], $params["idProvince"], $params["page"])) {
+                            if (isset($params["disponibilite"]) && $params["disponibilite"] == "on"){ 
+                                $params["disponibilite"] = 1;
+                            } else {
+                                $params["disponibilite"] = 0;
                             }
-                            break;
+                            $nouvelleTaxe = new Taxe($params["id"], $params["nom"], $params["taux"], $params["disponibilite"], $params["idProvince"]);
+                            $reponse = $modeleTaxe->sauvegarder($nouvelleTaxe);
+                                
+                            header("Location: index.php?GestionDonnees&action=gestionTaxe&page=" . $params["page"]);
+                    
+                        } else { // Sinon, on affiche le formulaire pour l'ajout
+                            $this->afficheVue("formulaireTaxe", $donnees);
+                        }
+                        break;
+
+					case "sauvegarderCommande":
+						if (isset($params["id"]) && isset($params["idStatut"]) && isset($params["page"])) {
+					
+							$reponse = $modeleFacture->changerStatut($params["id"], $params["idStatut"]);
+									
+							header("Location: index.php?GestionDonnees&action=gestionCommande&page=" . $params["page"]);
+						
+						} else { 
+							$this->afficheVue("formulaireCommande", $donnees);
+						}
+						break;
 					case "afficherFormulaireCouleur":
 						// Si le parametres id est existe, on affiche le formulaire pour la modification
 						if (isset($params["id"])) {
