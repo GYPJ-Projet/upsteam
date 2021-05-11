@@ -64,7 +64,7 @@
 
 .formulaire label {
     display: inline-block;
-    width: 15vw;
+    width: 20vw;
     margin-bottom: 1vw;
     text-align: right;
     padding: 0.5vw;
@@ -85,6 +85,7 @@
     box-sizing: border-box;
     height: 150px;
     align-self: flex-end;
+    margin-left: 5px;
 }
 
 .formulaire input {
@@ -132,7 +133,7 @@ a.bouton {
 }
 
 .table {
-    width: 80%;
+
     border-collapse: collapse;
     text-align: center;
     margin: 1vw auto;
@@ -164,6 +165,11 @@ a.bouton {
     fill: var(--grisPale);
     pointer-events: none;
     cursor: default;
+}
+
+.formulaireImages {
+    clear: both;
+    margin: var(--margeSection);
 }
 
 /* Pagination */
@@ -216,7 +222,7 @@ a.bouton {
 .form-images {
     display: grid; 
     column-gap: var(--paddingTuile);
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-row-gap: var(--paddingTuile);
 }
 
@@ -240,7 +246,7 @@ a.bouton {
     display: flex;
     flex-direction: column;
     height: auto;
-    width: 7vw;
+    width: 10vw;
 }
 
 @media screen and (min-width: 1025px) {
@@ -266,5 +272,8 @@ a.bouton {
     }
     .listeDonnees li {
         text-align: center;
+    }
+    .form-images {
+        grid-template-columns: repeat(3, 1fr);
     }
 }

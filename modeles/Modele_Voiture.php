@@ -123,7 +123,7 @@
 											JOIN couleur ON couleur.id = voiture.idCouleur
 											JOIN transmission ON transmission.id = voiture.idTransmission
 											JOIN typeCarrosserie ON typeCarrosserie.id = voiture.idTypeCarrosserie
-											JOIN image ON image.idVoiture = voiture.id  AND image.sort = 0
+											LEFT JOIN image ON image.idVoiture = voiture.id  AND image.sort = 0
 											WHERE typeCarburant.idLangue = ". $idLangue. " AND couleur.idLangue = ". $idLangue ."
 											AND transmission.idLangue = ". $idLangue ." AND typeCarrosserie.idLangue = ". $idLangue ."
 											
@@ -206,7 +206,7 @@
 				$requetePreparee->bindParam(":vna", $vna);
 				$requetePreparee->bindParam(":d", $disponibilite);
 				$requetePreparee->execute();
-				return true;
+			
 			} else {
 				//ajout d'une nouvelle voiture
 				$requete = "INSERT INTO voiture(idModele, idAnnee, kilometrage, dateArivee,
@@ -256,15 +256,17 @@
 				return 0;
 			}
         }
-		/*public function supprimerImages($idVoiture) {
-            try {
-				$stmt = $this->db->query("DELETE FROM image WHERE idVoiture =".$idVoiture);
+		
+		public function verifierImageParId($id) {
+			try {
+				$stmt = $this->db->query("SELECT * FROM image WHERE idVoiture =". $id ." AND sort = 0");
 				$stmt->execute();
+				return $stmt->fetchColumn();
 			}	
 			catch(Exception $exc) {
 				return 0;
 			}
-        }*/
+		}
 		
 		// Méthode qui sauvegarde des images d'une nouvelle voiture dans la BD.
 		public function insererImages($chemin, $idVoiture, $sort) {
