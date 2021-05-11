@@ -1,16 +1,23 @@
 class Taxes {
 
-    static _taxeFederale = 0;
-    static _taxeProvinciale = 0; 
+/*     static _taxeFederale = 0;
+    static _taxeProvinciale = 0; */ 
     static _taxesProvince = [];
-
+    static _arrayLength =  0;
+    static _indexTaxeFederal = 0;
+    static _indexTaxeProvincial = -1;
 
     static getTaxeFederale() {
-        return Taxes._taxeFederale;
+        return Taxes._taxesProvince[Taxes._indexTaxeFederal];
     }
 
     static getTaxeProvinciale() {
-        return Taxes._taxeProvinciale;
+        let uneTaxe = null;
+        if (Taxes._indexTaxeProvinciale != -1) {
+            uneTaxe = Taxes._taxesProvince[Taxes._indexTaxeFederal];
+        }
+        
+        return uneTaxe;
     }
 
     static getTaxesAreReady() {
@@ -79,6 +86,7 @@ class Taxes {
             if (arrayLength == 2) {
                 for (let i = 0; i < arrayLength; i++) {
                     if (Taxes._taxesProvince[i]["nomTaxe"] == "TPS") {      
+                        Taxes._taxesProvince[i]["nomTaxe"]
                         Taxes._taxeFederale = (parseFloat(Taxes._taxesProvince[i]["taux"]) / 100).toFixed(5);
                     } else {
                         Taxes._taxeProvinciale = (parseFloat(Taxes._taxesProvince[i]["taux"]) / 100).toFixed(5);
