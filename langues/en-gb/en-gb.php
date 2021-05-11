@@ -46,9 +46,9 @@ $langue['bouton_annuler']       = 'Cancel';
 $langue['button_modifier']		= 'Edit';
 $langue['button_ajouter']		= 'Add a new item';
 $langue['button_soumettre']		= 'Sumbit';
-//$langue['button_joindre']		= 'Attach';
+$langue['button_joindre']		= 'Attach';
 
 // Erreur
-
+$langue['sansPhoto']            = 'No photo for this car';
 
 ?>

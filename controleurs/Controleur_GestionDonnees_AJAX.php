@@ -117,7 +117,7 @@
 						}	
 						break;
 					case "supprimerImage":
-						if (isset($params["id"])) {
+						if (isset($params["id"])&&$params["idVoiture"]&&$params["nomImage"]) {
 							$modeleVoiture->supprimerImage($params["id"]);
 							// Obtenir l'image dans le repertoire
 							$files = glob(REPERTOIRE_IMAGES.$params["idVoiture"].'/'.$params["nomImage"]); 
@@ -127,15 +127,58 @@
 						  	}
 						}
 						break;
+					case "ajouterImages":
+						
+						if (isset($params["id"]) && isset($_FILES["images"])) {							
+							// Vérifier si le repertoire existe déjà
+							if(!is_dir(REPERTOIRE_IMAGES.$params["id"])) { 	
+								mkdir(REPERTOIRE_IMAGES.$params["id"], 0700);
+							}
+
+							//Vérifier l'image avec sort = 0
+							$reponse = $modeleVoiture->verifierImageParId($params["id"]);
+				
+							// Enregistrer chaque fichier sur le serveur
+							for ($i = 0, $l = count($_FILES['images']["name"]); $i < $l; $i++) { 	
+								//noms de fichier
+								$nomFichier = $_FILES['images']["name"][$i];
+								//ficheir extention
+								$imageFichierType = strtolower(pathinfo($nomFichier, PATHINFO_EXTENSION));
+								//taille de fichier
+								$fichierTaille = $_FILES['images']["size"][$i];
+								$error =  FALSE;
+								//Vérifier extension
+								if($imageFichierType !="jpg" && $imageFichierType !="jpeg" && $imageFichierType != "png"
+								&& $imageFichierType !="gif")
+								{
+									$message = "Fichier doit être *.jpg";
+									$error = TRUE;
+								}
+								//Vérifier le taille 2mb
+								if($fichierTaille > 2000000){
+									$message = "File must be smaller than 2mb";
+									$error = TRUE;
+								}
+								//Vérifier si le fichier est exist;
+								if(file_exists(REPERTOIRE_IMAGES.$params["id"].'/'.$nomFichier))
+								{
+									$message = "File already exist";
+									$error = TRUE;
+								}
+
+								if($error == FALSE){
+									if(move_uploaded_file($_FILES['images']["tmp_name"][$i], REPERTOIRE_IMAGES.$params["id"].'/'.$nomFichier)){
+										//enregistrer dans la BD
+
+										$modeleVoiture->insererImages($nomFichier, $params["id"], ($reponse == 0)? $i : $i+1);	
+
+									}
+								} 
+							}
+						}
+						header("Location: index.php?GestionDonnees&action=afficherFormulaireVoiture&id=" . $params["id"]);
+						break;
 					case "sauvegarderVoiture":
-                        Debug::toLog('files',$_FILES);
-                        Debug::toLog('combien',count($_FILES['images']['name']));
-                        Debug::toLog('nom', $_FILES['images']['name'][0]);
-                        if(count($_FILES['images']['name']) === 1 && $_FILES[0]['images']['name'][0] === ""){
-                            Debug::toLog('vide');
-                        }else{
-                            Debug::toLog('Pas vide');
-                        }
 						if (isset($params["id"])  && isset($params["idModele"]) && isset($params["idAnnee"]) && isset($params["kilometrage"]) && 
 							isset($params["dateArrivee"]) && isset($params["prixAchat"]) && isset($params["prixVente"]) && 
 							isset($params["idMotopropulseur"]) && isset($params["idTypeCarburant"]) && isset($params["idCouleur"]) && 
@@ -149,86 +192,27 @@
 							$params["dateArrivee"], $params["prixAchat"], $params["prixVente"], $params["idMotopropulseur"], 
 							$params["idTypeCarburant"], $params["idCouleur"], $params["idTransmission"], $params["idTypeCarrosserie"],
 							$params["disponibilite"], $params["vna"]);
-								
+							
+							// Enregistrer la voiture dans la bd et retourner id ou true
 							$reponse = $modeleVoiture->sauvegarde($nouvelleVoiture);
 							
+							(isset($reponse) && $reponse > 0) ? $idVoiture = $reponse : $idVoiture = $params["id"];
+							if ($params["id"] != 0) {
+                                //Modifier les description avec idVoiture avant d'ajouter
+								$modeleVoiture->modifierDescriptions($params["fr-fr"], $idVoiture, 1);
+								$modeleVoiture->modifierDescriptions($params["en-gb"], $idVoiture, 2);
+							} else {
+								//Enregistrer les description pour la premiere fois
+								$modeleVoiture->insererDescriptions($params["fr-fr"], $idVoiture, 1);
+								$modeleVoiture->insererDescriptions($params["en-gb"], $idVoiture, 2);
+							}							
+
+							if ($params["id"] == 0) {
+								header("Location: index.php?GestionDonnees&action=afficherFormulaireVoiture&id=" . $idVoiture);
+							} else {
+								header("Location: index.php?GestionDonnees&action=gestionVoiture&page=" . $params["page"]);
+							}
 							
-							/*if ($params["id"] != 0) {
-								//Supprimer les image avec idVoiture avant d'ajouter
-								$modeleVoiture->supprimerImages($params["id"]);
-							}*/
-							
-							//Création du repertoire avec nom - id de la voiture ajoutée
-							//ou suppression des fichiers
-							if (isset($reponse) && $reponse > 0) {
-								if ($params["id"] == 0) {
-									//Créer le repertoire avec le nom - id de voiture
-									mkdir(REPERTOIRE_IMAGES.$reponse, 0700);
-									$dossier = $reponse;
-								} else {
-									//$files = glob(REPERTOIRE_IMAGES.$params["id"].'/*'); // obtenir tous les nom de fichiers
-									$dossier = $params["id"];
-									//On supprime chaque fichier
-									/*foreach($files as $file){ 
-  										if(is_file($file))
-    									unlink($file);
-									}*/
-								}
-							
-								// Enregistrer chaque fichier sur le serveur
-								for ($i = 0, $l = count($_FILES['images']["name"]); $i < $l; $i++) { 	
-									//noms de fichier
-									$nomFichier = $_FILES['images']["name"][$i];
-									//ficheir extention
-									$imageFichierType = strtolower(pathinfo($nomFichier, PATHINFO_EXTENSION));
-									//taille de fichier
-									$fichierTaille = $_FILES['images']["size"][$i];
-									$error =  FALSE;
-									//Vérifier extension
-									if($imageFichierType !="jpg" && $imageFichierType !="jpeg" && $imageFichierType != "png"
-									&& $imageFichierType !="gif")
-									{
-										$message = "Fichier doit être *.jpg";
-										$error = TRUE;
-									}
-									//Vérifier le taille 2mb
-									if($fichierTaille > 2000000){
-										$message = "File must be smaller than 2mb";
-										$error = TRUE;
-									}
-									//Vérifier si le fichier est exist;
-									if(file_exists(REPERTOIRE_IMAGES.$dossier.'/'.$nomFichier))
-									{
-										$message = "File already exist";
-										$error = TRUE;
-									}
-
-									if($error == FALSE){
-										if(move_uploaded_file($_FILES['images']["tmp_name"][$i], REPERTOIRE_IMAGES.$dossier.'/'.$nomFichier)){
-											//enregistrer dans la BD
-	
-
-											$modeleVoiture->insererImages($nomFichier, $dossier, $i);	
-
-										}
-									} 
-								}
-
-								if ($params["id"] != 0) {
-
-                                    //Modifier les description avec idVoiture avant d'ajouter
-
-									$modeleVoiture->modifierDescriptions($params["fr-fr"], $dossier, 1);
-									$modeleVoiture->modifierDescriptions($params["en-gb"], $dossier, 2);
-								} else {
-									//Enregistrer les description
-									$modeleVoiture->insererDescriptions($params["fr-fr"], $dossier, 1);
-									$modeleVoiture->insererDescriptions($params["en-gb"], $dossier, 2);
-								}
-								
-							} 							
-
-							header("Location: index.php?GestionDonnees&action=gestionVoiture" . $params["page"]);
 									
 						} else { // Sinon, on affiche le formulaire pour l'ajout
 							

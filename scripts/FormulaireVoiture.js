@@ -5,7 +5,6 @@ class FormulaireVoiture {
         this._elPrixVente = this._el.querySelector("#prixVente");
         this._elMarque = this._el.querySelector('[data-js-marque]');
         this._elModele = this._el.querySelector('[data-js-modele]');
-        
         this._elsCroix = this._el.querySelectorAll('[data-js-imageId]');
         this._elVoiture = this._el.querySelector('[data-js-idVoiture]').dataset.jsIdvoiture;
 
@@ -35,7 +34,6 @@ class FormulaireVoiture {
                 this.supprimerImageFormulaire(e.target);
             }) 
         }
-    
     }
      
     afficherModeleParIdMarque = (idMarque) => {
