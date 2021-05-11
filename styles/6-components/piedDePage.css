@@ -23,6 +23,10 @@
     background-color: var(--noir);
     margin-top: 50px;
     border-top: solid 20px var(--cle);
+    
+}
+.pied_de_page a {
+    color:var(--blanc);
 }
 
 

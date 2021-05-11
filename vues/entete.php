@@ -5,7 +5,7 @@
     if(isset($_GET['action'])){
         $actionRecu = $_GET['action'];
     }
-	if (isset($donnees["usager"])) $usager = $donnees["usager"];
+	if(isset($donnees["usager"])) $usager = $donnees["usager"];
 
 	// Si l'usager exite on prend la province où il habite.
 	if(isset($_SESSION["usager"])) {
