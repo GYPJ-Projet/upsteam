@@ -196,6 +196,7 @@
 							// Enregistrer la voiture dans la bd et retourner id ou true
 							$reponse = $modeleVoiture->sauvegarde($nouvelleVoiture);
 							
+
 							(isset($reponse) && $reponse > 0) ? $idVoiture = $reponse : $idVoiture = $params["id"];
 							if ($params["id"] != 0) {
                                 //Modifier les description avec idVoiture avant d'ajouter

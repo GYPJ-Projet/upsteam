@@ -13,8 +13,9 @@
 }
 
 .listepanier {
-    /* display: inline-block; */
     margin-top: var(--margeSection);
+    margin-left: auto;
+    margin-right: auto;
     background-color: var(--blanc);
     border: solid var(--bordure) var(--gris);
 }
@@ -27,8 +28,16 @@
     text-align: center;
     padding: var(--paddingMenu);
 }
+ul .liste {  
+    display: inline;  
+    height: auto;
+    list-style-type: none;
+    padding-top: var(--paddingMenu);
+    padding-bottom: var(--paddingMenu);
+}
 
 .commande {
+    margin: var( --margeSousSection);
     font-size: var(--police_taille_sousTitre);
     font-family: var(--orbitron);
     font-weight: var(--police_poid_gras);
@@ -36,58 +45,63 @@
     text-align: center;
 }
 
-ul .liste img {
-    padding-top: 1.5625vw;
+.img-commamde {
+    width: 40%;
+    float: right;
+    margin-right: var( --margeSousSection);
+}
+
+ul .liste img {    
     width: 240px;
-    height: 180px;
-  
+    height: 180px;  
 } 
 
 ul .info {
-    padding-top: 1.5625vw;
+    width: 45%;
+    margin: var( --margeSousSection);
     font-size: var(--police_taille_texte);
-    font-family: var(--openSans);
-    font-weight: var(--police_poid_gras);
+    font-family: var(--openSans);    
     color: var(--gris);           
-    margin-right: var(--paddingTuile); 
 }
 
-ul .liste {    
-    list-style-type: none;
-    padding-top: var(--paddingMenu);
-    padding-bottom: var(--paddingMenu);
+ul .info p {
+    padding: 5px;
 }
 
-.buttonOption {
+.buttonRetrait {
     font-family: var(--openSans);
-    font-size: var(--police_taille_sousTitre);
-    background-color: var(--gris);
-    color: var(--blanc);
+    font-size: 12px;
+    background-color: var(--grisPale);
+    color: var(--cle);
     margin-top: var(--margeInterieurSection);
     margin-right: var(--margeInterieurSection);
-    padding-left: var(--margeInterieurSection);
-    padding-right: var(--margeInterieurSection);
     text-align: center;
 }
 
 .montant {
     padding-top: var(--paddingMenu);    
-    font-size: var(--police_taille_sousTitre);
+    font-size: var(--police_taille_texte);
     font-family: var(--openSans);
     font-weight: var(--police_poid_gras);
     color: var(--noir);
 }
 
-.total {   
-    padding: var(--paddingMenu);    
-    font-size: var(--police_taille_sousTitre);
+.total {
+    margin-top: var(--margeInterieurSection);
+}
+
+.total, .tps,
+.tvq, .total-final {  
+    padding-left: var(--paddingMenu);    
+    font-size: var(--police_taille_texte);
     font-family: var(--openSans);
     font-weight: var(--police_poid_gras);
     color: var(--gris);
 }
 
-.total span {
-    font-size: var(--police_taille_sousTitre);
+.total span, .tps span,
+.tvq span, .total-final span {
+    font-size: var(--police_taille_texte);
     color: var(--bleu);
     font-weight: var(--police_poid_gras);
 }
@@ -95,7 +109,6 @@ ul .liste {
 .button {
     color: var(--blanc);
     background-color: var(--cle);
-    margin-top: var(--margeInterieurSection);
     margin-bottom: var(--margeInterieurSection);
     text-align: center;
     padding: 0.5vw;
@@ -104,17 +117,33 @@ ul .liste {
     margin-left: auto;
     padding-left: var(--paddingVoiture);
     padding-right: var(--paddingVoiture);
+    border: none;
 }
 
 .magasiner {
     color: var(--blanc);
-    margin-top: var(--margeInterieurSection);
+    margin-top: var(--margeSection);
     text-align: center;
     padding: 0.5vw;
     display: block;
     margin-right: auto;
     margin-left: auto;;
     background-color: var(--gris);
+    border: none;
+}
+
+.taxation {
+    margin-top: -20px;
+}
+
+.paiement p {
+    margin-top: var(--margeInterieurSection);
+    margin-bottom: var(--margeInterieurSection);
+    font-size: var(--police_taille_sousTitre);
+    font-family: var(--openSans);
+    font-weight: var(--police_poid_gras);
+    color: var(--noir);
+    text-align: center;
 }
 
 .hidden {

@@ -5,7 +5,6 @@ class MenuConteneur{
         this._menuMonProfil =           this._element.querySelector('[data-js-menuMonProfil]');
         this._menuGestionDonnees =      this._element.querySelector('[data-js-menuGestionDonnees]');
         this._menuGestionEmployes =     this._element.querySelector('[data-js-menuGestionEmployes]');
-        this._menuGestionCommandes =    this._element.querySelector('[data-js-menuGestionCommandes]');
         this._iconeBurger =             document.querySelector('[data-js-iconeBurger]');
 
         this.init();
@@ -24,9 +23,6 @@ class MenuConteneur{
         if (this._menuGestionEmployes != null)
             this._menuGestionEmployes.addEventListener('click', this.menuGestionEmployes);
         
-        if (this._menuGestionCommandes != null)
-            this._menuGestionCommandes.addEventListener('click', this.menuGestionCommandes);
-
         this._iconeBurger.addEventListener('click', this.boutonBurger);             //Gestion du clique de l'icone
 
         window.addEventListener('resize', this.displayWindowSize);                  //Gestion de l'affichage du type de menu burger ou non.
