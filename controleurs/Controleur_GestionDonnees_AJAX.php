@@ -117,13 +117,8 @@
 						}	
 						break;
 					case "sauvegarderVoiture":
-                        Debug::toLog('files',$_FILES);
-                        Debug::toLog('combien',count($_FILES['images']['name']));
-                        Debug::toLog('nom', $_FILES['images']['name'][0]);
                         if(count($_FILES['images']['name']) === 1 && $_FILES['images']['name'][0] === ""){
-                            Debug::toLog('vide');
                         }else{
-                            Debug::toLog('Pas vide');
                         }
 						if (isset($params["id"])  && isset($params["idModele"]) && isset($params["idAnnee"]) && isset($params["kilometrage"]) && 
 							isset($params["dateArrivee"]) && isset($params["prixAchat"]) && isset($params["prixVente"]) && 

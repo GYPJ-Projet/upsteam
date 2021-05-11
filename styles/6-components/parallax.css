@@ -1,0 +1,9 @@
+.imageParallax{
+    background: url(../../images/parallax/parallax.jpg) no-repeat fixed;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 500px;
+}
