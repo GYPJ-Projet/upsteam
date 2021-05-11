@@ -6,8 +6,9 @@ class Paypal {
         this._elControleurAction = document.querySelector('[data-js-controleur-action]');
         this._nomControleur = this._elControleur.dataset.jsControleur,
         this._contoleurAction  = this._elControleurAction.dataset.jsControleurAction;
-        this._amount = "";
-        this._items = "";
+       
+/*         this._amount = "";
+        this._items = ""; */
         this.init();
     
     }
@@ -42,66 +43,73 @@ class Paypal {
   
               intent:"SALE",
   
-              // onClick is called when the button is clicked
+ /*              // onClick is called when the button is clicked
               onClick: function()  {
   
-                // Show a validation error if the checkbox is not checked
-         /*        if (!document.querySelector('#check').checked) {
-                  document.querySelector('#error').classList.remove('hidden');
-                
-                } */
                 console.log("class Paypal - function gestionBoutonPaypal - paypal.Buttons - onClick - IN")
                 this.preparerOrder();
   
-              },
+              }, */
   
   
               createOrder: function(data, actions) {
+                /* let elTotal = document.querySelector('[data-js-total]'); */
+                let elTotalPartiel = document.querySelector('[data-js-total-patiel]'); 
+                let montant =  parseFloat(elTotalPartiel.innerHTML).toFixed(2);
+   /*              montant = '1.75'; */
+                console.log("class Paypal - function createOrder - IN - montant :");
+                console.log(montant);
+                console.log(`'${montant}'`);               
                   // This function sets up the details of the transaction, including the amount and line item details.
                   return actions.order.create({
-                    purchase_units: [
-                      {
-                        description: this.product.description,
+                    purchase_units: [{           
+                        /* description: this.product.description, */
                       
                         amount: {
-                          currency_code: 'CAD',
-                          value: this.product.price
+                          value: `${montant}`
                         }
                     }]
                   });
               },
   
               onApprove: function(data, actions) {
+                let panier = localStorage.getItem('panierAchat');
+                let taxeFederale = Taxes.getTaxeFederale();
+                let taxeProvinciale = Taxes.getTaxeProvinciale();
+
                 // This function captures the funds from the transaction.
                 return actions.order.capture().then(function(details) {
                   // This function shows a transaction success message to your buyer.
-                  alert('Transaction completed by ' + details.payer.name.given_name);
+                  window.location.href = "index.php?Commande&action=sauvegarderCommande&panier=" + panier + 
+                                                                                      "&details=" + JSON.stringify(details) + 
+                                                                                      "&taxeFederale=" + taxeFederale + 
+                                                                                      "&taxeProvinciale=" + taxeProvinciale;
                 });
-              },
-  
-              onCancel: function (data) {
-                // Show a cancel page, or return to cart
-                window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
-              },
-  
-              onError: function (err) {
-                // For example, redirect to a specific error page
-                window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
               }
   
+/*                onCancel: function (data) {
+                // Show a cancel page, or return to cart
+                alert('Transaction cancel by ' + details.payer.name.given_name);
+                window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
+              }, */
   
-     
+/*               onError: function (err) {
+                // For example, redirect to a specific error page
+                alert('Transaction error for ' + details.payer.name.given_name);
+                window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
+              }  */
+  
             }).render('#paypal-button-container');
       
     }
 
-
+ /* 
     preparerOrder = () => {
       console.log("class Paypal - function preparerOrder - IN");
     
       let unObjItem = "";
       let unObjAmount = new this.Amount();
-      let tabPanier = JSON.parse(localStorage.getItem('panierAchat'));
+
 
       for (let i = 0, l = tabPanier.length; i < l; i++) {
 
@@ -117,7 +125,7 @@ class Paypal {
               this._items.push(unObjItem);
           }
       }
-
+ 
       
     
     }
@@ -139,5 +147,5 @@ class Paypal {
       this.details.shipping = 0;
       this.details.tax = 0;
       
-    }
+    } */
 }

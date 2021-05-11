@@ -27,12 +27,34 @@ class CommandeVoiture {
         });
     }    
     
+    ajouterVoiture = (e) => {
+        let qte = parseInt(this._elQteVoiture.innerHTML);
+        let montant =  parseInt(this._elMontant.innerHTML);
+        let prix =  parseInt(this._elPrix.innerHTML);
+        let sousTotal = parseInt(this._elTotalPartiel.innerHTML);
+        
+        qte++;
+        this._panier[this._idVoiture].quantite++;
+        localStorage.setItem('panierAchat', JSON.stringify(this._panier));
+        this._elControleurAction.dataset.jsControleurAction = `afficherCommande&panier= ${JSON.stringify(this._panier)}`;
+        
+        montant = prix * qte;
+        sousTotal += prix;
+        
+        this._elQteVoiture.innerHTML = qte;
+        this._elMontant.innerHTML = montant;
+        this._elTotalPartiel.innerHTML = sousTotal;
+
+        if (qte > 0) this._elMoins.disabled = false;
+
+    }
+
     retirerVoiture = (e) => {        
         let qte = parseInt(this._elQteVoiture.innerHTML);
         let montant =  parseInt(this._elMontant.innerHTML);
         let prix =  parseInt(this._elPrix.innerHTML);
         let sousTotal = parseInt(this._elTotalPartiel.innerHTML);
-       
+ 
         if (qte > 0) { 
             qte--;  
             this._panier[this._idVoiture].quantite--; 
