@@ -1,9 +1,17 @@
+.nowrap {
+    flex-wrap: nowrap;
+}
+
+.flex {
+    display: flex;
+}
+
 .listeDonnees {
     display: inline-block;
-    flex-basis: calc(25% - var(--margeSection));
+    flex-basis: calc(25% - var(--margeInterieurSection));
     align-items: stretch;
     margin-top: var(--margeSection);
-    margin-left: var(--margeSection);
+    margin-left: var(--margeInterieurSection);
     border-style: solid;
     border-width: var(--bordureI);
     border-color: var(--gris);
@@ -27,9 +35,9 @@
 
 .pageDonnees {
     display: inline-block;
-    flex-basis: calc(65% - var(--margeSection));
+    flex-basis: calc(70% - var(--margeInterieurSection));
     margin-top: var(--margeSection);
-    margin-left: var(--margeSection);
+    margin-left: var(--margeInterieurSection);
     border-style: solid;
     border-width: var(--bordureI);
     border-color: var(--gris);
@@ -133,7 +141,6 @@ a.bouton {
 }
 
 .table {
-
     border-collapse: collapse;
     text-align: center;
     margin: 1vw auto;
@@ -170,6 +177,10 @@ a.bouton {
 .formulaireImages {
     clear: both;
     margin: var(--margeSection);
+}
+
+.formulaireImages .bouton {
+    margin: 1vw 0;
 }
 
 /* Pagination */
@@ -222,7 +233,7 @@ a.bouton {
 .form-images {
     display: grid; 
     column-gap: var(--paddingTuile);
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-row-gap: var(--paddingTuile);
 }
 
@@ -250,15 +261,32 @@ a.bouton {
 }
 
 @media screen and (min-width: 1025px) {
-   
+    .defilementDonnees {
+        width:75vw;
+        Overflow-x:scroll;
+        white-space: nowrap;
+    }
 }
  
 @media screen and (max-width: 1024px) {
     .listeDonnees {
-        flex-basis: calc(25% - var(--margeInterieurSection));
+        flex-basis: calc(100% - var(--margeInterieurSection));
+        margin-top: var(--margeInterieurSection);
     }
     .pageDonnees {
-        flex-basis: calc(50% - var(--margeInterieurSection));
+        flex-basis: calc(100% - var(--margeInterieurSection));
+        margin-top: var(--margeInterieurSection);
+    }
+    .listeDonnees li {
+        text-align: center;
+    }
+    .nowrap {
+        flex-wrap: wrap;
+    }
+    .defilementDonnees {
+        width:90vw;
+        Overflow-x:scroll;
+        white-space: nowrap;
     }
 }
 
@@ -275,5 +303,10 @@ a.bouton {
     }
     .form-images {
         grid-template-columns: repeat(3, 1fr);
+    }
+    .defilementDonnees {
+        width:85vw;
+        Overflow-x:scroll;
+        white-space: nowrap;
     }
 }

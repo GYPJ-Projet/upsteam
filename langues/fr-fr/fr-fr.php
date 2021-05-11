@@ -50,5 +50,5 @@ $langue['button_joindre']		= 'Joindre';
 
 // Erreur
 $langue['sansPhoto']            = 'Pas de photo pour cette voiture';
-
+$langue['section_vide']         = 'Cette section est vide!';
 ?>
