@@ -5,6 +5,7 @@ class DescriptionVoiture {
 
         //Détail de la voiture 
         this._elId = this._el.querySelector('[data-js-voiture]');
+        this._Voiture = document.querySelector('[data-js-voiture]');
         this._elImage = this._el.querySelector('[data-js-image="0"]');
         this._elMarque = this._el.querySelector('[data-js-voiture-marque]');
         this._elModele = this._el.querySelector('[data-js-voiture-modele]');
@@ -18,11 +19,14 @@ class DescriptionVoiture {
 
         /*Bouton Ajout Panier */
         this._elBouton =  this._el.querySelector('[data-js-btn]');
-  
+         
         /* Panier */
         this._panier = document.querySelector('[data-js-panier]');
         this._nbrVoiture = document.querySelector('[data-js-nombre-voiture]');   
-        this.init();    
+        this.init();
+        
+        console.log(this._el);
+        console.log(this._Voiture);
     }
 
     //  Initialisation de la class Produits pour lui donner vie !
@@ -40,9 +44,8 @@ class DescriptionVoiture {
                 this._panier.classList.replace('vide', 'fill');
             }
 
-            this.ajoutDansPanier();   
-
-        });
+            this.ajoutDansPanier();
+       });
     }
     
     
@@ -79,7 +82,6 @@ class DescriptionVoiture {
         });
     }
 
-    
     ajoutDansPanier = (e) => {
 
        // Incrémente le nombre de voiture affiché dans le header
@@ -100,38 +102,26 @@ class DescriptionVoiture {
 
         if (!localStorage.getItem('panierAchat')) { 
 
-            this.creerPanier(panier);                
-                   
-            localStorage.setItem('panierAchat', JSON.stringify(panier));
+            this.creerPanier(panier);     
        }
         
         else {
             panier = JSON.parse(localStorage.getItem('panierAchat'));
 
-            let idVoiture = this._elId.dataset.jsVoiture,
-                existVoiture = false;
             if (panier.length > 0) { 
-                for(let i = 0; i < panier.length; i++) {        //Boucle à travers les voitures présents,
-                    if(panier[i] != null) { 
-                        if (idVoiture === panier[i].id) {
-                            existVoiture = true;                 //Incrémente si c'est le même item qu'on ajoute dans le panier
-                            panier[i].quantite++;               //On augmente la quantité du panier à cahque ajout.
-                        }
-                    }                
-                } 
-                    
-                if (existVoiture == false) {
-
-                    this.creerPanier(panier);                    
-                }
                 
+                    this.creerPanier(panier);                    
+            
             } else {
 
                 this.creerPanier(panier);                
-            }   
-            
-            localStorage.setItem('panierAchat', JSON.stringify(panier));
-        }          
+            }    
+        }
+
+        localStorage.setItem('panierAchat', JSON.stringify(panier));
+        this._elBouton.disable = true;       //On rend le bouton non cliquable et on desactive la voitire
+        this._el.classList.add('inactif');        
+        this._Voiture.classList.add('inactif');        
     }
 
     creerPanier = (panier) => {

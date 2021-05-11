@@ -7,7 +7,7 @@ class ListeVoitures {
         this._elConteneur = document.querySelector('[data-js-bodyConteneur]');
  
         this.init();
-    
+        console.log(this._el);
     }
 
     // Initialisation de la class ListeVoitures pour lui donner vie, soit gérer 
