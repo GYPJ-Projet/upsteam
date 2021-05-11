@@ -14,42 +14,44 @@
 ?>
 <!-- data-js-component="Taxes" -->
 <div class="page_conteneur">
-    <header data-js-component="Entete">
-        <div class="enteteConteneur" data-js-province="<?= $idProvince ?>" >
-            <a href="index.php?Voiture&action=Accueil">
-                <img src="logo/logo_v2.svg" alt="logo" width="400px"height="170px">
-            </a>
-        <div class="enteteRecherche" >
-            <input type="search" class="recherche" placeholder="<?=$langue['entete_recherche']?>" data-js-component="Chercher" data-js-action="<?= $actionRecu ?>">
-        </div>
-        <div class="entete__session">
-<?php
-            if(isset($_SESSION["usager"])) { 
-                $prenom = $_SESSION["usager"]->getPrenom();				
-                $nom = $_SESSION["usager"]->getNom();				
-?>            
-                <p class=entete__usager><?= $langue['entete_usager'] ?> <?= $nom ?> - <?= $prenom ?>
+  <header data-js-component="Entete">
+    <div class="enteteConteneur" data-js-province="<?= $idProvince ?>" >
+      <a href="index.php?Voiture&action=Accueil">
+        <img src="logo/logo_v2.svg" alt="logo" width="400px"height="170px">
+      </a>
+      <div class="enteteRecherche" >
+        <input type="search" class="recherche" placeholder="<?=$langue['entete_recherche']?>" data-js-component="Chercher" data-js-action="<?= $actionRecu ?>">
+      </div>
 
-<?php
-            }
-?>
-                <div class="entete__droit">
-<?php
-                    if(isset($_SESSION["usager"])){ 					
-?>				
-                        <a href="index.php?Usager&action=deconnexion" class="connexion"><?= $langue['entete_deconnexion'] ?></a>
-<?php
-                    } else {
-?>
-                        <a href="index.php?Usager&action=connexion" class="connexion"><?= $langue['entete_connexion'] ?></a>
-<?php
-                    }
-?>
-                    <div class="entete__langue sourisPointer" data-js-langue="<?= $langue['repertoireLangue'] ?>">
-                        <p data-js-codeLangue>
-                        <?= $langue['entete_choix_langue'] ?>
-                        </p>
-                    </div>
+      <div class="entete__session">
+  <?php
+      if(isset($_SESSION["usager"])){ 
+        $prenom = $_SESSION["usager"]->getPrenom();
+        $nom = $_SESSION["usager"]->getNom();
+    ?>
+    <p class=entete__usager><?= $langue['entete_usager'] ?> <?= $nom ?> - <?= $prenom ?>
+
+    <?php
+      }
+    ?>
+
+        <div class="entete__droit">
+  <?php
+        if(isset($_SESSION["usager"])){ 					
+  ?>				
+          <a href="index.php?Usager&action=deconnexion" class="connexion"><?= $langue['entete_deconnexion'] ?></a>
+  <?php
+        } else{
+  ?>
+          <a href="index.php?Usager&action=connexion" class="connexion"><?= $langue['entete_connexion'] ?></a>
+  <?php
+        }
+  ?>
+          <div class="entete__langue sourisPointer" data-js-langue="<?= $langue['repertoireLangue'] ?>">
+            <p data-js-codeLangue>
+              <?= $langue['entete_choix_langue'] ?>
+            </p>
+          </div>
 
                     <div class="entete__panierAchat vide" data-js-panier>
                         <span class="itemPanier" data-js-nombre-voiture></span>
