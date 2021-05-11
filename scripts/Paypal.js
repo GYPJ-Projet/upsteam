@@ -72,19 +72,16 @@ class Paypal {
                 let panier = localStorage.getItem('panierAchat');
                 let taxeFederale = Taxes.getTaxeFederale();
                 let taxeProvinciale = Taxes.getTaxeProvinciale();
-                let uneTaxeProvinciale = 0.00;
+            
 
-                if (taxeProvinciale != null) {
-                  uneTaxeProvinciale = taxeProvinciale['taux'];
-                }
 
                 // This function captures the funds from the transaction.
                 return actions.order.capture().then(function(details) {
                   // This function shows a transaction success message to your buyer.
                   window.location.href = "index.php?Commande&action=sauvegarderCommande&panier=" + panier + 
                                                                                       "&details=" + JSON.stringify(details) + 
-                                                                                      "&taxeFederale=" + taxeFederale['taux'] + 
-                                                                                      "&taxeProvinciale=" + uneTaxeProvinciale;
+                                                                                      "&taxeFederale=" + JSON.stringify(taxeFederale) + 
+                                                                                      "&taxeProvinciale=" + JSON.stringify(taxeProvinciale);
                 });
               }
   
