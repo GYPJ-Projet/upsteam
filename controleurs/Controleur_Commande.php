@@ -73,6 +73,12 @@
 							// Si l'usager exite on prend la province où il habite.
 							$idClient = $_SESSION["usager"]->getId();
 							$details = json_decode($params["details"], true);
+							$laTaxeFederale = json_decode($params["taxeFederale"],true);
+							if ($params["taxeProvinciale"] != null) {
+								$laTaxeProvinciale = json_decode($params["taxeProvinciale"],true);
+							} else {
+								$laTaxeProvinciale = null;
+							}
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - details[purchase_units]: ", $details["purchase_units"] );
  							$capture = $details["purchase_units"][0]["payments"]["captures"][0];
 
@@ -83,8 +89,13 @@
 							$idStatut             = $statutPaypalCorrespondant[strtoupper($paypalStatus)]; 
 							$idExpedition         = 2;
 							$idModePaiement       = 5;
-							$taxeFederale         = floatval($params["taxeFederale"]);
-							$taxeProvinciale      = floatval($params["taxeProvinciale"]);
+							$taxeFederale         = floatval($laTaxeFederale['taux']);
+							if ($laTaxeProvinciale != null) {
+								$taxeProvinciale  = floatval($laTaxeProvinciale['taux']);
+							} else {
+								$taxeProvinciale  = 0.00;
+							}
+							
  							$dateTime = strtotime($paypalTime);
 							$date = date('Y-m-d H:i:s', $dateTime); 
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - params panier: ", json_decode($params["panier"],true));

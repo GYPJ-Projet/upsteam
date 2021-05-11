@@ -30,7 +30,6 @@ class Taxes {
         let elIdProvince = document.querySelector('[ data-js-province]'); 
        
         let idProvince = parseInt(elIdProvince.dataset.jsProvince);
-         idProvince = 7; 
         if ( idProvince != 0 ) {
             // Déclaration de l'objet XMLHttpRequest
             var xhr;
