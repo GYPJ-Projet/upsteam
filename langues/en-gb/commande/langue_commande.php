@@ -9,6 +9,8 @@ $langue['passerCommande']           = 'to order';
 $langue['total']                    = 'Total';
 $langue['retirer']                  = 'Delete car';
 $langue['choix-expedition']         = 'Choose your shipping method';
+$langue['payer']                    = 'Payment method';
+$langue['option']                   = 'Choose ...';
 
 
 
@@ -17,6 +19,7 @@ $langue['couleur']                  = 'Color';
 $langue['descriptionDesc']          = 'Description of the';
 $langue['habitacle']                = 'Body type';
 $langue['kilometrage']		        = 'Mileage';
+$langue['transmission']		        = 'Transmission';
 $langue['motopropulseur']		    = 'Drive train';
 $langue['prix']                     = 'Price';
 $langue["quantite"]                 = 'Quantity';

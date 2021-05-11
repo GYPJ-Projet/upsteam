@@ -122,24 +122,12 @@ body {
     opacity: .5;
 }
 
-.connexion_panier a {
+.connexion_panier {
     font-family: var(--openSans);
-    font-size:   var(--police_taille_texte);
-    font-weight: var(--police_poid_normal);
-    animation-name: clignote;
-    animation-duration: 500ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+    font-size:   var(--police_taille_sousTitre);
+    font-weight: var(--police_poid_gras);
+    color: var(--cle);
 }
-
-@keyframes clignote {
-    0% {
-        color: var(--cle);
-    }
-    50% {
-        color: var(--blanc);
-    }
-}    
 
 @media screen and (min-width: 1025px){
 

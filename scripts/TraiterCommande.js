@@ -4,6 +4,7 @@ class TraiterCommande {
         this._el = el;
         this._elMagasiner = this._el.querySelector('[data-js-magasiner]'); 
         this._elCommander = this._el.querySelector('[data-js-commander]');  
+        this._elPasserCmd = this._el.querySelector('[data-js-passer-commande]');  
         this._elTotalPartiel = this._el.querySelector('[data-js-total-partiel]'); 
         this._elTotalFinal = this._el.querySelector('[data-js-total-final]'); 
         this._elTotal = this._el.querySelector('[data-js-total]'); 
@@ -29,8 +30,7 @@ class TraiterCommande {
     }
 
     passerCommande = () => {
-        this._elMagasiner.classList.add('hidden');
-        this._elCommander.classList.add('hidden');
+        this._elPasserCmd.classList.add('hidden');
         this._elTotalFinal.classList.remove('hidden');
         this._taxeFederale = Taxes.getTaxeFederale();
         this._taxeProvinciale = Taxes.getTaxeProvinciale();

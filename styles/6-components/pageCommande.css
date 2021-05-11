@@ -7,17 +7,26 @@
 }
 
 .listepanierConteneur > * {
+    display: flex;  
+    flex-direction: column;
+    flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
 }
 
 .listepanier {
-    margin-top: var(--margeSection);
     margin-left: auto;
     margin-right: auto;
     background-color: var(--blanc);
     border: solid var(--bordure) var(--gris);
+}
+
+.detail {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .titre {
@@ -29,11 +38,7 @@
     padding: var(--paddingMenu);
 }
 ul .liste {  
-    display: inline;  
-    height: auto;
     list-style-type: none;
-    padding-top: var(--paddingMenu);
-    padding-bottom: var(--paddingMenu);
 }
 
 .commande {
@@ -46,22 +51,23 @@ ul .liste {
 }
 
 .img-commamde {
-    width: 40%;
-    float: right;
-    margin-right: var( --margeSousSection);
+    position: relative;
+    width: 35%;
 }
 
-ul .liste img {    
-    width: 240px;
-    height: 180px;  
+.liste img {    
+    position: relative;
+    width: 12.5vw;
+    height: 9.375vw;  
 } 
 
 ul .info {
-    width: 45%;
-    margin: var( --margeSousSection);
+    position: relative;
+    width: 35%;
     font-size: var(--police_taille_texte);
     font-family: var(--openSans);    
-    color: var(--gris);           
+    color: var(--gris); 
+    padding-bottom: var(--paddingTuile);          
 }
 
 ul .info p {
@@ -69,12 +75,11 @@ ul .info p {
 }
 
 .buttonRetrait {
+    position: relative;
     font-family: var(--openSans);
     font-size: 12px;
     background-color: var(--grisPale);
     color: var(--cle);
-    margin-top: var(--margeInterieurSection);
-    margin-right: var(--margeInterieurSection);
     text-align: center;
 }
 
@@ -87,20 +92,28 @@ ul .info p {
 }
 
 .total {
-    margin-top: var(--margeInterieurSection);
+    padding-left: var(--paddingMenu); 
 }
 
-.total, .tps,
-.tvq, .total-final {  
-    padding-left: var(--paddingMenu);    
+.total span {
+    color: var(--bleu);
+    padding-left: var(--paddingMenu); 
+}
+
+.taxation {  
+    width: 30%;
+    float: right;
+    padding-right: var(--paddingMenu); 
+    margin-top: 20px;   
     font-size: var(--police_taille_texte);
     font-family: var(--openSans);
     font-weight: var(--police_poid_gras);
     color: var(--gris);
 }
 
-.total span, .tps span,
-.tvq span, .total-final span {
+.taxation span {
+    float: right;
+    padding-right: var(--margeInterieurSection);
     font-size: var(--police_taille_texte);
     color: var(--bleu);
     font-weight: var(--police_poid_gras);
@@ -132,13 +145,17 @@ ul .info p {
     border: none;
 }
 
-.taxation {
-    margin-top: -20px;
+label {
+    margin-left: var(--margeSection);
+    margin-bottom: var(--margeSection);
 }
 
-.paiement p {
-    margin-top: var(--margeInterieurSection);
-    margin-bottom: var(--margeInterieurSection);
+select {
+    margin-bottom: var(--margeSection);
+}
+
+.paiement {
+    
     font-size: var(--police_taille_sousTitre);
     font-family: var(--openSans);
     font-weight: var(--police_poid_gras);
@@ -148,4 +165,13 @@ ul .info p {
 
 .hidden {
     display: none;
+}
+
+/********** ADAPTATION POUR PETIT ÉCRAN, Ippad (< 1024 px) **********/
+@media screen and (max-width: 1024px) {
+    .detail {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
 }
