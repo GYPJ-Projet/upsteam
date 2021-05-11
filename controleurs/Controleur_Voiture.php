@@ -115,6 +115,18 @@
                             $this->afficheVue("accueil_fin");
                         }
                         break;
+
+                    case "apropos":
+                        $this->afficheVue("infoPropos", $donnees);
+                        break;
+
+                    case "contact":
+                        $this->afficheVue("infoContact", $donnees);
+                        break;
+
+                    case "termes":
+                        $this->afficheVue("infoTermes", $donnees);
+                        break;
 						
 					case "accueil":
 					default:

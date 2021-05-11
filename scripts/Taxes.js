@@ -1,16 +1,23 @@
 class Taxes {
 
-    static _taxeFederale = 0;
-    static _taxeProvinciale = 0; 
+/*     static _taxeFederale = 0;
+    static _taxeProvinciale = 0; */ 
     static _taxesProvince = [];
-
+    static _arrayLength = 0;
+    static _indexTaxeFederale = 0;
+    static _indexTaxeProvinciale = -1;
 
     static getTaxeFederale() {
-        return Taxes._taxeFederale;
+        return Taxes._taxesProvince[Taxes._indexTaxeFederale];
     }
 
     static getTaxeProvinciale() {
-        return Taxes._taxeProvinciale;
+        let uneTaxe = null;
+        if (Taxes._indexTaxeProvinciale != -1) {
+            uneTaxe = Taxes._taxesProvince[Taxes._indexTaxeProvinciale];
+        }
+
+        return uneTaxe;
     }
 
     static getTaxesAreReady() {
@@ -23,7 +30,7 @@ class Taxes {
         let elIdProvince = document.querySelector('[ data-js-province]'); 
        
         let idProvince = parseInt(elIdProvince.dataset.jsProvince);
-
+         idProvince = 7; 
         if ( idProvince != 0 ) {
             // Déclaration de l'objet XMLHttpRequest
             var xhr;
@@ -46,7 +53,7 @@ class Taxes {
                                 // on converti le tableau JSON reçu en array litéraux.
                                 Taxes._taxesProvince = JSON.parse(xhr.responseText);
   
-                                Taxes.sauvegarderLesTaxes(idProvince);
+                                Taxes.sauvegarderLesTaxes();
 
                             } else {
                                 Taxes._taxesProvince = [];
@@ -68,34 +75,42 @@ class Taxes {
 
     static sauvegarderLesTaxes() {
 
-        let arrayLength = 0;
+        Taxes._arrayLength = 0;
         for (let i in Taxes._taxesProvince) {
-            arrayLength++;
+            Taxes._arrayLength++;
         }
-  
-        if ( arrayLength> 0) {
+
+        if ( Taxes._arrayLength > 0) {
             
             // S'il y a 2 taxes dans cette province
-            if (arrayLength == 2) {
-                for (let i = 0; i < arrayLength; i++) {
+            if (Taxes._arrayLength == 2) {
+                for (let i = 0; i < Taxes._arrayLength; i++) {
                     if (Taxes._taxesProvince[i]["nomTaxe"] == "TPS") {      
-                        Taxes._taxeFederale = (parseFloat(Taxes._taxesProvince[i]["taux"]) / 100).toFixed(5);
+                        Taxes._taxesProvince[i]["taux"] = (parseFloat(Taxes._taxesProvince[i]["taux"]) / 100).toFixed(5);
+                        Taxes._indexTaxeFederale = i;
                     } else {
-                        Taxes._taxeProvinciale = (parseFloat(Taxes._taxesProvince[i]["taux"]) / 100).toFixed(5);
+                        Taxes._taxesProvince[i]["taux"] = (parseFloat(Taxes._taxesProvince[i]["taux"]) / 100).toFixed(5);
+                        Taxes._indexTaxeProvinciale = i;
                     }
-                }
+            }
 
             // S'il y a 1 seule  taxe dans cette province
-            } else if (arrayLength == 1) {
-                Taxes._taxeFederale = (parseFloat(Taxes._taxesProvince[0]["nomTaxe"]) / 100).toFixed(5);
-                Taxes._taxeProvinciale = 0;
+            } else if (Taxes._arrayLength == 1) {
+                Taxes._taxesProvince[0]["taux"] = (parseFloat(Taxes._taxesProvince[0]["taux"]) / 100).toFixed(5)
+                Taxes._indexTaxeFederale = 0;
+                Taxes._indexTaxeProvinciale = -1; // n'existe pas
             }
 
             Taxes._taxesAreReady = true; // Les taxes sont prête
 
-            console.log("class Taxes - addEventListener('DOMContentLoaded'  _taxeFederale ET _taxeProvinciale : ");
-            console.log(Taxes._taxeFederale);
-            console.log(Taxes._taxeProvinciale);
+            console.log("class Taxes - sauvegarderLesTaxes -  taxeFederale ET _axeProvinciale : ");
+            console.log(Taxes._taxesProvince[Taxes._indexTaxeFederal]);
+            if (Taxes._indexTaxeProvinciale != -1) {
+                console.log(Taxes._taxesProvince[Taxes._indexTaxeProvinciale]);
+            } else {
+                console.log(null);
+            }
+
         }
     }
 

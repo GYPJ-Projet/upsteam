@@ -5,7 +5,7 @@
     if(isset($_GET['action'])){
         $actionRecu = $_GET['action'];
     }
-	if (isset($donnees["usager"])) $usager = $donnees["usager"];
+	if(isset($donnees["usager"])) $usager = $donnees["usager"];
 
 	// Si l'usager exite on prend la province où il habite.
 	if(isset($_SESSION["usager"])) {
@@ -22,17 +22,19 @@
       <div class="enteteRecherche" >
         <input type="search" class="recherche" placeholder="<?=$langue['entete_recherche']?>" data-js-component="Chercher" data-js-action="<?= $actionRecu ?>">
       </div>
+
+      <div class="entete__session">
   <?php
       if(isset($_SESSION["usager"])){ 
-        $prenom = $_SESSION["usager"]->getPrenom();				
-        $nom = $_SESSION["usager"]->getNom();				
-  ?>
-      <div class="entete__session">
-        <p class=entete__usager><?= $langue['entete_usager'] ?> <?= $nom ?> - <?= $prenom ?>
+        $prenom = $_SESSION["usager"]->getPrenom();
+        $nom = $_SESSION["usager"]->getNom();
+    ?>
+    <p class=entete__usager><?= $langue['entete_usager'] ?> <?= $nom ?> - <?= $prenom ?>
 
-  <?php
-              }
-  ?>
+    <?php
+      }
+    ?>
+
         <div class="entete__droit">
   <?php
         if(isset($_SESSION["usager"])){ 					
