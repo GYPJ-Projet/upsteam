@@ -89,7 +89,8 @@
 							$date = date('Y-m-d H:i:s', $dateTime); 
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - params panier: ", json_decode($params["panier"],true));
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - idClient : ", $idClient );
-
+							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - taxeFederale : ", $taxeFederale);
+							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - taxeProvinciale : ", $taxeProvinciale);
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - paypalNoAutorisation : ", $paypalNoAutorisation);
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - paypalStatus : ", $paypalStatus); 
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - date : ", $date);
@@ -135,7 +136,7 @@
 				// traitement à determiner ici
 			}
 
-			$this->afficheVue("piedDePage", $donnees);
+			//$this->afficheVue("piedDePage", $donnees);
 		}
 	}
 ?>
