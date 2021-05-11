@@ -5,7 +5,7 @@
 
 ?>
 <body >
-	<div data-js-controleur="Voiture"  data-js-controleur-action="descriptionVoiture&id=<?=$voiture["id"] ?>">  
+	<div class="contenueConteneur" data-js-controleur="Voiture"  data-js-controleur-action="descriptionVoiture&id=<?=$voiture["id"] ?>">  
 
 	<div class="description" data-js-component="DescriptionVoiture">
 		<section class="sectionDecriptionEntete">

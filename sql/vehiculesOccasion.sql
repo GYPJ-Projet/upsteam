@@ -194,7 +194,7 @@ INSERT INTO `taxe`(`nom`, `taux`, `idProvince`,`disponibilite`) VALUES ('TPS',5,
 CREATE TABLE IF NOT EXISTS `vehicules`.`journalConnexion` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `idUsager` INT,
-  `date` DATE NOT NULL,
+  `date` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `adresseIp` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`idUsager`)

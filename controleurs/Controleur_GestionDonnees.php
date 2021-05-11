@@ -189,8 +189,8 @@
 
 					// Affichage de la liste des voitures
 					case "gestionVoiture":
-                        //PH
-                        //GARDER CE COMMENTAIRE. C'EST IMPORTANT POUR L'INSTANT.
+//                         //PH
+//                         //GARDER CE COMMENTAIRE. C'EST IMPORTANT POUR L'INSTANT.
 //                         $texte = 
 //                                 'Une ligne,
 // deux, lignes,
@@ -251,6 +251,8 @@
 						if (isset($params["id"])) {
 							// Obtenir les données à propos de la voiture avec id 
 							$donnees["voiture"] = $modeleVoiture->obtenirParId($params["id"]);
+							// Obtenir les images pour une voiture choisie
+							$donnees["images"] = $modeleVoiture->obtenirImagesParIdVoiture($params["id"]);
 							// Obtenir les descriptions pour une voiture choisie
 							$donnees["descriptions"] = $modeleVoiture->obtenirDescriptionParId($params["id"]);
 						}
