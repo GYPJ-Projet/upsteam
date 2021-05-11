@@ -2,5 +2,16 @@
     display: flex;
     flex-wrap: wrap;
     background-color: var(--grisPale);
+    padding-bottom: 400px;
 }
 
+.contenueConteneur{
+    padding-bottom: 400px;
+}
+
+@media screen and (max-width: 1024px) {
+    .bodyConteneur,
+    .contenueConteneur{
+        padding-bottom: 700px;
+    }
+}

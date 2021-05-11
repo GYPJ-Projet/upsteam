@@ -35,6 +35,5 @@
 <?php 
     }
 ?>
-    <div class="menuContenu sourisPointer" data-js-menuGestionCommandes><p><?=$langue["commandes"]?></p></div>
 </nav>
 

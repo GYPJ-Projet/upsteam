@@ -116,7 +116,7 @@
             $id = 0; // l'id de l'usager vaut 0 si usager est invalide lor de la répone
 
             //déterminer si la combinaison nomUsager / motDePasse est valide
-            $requete = "SELECT *, usager.nom AS nom
+            $requete = "SELECT *, usager.id AS id, usager.nom AS nom
                         FROM usager 
                         JOIN langue ON langue.id = usager.idLangue
                         WHERE courriel=:courriel";
@@ -218,6 +218,18 @@
                 $requetePreparee->bindParam(":token", $token);
                 return $requetePreparee->execute();
             }
+        }
+
+        public function journalConnexion($id, $ip) {
+            $requete = "INSERT INTO journalConnexion(idUsager, adresseIp)
+                        VALUES (:idUsager, :adresseIp)";
+            
+            $requetePreparee        = $this->db->prepare($requete);
+
+            $requetePreparee->bindParam(":idUsager", $id);
+            $requetePreparee->bindParam(":adresseIp", $ip); 
+
+            $requetePreparee->execute();
         }
     }
 

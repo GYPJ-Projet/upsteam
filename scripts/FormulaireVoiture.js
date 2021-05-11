@@ -5,8 +5,9 @@ class FormulaireVoiture {
         this._elPrixVente = this._el.querySelector("#prixVente");
         this._elMarque = this._el.querySelector('[data-js-marque]');
         this._elModele = this._el.querySelector('[data-js-modele]');
-        // this._elImages = this._el.querySelector('[data-js-images]');
-        // this._elImageTouche = this._el.querySelector('[data-js-imageTouche]');
+
+        this._elsCroix = this._el.querySelectorAll('[data-js-imageId]');
+        this._elVoiture = this._el.querySelector('[data-js-idVoiture]').dataset.jsIdvoiture;
 
         this.init();
     }
@@ -26,12 +27,15 @@ class FormulaireVoiture {
             this.afficherModeleParIdMarque(this._elMarque.value);
         });
 
-        //Vérifie que l'on a modifié ou non les images
-        // this._elImages.addEventListener('click', (e) => {
-        //     e.preventDefault();
 
-        //     this._elImageTouche.dataset.jsImageTouche = true;
-        // });
+        for (let i = 0, l = this._elsCroix.length; i < l; i++) {
+            this._elsCroix[i].addEventListener('click', (e) => {
+                // Supprimer l'image dans la bd
+                this.supprimerImage(e.target);
+                // Supprimer l'image dans le formulaire
+                this.supprimerImageFormulaire(e.target);
+            }) 
+        }
     
     }
      
@@ -74,4 +78,32 @@ class FormulaireVoiture {
         }
     }
 
+    supprimerImage = (el) => {
+
+        let xhr;
+		xhr = new XMLHttpRequest();
+		
+		if (xhr) {
+
+            xhr.open('POST', 'index.php?GestionDonnees_AJAX&action=supprimerImage');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+			xhr.addEventListener('readystatechange', () => {
+				if (xhr.readyState === 4) {
+					if (xhr.status === 200) {
+						
+					} else if (xhr.status === 404) {
+						console.log('Le fichier appelé dans la méthode open() n’existe pas.');
+					}
+				}
+			});
+
+            // Send the request
+			xhr.send('&id=' + el.dataset.jsImageid + '&idVoiture=' + this._elVoiture + '&nomImage=' + el.dataset.jsImagenom);
+        }
+    }
+
+    supprimerImageFormulaire = (el) => {
+        el.parentNode.remove();
+    }
 }
