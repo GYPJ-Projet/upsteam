@@ -37,7 +37,7 @@ class Entete{
         if (localStorage.getItem('nombreVoiture')) {
             if (this._panier.classList.contains('vide')) { 
                 this._panier.classList.replace('vide', 'fill');
-                this._nbrVoiture.textContent = parseInt(localStorage.getItem('nombreVoiture'));
+                this._nbrVoiture.innerHTML = parseInt(localStorage.getItem('nombreVoiture'));
             }
         }
     }

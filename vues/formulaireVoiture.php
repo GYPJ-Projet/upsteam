@@ -6,10 +6,11 @@
     if (isset($donnees["images"])) $images = $donnees["images"];
     if (isset($donnees["descriptions"])) $descriptions = $donnees["descriptions"];
     if (isset($donnees["langues"])) $langues = $donnees["langues"];
+    if (isset($_GET["page"])) $donnees["page"] =  $_GET["page"];
 ?>
     <div data-js-component="FormulaireVoiture" data-js-controleur-action="afficherFormulaireVoiture">
         <h2><?= (isset($voiture)) ? $langueInfo["formulaire_modif_voiture"] : $langueInfo["formulaire_ajout_voiture"] ?></h2>
-        <form class="formulaire" enctype="multipart/form-data" action="index.php?GestionDonnees_AJAX&action=sauvegarderVoiture" method="post" data-js-form>
+        <form class="formulaire" action="index.php?GestionDonnees_AJAX&action=sauvegarderVoiture" method="post" data-js-form>
             <label for="marque"><?= $langueInfo["nom_marque"] ?> : </label>
             <select name="idMarque" id="idMarque" data-js-marque required>
                 <option value=""><?= $langueInfo["option"] ?></option>
@@ -148,37 +149,14 @@
                     foreach ($langues as $langue) {
         ?>
                         <div>
-                            <label for="<?= $langue["code"] ?>"><?= $langue["nom"] ?></label>
+                            <label for="<?= $langue["code"] ?>"><?= $langue["nom"] ?> : </label>
                             <textarea  name="<?= $langue["code"] ?>" id="<?= $langue["code"] ?>" data-js-description required></textarea><br>
                         </div>          
         <?php            
                     }
                 }
         ?>           
-            </div>
-<?php
-            if (isset($images)) {
-?>
-            <div class="form-images">
-<?php                
-                foreach ($images as $image) {
-?>
-                    <div class="form-image">
-                        <div class="croix" data-js-imageId="<?= $image["id"] ?>" data-js-imageNom="<?= $image["lien"] ?>">x</div>
-                        <img src="<?= REPERTOIRE_IMAGES.$voiture["id"].'/'.$image["lien"] ?>" alt="Image">
-                    </div>
-<?php
-                }
-?>   
-            </div>
-<?php
-            }
-?>
-            <div>
-                <label for="images"><?= $langueInfo["nom_joindre"] ?> : </label>
-                <input type="file" name="images[]" multiple accept=".jpg, .jpeg, .png" data-js-images <?= (isset($voiture)) ? "" : "required" ?>/>
-
-            </div>
+            </div>            
         <?php
             
             if (isset($voiture) && $usager->getIdRole() == 1) {
@@ -193,15 +171,41 @@
                     $resultat = '';
                 }
         ?>
-                <input type="hidden" name="disponibilite" value="<?= $resultat ?>"/><br/>
+                <input type="hidden" name="disponibilite" value="<?= $resultat ?>"/>
         <?php
             }
         ?>
-            <input type="hidden" name="id" value="<?= (isset($voiture)) ? $voiture["id"] : 0 ?>" data-js-idVoiture="<?= (isset($voiture)) ? $voiture["id"] : 0 ?>"/><br/>
-            <!-- <input type="hidden" name="imageTouche" value="false" data-js-imageTouche/><br/> -->
-            <input type="hidden" name="page" value="<?= (isset($donnees["page"])) ? $donnees["page"] : 1 ?>"/><br/>
+            <input type="hidden" name="id" value="<?= (isset($voiture)) ? $voiture["id"] : 0 ?>" data-js-idVoiture="<?= (isset($voiture)) ? $voiture["id"] : 0 ?>"/>
+            <input type="hidden" name="page" value="<?= (isset($donnees["page"])) ? $donnees["page"] : 1 ?>"/>
             <input class="bouton" type="submit" value="<?= $langueInfo['button_soumettre'] ?>" data-js-soumettre/>
         </form>
+        <?php
+            if (isset($images)) {
+?>
+            <form class="formulaireImages" action="index.php?GestionDonnees_AJAX&action=ajouterImages" enctype="multipart/form-data" method="post">
+                <div class="form-images">
+<?php                
+                foreach ($images as $image) {
+?>
+                    <div class="form-image">
+                        <div class="croix" data-js-imageId="<?= $image["id"] ?>" data-js-imageNom="<?= $image["lien"] ?>">x</div>
+                        <img src="<?= REPERTOIRE_IMAGES.$voiture["id"].'/'.$image["lien"] ?>" alt="Image">
+                    </div>
+<?php
+                }
+?>   
+                </div>           
+                <div>
+                    <label for="images"><?= $langueInfo["nom_joindre"] ?> : </label>
+                    <input type="file" name="images[]" multiple accept=".jpg, .jpeg, .png" data-js-images <?= (isset($voiture)) ? "" : "required" ?>/>
+                    <input type="hidden" name="id" value="<?= $voiture["id"] ?>"/>
+                    <button class="bouton" data-js-joindre="<?= $voiture["id"] ?>"><?= $langueInfo["button_joindre"] ?></button>
+                </div>
+                
+            </form>          
+<?php
+            }
+?>
     </div>
 </section>
 </div>

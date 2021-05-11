@@ -9,9 +9,7 @@ $langue['passerCommande']           = 'to order';
 $langue['total']                    = 'Total';
 $langue['retirer']                  = 'Delete car';
 $langue['choix-expedition']         = 'Choose your shipping method';
-$langue['payer']                    = 'Payment method';
-$langue['credit']                   = 'Credit card';
-$langue['cash']                     = 'Cash on delivery';
+
 
 
 $langue['carburant']                = 'Fuel';

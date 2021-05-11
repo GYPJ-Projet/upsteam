@@ -31,17 +31,6 @@
                                 <p> <?= $langue['prix'] ?> : <span data-js-prix><?= $uneVoiture['prix'] ?></span> $ </p>
                                 <p> <?= $langue['quantite'] ?> : <span data-js-quantite><?= $uneVoiture['quantite'] ?> </span></p>                                
                                 <p class="montant"> <?= $langue['montant'] ?> : <span data-js-montant><?= floatval($montant) ?> </span> $ </p>
-<!-- < ?php
-                            foreach($donnees["expedition"] as $expedier) {
-?>  
-                                <div class="expedition">
-                                    <p>< ?= $langue['choix-expedition'] ?></p>
-                                    <label for="< ?=$expedier["nom"]?>">< ?=$expedier["nom"]?></label>
-                                    <input class="radio" type="checkbox" id="< ?=$expedier["nom"]?>" name="< ?=$expedier["nom"]?>" value="< ?=$expedier["nom"]?>" data-js-expedition="< ?=$expedier["id"]?>" < ?= (strpos($expedierRecu, $expedier["nom"]))? 'checked':''; ?> >
-                                </div>
-< ?php                        
-                            }
-?> -->                        
                                 <div class="retrait">
                                     <button class="buttonRetrait" data-js-retrait><?= $langue['retirer'] ?></button>
                                 </div>
@@ -59,6 +48,20 @@
             <button class="magasiner" data-js-magasiner><?= $langue['continuer'] ?></button></br>
             <button class="button" data-js-commander><?= $langue['passerCommande'] ?></button>
             <div class="hidden taxation" data-js-total-final>
+            <label for="expedition"><?= $langue["choix-expedition"] ?> : </label>
+                <select name="expedition" id="expedition" required>
+                    <option value=""><?= $langue["option"] ?></option>
+    <?php
+                    for ($i = 1; $i <= count($donnees["expedition"]); $i++) {
+    ?>         
+                    <option value="<?= $i ?>">
+                        <?= $donnees["expedition"][$i] ?>
+                    </option>      
+    <?php
+                    }
+    ?>  
+                </select><br>
+                    
                 <p class="tps">TPS : <span data-js-tvq></span> $ </p>
                 <p class="tvq">TVQ : <span data-js-tps></span> $ </p>
                 <p class="total-final"><?= $langue['total']?> : <span data-js-total></span> $ </p>

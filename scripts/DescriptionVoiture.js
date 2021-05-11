@@ -24,9 +24,6 @@ class DescriptionVoiture {
         this._panier = document.querySelector('[data-js-panier]');
         this._nbrVoiture = document.querySelector('[data-js-nombre-voiture]');   
         this.init();
-        
-        console.log(this._el);
-        console.log(this._Voiture);
     }
 
     //  Initialisation de la class Produits pour lui donner vie !
@@ -36,16 +33,24 @@ class DescriptionVoiture {
             this.gestionCarrouselle();            
         });
 
-        this._elBouton.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            // le Panier est cliquable
-            if (this._panier.classList.contains('vide')) { 
-                this._panier.classList.replace('vide', 'fill');
-            }
+        let existVoiture = this.existeVoiture();
+        if (existVoiture == true) {
+                    
+            this._elBouton.disabled = true;       //On rend le bouton non cliquable et on desactive la voitire
+            this._elBouton.classList.add('inactif');
+        } else {    
 
-            this.ajoutDansPanier();
-       });
+            this._elBouton.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // le Panier est cliquable
+                if (this._panier.classList.contains('vide')) { 
+                    this._panier.classList.replace('vide', 'fill');
+                }
+
+                this.ajoutDansPanier();
+            });
+        }
     }
     
     
@@ -83,50 +88,30 @@ class DescriptionVoiture {
     }
 
     ajoutDansPanier = (e) => {
-
-       // Incrémente le nombre de voiture affiché dans le header
-        if (!localStorage.getItem('nombreVoiture')) {
-
-            localStorage.setItem('nombreVoiture', 1);
-
-            this._nbrVoiture.innerHTML = 1;
-        }
-        else {
-            let nbrVoiture = parseInt(localStorage.getItem('nombreVoiture')) + 1;
-            localStorage.setItem('nombreVoiture', nbrVoiture);
-            this._nbrVoiture.innerHTML = nbrVoiture;
-        }
-            
+   
         // Ajouter le produit dans le sessionStorage panierAchat
-        let panier = [];                    
+        //let panier = [];                    
 
         if (!localStorage.getItem('panierAchat')) { 
+            console.log('ajouteDansPanier - if :')
+            this.creerPanier(); 
 
-            this.creerPanier(panier);     
-       }
+        } else {
         
-        else {
-            panier = JSON.parse(localStorage.getItem('panierAchat'));
+            let existVoiture = this.existeVoiture();
+    
+            if (existVoiture == false) {
+                console.log('ajouteDansPanier - existVoiture == false :')   
+                this.creerPanier();                    
 
-            if (panier.length > 0) { 
-                
-                    this.creerPanier(panier);                    
-            
-            } else {
-
-                this.creerPanier(panier);                
             }    
         }
+    }  
 
-        localStorage.setItem('panierAchat', JSON.stringify(panier));
-        this._elBouton.disable = true;       //On rend le bouton non cliquable et on desactive la voitire
-        this._el.classList.add('inactif');        
-        this._Voiture.classList.add('inactif');        
-    }
-
-    creerPanier = (panier) => {
+    creerPanier = () => {
         let voiture = {};
-        
+        let panier = [];  
+              
         voiture.id = this._elId.dataset.jsVoiture;
         voiture.image = this._elImage.src;   
         voiture.marque = this._elMarque.dataset.jsVoitureMarque;
@@ -140,7 +125,49 @@ class DescriptionVoiture {
         voiture.prix = this._elPrix.dataset.jsVoiturePrix;
         voiture.quantite = 1;
 
+        if (localStorage.getItem('panierAchat')) { 
+
+            panier = JSON.parse(localStorage.getItem('panierAchat'));
+        }
+        
         //panier.push(voiture);
         panier[parseInt(voiture.id)] = voiture;
+
+        localStorage.setItem('panierAchat', JSON.stringify(panier));
+        this._elBouton.disabled = true;       //On rend le bouton non cliquable et on desactive la voitire
+        this._elBouton.classList.add('inactif');
+
+        if (!localStorage.getItem('nombreVoiture')) {
+
+            localStorage.setItem('nombreVoiture', 1);
+
+            this._nbrVoiture.innerHTML = 1;
+        }
+        else {
+            let nbrVoiture = parseInt(localStorage.getItem('nombreVoiture')) + 1;
+            localStorage.setItem('nombreVoiture', nbrVoiture);
+            this._nbrVoiture.innerHTML = nbrVoiture;
+        }
+    }
+
+    existeVoiture = () => {
+        let idVoiture = this._elId.dataset.jsVoiture,
+        existVoiture = false;
+
+        if (localStorage.getItem('panierAchat')) { 
+
+            let panier = JSON.parse(localStorage.getItem('panierAchat'));           
+            
+            if (panier.length > 0) { 
+                for(let i = 0; i < panier.length; i++) {        //Boucle à travers les voitures présents,
+                    if(panier[i] != null) { 
+                        if (idVoiture === panier[i].id && panier[i].quantite > 0) {
+                            existVoiture = true;                                  
+                        }
+                    }                
+                } 
+            }
+        }
+        return existVoiture;
     }
 }

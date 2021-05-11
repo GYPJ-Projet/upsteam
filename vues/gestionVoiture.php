@@ -12,7 +12,7 @@
     <div data-js-component="GestionVoiture" data-js-controleur-action="gestionVoiture">
 
         <a class="bouton" href="index.php?GestionDonnees&action=afficherFormulaireVoiture&page=<?= $pageCourante ?>" data-js-ajouter><?= $langue["button_ajouter"] ?></a>    
-   
+        <div class="defilement">
         <table class="table">
             <thead>
                 <tr>
@@ -132,7 +132,19 @@
         ?>
                 <tr>
                     <td><?= $voiture["id"] ?></td>
-                    <td><a href="?Voiture&action=descriptionVoiture&id=<?= $voiture["id"] ?>"><img class="photoPetit" src="<?= REPERTOIRE_IMAGES . $voiture["id"]. '/'. $voiture["lienPhotoPrincipale"] ?>" alt="<?= $voiture["lienPhotoPrincipale"] ?>"></a></td>
+                    <td><a href="?Voiture&action=descriptionVoiture&id=<?= $voiture["id"] ?>">
+<?php 
+                    if (isset($voiture["lienPhotoPrincipale"])) {
+?>
+                        <img class="photoPetit" src="<?= REPERTOIRE_IMAGES . $voiture["id"]. '/'. $voiture["lienPhotoPrincipale"] ?>" alt="Photo">
+<?php
+                    } else {
+?>
+                        <p><?= $langue["sansPhoto"] ?></p>
+<?php
+                    }
+?>
+                    </a></td>
                     <td><?= $voiture["nomMarque"] ?></td>
                     <td><?= $voiture["nomModele"] ?></td>
                     <td><?= $voiture["annee"] ?></td>
@@ -154,6 +166,7 @@
         ?>
             </tbody>
         </table>
+        </div>
         <div class="pagination" data-js-pagination>
 <?php
             if($pageCourante > 1) echo '<p data-js-page="'. ($pageCourante - 1) .'" class="fleche"><<</p>'; 
