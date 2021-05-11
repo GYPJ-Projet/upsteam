@@ -6,15 +6,11 @@
         <section class="pied_de_page">
             <section class="footer__adresse">
                 <h3>
-                <?= $langue['pdp_contact'] ?>
+                <?= $langue['pdp_information'] ?>
                 </h3>
-                <p>
-                    9069, boulevard Pie-IX<br>
-                    Montréal, QC H1Z 3V6<br>
-                    Canada<br>
-                    <?= $langue['pdp_telephone'] ?> : 514-321-2700 - 1 855 884-0250<br>
-                    <?= $langue['pdp_courriel'] ?> : info@vehiculesoccasion.com
-                </p>
+                <a href="index.php?Voiture&action=apropos"><?= $langue['pdp_propos'] ?></a><br>
+                <a href="index.php?Voiture&action=contact"><?= $langue['pdp_contact'] ?></a><br>
+                <a href="index.php?Voiture&action=termes"><?= $langue['pdp_termes'] ?></a><br>
             </section>
             <section class="footer__heures">
                 <h3>
