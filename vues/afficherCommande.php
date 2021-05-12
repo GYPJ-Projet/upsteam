@@ -3,7 +3,7 @@
 
 ?>
 
-<div data-js-controleur="Commande" data-js-controleur-action='afficherCommande&panier=<?= json_encode($donnees['panier']) ?>'>
+<div class="contenueConteneur" data-js-controleur="Commande" data-js-controleur-action='afficherCommande&panier=<?= json_encode($donnees['panier']) ?>'>
     <div class="listepanierConteneur">
         <section class="listepanier" data-js-component="TraiterCommande">
 

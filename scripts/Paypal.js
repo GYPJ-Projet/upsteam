@@ -54,7 +54,7 @@ class Paypal {
   
               createOrder: function(data, actions) {
                 /* let elTotal = document.querySelector('[data-js-total]'); */
-                let elTotalPartiel = document.querySelector('[data-js-total-patiel]'); 
+                let elTotalPartiel = document.querySelector('[data-js-total-partiel]'); 
                 let montant =  parseFloat(elTotalPartiel.innerHTML).toFixed(2);
    /*              montant = '1.75'; */
                 console.log("class Paypal - function createOrder - IN - montant :");

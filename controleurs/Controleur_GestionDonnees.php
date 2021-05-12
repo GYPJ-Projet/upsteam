@@ -195,7 +195,7 @@
 //                                 'Une ligne,
 // deux, lignes,
 // trois lignes';
-//                         CreerPDF::creationPDF('test', 'Invoice', $texte);
+                        // CreerPDF::creationPDF('test', 'Invoice', $texte);
 						// Nombre des voitures affichées sur une page
         				$voituresParPage = 10;
         				// Obtenir un nombre toutes les voitures dans la base de données
