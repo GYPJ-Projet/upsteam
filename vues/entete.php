@@ -39,7 +39,7 @@
   <?php
         if(isset($_SESSION["usager"])){ 					
   ?>				
-          <a href="index.php?Usager&action=deconnexion" class="connexion"><?= $langue['entete_deconnexion'] ?></a>
+          <p class="connexion sourisPointer" data-js-deconnexion><?= $langue['entete_deconnexion'] ?></p>
   <?php
         } else{
   ?>
