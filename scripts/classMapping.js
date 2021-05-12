@@ -8,6 +8,7 @@ const classMapping = {
     'GestionCouleur'        : GestionCouleur,
     'GestionUsager'         : GestionUsager,
     'GestionVoiture'        : GestionVoiture,
+    'GestionFacture'        : GestionFacture,
     'GestionTaxe'           : GestionTaxe,
     'ListeVoitures'         : ListeVoitures,
     'Paypal'                : Paypal,

@@ -10,7 +10,7 @@
 <?php
     if (isset($donnees["commandes"]) && !empty($donnees["commandes"])) {
 ?>
-    <div data-js-component="GestionCommande" data-js-controleur-action="gestionCommande">
+    <div data-js-component="GestionFacture" data-js-controleur-action="gestionCommande">
         <div class="defilementDonnees">
             <table class="table">
                 <thead>

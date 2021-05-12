@@ -38,6 +38,7 @@
 	<script type="text/javascript" src="./scripts/GestionCouleur.js"></script>
 	<script type="text/javascript" src="./scripts/GestionUsager.js"></script>
 	<script type="text/javascript" src="./scripts/GestionVoiture.js"></script>
+	<script type="text/javascript" src="./scripts/GestionFacture.js"></script>
 	<script type="text/javascript" src="./scripts/FormulaireConnexion.js"></script>
 	<script type="text/javascript" src="./scripts/FormulaireVoiture.js"></script>
 	<script type="text/javascript" src="./scripts/MenuConteneur.js"></script>

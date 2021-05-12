@@ -82,7 +82,9 @@
                             JOIN modePaiement ON facture.idModePaiement = modePaiement.id
                             JOIN listeAchat ON facture.id = listeAchat.idCommande
                             WHERE statut.idLangue = $idLangue AND expedition.idLangue = $idLangue AND modePaiement.idLangue = $idLangue 
+                            GROUP BY facture.id
                             ORDER BY $tri $ordre 
+                            
                             LIMIT $depart, $commandesParPage";
 				$requetePreparee = $this->db->prepare($requete);
 				$requetePreparee->execute();
