@@ -4,6 +4,7 @@
 
 .listepanierConteneur {
     width: 100%;
+    margin-top: var(--margeSection);
 }
 
 .listepanierConteneur > * {
@@ -52,7 +53,7 @@ ul .liste {
 
 .img-commamde {
     position: relative;
-    width: 35%;
+    flex-basis: 33%;    
 }
 
 .liste img {    
@@ -62,8 +63,8 @@ ul .liste {
 } 
 
 ul .info {
+    flex-basis: 33%;
     position: relative;
-    width: 35%;
     font-size: var(--police_taille_texte);
     font-family: var(--openSans);    
     color: var(--gris); 
@@ -92,7 +93,10 @@ ul .info p {
 }
 
 .total {
-    padding-left: var(--paddingMenu); 
+    margin-top: var(--margeSousSection);
+    margin-bottom: var(--margeSousSection);
+    padding-right: var(--paddingMenu); 
+    text-align: right;
 }
 
 .total span {
@@ -100,11 +104,23 @@ ul .info p {
     padding-left: var(--paddingMenu); 
 }
 
+.expedition {
+    margin-top: var(--margeSousSection);
+}
+
+.taxationConteneur {
+    display: flex;
+    flex-direction: column;
+}
+
 .taxation {  
     width: 30%;
-    float: right;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
     padding-right: var(--paddingMenu); 
-    margin-top: 20px;   
+    margin-top: var(--margeSousSection);   
+    margin-bottom: var(--margeSousSection);   
     font-size: var(--police_taille_texte);
     font-family: var(--openSans);
     font-weight: var(--police_poid_gras);
@@ -112,11 +128,23 @@ ul .info p {
 }
 
 .taxation span {
-    float: right;
     padding-right: var(--margeInterieurSection);
     font-size: var(--police_taille_texte);
     color: var(--bleu);
     font-weight: var(--police_poid_gras);
+}
+
+.taxeConteneur {
+    display: flex;
+    justify-content: space-between;
+}
+
+.taxeConteneur p {
+    display: inline-block;
+}
+
+.paypal {
+    align-self: center;
 }
 
 .button {
