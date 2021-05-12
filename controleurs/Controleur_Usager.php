@@ -13,8 +13,7 @@
         public function traite(array $params) {
             $donnees = array();
             $vue = "";
-
-
+ 
             // On charge les fichiers de langue selon la langue choisi par l'usager.
             $donnees["langue"] = $this->chargerLangue($params);
             $idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
@@ -35,7 +34,6 @@
                 $action = "login";
             }
 
-            Debug::toLog("class Controleur_Usager - function traite  params[action]: ", $params["action"]);
             //détermine la vue, remplir le modèle approprié
             switch($action) {
                 case "connexion":
