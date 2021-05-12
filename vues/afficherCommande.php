@@ -70,11 +70,12 @@
                
                 <div class="taxation">
                     <p  data-js-partiel><?= $langue['totalPartiel']?> : <span>$</span> <span data-js-total-partiel> <?= $montantSousTotal ?></span> </p>
-                    <p class="tps">TPS : <span>$</span> <span data-js-tvq></span></p>
-                    <p class="tvq">TVQ : <span>$</span> <span data-js-tps></span></p>
+                    <p class="tps"><span data-js-texte-taxe-federale></span> <span data-js-tps></span> $ </p>
+                    <p class="tvq" data-js-p-provinciale><span data-js-texte-taxe-provinciale></span> <span data-js-tvq></span></p>
                     <p class="total-final"><?= $langue['total']?> : <span>$</span><span data-js-total></span> </p>
                 </div>
                 
+            
                 <div class="paiement">
                     <p><?= $langue['payer'] ?> : </p>
 <!-- < ?php

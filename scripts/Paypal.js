@@ -53,13 +53,9 @@ class Paypal {
   
   
               createOrder: function(data, actions) {
-                /* let elTotal = document.querySelector('[data-js-total]'); */
-                let elTotalPartiel = document.querySelector('[data-js-total-patiel]'); 
-                let montant =  parseFloat(elTotalPartiel.innerHTML).toFixed(2);
-   /*              montant = '1.75'; */
-                console.log("class Paypal - function createOrder - IN - montant :");
-                console.log(montant);
-                console.log(`'${montant}'`);               
+                let elTotal = document.querySelector('[data-js-total]');
+                let montant =  parseFloat(elTotal.innerHTML).toFixed(2);
+             
                   // This function sets up the details of the transaction, including the amount and line item details.
                   return actions.order.create({
                     purchase_units: [{           
@@ -76,14 +72,16 @@ class Paypal {
                 let panier = localStorage.getItem('panierAchat');
                 let taxeFederale = Taxes.getTaxeFederale();
                 let taxeProvinciale = Taxes.getTaxeProvinciale();
+            
+
 
                 // This function captures the funds from the transaction.
                 return actions.order.capture().then(function(details) {
                   // This function shows a transaction success message to your buyer.
                   window.location.href = "index.php?Commande&action=sauvegarderCommande&panier=" + panier + 
                                                                                       "&details=" + JSON.stringify(details) + 
-                                                                                      "&taxeFederale=" + taxeFederale + 
-                                                                                      "&taxeProvinciale=" + taxeProvinciale;
+                                                                                      "&taxeFederale=" + JSON.stringify(taxeFederale) + 
+                                                                                      "&taxeProvinciale=" + JSON.stringify(taxeProvinciale);
                 });
               }
   

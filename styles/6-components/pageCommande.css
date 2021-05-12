@@ -57,8 +57,8 @@ ul .liste {
 
 .liste img {    
     position: relative;
-    width: 12.5vw;
-    height: 9.375vw;  
+    width: 240px; /* 12.5vw; */
+    height: 180px;  /* 9.375vw; */  
 } 
 
 ul .info {
