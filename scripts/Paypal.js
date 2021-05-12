@@ -53,10 +53,11 @@ class Paypal {
   
   
               createOrder: function(data, actions) {
+
                 let elTotal = document.querySelector('[data-js-total]');
                 let montant =  parseFloat(elTotal.innerHTML).toFixed(2);
              
-                  // This function sets up the details of the transaction, including the amount and line item details.
+                 // This function sets up the details of the transaction, including the amount and line item details.
                   return actions.order.create({
                     purchase_units: [{           
                         /* description: this.product.description, */
