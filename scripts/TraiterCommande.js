@@ -77,7 +77,7 @@ class TraiterCommande {
     }
 
     expedition = () => {
-        console.log(this._elExpedition.value);
+        
         localStorage.setItem('idExpedition', this._elExpedition.value);
 
         if(parseInt(this._elExpedition.value) > 0) {

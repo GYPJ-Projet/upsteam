@@ -11,7 +11,7 @@ class CommandeVoiture {
         this._idVoiture = parseInt(this._el.dataset.jsCommandevoiture);
         this._elControleurAction = document.querySelector('[data-js-controleur-action]');  
         this._Commander = document.querySelector('[data-js-commander]'); 
-                
+
         Taxes.getTaxes();
 
         this.init();
@@ -36,24 +36,19 @@ class CommandeVoiture {
             qte--;  
             this._panier[this._idVoiture] = null;
             nbrVoiture--;
-            console.log(nbrVoiture);
-
+           
             localStorage.setItem('panierAchat', JSON.stringify(this._panier));      
             localStorage.setItem('nombreVoiture', JSON.stringify(nbrVoiture));      
             this._elControleurAction.dataset.jsControleurAction = `afficherCommande&panier= ${JSON.stringify(this._panier)}`;   
            
             sousTotal -= prix;
-            console.log(this._el.innerHTML);
-            console.log(this._el.innerHTML);
+           
 
             this._nbrVoiture.innerHTML = nbrVoiture;
             this._elQteVoiture.innerHTML = qte;
             this._elTotalPartiel.innerHTML = sousTotal;
             this._el.innerHTML = '';
 
-            console.log(this._el.innerHTML);
-
-        
             if (this._panier == null) {
                 if (this._nbrVoiture == 0){
                     this._Commander.classList.add('hidden')
