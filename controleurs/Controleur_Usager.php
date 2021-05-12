@@ -35,6 +35,7 @@
                 $action = "login";
             }
 
+            Debug::toLog("class Controleur_Usager - function traite  params[action]: ", $params["action"]);
             //détermine la vue, remplir le modèle approprié
             switch($action) {
                 case "connexion":

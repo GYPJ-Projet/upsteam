@@ -25,4 +25,11 @@ $langue['prix']                     = 'Price';
 $langue["quantite"]                 = 'Quantity';
 $langue["montant"]                  = 'Amount';
 
+// Pour le reçu (invoce) en PDF qe la page de confirmation après l'achat
+$langue["releve_de_transaction"]    = 'TRANSACTION STATEMENT';
+$langue["merci"]                    = 'Thank you very much';
+$langue["confirmation"]             = 'for your purchase, of which you will find all the details below.';
+$langue["expedition"]               = 'Your order will be ready in 2 days, you can pick it up !';
+
+
 ?>
