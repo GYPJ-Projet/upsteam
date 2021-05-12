@@ -41,7 +41,7 @@
 			} else {
 ?>
 				<div class="connexion_panier" data-js-ajouter-panier>
-					<a href="index.php?Usager&action=connexion" class="connexion"><?= $langue['connexionAjoutPanier']?></a>					
+					<p><a href="index.php?Usager&action=connexion" ><?= $langue['connexionAjoutPanier']?>!</a></p>			
 				</div>
 <?php
 			}

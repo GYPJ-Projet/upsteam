@@ -4,6 +4,7 @@ class TraiterCommande {
         this._el = el;
         this._elMagasiner = this._el.querySelector('[data-js-magasiner]'); 
         this._elCommander = this._el.querySelector('[data-js-commander]');  
+        this._elPasserCmd = this._el.querySelector('[data-js-passer-commande]');  
         this._elTotalPartiel = this._el.querySelector('[data-js-total-partiel]'); 
         this._elTotalFinal = this._el.querySelector('[data-js-total-final]'); 
         this._elTotal = this._el.querySelector('[data-js-total]'); 
@@ -32,32 +33,7 @@ class TraiterCommande {
     }
 
     passerCommande = () => {
-        this._taxeFederale = Taxes.getTaxeFederale();
-        this._taxeProvinciale = Taxes.getTaxeProvinciale();
-       console.log("class TraiterCommande - function passerCommande - this._taxeFederale['taux'] : ");
-       console.log(this._taxeFederale['taux']);
-       console.log(this._taxeFederale);
-       if (this._taxeProvinciale != null ) {
-            console.log(this._taxeProvinciale);
-       }
-
-        let taxeFederale = parseFloat(this._taxeFederale['taux']);
-        let taxeProvinciale = 0.00;
-
-        // on affiche le texte de la taxe Fédérale
-        this._elTexteTaxeFederale.innerHTML = this._taxeFederale['nomTaxe'] + " :";
-        
-        // Si la taxe provinciale existe, on l'affiche
-        if (this._taxeProvinciale != null ) {
-
-            this._elTexteTaxeProvinciale.innerHTML = this._taxeProvinciale['nomTaxe'] + " :";
-            taxeProvinciale =  parseFloat(this._taxeProvinciale['taux']);
-        } else {
-            this._elPProvinciale.classList.add('hidden');
-        }
-        
-        this._elMagasiner.classList.add('hidden');
-        this._elCommander.classList.add('hidden');
+        this._elPasserCmd.classList.add('hidden');
         this._elTotalFinal.classList.remove('hidden');
 
        
