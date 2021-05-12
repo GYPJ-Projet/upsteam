@@ -149,6 +149,10 @@ a.bouton {
     border-color: var(--gris);
 }
 
+.table--facture {
+    margin: 1vw 0 1vw auto;
+}
+
 .table td, .table th {
     border-style: solid;
     border-width: 1px;

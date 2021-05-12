@@ -3,6 +3,7 @@
     if (isset($donnees["usager"])) $usager = $donnees["usager"];
     $langue = $donnees["langue"];
     if (isset($donnees["commande"])) $commande = $donnees["commande"];
+    if (isset($donnees["voitures"])) $voitures = $donnees["voitures"];
 ?>
 
     <div data-js-controleur="GestionDonnees" data-js-controleur-action="afficherFormulaireCommande">
@@ -46,8 +47,45 @@
                 <span class="total"><?= $commande["prixTotal"] ?></span>  
             </div>
             </div>
-            <table>
-                
+            <table class="table table--facture">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Photo</th>
+                        <th><?= $langue["nom_marque"] ?></th>
+                        <th><?= $langue["nom_modele"] ?></th>
+                        <th><?= $langue["nom_annee"] ?></th>
+                        <th><?= $langue["nom_prixVente"] ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+<?php
+                foreach ($voitures as $voiture) {
+?>         
+                    <tr>
+                        <td><?= $voiture["id"] ?></td>
+                        <td><a href="?Voiture&action=descriptionVoiture&id=<?= $voiture["id"] ?>">
+<?php 
+                    if (isset($voiture["photo"])) {
+?>
+                        <img class="photoPetit" src="<?= REPERTOIRE_IMAGES . $voiture["id"]. '/'. $voiture["photo"] ?>" alt="Photo">
+<?php
+                    } else {
+?>
+                        <p><?= $langue["sansPhoto"] ?></p>
+<?php
+                    }
+?>
+                    </a></td>
+                        <td><?= $voiture["nomMarque"] ?></td>
+                        <td><?= $voiture["nomModele"] ?></td>
+                        <td><?= $voiture["annee"] ?></td>
+                        <td><?= $voiture["prixVenteFinal"] ?></td>
+                    </tr>   
+<?php       
+                }   
+?>
+            </tbody>
             </table>
             <input type="hidden" name="id" value="<?= $commande["id"] ?>"/><br/>
             <input class="bouton" type="submit" value="<?= $langue['button_soumettre'] ?>"/>    

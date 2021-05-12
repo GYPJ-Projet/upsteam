@@ -147,7 +147,7 @@
                                 idLangue = :idLangue,
                                 idRole = :idRole,
                                 idProvince = :idProvince
-                                WHERE courriel = :courriel";
+                                WHERE id = :id";
                 $requetePreparee        = $this->db->prepare($requete);
                 $id                     = $unUsager->getId();
                 $motDePasse             = $unUsager->getMotPasse();
