@@ -76,6 +76,7 @@
 							// Si l'usager exite on prend la province où il habite.
 							$idClient = $_SESSION["usager"]->getId();
 							$details = json_decode($params["details"], true);
+
 							$laTaxeFederale = json_decode($params["taxeFederale"],true);
 							if ($params["taxeProvinciale"] != null) {
 								$laTaxeProvinciale = json_decode($params["taxeProvinciale"],true);
@@ -83,7 +84,8 @@
 								$laTaxeProvinciale = null;
 							}
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - details[purchase_units]: ", $details["purchase_units"] );
- 							$capture = $details["purchase_units"][0]["payments"]["captures"][0];
+
+              				$capture = $details["purchase_units"][0]["payments"]["captures"][0];
 
  							$paypalStatus         = $capture["status"];
 							$paypalNoAutorisation = $capture["id"];
@@ -101,6 +103,7 @@
 							
  							$dateTime = strtotime($paypalTime);
 							$date = date('Y-m-d H:i:s', $dateTime); 
+
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - params panier: ", json_decode($params["panier"],true));
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - idClient : ", $idClient );
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - taxeFederale : ", $taxeFederale);
@@ -108,23 +111,18 @@
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - paypalNoAutorisation : ", $paypalNoAutorisation);
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - paypalStatus : ", $paypalStatus); 
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - date : ", $date);
-
-							$donnees["paypalNoAutorisation"] 	= $paypalNoAutorisation;
-							$donnees["titreRecuPDF"] 			= $titreRecuPDF;
-							$donnees["panier"]       			= $params["panier"];
-							$donnees["date"]       				= $date;
-							$donnees["taxeFederale"]       		= $params["taxeFederale"];
-							$donnees["taxeProvinciale"]    		= $params["taxeProvinciale"];
 							
 							$nouvelleFacture = new Facture(0, $idClient, $date , $paypalTotal, $idStatut,
 							                               $idExpedition, $idModePaiement ,
 														   $paypalNoAutorisation);
 							
 						    $idCommande = $modeleFacture->sauvegarder($nouvelleFacture);
-							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - idCommande : ", $idCommande);
+							// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - idCommande : ", $idCommande);
 
 							// on converti le JSON reçu en array
 							$tabPanier = json_decode($params["panier"], true);
+                            Debug::toLog($tabPanier);
+                            Debug::toLog($params["panier"]);
 
 
 						    //  On sauvegarede chacune des voitues acheté dans la liste d'achat.
@@ -134,10 +132,10 @@
 									$totalTaxeFederale = round(($prix * $taxeFederale), 2);
 									$totalTaxeProvinciale = round(($prix * $taxeProvinciale), 2);
 									$prixTotal = $prix + $totalTaxeFederale + $totalTaxeProvinciale;
-									Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - prix : ", $prix);
-									Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - totalTaxeFederale : ", $totalTaxeFederale);
-									Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - totalTaxeProvinciale : ", $totalTaxeProvinciale);
-									Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - prixTotal : ", $prixTotal);
+									// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - prix : ", $prix);
+									// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - totalTaxeFederale : ", $totalTaxeFederale);
+									// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - totalTaxeProvinciale : ", $totalTaxeProvinciale);
+									// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - prixTotal : ", $prixTotal);
 
 									$nouvelleListeAchat = new ListeAchat($idCommande, intval($panier["id"]), $prixTotal);
 									$modeleListeAchat->sauvegarder($nouvelleListeAchat);
@@ -146,7 +144,7 @@
 							}
 							CreerPDF::creationRecuPDF($paypalNoAutorisation, $titreRecuPDF, $params["panier"], $date, $laTaxeFederale, $laTaxeProvinciale, 'F');
 						} else {
-							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - ELSE ");
+							// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - ELSE ");
 						}
 
 						$this->afficheVue("succes", $donnees);
@@ -157,7 +155,7 @@
 				// traitement à determiner ici
 			}
 
-			//$this->afficheVue("piedDePage", $donnees);
+			$this->afficheVue("piedDePage", $donnees);
 		}
 	}
 ?>

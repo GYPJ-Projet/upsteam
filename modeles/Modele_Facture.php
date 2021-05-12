@@ -26,8 +26,72 @@
             return "";
         }
 
-       
+        // Permet d'obtenir le nombre de toutes les commandes dans la bd
+        public function obtenirNombreCommandes() {
+            try {
+                $requete = "SELECT COUNT(id) AS nb FROM facture";
+                $requetePreparee = $this->db->prepare($requete);
+                $requetePreparee->execute();
+                return $requetePreparee->fetchColumn();
+            }
+                catch(Exception $exc) {
+                return 0;
+            }
+        }
 
+        // Permet de changer le statut de la commande
+        public function changerStatut($id, $idStatut) {
+            try {
+                $requete = "UPDATE facture SET idStatut = ". $idStatut. " WHERE id = ".$id;
+                $requetePreparee = $this->db->prepare($requete);
+                $requetePreparee->execute();
+                return $requetePreparee->fetchColumn();
+            }
+                catch(Exception $exc) {
+                return 0;
+            }
+        }
+
+        public function obtenirCommandeParId($id, $idLangue) {
+            try {
+				$requete = "SELECT facture.*, CONCAT(usager.nom, ' ', usager.prenom) AS nomClient, statut.nom AS nomStatus, expedition.nom AS nomExpedition, modePaiement.nom AS nomModePaiement
+                FROM facture
+                JOIN usager ON facture.idClient = usager.id
+                JOIN statut ON facture.idStatut = statut.id
+                JOIN expedition ON facture.idExpedition = expedition.id
+                JOIN modePaiement ON facture.idModePaiement = modePaiement.id
+                WHERE statut.idLangue = $idLangue AND expedition.idLangue = $idLangue AND modePaiement.idLangue = $idLangue AND facture.id = " . $id;
+				$requetePreparee = $this->db->prepare($requete);
+				$requetePreparee->execute();
+				return $requetePreparee->fetch();
+			}
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+
+        // Permet d'obtenir les commandes dans une plage donnée
+        public function obtenirToutCommandesAvecTri($depart, $commandesParPage, $tri, $ordre, $idLangue) {
+            try {
+				$requete = "SELECT facture.*, CONCAT(usager.nom, ' ', usager.prenom) AS nomClient, statut.nom AS nomStatus, expedition.nom AS nomExpedition, 
+                            modePaiement.nom AS nomModePaiement, COUNT(listeAchat.idVoiture) AS nbVoitures
+                            FROM facture
+                            JOIN usager ON facture.idClient = usager.id
+                            JOIN statut ON facture.idStatut = statut.id
+                            JOIN expedition ON facture.idExpedition = expedition.id
+                            JOIN modePaiement ON facture.idModePaiement = modePaiement.id
+                            JOIN listeAchat ON facture.id = listeAchat.idCommande
+                            WHERE statut.idLangue = $idLangue AND expedition.idLangue = $idLangue AND modePaiement.idLangue = $idLangue 
+                            ORDER BY $tri $ordre 
+                            LIMIT $depart, $commandesParPage";
+				$requetePreparee = $this->db->prepare($requete);
+				$requetePreparee->execute();
+				return $requetePreparee->fetchAll();
+			}
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
         
         // Méthode qui sauvegarde une facture modifié ou une nouvelle facture dans la BD.
         public function sauvegarder(Facture $uneFacture) {

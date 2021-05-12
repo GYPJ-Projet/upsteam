@@ -21,9 +21,9 @@
             require 'lib/Exception.php';
 
             // $logo = '../logo/logo_v2.jpg';
-            $message .= '<br><br><p>L\'équipe de voiture d\'occasion </p><br>
-                        <img src="../logo/logo_v2.jpg" alt="logo">';
+            $message .= '<br><br><p>L\'équipe de voiture d\'occasion </p><br>';
             $message = utf8_decode($message);
+            // $message .='<img src="logo/logo.jpg" alt="logo">';
 
             //paramètres de connexion et envoie
             $courriel = new PHPMailer();
@@ -39,7 +39,6 @@
             $courriel->isHTML(true);
             $courriel->addAttachment($fichier);
             $courriel->Body = $message;
-            $courriel->AddEmbeddedImage('../logo/logo_v2.jpg','logo_v2.jpg');
             $courriel->addAddress($adrCourriel);
             $courriel->send();
             $courriel->smtpClose();
