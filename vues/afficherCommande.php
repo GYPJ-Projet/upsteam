@@ -69,25 +69,18 @@
                 </select><br><hr>
                
                 <div class="taxation">
-                    <p  data-js-partiel><?= $langue['totalPartiel']?> : <span>$</span> <span data-js-total-partiel> <?= $montantSousTotal ?></span> </p>
-                    <p class="tps"><span data-js-texte-taxe-federale></span> <span data-js-tps></span> $ </p>
-                    <p class="tvq" data-js-p-provinciale><span data-js-texte-taxe-provinciale></span> <span data-js-tvq></span></p>
-                    <p class="total-final"><?= $langue['total']?> : <span>$</span><span data-js-total></span> </p>
-                </div>
+                    <div class="taxeConteneur"><p data-js-partiel><?= $langue['totalPartiel']?> : <span>$</span> <span data-js-total-partiel> <?= $montantSousTotal ?></span> </p></div>
+                    <div class="taxeConteneur"><p class="tps"><span data-js-texte-taxe-federale></span> <span data-js-tps></span> </p></div>
+                    <div class="taxeConteneur"><p class="tvq" data-js-p-provinciale><span data-js-texte-taxe-provinciale></span> <span data-js-tvq></span></p></div>
+                    <div class="taxeConteneur"><p class="total-final"><?= $langue['total']?> : </p><p><span>$</span><span data-js-total></span> </p></div>
+                    
+                    
+                </div>   
+                <div id="paypal-button-container" data-js-component="Paypal"></div>
                 
-            
-                <div class="paiement">
-                    <p><?= $langue['payer'] ?> : </p>
-<!-- < ?php
-                    foreach($donnees["modePaiement"] as $modePaiement) { 
-                        
-?> -->
-                    <div id="paypal-button-container" data-js-component="Paypal"></div>
-                </div>
-<!-- < ?php
-                    }
-?> -->
-                </div>
+
+
+            </div>
         </section>
     </div>    
 </div>

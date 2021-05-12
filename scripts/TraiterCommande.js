@@ -33,9 +33,26 @@ class TraiterCommande {
     }
 
     passerCommande = () => {
+        this._taxeFederale = Taxes.getTaxeFederale();
+        this._taxeProvinciale = Taxes.getTaxeProvinciale();
+      
+        let taxeFederale = parseFloat(this._taxeFederale['taux']);
+        let taxeProvinciale = 0.00;
+
+        // on affiche le texte de la taxe Fédérale
+        this._elTexteTaxeFederale.innerHTML = this._taxeFederale['nomTaxe'] + " :";
+
+        // Si la taxe provinciale existe, on l'affiche
+        if (this._taxeProvinciale != null ) {
+
+            this._elTexteTaxeProvinciale.innerHTML = this._taxeProvinciale['nomTaxe'] + " :";
+            taxeProvinciale =  parseFloat(this._taxeProvinciale['taux']);
+        } else {
+            this._elPProvinciale.classList.add('hidden');
+        }
+
         this._elPasserCmd.classList.add('hidden');
         this._elTotalFinal.classList.remove('hidden');
-
        
         this.calculTaxe(taxeFederale, taxeProvinciale);
     }
