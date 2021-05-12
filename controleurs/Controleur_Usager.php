@@ -13,7 +13,10 @@
         public function traite(array $params) {
             $donnees = array();
             $vue = "";
-
+            if(isset($_SESSION["usager"])){
+                Debug::toLog("class Controleur_Usager - function traite  _SESSION[usager]: ", $_SESSION["usager"]);
+            }
+            Debug::toLog("class Controleur_Usager - function traite  params: ", $params);
 
             // On charge les fichiers de langue selon la langue choisi par l'usager.
             $donnees["langue"] = $this->chargerLangue($params);

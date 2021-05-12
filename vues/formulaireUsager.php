@@ -11,7 +11,7 @@
 <div class="bodyConteneur">
     <section class="tampon"></section>
     <section class="pageDonnees">
-        <div data-js-component="formulaireConnexion" data-js-controleur="Usager" data-js-controleur-action="sauvegarderUsager" data-js-retour="<?= (isset($donnees['retour'])) ? $donnees['retour'] : '' ?>">
+        <div data-js-component="formulaireConnexion" data-js-controleur="Usager" data-js-controleur-action="formulaireMonProfil&modif" data-js-retour="<?= (isset($donnees['retour'])) ? $donnees['retour'] : '' ?>">
             <h2><?= (isset($usager)) ? $langue["formulaire_modif_usager"] : $langue["formulaire_ajout_usager"] ?></h2>
             <form class="formulaire" action="index.php?Usager&action=sauvegarderUsager<?= $retour . $modif?>" method="post">
                 <label for="nom"><?= $langue["nom_usager"] ?> : </label>
