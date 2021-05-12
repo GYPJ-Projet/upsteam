@@ -353,6 +353,7 @@
 						// Si le parametres id existe, on affiche le formulaire pour la modification
 						if (isset($params["id"])) {
 							$donnees["commande"] = $modeleFacture->obtenirCommandeParId($params["id"], $idLangue);
+							$donnees["voitures"] = $modeleVoiture->obtenirTousParIdFacture($params["id"]);
 							$this->afficheVue("formulaireCommande", $donnees);
 						} 
 						break;
