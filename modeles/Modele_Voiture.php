@@ -57,6 +57,30 @@
 			}
         }
 
+		
+		public function obtenirTousParIdFacture($id) {
+            try {
+				$stmt = $this->db->query("SELECT listeAchat.prixVenteFinal, voiture.*, 
+				modele.nom AS nomModele, 
+				marque.nom AS nomMarque, 
+				annee.annee AS annee, 
+				image.lien AS photo 
+				FROM listeachat 
+				JOIN voiture ON listeachat.idVoiture = voiture.id
+				JOIN modele ON modele.id = voiture.idModele 
+				JOIN marque ON marque.id = modele.idMarque  
+				JOIN annee ON annee.id = voiture.idAnnee 
+				JOIN image ON image.idVoiture = voiture.id AND image.sort = 0
+				WHERE listeachat.idCommande = " . $id);	
+				$stmt->execute();
+				return $stmt->fetchAll();	
+
+			}	
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+
 		// Méthode qui retourne toutes les descriptions de voitures qu'il y a dans la BD
 		public function obtenirDescriptionParId($id) {
             try {
