@@ -70,6 +70,9 @@
 							isset($params["taxeProvinciale"]) && 
 							isset($_SESSION["usager"])) {
 
+						    $titreRecuPDF = $donnees["langue"]["releve_de_transaction"];
+
+							/* $texteRecuPDF = ''; */
 							// Si l'usager exite on prend la province où il habite.
 							$idClient = $_SESSION["usager"]->getId();
 							$details = json_decode($params["details"], true);
@@ -106,7 +109,12 @@
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - paypalStatus : ", $paypalStatus); 
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - date : ", $date);
 
-
+							$donnees["paypalNoAutorisation"] 	= $paypalNoAutorisation;
+							$donnees["titreRecuPDF"] 			= $titreRecuPDF;
+							$donnees["panier"]       			= $params["panier"];
+							$donnees["date"]       				= $date;
+							$donnees["taxeFederale"]       		= $params["taxeFederale"];
+							$donnees["taxeProvinciale"]    		= $params["taxeProvinciale"];
 							
 							$nouvelleFacture = new Facture(0, $idClient, $date , $paypalTotal, $idStatut,
 							                               $idExpedition, $idModePaiement ,
@@ -117,6 +125,7 @@
 
 							// on converti le JSON reçu en array
 							$tabPanier = json_decode($params["panier"], true);
+
 
 						    //  On sauvegarede chacune des voitues acheté dans la liste d'achat.
 							foreach ($tabPanier as $panier) {
@@ -131,10 +140,11 @@
 									Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - prixTotal : ", $prixTotal);
 
 									$nouvelleListeAchat = new ListeAchat($idCommande, intval($panier["id"]), $prixTotal);
-									$idCommande = $modeleListeAchat->sauvegarder($nouvelleListeAchat);
-
+									$modeleListeAchat->sauvegarder($nouvelleListeAchat);
+								//	$texteRecuPDF .= $panier["modele"] .'			'. $prix.' $\n';
 								}
 							}
+							CreerPDF::creationRecuPDF($paypalNoAutorisation, $titreRecuPDF, $params["panier"], $date, $laTaxeFederale, $laTaxeProvinciale, 'F');
 						} else {
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - ELSE ");
 						}
