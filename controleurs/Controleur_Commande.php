@@ -70,6 +70,9 @@
 							isset($params["taxeProvinciale"]) && 
 							isset($_SESSION["usager"])) {
 
+						    $titreRecuPDF = $donnees["langue"]["releve_de_transaction"];
+
+							/* $texteRecuPDF = ''; */
 							// Si l'usager exite on prend la province où il habite.
 							$idClient = $_SESSION["usager"]->getId();
 							$details = json_decode($params["details"], true);
@@ -82,7 +85,7 @@
 							}
 							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - details[purchase_units]: ", $details["purchase_units"] );
 
-              $capture = $details["purchase_units"][0]["payments"]["captures"][0];
+              				$capture = $details["purchase_units"][0]["payments"]["captures"][0];
 
  							$paypalStatus         = $capture["status"];
 							$paypalNoAutorisation = $capture["id"];
@@ -121,6 +124,7 @@
                             Debug::toLog($tabPanier);
                             Debug::toLog($params["panier"]);
 
+
 						    //  On sauvegarede chacune des voitues acheté dans la liste d'achat.
 							foreach ($tabPanier as $panier) {
 								if ($panier != null) {
@@ -134,10 +138,11 @@
 									// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - prixTotal : ", $prixTotal);
 
 									$nouvelleListeAchat = new ListeAchat($idCommande, intval($panier["id"]), $prixTotal);
-									$idCommande = $modeleListeAchat->sauvegarder($nouvelleListeAchat);
-
+									$modeleListeAchat->sauvegarder($nouvelleListeAchat);
+								//	$texteRecuPDF .= $panier["modele"] .'			'. $prix.' $\n';
 								}
 							}
+							CreerPDF::creationRecuPDF($paypalNoAutorisation, $titreRecuPDF, $params["panier"], $date, $laTaxeFederale, $laTaxeProvinciale, 'F');
 						} else {
 							// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - ELSE ");
 						}
@@ -150,7 +155,7 @@
 				// traitement à determiner ici
 			}
 
-			//$this->afficheVue("piedDePage", $donnees);
+			$this->afficheVue("piedDePage", $donnees);
 		}
 	}
 ?>
