@@ -22,7 +22,7 @@
             return "idLangue";
         }
 
-        // Permet d'obtenir le nombre de toutes les marques dans la bd
+        // Permet d'obtenir le nombre de toutes les couleurs dans la bd
         public function obtenirNombreCouleurs() {
             try {
                 $requete = "SELECT COUNT(id) AS nb FROM Couleur";

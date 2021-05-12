@@ -59,8 +59,8 @@
             <button class="magasiner" data-js-magasiner><?= $langue['continuer'] ?></button></br>
             <button class="button" data-js-commander><?= $langue['passerCommande'] ?></button>
             <div class="hidden taxation" data-js-total-final>
-                <p class="tps">TPS : <span data-js-tvq></span> $ </p>
-                <p class="tvq">TVQ : <span data-js-tps></span> $ </p>
+                <p class="tps"><span data-js-texte-taxe-federale></span> <span data-js-tps></span> $ </p>
+                <p class="tvq" data-js-p-provinciale><span data-js-texte-taxe-provinciale></span> <span data-js-tvq></span></p>
                 <p class="total-final"><?= $langue['total']?> : <span data-js-total></span> $ </p>
                 <div class="paiement">
                     <p><?= $langue['payer'] ?> : </p>
