@@ -11,13 +11,15 @@ $langue['total']                    = 'Total';
 $langue['retirer']                  = 'Retirer voiture';
 $langue['choix-expedition']         = 'Choisissez votre mode d\'exp&eacute;dition';
 $langue['payer']                    = 'Mode de paiement';
-$langue['credit']                   = 'Carte de cr&eacute;dit';
-$langue['cash']                     = 'Comptant &agrave; la livraison';
+$langue['option']                   = 'Choisissez ...';
+
+
 
 $langue['carburant']                = 'Carburant';
 $langue['couleur']                  = 'Couleur';
 $langue['habitacle']                = 'Habitacle';
 $langue['kilometrage']		        = 'Kilom&eacute;trage';
+$langue['transmission']		        = 'Transmission';
 $langue['modele']                   = 'Mod&egrave;le';
 $langue['motopropulseur']		    = 'Groupe motopropulseur';
 $langue['prix']                     = 'Prix';
