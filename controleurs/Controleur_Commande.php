@@ -40,7 +40,7 @@
 			$donnees["modePaiement"] = $this->creerTabLangue($modeleModePaiement->obtenirTousDisponible(), $idLangue);
 			$donnees["expedition"]   = $this->creerTabLangue($modeleExpedition->obtenirTousDisponible(), $idLangue);
 
-
+			Debug::toLog("class Controleur_Commande - function traite - params :", $params);
             // Si on a reçu une action, on la traite...
 			if (isset($params["action"])) {
 
@@ -93,7 +93,10 @@
 						// Sauvegarde de la commande du client 
 						// Si on a reçu les paramètres Panier .
 						if( isset($params["panier"]) && 
-						    isset($params["details"]) && 
+							isset($params["status"]) && 
+							isset($params["noAutorisation"]) && 
+							isset($params["time"]) && 
+							isset($params["total"]) && 
 							isset($params["taxeFederale"]) && 
 							isset($params["taxeProvinciale"]) && 
 							isset($params["expedition"]) && 
@@ -102,10 +105,9 @@
 
  						    $titreRecuPDF = $donnees["langue"]["releve_de_transaction"];
 
-							/* $texteRecuPDF = ''; */
 							// Si l'usager exite on prend la province où il habite.
 							$idClient = $_SESSION["usager"]->getId();
-							$details = json_decode($params["details"], true);
+
 
 							$laTaxeFederale = json_decode($params["taxeFederale"],true);
 							if ($params["taxeProvinciale"] != null) {
@@ -114,12 +116,11 @@
 								$laTaxeProvinciale = null;
 							}
 
-              				$capture = $details["purchase_units"][0]["payments"]["captures"][0];
 
- 							$paypalStatus         = $capture["status"];
-							$paypalNoAutorisation = $capture["id"];
-							$paypalTime           = $capture["update_time"];
-							$paypalTotal          = $capture["amount"]["value"];
+ 							$paypalStatus         = $params["status"];
+							$paypalNoAutorisation = $params["noAutorisation"];
+							$paypalTime           = $params["time"];
+							$paypalTotal          = $params["total"];
 							$idStatut             = $statutPaypalCorrespondant[strtoupper($paypalStatus)]; 
 							$idExpedition         = intval($params["expedition"]);
 							$idModePaiement       = 5;

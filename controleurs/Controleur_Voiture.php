@@ -62,9 +62,7 @@
 
 
 							$estDisponible = $modeleVoiture->estDisponible($params["id"]);
-							Debug::toLog('class Controleur_Voiture case descriptionVoiture estDisponible :', $estDisponible);
-							Debug::toLog('class Controleur_Voiture case descriptionVoiture estDisponible[disponibilite] :', $estDisponible['disponibilite']);
-
+							
 							if ($estDisponible['disponibilite'] == 0) {
 								$donnees["disponible"] = "Cette voiture n'est malheureusement plus disponible.";
 							}
