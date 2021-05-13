@@ -173,12 +173,12 @@ ul .info p {
     border: none;
 }
 
-label {
+.label_commande {
     margin-left: var(--margeSection);
     margin-bottom: var(--margeSection);
 }
 
-select {
+.select_commande {
     margin-bottom: var(--margeSection);
 }
 

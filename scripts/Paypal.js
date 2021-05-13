@@ -74,11 +74,12 @@ class Paypal {
                 let panier = sessionStorage.getItem('panierAchat');
                 let taxeFederale = Taxes.getTaxeFederale();
                 let taxeProvinciale = Taxes.getTaxeProvinciale();
-                
+
 
                 
                 // This function captures the funds from the transaction.
                 return actions.order.capture().then(function(details) {
+
 
                   let capture = details.purchase_units[0].payments.captures[0];
                   let paypalStatus          = capture.status;
@@ -96,20 +97,21 @@ class Paypal {
                                                                                       "&taxeFederale=" + JSON.stringify(taxeFederale) + 
                                                                                       "&taxeProvinciale=" + JSON.stringify(taxeProvinciale) +
                                                                                       "&expedition=" + idExpedition;
+
                 });
-              }
+              },
   
-/*                onCancel: function (data) {
+            onCancel: function (data) {
                 // Show a cancel page, or return to cart
                 alert('Transaction cancel by ' + details.payer.name.given_name);
                 window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
-              }, */
+            }, 
   
-/*               onError: function (err) {
+            onError: function (err) {
                 // For example, redirect to a specific error page
                 alert('Transaction error for ' + details.payer.name.given_name);
                 window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
-              }  */
+            }
   
             }).render('#paypal-button-container');
       

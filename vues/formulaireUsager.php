@@ -72,13 +72,13 @@
     <?php
                 if(isset($_SESSION['usager']) && $_SESSION['usager']->getIdRole() == 1) {
     ?> 
-                <label for="role"><?= $langue["role"] ?> : </label>
-                <select name="role" id="role" required>
-                    <option value=""><?= $langue["option"] ?></option>
+                <label for="idRole"><?= $langue["role"] ?> : </label>
+                <select name="idRole" id="idRole" required>
+                    <option value="0"><?= $langue["option"] ?></option>
     <?php
                     for ($i = 0; $i < count($donnees["role"]); $i++) {
     ?>         
-                    <option value="<?= $i ?>" <?= (isset($usager) && $usager->getIdRole() == $i + 1) ? "selected" : "" ?>>
+                    <option value="<?= $i +1 ?>" <?= (isset($usager) && $usager->getIdRole() == $i + 1) ? "selected" : "" ?>>
                         <?= $donnees["role"][$i]['nom'] ?>
                     </option>
     <?php
