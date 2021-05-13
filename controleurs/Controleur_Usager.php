@@ -63,7 +63,9 @@
                                     $_SESSION["usager"] = $unUsager;
                                     $ip = $_SERVER['REMOTE_ADDR'];
                                     $modeleUsager->journalConnexion($unUsager->getId(), $ip);
-
+                                    if(isset($_SESSION["langue"])) {
+                                        unset($_SESSION["langue"]);
+                                    }
                                     header("Location: index.php");
                                 }else{
                                     $donnees["erreurs"] = $donnees['langue']['erreurToken'];  // L'authentification n'est pas bonne 
@@ -176,7 +178,7 @@
                                 $msg .= "<p>" . $donnees['langue']['courrielNouveau'] ."</p><br>";
                                 $msg .= $lien;
                                 $courriel = $usager->getCourriel();
-                                Courriel::envoieCourriel($courriel, $donnees['langue']['courrielSubjectNouveau'], $msg);
+                                Courriel::envoieCourriel($donnees["langue"], $courriel, $donnees['langue']['courrielSubjectNouveau'], $msg);
 
                                 if(isset($params['retour'])){       //On vérifie quelle page ouvrir.  
                                     header("Location: index.php?Usager&action=gestionUsager");
@@ -318,7 +320,7 @@
                         $msg .= "<p>" . $donnees['langue']['motPassePerduPresentation'] ."</p><br>";
                         $msg .= "<p>" . $motPasse ."</p><br>";
                         $courriel = $params['courriel'];
-                        Courriel::envoieCourriel($courriel, $donnees['langue']['courrielSubjectChangement'], $msg);
+                        Courriel::envoieCourriel($donnees["langue"], $courriel, $donnees['langue']['courrielSubjectChangement'], $msg);
                         header("Location: index.php?Usager&action=connexion");
 
                         break;

@@ -122,6 +122,11 @@ body {
     opacity: .5;
 }
 
+.disponibilite {
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--cle);
+}
 .connexion_panier {
     font-family: var(--openSans);
     font-size:   var(--police_taille_sousTitre);

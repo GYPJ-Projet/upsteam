@@ -55,8 +55,22 @@
 						// Affichage de la description de la voiture demandé
 						// Si on a reçu le paramètre id de la voiture à afficher.
 						if (isset($params["id"])) {
+
+							$donnees["disponible"] = '';
+						
 							$modeleDescription = $this->obtenirDAO("TabLangues", "description");
-							$donnees["voiture"] = $modeleVoiture->obtenirParId($params["id"]);
+
+
+							$estDisponible = $modeleVoiture->estDisponible($params["id"]);
+							Debug::toLog('class Controleur_Voiture case descriptionVoiture estDisponible :', $estDisponible);
+							Debug::toLog('class Controleur_Voiture case descriptionVoiture estDisponible[disponibilite] :', $estDisponible['disponibilite']);
+
+							if ($estDisponible['disponibilite'] == 0) {
+								$donnees["disponible"] = "Cette voiture n'est malheureusement plus disponible.";
+							}
+
+							$donnees["voiture"] = $modeleVoiture->obtenirParIdVoiture($params["id"]);
+						
 							$donnees["images"]  = $modeleVoiture->obtenirImagesParIdVoiture($params["id"]);
 							
 							// On prend l'instance de la description de la voiture dans la langue que l'on doit afficher

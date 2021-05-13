@@ -31,7 +31,7 @@
   } 
 
 
-.msg {
+.msg404 {
     text-align: center;
     font-family: var(--openSans);
     font-size: 1.75vw;
@@ -39,7 +39,7 @@
 } 
 
 
-.err {
+.err404 {
     color: var(--gris); 
     text-align: center;
     position: relative;
@@ -49,8 +49,9 @@
     background: linear-gradient(90deg, var(--grisPale), var(--gris), var(--grisPale));
     background-repeat: no-repeat;
     background-size: 80%;
-    background-clip: text;
+    background-clip: padding-box;
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    -webkit-background-clip: text;
     animation: animate 3s linear infinite;
 }
 

@@ -101,6 +101,8 @@ $langue['button_ajouter']		= 'Add a new item';
 $langue['button_soumettre']		= 'Sumbit';
 $langue['button_joindre']		= 'Attach';
 
+$langue['signature']          = "The team of Véhicules d'occasion !";
+
 // Erreur
 $langue['sansPhoto']            = 'No photo for this car';
 $langue['section_vide']         = 'This section is empty!';

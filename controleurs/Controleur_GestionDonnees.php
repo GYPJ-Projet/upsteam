@@ -256,7 +256,7 @@
 						// Si le parametres id est existe, on affiche le formulaire pour la modification
 						if (isset($params["id"])) {
 							// Obtenir les données à propos de la voiture avec id 
-							$donnees["voiture"] = $modeleVoiture->obtenirParId($params["id"]);
+							$donnees["voiture"] = $modeleVoiture->obtenirParIdVoiture($params["id"]);
 							// Obtenir les images pour une voiture choisie
 							$donnees["images"] = $modeleVoiture->obtenirImagesParIdVoiture($params["id"]);
 							// Obtenir les descriptions pour une voiture choisie

@@ -6,8 +6,8 @@
 	<div class="bodyConteneur" data-js-controleur="Erreur404"  data-js-controleur-action=""> 
 		<div class="erreur404Conteneur">
 			<div class="mainbox">
-				<div class="err">4 0 4</div>
-				<div class="msg"><?= $langue['message_404'] ?></div>
+				<div class="err404">4 0 4</div>
+				<div class="msg404"><?= $langue['message_404'] ?></div>
 			</div>
 		</div>
 		<div class="btn-erreur-404">

@@ -15,13 +15,16 @@
 
     class Courriel
     {
-        public static function envoieCourriel($adrCourriel, $sujet, $message, $fichier=''){
+        public static function envoieCourriel($langue,$adrCourriel, $sujet, $message, $fichier=''){
             require 'lib/PHPMailer.php';
             require 'lib/SMTP.php';
             require 'lib/Exception.php';
 
+            $signature = $langue['signature'];
+            $signature = utf8_decode($signature);
+
             // $logo = '../logo/logo_v2.jpg';
-            $message .= '<br><br><p>L\'équipe de voiture d\'occasion </p><br>';
+            $message .= '<br><br><p>' . $signature . '</p><br>';
             $message = utf8_decode($message);
             // $message .='<img src="logo/logo.jpg" alt="logo">';
 

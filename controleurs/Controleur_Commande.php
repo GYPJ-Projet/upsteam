@@ -1,4 +1,6 @@
 <?php
+  /* 	use JetBrains\PhpStorm\Language; */
+
 	class Controleur_Commande extends BaseControleur {
 
 		// Méthode qui retourne le nom du contrôleur où aller chercher la langue 
@@ -30,7 +32,7 @@
 			$modeleExpedition = $this->obtenirDAO("TabLangues", "expedition");
 			$modeleFacture = $this->obtenirDAO("Facture");
 			$modeleListeAchat= $this->obtenirDAO("ListeAchat");
-
+			$modeleVoiture = $this->obtenirDAO("Voiture");
 
 
 			// On prend les données dans la langue qu'il faut afficher.	
@@ -48,6 +50,11 @@
 
 					case "afficherCommande" :
 
+						if (isset($_SESSION["paypalNoAutorisation"])) {
+							unset($_SESSION["paypalNoAutorisation"]);
+							unset($_SESSION["idExpedition"]);
+						}
+
 						// Affichage de la commande du client 
 						// Si on a reçu les paramètres Panier .
 						if (isset($params["panier"])) {
@@ -60,17 +67,38 @@
 						break;      
 						
 					case "sauvegarderCommande" :
+						
+						if (isset($_SESSION["paypalNoAutorisation"])) {
+							$paypalNoAutorisation = $_SESSION["paypalNoAutorisation"];
+						} else {
+							$paypalNoAutorisation = '';
+						}
+						if (isset($_SESSION["idExpedition"])) {
+							$idExpedition = $_SESSION["idExpedition"];
+							switch( $idExpedition ) {
+								case "1" :
+									$donnees["expedition"] = $donnees["langue"]["expedition_local"];
+									break;
+
+								default :
+									$donnees["expedition"] = $donnees["langue"]["expedition_ramassage"];
+								    break;
+							}
+						} else {
+							$donnees["expedition"] = '';
+						}
+
 
 						// Sauvegarde de la commande du client 
 						// Si on a reçu les paramètres Panier .
-
 						if( isset($params["panier"]) && 
 						    isset($params["details"]) && 
 							isset($params["taxeFederale"]) && 
 							isset($params["taxeProvinciale"]) && 
+							isset($params["expedition"]) && 
 							isset($_SESSION["usager"])) {
 
-						    $titreRecuPDF = $donnees["langue"]["releve_de_transaction"];
+ 						    $titreRecuPDF = $donnees["langue"]["releve_de_transaction"];
 
 							/* $texteRecuPDF = ''; */
 							// Si l'usager exite on prend la province où il habite.
@@ -83,7 +111,6 @@
 							} else {
 								$laTaxeProvinciale = null;
 							}
-							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - details[purchase_units]: ", $details["purchase_units"] );
 
               				$capture = $details["purchase_units"][0]["payments"]["captures"][0];
 
@@ -92,7 +119,7 @@
 							$paypalTime           = $capture["update_time"];
 							$paypalTotal          = $capture["amount"]["value"];
 							$idStatut             = $statutPaypalCorrespondant[strtoupper($paypalStatus)]; 
-							$idExpedition         = 2;
+							$idExpedition         = intval($params["expedition"]);
 							$idModePaiement       = 5;
 							$taxeFederale         = floatval($laTaxeFederale['taux']);
 							if ($laTaxeProvinciale != null) {
@@ -103,52 +130,67 @@
 							
  							$dateTime = strtotime($paypalTime);
 							$date = date('Y-m-d H:i:s', $dateTime); 
+							
+							switch( $idExpedition ) {
+								case "1" :
+									$donnees["expedition"] = $donnees["langue"]["expedition_local"];
+									break;
 
-							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - params panier: ", json_decode($params["panier"],true));
-							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - idClient : ", $idClient );
-							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - taxeFederale : ", $taxeFederale);
-							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - taxeProvinciale : ", $taxeProvinciale);
-							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - paypalNoAutorisation : ", $paypalNoAutorisation);
-							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - paypalStatus : ", $paypalStatus); 
-							Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - date : ", $date);
-							
+								default :
+									$donnees["expedition"] = $donnees["langue"]["expedition_ramassage"];
+								    break;
+							}
+
 							$nouvelleFacture = new Facture(0, $idClient, $date , $paypalTotal, $idStatut,
-							                               $idExpedition, $idModePaiement ,
-														   $paypalNoAutorisation);
+														$idExpedition, $idModePaiement ,
+														$paypalNoAutorisation);
 							
-						    $idCommande = $modeleFacture->sauvegarder($nouvelleFacture);
-							// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - idCommande : ", $idCommande);
+							$idCommande = $modeleFacture->sauvegarder($nouvelleFacture);
+
+							$donnees["paypalNoAutorisation"] = $paypalNoAutorisation;
 
 							// on converti le JSON reçu en array
 							$tabPanier = json_decode($params["panier"], true);
-                            Debug::toLog($tabPanier);
-                            Debug::toLog($params["panier"]);
-
 
 						    //  On sauvegarede chacune des voitues acheté dans la liste d'achat.
 							foreach ($tabPanier as $panier) {
 								if ($panier != null) {
+									$idVoiture = intval($panier["id"]);
 									$prix = floatval($panier["prix"]);
 									$totalTaxeFederale = round(($prix * $taxeFederale), 2);
 									$totalTaxeProvinciale = round(($prix * $taxeProvinciale), 2);
 									$prixTotal = $prix + $totalTaxeFederale + $totalTaxeProvinciale;
-									// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - prix : ", $prix);
-									// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - totalTaxeFederale : ", $totalTaxeFederale);
-									// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - totalTaxeProvinciale : ", $totalTaxeProvinciale);
-									// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - foreach(tabPanier as panier) - prixTotal : ", $prixTotal);
-
 									$nouvelleListeAchat = new ListeAchat($idCommande, intval($panier["id"]), $prixTotal);
 									$modeleListeAchat->sauvegarder($nouvelleListeAchat);
-								//	$texteRecuPDF .= $panier["modele"] .'			'. $prix.' $\n';
+									$uneVoiture = $modeleVoiture->obtenirParId($idVoiture);
+									
+									if ($uneVoiture) {
+										$uneVoiture->setDisponibilite(0);
+										$modeleVoiture->sauvegarde($uneVoiture);
+									}
 								}
 							}
-							CreerPDF::creationRecuPDF($paypalNoAutorisation, $titreRecuPDF, $params["panier"], $date, $laTaxeFederale, $laTaxeProvinciale, 'F');
+							
+							CreerPDF::creationRecuPDF($donnees["langue"], $paypalNoAutorisation, $titreRecuPDF, $params["panier"], $date, $idCommande, $laTaxeFederale, $laTaxeProvinciale, 'F');
+							$_SESSION["paypalNoAutorisation"] = $paypalNoAutorisation;
+							$_SESSION["idExpedition"] = $idExpedition;
+						
+							//Prépare et envoie d'un courriel à l'utilisateur 
+							//pour lui envoyer son reçu de son achat.
+							$msg = "<h1>V&eacute;hicules d'occasion</h1><br>";
+							$msg .= "<p>" . $donnees["langue"]['courrielAchatApprouve'] ."</p><br>";
+							$fichier = "pdf/" . $paypalNoAutorisation . ".pdf";
+							$courriel = $_SESSION["usager"]->getCourriel();
+
+							$this->afficheVue("succes", $donnees);
+
+							Courriel::envoieCourriel($donnees["langue"], $courriel, $donnees["langue"]['courrielSubjectApprouve'], $msg, $fichier);
+
 						} else {
-							// Debug::toLog("class Controleur_Commande - function traite - case sauvegarderCommande - ELSE ");
+							$donnees["paypalNoAutorisation"] = $paypalNoAutorisation;
+							$this->afficheVue("succes", $donnees);
 						}
-
-						$this->afficheVue("succes", $donnees);
-
+		
 						break;  
 				}			
 			} else {

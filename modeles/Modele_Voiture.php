@@ -34,7 +34,7 @@
 			}
 		}
 
-		public function obtenirParId($id) {
+		public function obtenirParIdVoiture($id) {
             try {
 				$stmt = $this->db->query("SELECT voiture.*, 
 					marque.id AS idMarque,
@@ -51,6 +51,20 @@
 				$stmt->execute();
 				return $stmt->fetch();	
 
+			}	
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
+		
+		public function estDisponible($id) {
+            try {
+				$stmt = $this->db->query("SELECT disponibilite 
+				     FROM voiture 
+					 WHERE id = " . $id);
+
+				$stmt->execute();
+				return $stmt->fetch();	
 			}	
 			catch(Exception $exc) {
 				return 0;

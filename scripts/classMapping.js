@@ -21,5 +21,6 @@ const classMapping = {
     'Taxes'                 : Taxes,
     'Chercher'              : Chercher,
     'TraiterCommande'       : TraiterCommande,
-    'CommandeVoiture'       : CommandeVoiture
+    'CommandeVoiture'       : CommandeVoiture,
+    'Succes'                : Succes
 };

@@ -1,0 +1,20 @@
+/* header */
+
+.merci {
+    margin-top: var(--margeSection);       /* 50px; */
+    text-align: center;
+}
+
+.expedition {
+    margin-top: var(--margeSection);       /* 50px; */
+    text-align: center;
+}
+
+.usager_achat {
+    color: var(--cle);
+}
+
+.recu {
+    margin-top: var(--margeSection);       /* 50px; */
+}
+
