@@ -78,7 +78,7 @@ class TraiterCommande {
 
     expedition = () => {
         
-        localStorage.setItem('idExpedition', this._elExpedition.value);
+        sessionStorage.setItem('idExpedition', this._elExpedition.value);
 
         if(parseInt(this._elExpedition.value) > 0) {
             this._elTaxation.classList.remove('hidden');   
