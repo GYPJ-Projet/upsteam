@@ -56,6 +56,20 @@
 				return 0;
 			}
         }
+		
+		public function estDisponible($id) {
+            try {
+				$stmt = $this->db->query("SELECT disponibilite 
+				     FROM voiture 
+					 WHERE id = " . $id);
+
+				$stmt->execute();
+				return $stmt->fetch();	
+			}	
+			catch(Exception $exc) {
+				return 0;
+			}
+        }
 
 		
 		public function obtenirTousParIdFacture($id) {

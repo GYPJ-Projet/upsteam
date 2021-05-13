@@ -39,7 +39,8 @@ $langue['no_facture']               = 'Invoice no.';
 // Page de succes
 $langue['merci']                    = 'Thank you very much';
 $langue['confirmation']             = 'for your approved purchase, of which you will find all the details below.';
-$langue['expedition']               = 'Your order will be ready in 2 days, you can pick it up !';
+$langue['expedition_ramassage']     = 'Your order will be ready in 2 days, you can pick it up !';
+$langue['expedition_local']         = 'Your order will be ready in 2 days. We will deliver it to your address !';
 
 $langue['courrielSubjectApprouve']  = 'Confirmation of approved purchase';
 $langue['courrielAchatApprouve']    = 'We are pleased to announce that your purchase has been approved. You will find the receipt of your order attached.';

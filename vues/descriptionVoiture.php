@@ -33,6 +33,8 @@
 <?php
 			if(isset($_SESSION["usager"])){ 					
 ?>				
+                <div class="disponibilite" data-js-disponibilite><?= $donnees["disponible"] ?></div>
+				
 				<div class="ajouter-panier specificationVoiture" data-js-ajouter-panier>
 					<button class="btn-ajouter-panier" data-js-btn><?= $langue['ajouterAuPanier']?></button>
 					
@@ -40,6 +42,7 @@
 <?php
 			} else {
 ?>
+				
 				<div class="connexion_panier" data-js-ajouter-panier>
 					<p><a href="index.php?Usager&action=connexion" ><?= $langue['connexionAjoutPanier']?>!</a></p>			
 				</div>

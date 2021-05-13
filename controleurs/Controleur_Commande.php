@@ -1,5 +1,5 @@
 <?php
-  	use JetBrains\PhpStorm\Language;
+  /* 	use JetBrains\PhpStorm\Language; */
 
 	class Controleur_Commande extends BaseControleur {
 
@@ -52,6 +52,7 @@
 
 						if (isset($_SESSION["paypalNoAutorisation"])) {
 							unset($_SESSION["paypalNoAutorisation"]);
+							unset($_SESSION["idExpedition"]);
 						}
 
 						// Affichage de la commande du client 
@@ -72,6 +73,21 @@
 						} else {
 							$paypalNoAutorisation = '';
 						}
+						if (isset($_SESSION["idExpedition"])) {
+							$idExpedition = $_SESSION["idExpedition"];
+							switch( $idExpedition ) {
+								case "1" :
+									$donnees["expedition"] = $donnees["langue"]["expedition_local"];
+									break;
+
+								default :
+									$donnees["expedition"] = $donnees["langue"]["expedition_ramassage"];
+								    break;
+							}
+						} else {
+							$donnees["expedition"] = '';
+						}
+
 
 						// Sauvegarde de la commande du client 
 						// Si on a reçu les paramètres Panier .
@@ -79,6 +95,7 @@
 						    isset($params["details"]) && 
 							isset($params["taxeFederale"]) && 
 							isset($params["taxeProvinciale"]) && 
+							isset($params["expedition"]) && 
 							isset($_SESSION["usager"])) {
 
  						    $titreRecuPDF = $donnees["langue"]["releve_de_transaction"];
@@ -102,7 +119,7 @@
 							$paypalTime           = $capture["update_time"];
 							$paypalTotal          = $capture["amount"]["value"];
 							$idStatut             = $statutPaypalCorrespondant[strtoupper($paypalStatus)]; 
-							$idExpedition         = 2;
+							$idExpedition         = intval($params["expedition"]);
 							$idModePaiement       = 5;
 							$taxeFederale         = floatval($laTaxeFederale['taux']);
 							if ($laTaxeProvinciale != null) {
@@ -113,6 +130,16 @@
 							
  							$dateTime = strtotime($paypalTime);
 							$date = date('Y-m-d H:i:s', $dateTime); 
+							
+							switch( $idExpedition ) {
+								case "1" :
+									$donnees["expedition"] = $donnees["langue"]["expedition_local"];
+									break;
+
+								default :
+									$donnees["expedition"] = $donnees["langue"]["expedition_ramassage"];
+								    break;
+							}
 
 							$nouvelleFacture = new Facture(0, $idClient, $date , $paypalTotal, $idStatut,
 														$idExpedition, $idModePaiement ,
@@ -146,6 +173,7 @@
 							
 							CreerPDF::creationRecuPDF($donnees["langue"], $paypalNoAutorisation, $titreRecuPDF, $params["panier"], $date, $idCommande, $laTaxeFederale, $laTaxeProvinciale, 'F');
 							$_SESSION["paypalNoAutorisation"] = $paypalNoAutorisation;
+							$_SESSION["idExpedition"] = $idExpedition;
 						
 							//Prépare et envoie d'un courriel à l'utilisateur 
 							//pour lui envoyer son reçu de son achat.

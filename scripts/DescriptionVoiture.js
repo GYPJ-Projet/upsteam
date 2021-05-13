@@ -16,6 +16,7 @@ class DescriptionVoiture {
         this._elTransmission = this._el.querySelector('[data-js-voiture-transmission]');
         this._elCarburant = this._el.querySelector('[data-js-voiture-carburant]');
         this._elPrix = this._el.querySelector('[data-js-voiture-prix]');
+        this._elDisponibilite = this._el.querySelector('[data-js-disponibilite]'); 
 
         /*Bouton Ajout Panier */
         this._elBouton =  this._el.querySelector('[data-js-btn]');
@@ -34,7 +35,8 @@ class DescriptionVoiture {
         });
 
         let existVoiture = this.existeVoiture();
-        if (existVoiture == true) {
+        if ((existVoiture == true) ||
+            (this._elDisponibilite.innerHTML != '')) {
                     
             this._elBouton.disabled = true;       //On rend le bouton non cliquable et on desactive la voitire
             this._elBouton.classList.add('inactif');

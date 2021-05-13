@@ -70,11 +70,12 @@ class Paypal {
               },
   
               onApprove: function(data, actions) {
-              //  let idExpedition = localStorage.getItem('idExpedition');
+                let idExpedition = localStorage.getItem('idExpedition');
                 let panier = localStorage.getItem('panierAchat');
                 let taxeFederale = Taxes.getTaxeFederale();
                 let taxeProvinciale = Taxes.getTaxeProvinciale();
-            
+                 console.log('onApprove : idExpedition :');
+                 console.log(idExpedition);
 
 
                 // This function captures the funds from the transaction.
@@ -83,7 +84,8 @@ class Paypal {
                   window.location.href = "index.php?Commande&action=sauvegarderCommande&panier=" + panier + 
                                                                                       "&details=" + JSON.stringify(details) + 
                                                                                       "&taxeFederale=" + JSON.stringify(taxeFederale) + 
-                                                                                      "&taxeProvinciale=" + JSON.stringify(taxeProvinciale);
+                                                                                      "&taxeProvinciale=" + JSON.stringify(taxeProvinciale) +
+                                                                                      "&expedition=" + idExpedition;
                 });
               }
   
