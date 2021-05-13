@@ -9,6 +9,7 @@ define("NOMBD", "vehicules");
 define("USAGER", "root");
 define("MDP", "");
 define("REPERTOIRE_IMAGES", "./images/");
+define("ADDRESSE_SITE", "http://127.0.0.1/GYPJ-Projet");
 
 
 //définition de la fonction d'autoload

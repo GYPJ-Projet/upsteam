@@ -129,9 +129,10 @@
                  * Si non retour vers page de création.
                  */
                 case "sauvegarderUsager":
-                    if(!isset($params['idRole'])){
+                    if(!isset($params['idRole']) || $params['idRole'] == 0){
                         $params['idRole'] = 3;
                     }
+
                     $usager =  new Usager(  $params['id'], $params['motPasse'], $params['courriel'], $params['nom'],
                                             $params['prenom'], $params['dateNaissance'], $params['adresse'], 
                                             $params['codePostal'], $params['ville'], $params['telephone'],  
@@ -145,14 +146,13 @@
                     // PH Test si c'est une modification (update table)
                     if(isset($params['modif'])){
                         $modeleUsager->sauvegarde($usager);
-                        $unUsager = $modeleUsager->authentification($params["courriel"]);
-                        $_SESSION['usager'] = $unUsager;
+
                         if(isset($params['retour'])){                           //Si on arrive du menu de gestion employer
                             header("Location: index.php?Usager&action=gestionUsager");
                         }else{                                                  //Si on arrive du menu de modif d'un usager.
                             header("Location: index.php");
                         }
-                    }else{          //On procède àu test et à l'ajoût
+                    }else{          //On procède au test et à l'ajoût
                         
                         // Test si le courriel existe déjà.
                         $testCourriel = $modeleUsager->authentification($params["courriel"]);
@@ -173,7 +173,7 @@
 
                                 //Prépare et envoie d'un courriel à l'utilisateur 
                                 //pour confirmation de création de compte.
-                                $lien = '<a href="http://127.0.0.1/GYPJ-Projet/upstream/index.php?Usager&action=validationCompte&token=' . $usager->getToken() . '&id=' . $usager->getId() . '">'. $donnees['langue']['courrielSubjectNouveau'] .'</a>';
+                                $lien = '<a href="' . ADDRESSE_SITE . '/index.php?Usager&action=validationCompte&token=' . $usager->getToken() . '&id=' . $usager->getId() . '">'. $donnees['langue']['courrielSubjectNouveau'] .'</a>';
                                 $msg = "<h1>V&eacute;hicules d'occasion</h1><br>";
                                 $msg .= "<p>" . $donnees['langue']['courrielNouveau'] ."</p><br>";
                                 $msg .= $lien;

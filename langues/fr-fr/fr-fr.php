@@ -100,7 +100,7 @@ $langue['info_terme_info_client_texte']  = "véhicules d'occasion conservera uni
 $langue['info_terme_sup']  = "Conditions d'utilisation supplémentaires";
 $langue['info_terme_sup_texte']  = "En accédant et en utilisant le site Web véhicules d'occasion, vous acceptez d'être légalement lié par toutes les conditions et conditions d'utilisation énoncées ici. N'utilisez pas le site Web véhicules d'occasion et ne placez pas commandes via le site Web véhicules d'occasion.";
 
-$langue['signature']          = "L'équipe de Véhicules d'occasion !";
+$langue['signature']          = "L'&eacute;quipe de V&eacute;hicules d'occasion !";
 
 // Erreur
 $langue['sansPhoto']            = 'Pas de photo pour cette voiture';

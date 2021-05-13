@@ -8,6 +8,9 @@ define("HOTE", "den1.mysql3.gear.host");
 define("NOMBD", "vehicules");
 define("USAGER", "vehicules");
 define("MDP", "Ln3Xu-Q9?yW8");
+define("REPERTOIRE_IMAGES", "./images/");
+define("ADDRESSE_SITE", "http://vehiculesoccasion.gearhostpreview.com");
+
 
 //définition de la fonction d'autoload
 function mon_autoloader($classe)
