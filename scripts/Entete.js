@@ -4,6 +4,7 @@ class Entete{
         /* Gestion Langue*/                                                          
         this._elCodeLangue = this._el.querySelector('[data-js-codeLangue]');
         this._elLangue = this._el.querySelector('[data-js-langue]');
+        this._elDeconnexion = this._el.querySelector('[data-js-deconnexion]');
         this._elControleur = document.querySelector('[data-js-controleur]');
         this._elControleurAction = document.querySelector('[data-js-controleur-action]');
         
@@ -18,6 +19,9 @@ class Entete{
     init = ()=> {
         
         this._elCodeLangue.addEventListener('click', this.changerLangue); 
+        if(this._elDeconnexion){
+            this._elDeconnexion.addEventListener('click', this.deconnexion); 
+        }
 
         this.verifierPanier();  
         this._panier.addEventListener('click', this.afficherCommande); 
@@ -49,5 +53,17 @@ class Entete{
             
             window.location.href = "index.php?Commande&action=afficherCommande&panier=" + panier;            
         } 
+    }
+
+    /**
+     * PH
+     * Remove les locals storages à la déconnexion.
+     */
+    deconnexion= () =>{
+        if (localStorage.getItem('panierAchat')) { 
+            localStorage.removeItem("panierAchat"); 
+            localStorage.removeItem("nombreVoiture");  
+        }
+        window.location.href = "index.php?Usager&action=deconnexion";
     }
 }

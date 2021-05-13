@@ -1,7 +1,7 @@
 <?php
     $langue = $donnees["langue"];       //Pour affichage des langues
 ?>
-<section class="formulaireConnexionConteneur">
+<section class="formulaireConnexionConteneur contenueConteneur">
     <div class="formulaireConnexion" data-js-controleur="Usager"  data-js-controleur-action="formulaireMotPassePerdu"> 
         <h4><?= $langue['motPassePerduTitre'] ?></h4>
         <form class="formulaireConnexionform" action="index.php?Usager" method="post">

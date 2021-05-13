@@ -1,5 +1,4 @@
 
-    
     <section class="pageDonnees contenueConteneur">
     <?php 
         $langue = $donnees["langue"];
