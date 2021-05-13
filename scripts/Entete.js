@@ -19,7 +19,9 @@ class Entete{
     init = ()=> {
         
         this._elCodeLangue.addEventListener('click', this.changerLangue); 
-        this._elDeconnexion.addEventListener('click', this.deconnexion); 
+        if(this._elDeconnexion){
+            this._elDeconnexion.addEventListener('click', this.deconnexion); 
+        }
 
         this.verifierPanier();  
         this._panier.addEventListener('click', this.afficherCommande); 
