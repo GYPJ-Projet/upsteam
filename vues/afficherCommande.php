@@ -52,11 +52,11 @@
                 <button class="magasiner" data-js-magasiner><?= $langue['continuer'] ?></button></br>
                 <button class="button" data-js-commander><?= $langue['passerCommande'] ?></button>
             </div>
-            <div class="hidden" data-js-total-final>
+            <div class="hidden expedition" data-js-total-final>
                
                 <label for="expedition"><?= $langue["choix-expedition"] ?> : </label>
-                <select name="expedition" id="expedition" required>
-                    <option value=""><?= $langue["option"] ?></option>
+                <select name="expedition" id="expedition" data-js-expedition required>
+                    <option value="0"><?= $langue["option"] ?></option>
 <?php
                     for ($i = 1; $i <= count($donnees["expedition"]); $i++) {
 ?>         
@@ -67,19 +67,17 @@
                     }
 ?>  
                 </select><br><hr>
-               
+            </div> 
+            <div class="hidden taxationConteneur" data-js-taxation>  
                 <div class="taxation">
-                    <div class="taxeConteneur"><p data-js-partiel><?= $langue['totalPartiel']?> : <span>$</span> <span data-js-total-partiel> <?= $montantSousTotal ?></span> </p></div>
-                    <div class="taxeConteneur"><p class="tps"><span data-js-texte-taxe-federale></span> <span data-js-tps></span> </p></div>
-                    <div class="taxeConteneur"><p class="tvq" data-js-p-provinciale><span data-js-texte-taxe-provinciale></span> <span data-js-tvq></span></p></div>
-                    <div class="taxeConteneur"><p class="total-final"><?= $langue['total']?> : </p><p><span>$</span><span data-js-total></span> </p></div>
-                    
-                    
-                </div>   
-                <div id="paypal-button-container" data-js-component="Paypal"></div>
-                
-
-
+                    <div class="taxeConteneur"><p data-js-partiel><?= $langue['totalPartiel']?> : </p> <p> <span data-js-total-partiel> <?= $montantSousTotal ?></span><span>$</span></p></div>
+                    <div class="taxeConteneur"><p class="tps" data-js-texte-taxe-federale></p> <p><span data-js-tps></span><span>$</span></p></div>
+                    <div class="taxeConteneur"><p class="tvq" data-js-p-provinciale data-js-texte-taxe-provinciale></p> <p><span data-js-tvq></span><span>$</span></p></div>
+                    <div class="taxeConteneur"><p class="total-final"><?= $langue['total']?> : </p> <p><span data-js-total></span><span>$</span></p></div>
+                </div>
+                <div class="paypal"> 
+                    <div id="paypal-button-container" data-js-component="Paypal"></div>
+                </div>
             </div>
         </section>
     </div>    

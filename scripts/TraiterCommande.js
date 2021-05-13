@@ -7,6 +7,8 @@ class TraiterCommande {
         this._elPasserCmd = this._el.querySelector('[data-js-passer-commande]');  
         this._elTotalPartiel = this._el.querySelector('[data-js-total-partiel]'); 
         this._elTotalFinal = this._el.querySelector('[data-js-total-final]'); 
+        this._elTaxation = this._el.querySelector('[data-js-taxation]'); 
+        this._elExpedition = this._el.querySelector('[data-js-expedition]'); 
         this._elTotal = this._el.querySelector('[data-js-total]'); 
         this._elTvq = this._el.querySelector('[data-js-tvq]'); 
         this._elTps = this._el.querySelector('[data-js-tps]'); 
@@ -25,7 +27,7 @@ class TraiterCommande {
 
         this._elMagasiner.addEventListener('click', this.continuerMagasinage);
         this._elCommander.addEventListener('click', this.passerCommande);
-        
+        this._elExpedition.addEventListener('change', this.expedition);
     }
    
     continuerMagasinage = () => {
@@ -65,12 +67,24 @@ class TraiterCommande {
       
         if (this._taxeProvinciale != null ) {
             tvq = (montantPartiel * taxeProvinciale).toFixed(2);
-            this._elTvq.innerHTML = tvq + " $";
+            this._elTvq.innerHTML = tvq;
         }
 
         total = parseFloat(tps) + parseFloat(tvq) + montantPartiel;
 
         this._elTps.innerHTML = tps;         
         this._elTotal.innerHTML = total;
+    }
+
+    expedition = () => {
+        
+        localStorage.setItem('idExpedition', this._elExpedition.value);
+
+        if(parseInt(this._elExpedition.value) > 0) {
+            this._elTaxation.classList.remove('hidden');   
+        }
+        else {
+            this._elTaxation.classList.add('hidden');
+        }
     }
 }

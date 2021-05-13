@@ -93,7 +93,7 @@ class DescriptionVoiture {
         //let panier = [];                    
 
         if (!localStorage.getItem('panierAchat')) { 
-            console.log('ajouteDansPanier - if :')
+            
             this.creerPanier(); 
 
         } else {
@@ -101,7 +101,7 @@ class DescriptionVoiture {
             let existVoiture = this.existeVoiture();
     
             if (existVoiture == false) {
-                console.log('ajouteDansPanier - existVoiture == false :')   
+               
                 this.creerPanier();                    
 
             }    
