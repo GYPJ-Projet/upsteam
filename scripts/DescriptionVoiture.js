@@ -94,7 +94,7 @@ class DescriptionVoiture {
         // Ajouter le produit dans le sessionStorage panierAchat
         //let panier = [];                    
 
-        if (!localStorage.getItem('panierAchat')) { 
+        if (!sessionStorage.getItem('panierAchat')) { 
             
             this.creerPanier(); 
 
@@ -127,27 +127,27 @@ class DescriptionVoiture {
         voiture.prix = this._elPrix.dataset.jsVoiturePrix;
         voiture.quantite = 1;
 
-        if (localStorage.getItem('panierAchat')) { 
+        if (sessionStorage.getItem('panierAchat')) { 
 
-            panier = JSON.parse(localStorage.getItem('panierAchat'));
+            panier = JSON.parse(sessionStorage.getItem('panierAchat'));
         }
         
         //panier.push(voiture);
         panier[parseInt(voiture.id)] = voiture;
 
-        localStorage.setItem('panierAchat', JSON.stringify(panier));
+        sessionStorage.setItem('panierAchat', JSON.stringify(panier));
         this._elBouton.disabled = true;       //On rend le bouton non cliquable et on desactive la voitire
         this._elBouton.classList.add('inactif');
 
-        if (!localStorage.getItem('nombreVoiture')) {
+        if (!sessionStorage.getItem('nombreVoiture')) {
 
-            localStorage.setItem('nombreVoiture', 1);
+            sessionStorage.setItem('nombreVoiture', 1);
 
             this._nbrVoiture.innerHTML = 1;
         }
         else {
-            let nbrVoiture = parseInt(localStorage.getItem('nombreVoiture')) + 1;
-            localStorage.setItem('nombreVoiture', nbrVoiture);
+            let nbrVoiture = parseInt(sessionStorage.getItem('nombreVoiture')) + 1;
+            sessionStorage.setItem('nombreVoiture', nbrVoiture);
             this._nbrVoiture.innerHTML = nbrVoiture;
         }
     }
@@ -156,9 +156,9 @@ class DescriptionVoiture {
         let idVoiture = this._elId.dataset.jsVoiture,
         existVoiture = false;
 
-        if (localStorage.getItem('panierAchat')) { 
+        if (sessionStorage.getItem('panierAchat')) { 
 
-            let panier = JSON.parse(localStorage.getItem('panierAchat'));           
+            let panier = JSON.parse(sessionStorage.getItem('panierAchat'));           
             
             if (panier.length > 0) { 
                 for(let i = 0; i < panier.length; i++) {        //Boucle à travers les voitures présents,

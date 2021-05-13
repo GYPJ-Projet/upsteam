@@ -38,18 +38,18 @@ class Entete{
     }
 
     verifierPanier = () => {
-        if (localStorage.getItem('nombreVoiture')) {
+        if (sessionStorage.getItem('nombreVoiture')) {
             if (this._panier.classList.contains('vide')) { 
                 this._panier.classList.replace('vide', 'fill');
-                this._nbrVoiture.innerHTML = parseInt(localStorage.getItem('nombreVoiture'));
+                this._nbrVoiture.innerHTML = parseInt(sessionStorage.getItem('nombreVoiture'));
             }
         }
     }
 
     afficherCommande = () => {
-        if (localStorage.getItem('panierAchat')) { 
+        if (sessionStorage.getItem('panierAchat')) { 
                          
-            let panier = localStorage.getItem("panierAchat");  
+            let panier = sessionStorage.getItem("panierAchat");  
             
             window.location.href = "index.php?Commande&action=afficherCommande&panier=" + panier;            
         } 
@@ -60,9 +60,9 @@ class Entete{
      * Remove les locals storages à la déconnexion.
      */
     deconnexion= () =>{
-        if (localStorage.getItem('panierAchat')) { 
-            localStorage.removeItem("panierAchat"); 
-            localStorage.removeItem("nombreVoiture");  
+        if (sessionStorage.getItem('panierAchat')) { 
+            sessionStorage.removeItem("panierAchat"); 
+            sessionStorage.removeItem("nombreVoiture");  
         }
         window.location.href = "index.php?Usager&action=deconnexion";
     }

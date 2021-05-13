@@ -6,11 +6,11 @@ class CommandeVoiture {
         this._elQteVoiture = this._el.querySelector('[data-js-quantite]');
         this._elPrix = this._el.querySelector('[data-js-prix]');
         this._elTotalPartiel = document.querySelector('[data-js-total-partiel]'); 
-        this._panier = JSON.parse(localStorage.getItem('panierAchat'));
         this._nbrVoiture = document.querySelector('[data-js-nombre-voiture]');   
         this._idVoiture = parseInt(this._el.dataset.jsCommandevoiture);
         this._elControleurAction = document.querySelector('[data-js-controleur-action]');  
-        this._Commander = document.querySelector('[data-js-commander]'); 
+        this._Commander = document.querySelector('[data-js-commander]');
+        this._panier     = document.querySelector('[data-js-panier]'); 
 
         Taxes.getTaxes();
 
@@ -30,16 +30,18 @@ class CommandeVoiture {
         let qte = parseInt(this._elQteVoiture.innerHTML);
         let prix =  parseInt(this._elPrix.innerHTML);
         let sousTotal = parseInt(this._elTotalPartiel.innerHTML);
-        let nbrVoiture = parseInt(localStorage.getItem('nombreVoiture')); 
+        let nbrVoiture = parseInt(sessionStorage.getItem('nombreVoiture'));
+        let panier = sessionStorage.getItem('panierAchat');
+        panier = JSON.parse(panier); 
 
         if (qte > 0) { 
-            qte--;  
-            this._panier[this._idVoiture] = null;
+            qte--; 
+            panier[this._idVoiture] = null;
             nbrVoiture--;
-           
-            localStorage.setItem('panierAchat', JSON.stringify(this._panier));      
-            localStorage.setItem('nombreVoiture', JSON.stringify(nbrVoiture));      
-            this._elControleurAction.dataset.jsControleurAction = `afficherCommande&panier= ${JSON.stringify(this._panier)}`;   
+            
+            sessionStorage.setItem('panierAchat', JSON.stringify(panier));      
+            sessionStorage.setItem('nombreVoiture', JSON.stringify(nbrVoiture));      
+            this._elControleurAction.dataset.jsControleurAction = `afficherCommande&panier= ${JSON.stringify(panier)}`;   
            
             sousTotal -= prix;
            
@@ -49,6 +51,15 @@ class CommandeVoiture {
             this._elTotalPartiel.innerHTML = sousTotal;
             this._el.innerHTML = '';
 
+            // Si la dernière voiture était rétirée, on supprime sessionStorage
+            if (nbrVoiture == 0) {
+                sessionStorage.removeItem("panierAchat");  
+                sessionStorage.removeItem("nombreVoiture"); 
+                this._panier.classList.replace('fill', 'vide');
+                this._nbrVoiture.innerHTML = '';
+                window.location.href = 'index.php';
+            }
+            
             if (this._panier == null) {
                 if (this._nbrVoiture == 0){
                     this._Commander.classList.add('hidden')
