@@ -8,7 +8,7 @@
         private $idModele;
         private $idAnnee;
         private $kilometrage;
-        private $dateArrivee;
+        private $dateArivee;
         private $prixAchat;
         private $prixVente;
         private $idMotopropulseur;
@@ -21,7 +21,7 @@
         
 
         public function __construct($id = 0, $idModele = 0, $idAnnee = 0, $kilometrage = 0, 
-                                    $dateArrivee = 0, $prixAchat = 0, 
+                                    $dateArivee = 0, $prixAchat = 0, 
                                     $prixVente = 0, $idMotopropulseur = 0, $idTypeCarburant = 0,
                                     $idCouleur = 0, $idTransmission = 0, $idTypeCarrosserie = 0, 
                                     $disponibilite = 1, $vna = "") {
@@ -30,7 +30,7 @@
             $this->idModele = $idModele;
             $this->idAnnee = $idAnnee;
             $this->kilometrage = $kilometrage;
-            $this->dateArrivee = $dateArrivee;
+            $this->dateArivee = $dateArivee;
             $this->prixAchat = $prixAchat;
             $this->prixVente = $prixVente;
             $this->idMotopropulseur = $idMotopropulseur;
@@ -58,8 +58,8 @@
             return $this->kilometrage;
         }
 
-        public function getDateArrivee() {
-            return $this->dateArrivee;
+        public function getdateArrivee() {
+            return $this->dateArivee;
         }
 
         public function getPrixAchat() {
@@ -96,6 +96,10 @@
 
         public function getVna() {
             return $this->vna;
+        }
+
+        public function setDisponibilite($disponibilite) {
+             $this->disponibilite = $disponibilite;
         }
 
     }

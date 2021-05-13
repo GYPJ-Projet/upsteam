@@ -70,6 +70,7 @@ class Paypal {
               },
   
               onApprove: function(data, actions) {
+              //  let idExpedition = localStorage.getItem('idExpedition');
                 let panier = localStorage.getItem('panierAchat');
                 let taxeFederale = Taxes.getTaxeFederale();
                 let taxeProvinciale = Taxes.getTaxeProvinciale();

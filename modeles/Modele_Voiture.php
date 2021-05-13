@@ -34,7 +34,7 @@
 			}
 		}
 
-		public function obtenirParId($id) {
+		public function obtenirParIdVoiture($id) {
             try {
 				$stmt = $this->db->query("SELECT voiture.*, 
 					marque.id AS idMarque,
