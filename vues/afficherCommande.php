@@ -54,8 +54,8 @@
             </div>
             <div class="hidden expedition" data-js-total-final>
                
-                <label for="expedition"><?= $langue["choix-expedition"] ?> : </label>
-                <select name="expedition" id="expedition" data-js-expedition required>
+                <label class="label_commande" for="expedition"><?= $langue["choix-expedition"] ?> : </label>
+                <select class="select_commande" name="expedition" id="expedition" data-js-expedition required>
                     <option value="0"><?= $langue["option"] ?></option>
 <?php
                     for ($i = 1; $i <= count($donnees["expedition"]); $i++) {
