@@ -34,10 +34,12 @@ class CommandeVoiture {
         let panier = sessionStorage.getItem('panierAchat');
         panier = JSON.parse(panier); 
 
+
         if (qte > 0) { 
             qte--; 
             panier[this._idVoiture] = null;
             nbrVoiture--;
+
             
             sessionStorage.setItem('panierAchat', JSON.stringify(panier));      
             sessionStorage.setItem('nombreVoiture', JSON.stringify(nbrVoiture));      

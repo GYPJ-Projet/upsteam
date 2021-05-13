@@ -74,80 +74,46 @@ class Paypal {
                 let panier = sessionStorage.getItem('panierAchat');
                 let taxeFederale = Taxes.getTaxeFederale();
                 let taxeProvinciale = Taxes.getTaxeProvinciale();
-                 console.log('onApprove : idExpedition :');
-                 console.log(idExpedition);
 
 
+                
                 // This function captures the funds from the transaction.
                 return actions.order.capture().then(function(details) {
+
+
+                  let capture = details.purchase_units[0].payments.captures[0];
+                  let paypalStatus          = capture.status;
+                  let paypalNoAutorisation  = capture.id;
+                  let paypalTime            = capture.update_time;
+                  let paypalTotal           = capture.amount.value;
+      
+              
                   // This function shows a transaction success message to your buyer.
                   window.location.href = "index.php?Commande&action=sauvegarderCommande&panier=" + panier + 
-                                                                                      "&details=" + JSON.stringify(details) + 
+                                                                                      "&status=" + paypalStatus +
+                                                                                      "&noAutorisation=" + paypalNoAutorisation +
+                                                                                      "&time=" + paypalTime +
+                                                                                      "&total=" + paypalTotal +
                                                                                       "&taxeFederale=" + JSON.stringify(taxeFederale) + 
                                                                                       "&taxeProvinciale=" + JSON.stringify(taxeProvinciale) +
                                                                                       "&expedition=" + idExpedition;
+
                 });
-              }
+              },
   
-/*                onCancel: function (data) {
+            onCancel: function (data) {
                 // Show a cancel page, or return to cart
                 alert('Transaction cancel by ' + details.payer.name.given_name);
                 window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
-              }, */
+            }, 
   
-/*               onError: function (err) {
+            onError: function (err) {
                 // For example, redirect to a specific error page
                 alert('Transaction error for ' + details.payer.name.given_name);
                 window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
-              }  */
+            }
   
             }).render('#paypal-button-container');
       
     }
-
- /* 
-    preparerOrder = () => {
-      console.log("class Paypal - function preparerOrder - IN");
-    
-      let unObjItem = "";
-      let unObjAmount = new this.Amount();
-
-
-      for (let i = 0, l = tabPanier.length; i < l; i++) {
-
-          // S'il y a une voiture dans cet index  du panier, on crée un Items 
-          if (tabPanier[i] != null) {
-              nbrVoitureTraite++;
-
-              unObjItem = new this.Item(tabPanier[i]); // On crée l'objet litéral Item;
-              console.log("class Paypal - function preparerOrder - AFTER ->  new this.Item 0  unObjItem : ");
-              console.log(unObjItem);
-              
-              unObjAmount.details.subtotal += parseInt(unObjItem.price) * parseInt(unObjItem.quantite);
-              this._items.push(unObjItem);
-          }
-      }
- 
-      
-    
-    }
-
-
-    Item(commandeVoiture) {
-      this.currency     = "CAD";
-      this.name         =  commandeVoiture.marque + " " + commandeVoiture.model + " " + commandeVoiture.annee;
-      this.price        = commandeVoiture.prix;
-     // this.tax =  $commandeVoiture.year;
-      this.quantity     = commandeVoiture.quantite;
-      this.sku          = commandeVoiture.id;
-    }
-    
-    Amount() {
-      this.currency     = "CAD";
-      this.total         = 0;
-      this.details.subtotal = 0;
-      this.details.shipping = 0;
-      this.details.tax = 0;
-      
-    } */
 }
