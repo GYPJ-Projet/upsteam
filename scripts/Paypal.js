@@ -72,6 +72,7 @@ class Paypal {
               onApprove: function(data, actions) {
                 let idExpedition = sessionStorage.getItem('idExpedition');
                 let panier = sessionStorage.getItem('panierAchat');
+                console.log('panier: ',panier);
                 let taxeFederale = Taxes.getTaxeFederale();
                 let taxeProvinciale = Taxes.getTaxeProvinciale();
 
@@ -86,8 +87,8 @@ class Paypal {
                   let paypalNoAutorisation  = capture.id;
                   let paypalTime            = capture.update_time;
                   let paypalTotal           = capture.amount.value;
-      
-              
+
+
                   // This function shows a transaction success message to your buyer.
                   window.location.href = "index.php?Commande&action=sauvegarderCommande&panier=" + panier + 
                                                                                       "&status=" + paypalStatus +
@@ -103,13 +104,11 @@ class Paypal {
   
             onCancel: function (data) {
                 // Show a cancel page, or return to cart
-                alert('Transaction cancel by ' + details.payer.name.given_name);
                 window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
             }, 
   
             onError: function (err) {
                 // For example, redirect to a specific error page
-                alert('Transaction error for ' + details.payer.name.given_name);
                 window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
             }
   
