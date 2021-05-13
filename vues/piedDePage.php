@@ -25,7 +25,7 @@
                     <?= $langue['pdp_partager'] ?>
                 </h3>
                 <div class="footer__icones">
-                    <a href="https://www.facebook.com/"><img src="images/icones/facebook" alt="facebook" width="25px" height="16px">Facebook</a>
+                    <a href="https://www.facebook.com/"><img src="images/icones/facebook.png" alt="facebook" width="25px" height="16px">Facebook</a>
                     <a href="https://twitter.com/"><img src="images/icones/twiter.png" alt="twiter" width="25px" height="16px">Twiter</a>
                     <a href="https://www.instagram.com/"><img src="images/icones/instagram.png" alt="instagram" width="25px"height="16px">Instagram</a>
                 </div>              

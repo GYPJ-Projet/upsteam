@@ -77,29 +77,55 @@ class Paypal {
                  console.log('onApprove : idExpedition :');
                  console.log(idExpedition);
 
+                //  alert('PAYPAL.JS -- panier  ' + panier);
+                //  alert('PAYPAL.JS -- taxeFederale  ' + JSON.stringify(taxeFederale));
+                //  alert('PAYPAL.JS -- taxeProvinciale  ' + JSON.stringify(taxeProvinciale));
+                //  alert('PAYPAL.JS -- idExpedition  ' + idExpedition);
 
                 // This function captures the funds from the transaction.
                 return actions.order.capture().then(function(details) {
+
+                    alert('PAYPAL.JS -- IN CAP');
+                    // alert('PAYPAL.JS -- panier  ' + panier);
+                    // alert('PAYPAL.JS -- detail  ' + JSON.stringify(details));
+                    // alert('PAYPAL.JS -- taxeFederale  ' + JSON.stringify(taxeFederale));
+                    // alert('PAYPAL.JS -- taxeProvinciale  ' + JSON.stringify(taxeProvinciale));
+                    // alert('PAYPAL.JS -- idExpedition  ' + idExpedition);
+                    alert('PAYPAL.JS -- HREF      ' + 'index.php?Commande&action=sauvegarderCommande&panier=' + panier + 
+                                                                                           '&details=' + JSON.stringify(details) + 
+                                                                                           '&taxeFederale=' + JSON.stringify(taxeFederale) + 
+                                                                                           '&taxeProvinciale=' + JSON.stringify(taxeProvinciale) +
+                                                                                           '&expedition=' + idExpedition.toString());
+
+                    // location = 'index.php?Commande&action=sauvegarderCommande&panier=' + panier + 
+                    //                                                 '&details=' + JSON.stringify(details) + 
+                    //                                                 '&taxeFederale=' + JSON.stringify(taxeFederale) + 
+                    //                                                 '&taxeProvinciale=' + JSON.stringify(taxeProvinciale) +
+                    //                                                 '&expedition=' + idExpedition;
+                    // console.log('location: ',location);
+
                   // This function shows a transaction success message to your buyer.
-                  window.location.href = "index.php?Commande&action=sauvegarderCommande&panier=" + panier + 
-                                                                                      "&details=" + JSON.stringify(details) + 
-                                                                                      "&taxeFederale=" + JSON.stringify(taxeFederale) + 
-                                                                                      "&taxeProvinciale=" + JSON.stringify(taxeProvinciale) +
-                                                                                      "&expedition=" + idExpedition;
+                  window.location.href = `index.php?Commande&action=sauvegarderCommande&taxeFederale=` + JSON.stringify(taxeFederale) +
+                                                                                        `&taxeProvinciale=` + JSON.stringify(taxeProvinciale) +
+                                                                                        `&expedition=` + idExpedition +
+                                                                                        `&panier=` + panier;
+                                                                            //&details=` + JSON.stringify(details) + 
+                    alert('PAYPAL.JS -- APRÈS HREF');
+                    
                 });
-              }
+              },
   
-/*                onCancel: function (data) {
+            onCancel: function (data) {
                 // Show a cancel page, or return to cart
                 alert('Transaction cancel by ' + details.payer.name.given_name);
                 window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
-              }, */
+            }, 
   
-/*               onError: function (err) {
+            onError: function (err) {
                 // For example, redirect to a specific error page
                 alert('Transaction error for ' + details.payer.name.given_name);
                 window.location.href = `index.php?${this._nomControleur}&action=${this._contoleurAction}`;
-              }  */
+            }
   
             }).render('#paypal-button-container');
       
