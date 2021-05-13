@@ -101,15 +101,6 @@ class Taxes {
             }
 
             Taxes._taxesAreReady = true; // Les taxes sont prête
-
-            console.log("class Taxes - sauvegarderLesTaxes -  taxeFederale ET _axeProvinciale : ");
-            console.log(Taxes._taxesProvince[Taxes._indexTaxeFederal]);
-            if (Taxes._indexTaxeProvinciale != -1) {
-                console.log(Taxes._taxesProvince[Taxes._indexTaxeProvinciale]);
-            } else {
-                console.log(null);
-            }
-
         }
     }
 
