@@ -129,8 +129,17 @@
                  * Si non retour vers page de création.
                  */
                 case "sauvegarderUsager":
-                    if(!isset($params['idRole']) || $params['idRole'] == 0){
-                        $params['idRole'] = 3;
+                    // Si on fait une modification et que nous sommes administrateur OU
+                    // si on ne fait pas de modification, mais un création de compte
+                    if((isset($params['modif']) && isset($params['retour'])) || !isset($params['modif'])){
+
+                        if(!isset($params['idRole']) || $params['idRole'] == 0){
+                            $params['idRole'] = 3;
+                        }
+
+                        // Sinon si on fait une modification, on est un usager client
+                    } else if(isset($params['modif'])) {
+                         $params['idRole'] = $_SESSION['usager']->getIdRole();
                     }
 
                     $usager =  new Usager(  $params['id'], $params['motPasse'], $params['courriel'], $params['nom'],
