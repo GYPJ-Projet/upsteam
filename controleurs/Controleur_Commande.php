@@ -67,7 +67,6 @@
 						break;      
 						
 					case "sauvegarderCommande" :
-                        Debug::toLog('sauvegarderCommande - IN');
 						
 						if (isset($_SESSION["paypalNoAutorisation"])) {
 							$paypalNoAutorisation = $_SESSION["paypalNoAutorisation"];
@@ -89,7 +88,7 @@
 							$donnees["expedition"] = '';
 						}
 
-                        Debug::toLog('sauvegarderCommande - AVANT PARAMS', $params);
+
 						// Sauvegarde de la commande du client 
 						// Si on a reçu les paramètres Panier .
 						if( isset($params["panier"]) && 
@@ -101,7 +100,6 @@
 							isset($params["taxeProvinciale"]) && 
 							isset($params["expedition"]) && 
 							isset($_SESSION["usager"])) {
-                        Debug::toLog('sauvegarderCommande - APRÈS PARAMS', $params);
 
  						    $titreRecuPDF = $donnees["langue"]["releve_de_transaction"];
 
@@ -144,14 +142,10 @@
 								    break;
 							}
 
-                            Debug::toLog('sauvegarderCommande - AVANT NEW FACTURE');
-
 							$nouvelleFacture = new Facture(0, $idClient, $date , $paypalTotal, $idStatut,
 														$idExpedition, $idModePaiement ,
 														$paypalNoAutorisation);
 							
-                            Debug::toLog('sauvegarderCommande - APRÈS NEW FACTURE', $nouvelleFacture);
-
 							$idCommande = $modeleFacture->sauvegarder($nouvelleFacture);
 
 							$donnees["paypalNoAutorisation"] = $paypalNoAutorisation;
@@ -178,7 +172,7 @@
 								}
 							}
 							
-							// CreerPDF::creationRecuPDF($donnees["langue"], $paypalNoAutorisation, $titreRecuPDF, $params["panier"], $date, $idCommande, $laTaxeFederale, $laTaxeProvinciale, 'F');
+							CreerPDF::creationRecuPDF($donnees["langue"], $paypalNoAutorisation, $titreRecuPDF, $params["panier"], $date, $idCommande, $laTaxeFederale, $laTaxeProvinciale, 'F');
 							$_SESSION["paypalNoAutorisation"] = $paypalNoAutorisation;
 							$_SESSION["idExpedition"] = $idExpedition;
 						
@@ -191,7 +185,7 @@
 
 							$this->afficheVue("succes", $donnees);
 
-							// Courriel::envoieCourriel($donnees["langue"], $courriel, $donnees["langue"]['courrielSubjectApprouve'], $msg, $fichier);
+							Courriel::envoieCourriel($donnees["langue"], $courriel, $donnees["langue"]['courrielSubjectApprouve'], $msg, $fichier);
 
 						} else {
 							$donnees["paypalNoAutorisation"] = $paypalNoAutorisation;

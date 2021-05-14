@@ -45,7 +45,7 @@ class CommandeVoiture {
             sessionStorage.setItem('nombreVoiture', JSON.stringify(nbrVoiture));      
             this._elControleurAction.dataset.jsControleurAction = `afficherCommande&panier= ${JSON.stringify(panier)}`;   
            
-            sousTotal -= prix;
+            sousTotal -= parseFloat(prix).toFixed(2);
            
 
             this._nbrVoiture.innerHTML = nbrVoiture;
