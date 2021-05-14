@@ -129,6 +129,9 @@
                  * Si non retour vers page de création.
                  */
                 case "sauvegarderUsager":
+
+                    $code = 'fr-fr';
+
                     // Si on fait une modification et que nous sommes administrateur OU
                     // si on ne fait pas de modification, mais un création de compte
                     if((isset($params['modif']) && isset($params['retour'])) || !isset($params['modif'])){
@@ -139,13 +142,14 @@
 
                         // Sinon si on fait une modification, on est un usager client
                     } else if(isset($params['modif'])) {
+                          $code = $_SESSION["usager"]->getCode();
                          $params['idRole'] = $_SESSION['usager']->getIdRole();
                     }
 
                     $usager =  new Usager(  $params['id'], $params['motPasse'], $params['courriel'], $params['nom'],
                                             $params['prenom'], $params['dateNaissance'], $params['adresse'], 
                                             $params['codePostal'], $params['ville'], $params['telephone'],  
-                                            $params['cellulaire'], $params['langue'], $params['idRole'], $params['province'], "", $_SESSION["usager"]->getCode());
+                                            $params['cellulaire'], $params['langue'], $params['idRole'], $params['province'], "", $code );
 
                     //Test les paramètre reçus.
                     $test = $this->testCreation($params, $donnees);
