@@ -7,8 +7,16 @@
     if (isset($donnees["descriptions"])) $descriptions = $donnees["descriptions"];
     if (isset($donnees["langues"])) $langues = $donnees["langues"];
     if (isset($_GET["page"])) $donnees["page"] =  $_GET["page"];
+
+    if (isset($donnees["voiture"])) {
+        $afficherVoiture = "afficherFormulaireVoiture&id=" . $voiture['id'];
+     } else {
+        $afficherVoiture = "afficherFormulaireVoiture";
+     } 
+
 ?>
-    <div data-js-component="FormulaireVoiture" data-js-controleur-action="afficherFormulaireVoiture">
+    <div data-js-component="FormulaireVoiture" data-js-controleur-action=<?= $afficherVoiture ?>>
+
         <h2><?= (isset($voiture)) ? $langueInfo["formulaire_modif_voiture"] : $langueInfo["formulaire_ajout_voiture"] ?></h2>
         <form class="formulaire" action="index.php?GestionDonnees_AJAX&action=sauvegarderVoiture" method="post" data-js-form>
             <label for="marque"><?= $langueInfo["nom_marque"] ?> : </label>
