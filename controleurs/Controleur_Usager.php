@@ -136,7 +136,7 @@
                     $usager =  new Usager(  $params['id'], $params['motPasse'], $params['courriel'], $params['nom'],
                                             $params['prenom'], $params['dateNaissance'], $params['adresse'], 
                                             $params['codePostal'], $params['ville'], $params['telephone'],  
-                                            $params['cellulaire'], $params['langue'], $params['idRole'], $params['province']);
+                                            $params['cellulaire'], $params['langue'], $params['idRole'], $params['province'], "", $_SESSION["usager"]->getCode());
 
                     //Test les paramètre reçus.
                     $test = $this->testCreation($params, $donnees);
@@ -146,7 +146,7 @@
                     // PH Test si c'est une modification (update table)
                     if(isset($params['modif'])){
                         $modeleUsager->sauvegarde($usager);
-
+                        $_SESSION["usager"] = $usager;
                         if(isset($params['retour'])){                           //Si on arrive du menu de gestion employer
                             header("Location: index.php?Usager&action=gestionUsager");
                         }else{                                                  //Si on arrive du menu de modif d'un usager.
