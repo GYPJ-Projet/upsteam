@@ -13,7 +13,6 @@
         public function traite(array $params) {
             $donnees = array();
             $vue = "";
- 
             // On charge les fichiers de langue selon la langue choisi par l'usager.
             $donnees["langue"] = $this->chargerLangue($params);
             $idLangue = $donnees["langue"]["idLangue"]; // On récupère l'ID de la langue
@@ -129,7 +128,7 @@
                  * Si non retour vers page de création.
                  */
                 case "sauvegarderUsager":
-
+                    
                     $code = 'fr-fr';
 
                     // Si on fait une modification et que nous sommes administrateur OU
@@ -145,7 +144,6 @@
                           $code = $_SESSION["usager"]->getCode();
                          $params['idRole'] = $_SESSION['usager']->getIdRole();
                     }
-
                     $usager =  new Usager(  $params['id'], $params['motPasse'], $params['courriel'], $params['nom'],
                                             $params['prenom'], $params['dateNaissance'], $params['adresse'], 
                                             $params['codePostal'], $params['ville'], $params['telephone'],  
@@ -159,7 +157,11 @@
                     // PH Test si c'est une modification (update table)
                     if(isset($params['modif'])){
                         $modeleUsager->sauvegarde($usager);
-                        $_SESSION["usager"] = $usager;
+
+                        if(!(isset($params['modif']) && isset($params['retour']))){
+                            $_SESSION["usager"] = $usager;
+                        }
+
                         if(isset($params['retour'])){                           //Si on arrive du menu de gestion employer
                             header("Location: index.php?Usager&action=gestionUsager");
                         }else{                                                  //Si on arrive du menu de modif d'un usager.
