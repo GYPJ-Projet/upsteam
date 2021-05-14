@@ -45,12 +45,12 @@ class CommandeVoiture {
             sessionStorage.setItem('nombreVoiture', JSON.stringify(nbrVoiture));      
             this._elControleurAction.dataset.jsControleurAction = `afficherCommande&panier= ${JSON.stringify(panier)}`;   
            
-            sousTotal -= parseFloat(prix).toFixed(2);
+            sousTotal -= parseFloat(prix);
            
 
             this._nbrVoiture.innerHTML = nbrVoiture;
             this._elQteVoiture.innerHTML = qte;
-            this._elTotalPartiel.innerHTML = sousTotal;
+            this._elTotalPartiel.innerHTML = sousTotal.toFixed(2);
             this._el.innerHTML = '';
 
             // Si la dernière voiture était rétirée, on supprime sessionStorage
