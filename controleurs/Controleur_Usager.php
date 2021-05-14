@@ -55,11 +55,11 @@
                     // On valide l'authentification de l'usager 
                     if (isset($params["courriel"], $params["motPasse"])) {
                         $unUsager = $modeleUsager->authentification($params["courriel"]);
-                        $token = $unUsager->getToken();
                         // Si son authentification est valide 
                         if ($unUsager !== false) {
-                            if($unUsager->getMotPasse() === $params["motPasse"]){       //Test du mot de passe.
-                                if($token === null || $token === ''){                                    //Test de l'existence d'un token.
+                            if($unUsager->getMotPasse() === $params["motPasse"]){                       //Test du mot de passe.
+                                $token = $unUsager->getToken();
+                                if($token === null || $token === ''){                                   //Test de l'existence d'un token.
                                     $_SESSION["usager"] = $unUsager;
                                     $ip = $_SERVER['REMOTE_ADDR'];
                                     $modeleUsager->journalConnexion($unUsager->getId(), $ip);

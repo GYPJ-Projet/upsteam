@@ -38,11 +38,11 @@ $langue['no_facture']               = 'Facture no.';
 
 // Page de succes
 $langue['merci']                    = 'Merci beaucoup';
-$langue['confirmation']             = 'de votre achat approuvé, dont vous retrouverez tous les d&eacute;tails ci-dessous.';
+$langue['confirmation']             = 'de votre achat approuv&eacute;, dont vous retrouverez tous les d&eacute;tails ci-dessous.';
 $langue['expedition_ramassage']     = 'Votre commmande sera prêtes dans 2 jours, vous pourrez passer la prendre !';
 $langue['expedition_local']         = 'Votre commmande sera prêtes dans 2 jours.  Nous vous la livrerons à votre adresse !';
 
-$langue['courrielSubjectApprouve']  = 'Confirmation d\'achat approuvé';
+$langue['courrielSubjectApprouve']  = 'Confirmation d\'achat approuv&eacute;';
 $langue['courrielAchatApprouve']    = 'Nous avons le plaisir de vous annoncer que votre achant est approuvé.  Vous trouverez le reçu de votre commande en pièce jointe.';
 
 

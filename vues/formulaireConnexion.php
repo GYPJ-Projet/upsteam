@@ -22,19 +22,14 @@
         <div class="boutonConteneur fondBlanc">
             <input class="boutonFormConnexion sourisPointer " type="button" value="<?= $langue['creerCompte'] ?>" data-js-btnCreerCompte/>
             <input class="boutonFormCreerCompte sourisPointer" type="button" value="<?= $langue['motPassePerdu'] ?>" data-js-btnMotPassePerdu/>
-        </div>
-    </div>
-</section>
-<?php
 
+<?php
     if($donnees["erreurs"] != ""){
 ?>
-        <p class="connexionErreur"><?= $donnees["erreurs"] ?></p>
-
-<?php
-    }else{
-?>
-        <p></p>   
+            <p class="connexionErreur"><?= $donnees["erreurs"] ?></p>
 <?php
     }
 ?>
+        </div>
+    </div>
+</section>
