@@ -39,7 +39,7 @@
             $this->prenom = $prenom;
             $this->dateNaissance = $dateNaissance;
             $this->adresse = $adresse;
-            $this->codePostal = $codePostal;
+            $this->codePostal = str_replace(' ', '',$codePostal);
             $this->ville = $ville;
             $this->idProvince = $idProvince;
             $this->telephone = $telephone;

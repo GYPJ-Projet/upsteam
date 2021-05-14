@@ -43,15 +43,6 @@ class Paypal {
   
               intent:"SALE",
   
- /*              // onClick is called when the button is clicked
-              onClick: function()  {
-  
-                console.log("class Paypal - function gestionBoutonPaypal - paypal.Buttons - onClick - IN")
-                this.preparerOrder();
-  
-              }, */
-  
-  
               createOrder: function(data, actions) {
 
                 let elTotal = document.querySelector('[data-js-total]');

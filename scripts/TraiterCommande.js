@@ -14,7 +14,7 @@ class TraiterCommande {
         this._elTps = this._el.querySelector('[data-js-tps]'); 
         this._elTexteTaxeFederale =  this._el.querySelector('[data-js-texte-taxe-federale]');
         this._elTexteTaxeProvinciale =  this._el.querySelector('[data-js-texte-taxe-provinciale]');
-        this._elPProvinciale = this._el.querySelector('[data-js-p-provinciale]');
+        this._elDivProvinciale = this._el.querySelector('[data-js-div-provinciale]');
         
         this._taxeFederale = null;   // Ce seront dorenavant des objets
         this._taxeProvinciale = null;
@@ -50,7 +50,7 @@ class TraiterCommande {
             this._elTexteTaxeProvinciale.innerHTML = this._taxeProvinciale['nomTaxe'] + " :";
             taxeProvinciale =  parseFloat(this._taxeProvinciale['taux']);
         } else {
-            this._elPProvinciale.classList.add('hidden');
+            this._elDivProvinciale.classList.add('hidden');
         }
 
         this._elPasserCmd.classList.add('hidden');
@@ -70,7 +70,7 @@ class TraiterCommande {
             this._elTvq.innerHTML = tvq;
         }
 
-        total = parseFloat(tps) + parseFloat(tvq) + montantPartiel;
+        total = (parseFloat(tps) + parseFloat(tvq) + montantPartiel).toFixed(2);
 
         this._elTps.innerHTML = tps;         
         this._elTotal.innerHTML = total;
